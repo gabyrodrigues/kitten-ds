@@ -4,9 +4,6 @@
 	"type": "module",
 	"author": "Gabriely de Lima <gabrielylima.dev@gmail.com>",
 	"description": "Kitten DS is an accessible, usability-tested design system focused on intuitive, user-friendly interfaces.",
-	"publishConfig": {
-		"registry": "https://npm.pkg.github.com/gabyrodrigues"
-	},
 	"main": "dist/cjs/index.cjs",
 	"types": "dist/types/index.d.ts",
 	"exports": {
@@ -27,6 +24,7 @@
 		"dev": "vite",
 		"preinstall": "npx only-allow pnpm",
 		"preview": "vite preview",
+		"publish:both": "npm publish --access public",
 		"rollup": "rollup -c",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
