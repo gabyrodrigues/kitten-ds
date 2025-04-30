@@ -46,5 +46,6 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
 	args: {
 		children: "Default Button",
+		class_name: "text-blue-900 font-bold border rounded-lg p-4",
 	},
 };
