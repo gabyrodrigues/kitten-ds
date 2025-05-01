@@ -35,7 +35,9 @@
 	},
 	"keywords": [],
 	"license": "ISC",
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"packageManager": "pnpm@10.5.2",
 	"dependencies": {
 		"@tailwindcss/vite": "^4.1.5",
@@ -48,12 +50,12 @@
 		"@rollup/plugin-commonjs": "^28.0.3",
 		"@rollup/plugin-node-resolve": "^16.0.1",
 		"@rollup/plugin-typescript": "^12.1.2",
+		"@storybook/addon-a11y": "^8.6.12",
 		"@storybook/addon-essentials": "^8.6.12",
 		"@storybook/blocks": "^8.6.12",
 		"@storybook/experimental-addon-test": "^8.6.12",
 		"@storybook/react": "^8.6.12",
 		"@storybook/react-vite": "^8.6.12",
-		"@storybook/test": "^8.6.12",
 		"@types/node": "^22.15.3",
 		"@types/react": "^19.1.2",
 		"@types/react-dom": "^19.1.2",
