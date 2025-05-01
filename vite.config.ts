@@ -25,11 +25,13 @@ export default defineConfig(({ command, mode }) => {
 				fileName: "Kitten-DS",
 			},
 			rollupOptions: {
-				external: ["react", "react-dom"],
+				external: ["react", "react-dom", "clsx", "tailwind-merge"],
 				output: {
 					globals: {
 						react: "React",
 						"react-dom": "ReactDOM",
+						clsx: "clsx",
+						"tailwind-merge": "tailwindMerge",
 					},
 				},
 			},
