@@ -67,7 +67,7 @@ const TYPES = {
 		dts(),
 		typescript({
 			tsconfig: "./tsconfig.types.json",
-			exclude: [],
+			exclude: ["./src/stories/**", "./src/**/*.stories.tsx"],
 		}),
 	],
 	external: [/\.css$/],
