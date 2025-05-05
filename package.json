@@ -23,7 +23,8 @@
     "node": ">=20.0.0"
   },
   "scripts": {
-    "build": "vite build --config vite.config.ts",
+    "build": "rm -rf dis dist && rollup -c --bundleConfigAsCjs",
+    "build:test": "rm -rf dis tests/build && rollup -c rollup.test.js --bundleConfigAsCjs ",
     "build:vite": "rm -rf dist && tsc && vite build",
     "build-storybook": "storybook build",
     "dev": "vite",

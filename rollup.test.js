@@ -8,7 +8,7 @@ const CJS_MJS_N_STYLES = {
   input: "src/index.ts",
   output: [
     {
-      file: "dist/cjs/index.cjs",
+      file: "tests/build/cjs/index.cjs",
       format: "cjs",
       sourcemap: true,
       // biome-ignore lint/style/useNamingConvention: lib custom property
@@ -19,7 +19,7 @@ const CJS_MJS_N_STYLES = {
       }
     },
     {
-      file: "dist/esm/index.mjs",
+      file: "tests/build/esm/index.mjs",
       format: "esm",
       sourcemap: true,
       // biome-ignore lint/style/useNamingConvention: lib custom property
@@ -35,25 +35,25 @@ const CJS_MJS_N_STYLES = {
     commonjs(),
     typescript({
       tsconfig: "./tsconfig.json",
-      exclude: []
+      exclude: ["./src/stories/**", "./src/**/*.stories.ts"]
     }),
     copy({
       targets: [
         {
           src: "./src/*.css",
-          dest: "dist/"
+          dest: "tests/build/"
         }
       ]
     })
   ],
-  external: ["react", "react-dom"]
+  external: ["react", "react-dom", "clsx", "tailwind-merge"]
 }
 
 const TYPES = {
   input: "src/index.ts",
   output: [
     {
-      dir: "./dist/types/",
+      dir: "./tests/build/types/",
       format: "es",
       // biome-ignore lint/style/useNamingConvention: lib custom property
       preserveModules: true,
@@ -69,10 +69,10 @@ const TYPES = {
     }
   ],
   plugins: [
-    dts(),
+    dts.default(),
     typescript({
       tsconfig: "./tsconfig.types.json",
-      exclude: ["./src/stories/**", "./src/**/*.stories.tsx"]
+      exclude: ["./src/stories/**", "./src/**/*.stories.ts"]
     })
   ],
   external: [/\.css$/]
