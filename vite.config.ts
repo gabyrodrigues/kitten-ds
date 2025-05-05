@@ -9,14 +9,9 @@ export default defineConfig(({ command }) => {
     // Dev config
     return {
       plugins: [react(), tailwindcss()],
-      root: path.resolve(__dirname, "dev"),
       build: {
         // biome-ignore lint/style/useNamingConvention: lib custom property
         outDir: path.resolve(__dirname, "dist")
-      },
-      test: {
-        include: ["tests/**/*.test.ts"],
-        exclude: ["tests/build/**"]
       }
     }
   }
@@ -42,10 +37,6 @@ export default defineConfig(({ command }) => {
           }
         }
       }
-    },
-    test: {
-      include: ["tests/**/*.test.ts"],
-      exclude: ["tests/build/**"]
     }
   }
 })
