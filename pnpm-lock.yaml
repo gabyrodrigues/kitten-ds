@@ -81,6 +81,9 @@ importers:
       '@vitest/coverage-v8':
         specifier: ^3.1.2
         version: 3.1.2(@vitest/browser@3.1.2)(vitest@3.1.2)
+      husky:
+        specifier: ^9.1.7
+        version: 9.1.7
       playwright:
         specifier: ^1.52.0
         version: 1.52.0
@@ -1542,6 +1545,11 @@ packages:
 
   html-escaper@2.0.2:
     resolution: {integrity: sha512-H2iMtd0I4Mt5eYiapRdIDjp+XzelXQ0tFE4JS7YFwFevXXMmOp9myNrUvCg0D6ws8iqkRPBfKHgbwig1SmlLfg==}
+
+  husky@9.1.7:
+    resolution: {integrity: sha512-5gs5ytaNjBrh5Ow3zrvdUUY+0VxIuWVL4i9irt6friV+BqdCfmV11CQTWMiBYWHbXhco+J1kHfTOUkePhCDvMA==}
+    engines: {node: '>=18'}
+    hasBin: true
 
   ignore@5.3.2:
     resolution: {integrity: sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g==}
@@ -3850,6 +3858,8 @@ snapshots:
   he@1.2.0: {}
 
   html-escaper@2.0.2: {}
+
+  husky@9.1.7: {}
 
   ignore@5.3.2: {}
 
