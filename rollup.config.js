@@ -35,7 +35,7 @@ const CJS_MJS_N_STYLES = {
     commonjs(),
     typescript({
       tsconfig: "./tsconfig.json",
-      exclude: []
+      exclude: ["./src/stories/**", "./src/**/*.stories.ts"]
     }),
     copy({
       targets: [
@@ -46,7 +46,7 @@ const CJS_MJS_N_STYLES = {
       ]
     })
   ],
-  external: ["react", "react-dom"]
+  external: ["react", "react-dom", "clsx", "tailwind-merge"]
 }
 
 const TYPES = {
@@ -69,10 +69,10 @@ const TYPES = {
     }
   ],
   plugins: [
-    dts(),
+    dts.default(),
     typescript({
       tsconfig: "./tsconfig.types.json",
-      exclude: ["./src/stories/**", "./src/**/*.stories.tsx"]
+      exclude: ["./src/stories/**", "./src/**/*.stories.ts"]
     })
   ],
   external: [/\.css$/]
