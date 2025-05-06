@@ -1,1 +1,130 @@
 @import "tailwindcss";
+@import "./base.css";
+@import "./components.css";
+@import "./utilities.css";
+
+@theme static {
+  /* --- Breakpoints --- */
+  --breakpoint-xs: 0px;
+  --breakpoint-sm: 320px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1536px;
+  --breakpoint-2xl: 1920px;
+
+  /* --- Box Shadow --- */
+  --shadow-variant1: 0px 0px 4px 0px rgba(33, 33, 33, 0.16);
+  --shadow-variant2: 0px 2px 4px 0px rgba(33, 33, 33, 0.16);
+  --shadow-variant3: 0px 4px 8px 0px rgba(33, 33, 33, 0.16);
+
+  /* ----- Color Tokens ----- */
+
+  /* --- Variants --- */
+  --color-primary: var(--color-brand-purple-800);
+  --color-primary-hover: var(--color-brand-purple-900);
+  --color-primary-highlight: var(--color-brand-purple-100);
+
+  --color-secondary: var(--color-brand-blue-800);
+  --color-secondary-hover: var(--color-brand-blue-900);
+  --color-secondary-highlight: var(--color-brand-blue-100);
+
+  --color-error: var(--color-error-500);
+  --color-error-hover: var(--color-error-400);
+  --color-error-highlight: var(--color-error-100);
+
+  --color-success: var(--color-success-400);
+  --color-success-hover: var(--color-success-500);
+  --color-success-highlight: var(--color-success-100);
+
+  --color-warning: var(--color-warning-400);
+  --color-warning-hover: var(--color-warning-500);
+  --color-warning-highlight: var(--color-warning-100);
+
+  --color-gray: var(--color-neutral-gray-700);
+  --color-gray-hover: var(--color-neutral-gray-800);
+
+  /* --- Backgrounds and States --- */
+  --color-disabled: var(--color-neutral-gray-200);
+  --color-highlight: var(--color-neutral-gray-100);
+
+  --color-background: var(--color-neutral-gray-100);
+  --color-surface: var(--color-neutral-gray-50);
+
+  --color-transparent: transparent;
+  --color-inherit: inherit;
+
+  /* --- Text --- */
+  --color-typography-primary: var(--color-neutral-gray-800);
+  --color-typography-secondary: var(--color-neutral-gray-600);
+  --color-typography-inverted: var(--color-neutral-gray-50);
+  --color-typography-disabled: var(--color-neutral-gray-400);
+
+  /* ---  Default & Inputs --- */
+  --color-default-black: var(--color-neutral-gray-900);
+  --color-default-white: var(--color-neutral-gray-50);
+  --color-default-border: var(--color-neutral-gray-300);
+  --color-input-border: var(--color-neutral-gray-600);
+  --color-input-placeholder: var(--color-neutral-gray-400);
+
+  /* ---  State Links & Focus --- */
+  --color-focus-ring: var(--color-brand-blue-900);
+  --color-link: var(--color-brand-blue-900);
+  --color-link-hover: var(--color-brand-blue-800);
+  --color-link-visited: var(--color-brand-purple-900);
+  --color-link-active: var(--color-brand-purple-800);
+
+  /*  --- Purple --- */
+  --color-brand-purple-900: #4527a0;
+  --color-brand-purple-800: #593eaa;
+  --color-brand-purple-700: #6f56b5;
+  --color-brand-purple-600: #846fc0;
+  --color-brand-purple-500: #9987cb;
+  --color-brand-purple-400: #ae9fd6;
+  --color-brand-purple-300: #c3b7e0;
+  --color-brand-purple-200: #d8cfeb;
+  --color-brand-purple-100: #f6f0ff;
+
+  /*  --- Blue --- */
+  --color-brand-blue-900: #123973;
+  --color-brand-blue-800: #1a519e;
+  --color-brand-blue-700: #236cbf;
+  --color-brand-blue-600: #2c84e2;
+  --color-brand-blue-500: #42a5f5;
+  --color-brand-blue-400: #64b5f6;
+  --color-brand-blue-300: #90caf9;
+  --color-brand-blue-200: #f1f9ff;
+  --color-brand-blue-100: #f1f9ff;
+
+  /*  --- Gray --- */
+  --color-neutral-gray-900: #212121;
+  --color-neutral-gray-800: #373737;
+  --color-neutral-gray-700: #4f4f51;
+  --color-neutral-gray-600: #727275;
+  --color-neutral-gray-500: #9c9c9e;
+  --color-neutral-gray-400: #b8b8ba;
+  --color-neutral-gray-300: #d0d0d1;
+  --color-neutral-gray-200: #e3e3e3;
+  --color-neutral-gray-100: #f2f2f2;
+  --color-neutral-gray-50: #fcfcfc;
+
+  /*  --- Success --- */
+  --color-success-500: #174f39;
+  --color-success-400: #146235;
+  --color-success-300: #7dcfb0;
+  --color-success-200: #bce4d1;
+  --color-success-100: #effff7;
+
+  /*  --- Error --- */
+  --color-error-500: #6a0b10;
+  --color-error-400: #8c1a16;
+  --color-error-300: #f38a7b;
+  --color-error-200: #f7bdbd;
+  --color-error-100: #feefef;
+
+  /*  --- Warning --- */
+  --color-warning-500: #ffbb00;
+  --color-warning-400: #ffca45;
+  --color-warning-300: #ffe082;
+  --color-warning-200: #ffecb3;
+  --color-warning-100: #fff8e1;
+}

@@ -1,0 +1,120 @@
+@utility icon-outlined-weight-400 {
+  font-variation-settings: "FILL" 0, "wght" 400;
+}
+
+@utility icon-outlined-weight-500 {
+  font-variation-settings: "FILL" 0, "wght" 500;
+}
+
+@utility icon-outlined-weight-700 {
+  font-variation-settings: "FILL" 0, "wght" 700;
+}
+
+@utility icon-filled-weight-400 {
+  font-variation-settings: "FILL" 1, "wght" 400;
+}
+
+@utility icon-filled-weight-500 {
+  font-variation-settings: "FILL" 1, "wght" 500;
+}
+
+@utility icon-filled-weight-700 {
+  font-variation-settings: "FILL" 1, "wght" 700;
+}
+
+@utility no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+@utility text-display1 {
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+@utility text-display2 {
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+@utility text-display3 {
+  font-size: 4.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+@utility text-h1 {
+  font-size: 3.25rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+@utility text-h2 {
+  font-size: 2.75rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+@utility text-h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+@utility text-h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+@utility text-h5 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+@utility text-h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+@utility text-body1 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+@utility text-body2 {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+@utility text-body3 {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+@utility text-body4 {
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+@utility text-button {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+@utility text-chip {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.15;
+}
