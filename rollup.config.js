@@ -35,7 +35,7 @@ const CJS_MJS_N_STYLES = {
     commonjs(),
     typescript({
       tsconfig: "./tsconfig.json",
-      exclude: ["./src/stories/**", "./src/**/*.stories.ts"]
+      exclude: ["./src/stories/**", "./src/**/*.stories.tsx"]
     }),
     copy({
       targets: [
@@ -72,7 +72,7 @@ const TYPES = {
     dts.default(),
     typescript({
       tsconfig: "./tsconfig.types.json",
-      exclude: ["./src/stories/**", "./src/**/*.stories.ts"]
+      exclude: ["./src/stories/**", "./src/**/*.stories.tsx"]
     })
   ],
   external: [/\.css$/]
