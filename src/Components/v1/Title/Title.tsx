@@ -7,7 +7,7 @@ export default function Title({
   variant = "h1",
   component,
   font_size,
-  gutter_bottom,
+  margin_bottom,
   weight,
   letter_spacing,
   line_clamp,
@@ -18,7 +18,7 @@ export default function Title({
   whitespace,
   word_break,
   font_style,
-  class_name,
+  className,
   ...props
 }: TitleProps) {
   const VARIANT_CLASSES = {
@@ -37,7 +37,7 @@ export default function Title({
     "block",
     VARIANT_CLASSES[variant],
     font_size,
-    gutter_bottom,
+    margin_bottom,
     weight,
     letter_spacing,
     line_clamp,
@@ -49,7 +49,7 @@ export default function Title({
     word_break,
     color,
     font_style,
-    class_name
+    className
   )
 
   const default_tag = ["display1", "display2", "display3"].includes(variant) ? "h1" : variant

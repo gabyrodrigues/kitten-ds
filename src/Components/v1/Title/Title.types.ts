@@ -13,6 +13,8 @@ type TitleWeight =
   | "font-bold"
   | "font-extrabold"
   | "font-black"
+  | `font-(${string})`
+  | `font-[${string}]`
 type TitleLineHeight =
   | "leading-none"
   | "leading-tight"
@@ -20,6 +22,8 @@ type TitleLineHeight =
   | "leading-normal"
   | "leading-relaxed"
   | "leading-loose"
+  | `leading-(${string})`
+  | `leading-[${string}]`
 type TitleLetterSpacing =
   | "tracking-tighter"
   | "tracking-tight"
@@ -27,6 +31,8 @@ type TitleLetterSpacing =
   | "tracking-wide"
   | "tracking-wider"
   | "tracking-widest"
+  | `tracking-[${string}]`
+  | `tracking-(${string})`
 type TitleAlign =
   | "text-left"
   | "text-center"
@@ -42,7 +48,7 @@ type TitleWhitespace =
   | "whitespace-pre-line"
   | "whitespace-pre-wrap"
   | "whitespace-break-spaces"
-type TitleWordBreak = "break-normal" | "break-words" | "break-all" | "break-keep"
+type TitleWordBreak = "break-normal" | "break-all" | "break-keep"
 type TitleTransform = "uppercase" | "lowercase" | "capitalize" | "normal-case"
 type TitleSize =
   | "text-xs"
@@ -67,7 +73,10 @@ type TitleSize =
   | "text-h4"
   | "text-h5"
   | "text-h6"
+  | `text-(length:${string})`
+  | `text-[${string}]`
 export type TitleFontStyle = "italic" | "not-italic"
+export type TitleDecoration = "underline" | "overline" | "line-through" | "no-underline"
 
 /**
  * Represents the properties for the Title component.
@@ -79,21 +88,30 @@ export interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
   children?: string | ReactNode
 
   /**
-   * The variant of the Title component.
-   * Possible values: "h1", "h2", "h3", "h4", "h5" or "h6".
+   * Defines the visual style of the title using typographic variants.
+   *
+   * Variants "h1"–"h6" follow standard heading styles, while "display1"–"display3" are larger, more prominent styles.
+   * By default, the HTML tag matches the variant (e.g., "h1" renders `<h1>`), but this can be overridden with the `component` prop.
+   *
+   * Example: A `variant="display1"` will apply `display1` styles, and by default render an `<h1>` tag,
+   * unless you specify `component="h2"` to render it as an `<h2>` element instead.
+   *
    * @default "h1"
    */
   variant?: TitleVariant
 
   /**
-   * The component used for the root node.
+   * The HTML element used to render the title (e.g., for SEO or accessibility).
+   * Only heading elements ("h1"–"h6") are supported.
+   * This affects the semantics, not the visual style.
    */
   component?: TitleComponent
 
   /**
-   * The CSS class name for the Title component.
+   * Controls extra CSS class names in the Title component.
    */
-  class_name?: string
+  // biome-ignore lint/style/useNamingConvention: default className prop
+  className?: string
 
   /**
    * The text color for the Title component.
@@ -102,12 +120,14 @@ export interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
 
   /**
    * The font weight for the Title component.
-   * Possible values: "font-thin", "font-extralight", "font-light", "font-normal", "font-medium", "font-semibold", "font-bold", "font-extrabold" or "font-black".
+   * Overrides the font weight set by `variant` if both are provided.
+   * Possible values: "font-thin", "font-extralight", "font-light", "font-normal", "font-medium", "font-semibold", "font-bold", "font-extrabold", "font-black", "font-(<custom-property>)" or "font-[<value>]".
    */
   weight?: TitleWeight
 
   /**
    * Option to control the Title font-size.
+   * Overrides the font size set by `variant` if both are provided.
    */
   font_size?: TitleSize
 
@@ -115,12 +135,12 @@ export interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
    * The margin applied in the bottom of Title component.
    * This corresponds to Tailwind's `mb-*` classes.
    */
-  gutter_bottom?: MarginBottom
+  margin_bottom?: MarginBottom
 
   /**
    * The letter spacing of the Title component.
    * This corresponds to Tailwind's `tracking-*` classes.
-   * Possible values: "tracking-tighter", "tracking-tight", "tracking-normal", "tracking-wide", "tracking-wider" or "tracking-widest".
+   * Possible values: "tracking-tighter", "tracking-tight", "tracking-normal", "tracking-wide", "tracking-wider" or "tracking-widest", "tracking-(<custom-property>)" or "tracking-[<value>]".
    */
   letter_spacing?: TitleLetterSpacing
 
@@ -132,6 +152,7 @@ export interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
 
   /**
    * The line height of the Title component.
+   * Overrides the line height set by `variant` if both are provided.
    * This corresponds to Tailwind's `leading-*` classes.
    */
   line_height?: TitleLineHeight
@@ -165,6 +186,12 @@ export interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
    * Possible values: "uppercase", "lowercase", "capitalize", "normal-case".
    */
   transform?: TitleTransform
+
+  /**
+   * Controls the decoration of text.
+   * Possible values: "underline", "overline", "line-through", "no-underline".
+   */
+  decoration?: TitleDecoration
 
   /**
    * Controls the font style.
