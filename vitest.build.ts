@@ -1,3 +1,4 @@
+import path from "node:path"
 import { defineConfig } from "vitest/config"
 
 export default defineConfig({
@@ -26,6 +27,11 @@ export default defineConfig({
         "src/**/__tests__/**",
         "vitest.*.ts"
       ]
+    }
+  },
+  resolve: {
+    alias: {
+      "@utils": path.resolve(__dirname, "src/utils.ts")
     }
   }
 })

@@ -12,12 +12,22 @@ export default defineConfig(({ command }) => {
       build: {
         // biome-ignore lint/style/useNamingConvention: lib custom property
         outDir: path.resolve(__dirname, "dist")
+      },
+      resolve: {
+        alias: {
+          "@utils": path.resolve(__dirname, "src/utils.ts")
+        }
       }
     }
   }
   // Build config
   return {
     plugins: [react(), dts(), tailwindcss()],
+    resolve: {
+      alias: {
+        "@utils": path.resolve(__dirname, "src/utils.ts")
+      }
+    },
     build: {
       lib: {
         entry: path.resolve(__dirname, "src/index.ts"),

@@ -34,3 +34,29 @@ export const CUSTOM_TW_MERGE = extendTailwindMerge({
 export function cn(...inputs: ClassValue[]) {
   return CUSTOM_TW_MERGE(clsx(inputs))
 }
+
+export function sanitizeHtml(input: string): string {
+  const allowed_tags = ["b", "i", "u", "em", "strong", "p", "s", "small", "br", "a"]
+  const allowed_attributes = ["href", "class"]
+
+  // Create a temporary DOM element to parse the HTML
+  const container = document.createElement("div")
+  container.innerHTML = input
+
+  for (const node of container.querySelectorAll("*")) {
+    const tag_name = node.tagName.toLowerCase()
+
+    if (!allowed_tags.includes(tag_name)) {
+      node.remove()
+      continue
+    }
+
+    for (const attr of [...node.attributes]) {
+      if (!allowed_attributes.includes(attr.name.toLowerCase())) {
+        node.removeAttribute(attr.name)
+      }
+    }
+  }
+
+  return container.innerHTML
+}
