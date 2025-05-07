@@ -26,3 +26,4 @@ dist-ssr
 storybook-static
 tests/build/**
 dist
+coverage

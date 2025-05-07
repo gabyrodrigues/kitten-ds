@@ -4,7 +4,7 @@ import type { IconProps } from "./Icon.types"
 export default function Icon({
   type,
   variant = "outlined",
-  disabled,
+  disabled = false,
   color = "text-typography-primary",
   color_disabled = "text-typography-disabled",
   font_size = "text-xl",
@@ -17,7 +17,7 @@ export default function Icon({
     "leading-none",
     font_size,
     getWeightClass(),
-    disabled ? color : color_disabled,
+    disabled ? color_disabled : color,
     class_name
   )
 

@@ -27,11 +27,12 @@ export interface IconProps extends HTMLAttributes<HTMLSpanElement> {
    * The icon name to render.
    * Usually matches a Material Symbols icon name.
    */
-  type?: IconType
+  type: IconType
 
   /**
-   * The icon name to render.
-   * Usually matches a Material Symbols icon name.
+   * Whether the icon should appear visually disabled.
+   * If true, the `color_disabled` will be applied instead of `color`.
+   * @default false
    */
   disabled?: boolean
 
