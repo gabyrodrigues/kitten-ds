@@ -9,7 +9,7 @@ export default function Icon({
   color_disabled = "text-typography-disabled",
   font_size = "text-xl",
   font_weight = 400,
-  class_name,
+  className,
   ...props
 }: IconProps) {
   const merged_classes = cn(
@@ -18,7 +18,7 @@ export default function Icon({
     font_size,
     getWeightClass(),
     disabled ? color_disabled : color,
-    class_name
+    className
   )
 
   function getWeightClass() {

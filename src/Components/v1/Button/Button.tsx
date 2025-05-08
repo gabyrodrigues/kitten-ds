@@ -3,13 +3,13 @@ import type { ButtonProps } from "./Button.types"
 
 export default function Button({
   children,
-  class_name,
+  className,
   type = "button",
   ...props
 }: ButtonProps): ReactElement {
   return (
     <button
-      className={class_name}
+      className={className}
       type={type}
       {...props}
     >

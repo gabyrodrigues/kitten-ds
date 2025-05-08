@@ -20,5 +20,6 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * The CSS class name to be applied to the Container component.
    */
-  class_name?: string
+  // biome-ignore lint/style/useNamingConvention: default className prop
+  className?: string
 }

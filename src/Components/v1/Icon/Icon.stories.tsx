@@ -50,7 +50,7 @@ const meta = {
       options: [400, 500, 700],
       description: "Font weight to apply when rendering the icon."
     },
-    class_name: {
+    className: {
       control: { type: "text" },
       description: "Optional additional CSS classes to apply to the icon."
     }

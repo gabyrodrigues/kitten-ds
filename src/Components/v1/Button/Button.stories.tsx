@@ -23,7 +23,7 @@ const meta: Meta<typeof Button> = {
       control: { type: "boolean" },
       description: "Specifies whether the button is disabled or not."
     },
-    class_name: {
+    className: {
       control: { type: "text" },
       description: "The CSS class name to be applied to the Button component."
     },
@@ -46,6 +46,6 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     children: "Default Button",
-    class_name: "text-blue-900 font-bold border rounded-lg p-4"
+    className: "text-blue-900 font-bold border rounded-lg p-4"
   }
 }
