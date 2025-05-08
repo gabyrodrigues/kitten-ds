@@ -17,31 +17,52 @@ export type GapY = `gap-y-${string}`
 export type Height = `h-${string}`
 export type Width = `w-${string}`
 
-export type TextSize =
-  | "text-xs"
-  | "text-sm"
-  | "text-base"
-  | "text-lg"
-  | "text-xl"
-  | "text-2xl"
-  | "text-3xl"
-  | "text-4xl"
-  | "text-5xl"
-  | "text-6xl"
-  | "text-7xl"
-  | "text-8xl"
-  | "text-9xl"
-  | "text-display1"
-  | "text-display2"
-  | "text-display3"
-  | "text-h1"
-  | "text-h2"
-  | "text-h3"
-  | "text-h4"
-  | "text-h5"
-  | "text-h6"
-  | "text-body1"
-  | "text-body2"
-  | "text-body3"
-  | "text-body4"
-  | "text-body5"
+export type FontWeight =
+  | "font-thin"
+  | "font-extralight"
+  | "font-light"
+  | "font-normal"
+  | "font-medium"
+  | "font-semibold"
+  | "font-bold"
+  | "font-extrabold"
+  | "font-black"
+  | `font-(${string})`
+  | `font-[${string}]`
+export type LineHeight =
+  | "leading-none"
+  | "leading-tight"
+  | "leading-snug"
+  | "leading-normal"
+  | "leading-relaxed"
+  | "leading-loose"
+  | `leading-(${string})`
+  | `leading-[${string}]`
+export type LetterSpacing =
+  | "tracking-tighter"
+  | "tracking-tight"
+  | "tracking-normal"
+  | "tracking-wide"
+  | "tracking-wider"
+  | "tracking-widest"
+  | `tracking-[${string}]`
+  | `tracking-(${string})`
+export type TextAlign =
+  | "text-left"
+  | "text-center"
+  | "text-right"
+  | "text-justify"
+  | "text-start"
+  | "text-end"
+export type TextWrap = "text-wrap" | "text-nowrap" | "text-balance" | "text-pretty"
+export type Whitespace =
+  | "whitespace-normal"
+  | "whitespace-nowrap"
+  | "whitespace-pre"
+  | "whitespace-pre-line"
+  | "whitespace-pre-wrap"
+  | "whitespace-break-spaces"
+export type WordBreak = "break-normal" | "break-all" | "break-keep"
+export type TextTransform = "uppercase" | "lowercase" | "capitalize" | "normal-case"
+export type FontStyle = "italic" | "not-italic"
+export type TextDecoration = "underline" | "overline" | "line-through" | "no-underline"

@@ -1,5 +1,6 @@
 import type { HTMLAttributes } from "react"
-import type { TextColor, TextSize } from "../types"
+import type { TextSize } from "../Text/Text.types"
+import type { TextColor } from "../types"
 
 /**
  * The name of the icon, typically corresponding to a Material Symbols icon (e.g., "home", "search").

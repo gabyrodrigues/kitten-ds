@@ -8,6 +8,7 @@ export default function Title({
   component,
   font_size,
   margin_bottom,
+  margin_top,
   weight,
   letter_spacing,
   line_clamp,
@@ -18,6 +19,7 @@ export default function Title({
   whitespace,
   word_break,
   font_style,
+  decoration,
   className,
   ...props
 }: TitleProps) {
@@ -38,6 +40,7 @@ export default function Title({
     VARIANT_CLASSES[variant],
     font_size,
     margin_bottom,
+    margin_top,
     weight,
     letter_spacing,
     line_clamp,
@@ -49,6 +52,7 @@ export default function Title({
     word_break,
     color,
     font_style,
+    decoration,
     className
   )
 

@@ -60,7 +60,11 @@ const meta: Meta<typeof Title> = {
     },
     margin_bottom: {
       control: { type: "text" },
-      description: "The margin applied in the bottom of the Title component."
+      description: "The margin applied at the bottom of the Title component."
+    },
+    margin_top: {
+      control: { type: "text" },
+      description: "The margin applied at the top of the Title component."
     },
     weight: {
       control: { type: "select" },
