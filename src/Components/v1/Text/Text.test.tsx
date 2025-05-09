@@ -42,10 +42,17 @@ describe("Text", () => {
     expect(text).toHaveClass("text-body2")
   })
 
-  it("uses label tag when 'component' label is passed", () => {
-    render(<Text component="label">Label</Text>)
+  it("adds htmlFor prop when component is 'label' and html_for is provided", () => {
+    render(
+      <Text
+        component="label"
+        html_for="test-id"
+      >
+        Label
+      </Text>
+    )
     const text = screen.getByText(/label/i)
-    expect(text.tagName).toBe("LABEL")
+    expect(text).toHaveAttribute("for", "test-id")
   })
 
   it("applies additional Tailwind classes from props", () => {
