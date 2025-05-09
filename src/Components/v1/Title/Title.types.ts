@@ -12,7 +12,7 @@ import type {
   TextDecoration,
   TextTransform,
   TextWrap,
-  Whitespace,
+  WhiteSpace,
   WordBreak
 } from "../types"
 
@@ -145,7 +145,7 @@ export interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
    * Controls an element's white-space property.
    * Possible values: "whitespace-normal", "whitespace-nowrap", "whitespace-pre", "whitespace-pre-line", "whitespace-pre-wrap" or "whitespace-break-spaces".
    */
-  whitespace?: Whitespace
+  whitespace?: WhiteSpace
 
   /**
    * Controls how text wraps within an element.

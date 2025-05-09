@@ -55,7 +55,7 @@ export type TextAlign =
   | "text-start"
   | "text-end"
 export type TextWrap = "text-wrap" | "text-nowrap" | "text-balance" | "text-pretty"
-export type Whitespace =
+export type WhiteSpace =
   | "whitespace-normal"
   | "whitespace-nowrap"
   | "whitespace-pre"
