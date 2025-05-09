@@ -4,15 +4,15 @@ import { axe } from "vitest-axe"
 import Title from "./Title"
 
 describe("Title", () => {
-  it("uses default tag when no 'component' prop is provided", () => {
-    render(<Title variant="h2">Default Tag</Title>)
-    const heading = screen.getByRole("heading", { name: /default tag/i })
+  it("uses default html tag when no 'component' prop is provided", () => {
+    render(<Title variant="h2">Default Title</Title>)
+    const heading = screen.getByRole("heading", { name: /default title/i })
     expect(heading.tagName).toBe("H2")
   })
 
   it("defaults to h1 if no variant is provided", () => {
-    render(<Title>Fallback Title</Title>)
-    const heading = screen.getByRole("heading", { name: /fallback title/i })
+    render(<Title>Default Title</Title>)
+    const heading = screen.getByRole("heading", { name: /default title/i })
     expect(heading.tagName).toBe("H1")
   })
 
