@@ -45,7 +45,7 @@ const meta = {
       description:
         "Determines the visual variant of the icon. Either 'outlined' (hollow) or 'filled' (solid)."
     },
-    font_weight: {
+    weight: {
       control: { type: "select" },
       options: [400, 500, 700],
       description: "Font weight to apply when rendering the icon."
@@ -58,7 +58,7 @@ const meta = {
   args: {
     variant: "outlined",
     font_size: "text-xl",
-    font_weight: 400,
+    weight: 400,
     color: "text-typography-primary",
     color_disabled: "text-typography-disabled",
     disabled: false

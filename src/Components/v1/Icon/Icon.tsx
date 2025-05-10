@@ -8,7 +8,7 @@ export default function Icon({
   color = "text-typography-primary",
   color_disabled = "text-typography-disabled",
   font_size = "text-xl",
-  font_weight = 400,
+  weight = 400,
   className,
   ...props
 }: IconProps) {
@@ -34,7 +34,7 @@ export default function Icon({
         700: "icon-filled-weight-700"
       }
     }
-    return weight_class[variant]?.[font_weight] ?? "icon-outlined-weight-400"
+    return weight_class[variant]?.[weight] ?? "icon-outlined-weight-400"
   }
 
   return (

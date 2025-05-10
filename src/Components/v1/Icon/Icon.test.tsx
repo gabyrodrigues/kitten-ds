@@ -15,7 +15,7 @@ describe("Icon", () => {
         type="person"
         color="text-red-500"
         font_size="text-xl"
-        font_weight={700}
+        weight={700}
       />
     )
 
@@ -42,7 +42,7 @@ describe("Icon", () => {
     render(
       <Icon
         type="check"
-        font_weight={500}
+        weight={500}
       />
     )
     const icon = screen.getByText("check")

@@ -67,7 +67,7 @@ export interface IconProps extends HTMLAttributes<HTMLSpanElement> {
    * Font weight to apply when rendering the icon.
    * @default 400
    */
-  font_weight?: IconWeight
+  weight?: IconWeight
 
   /**
    * Determines the visual variant of the icon.
