@@ -12,7 +12,7 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>(
       color = "text-link",
       href,
       target = "_self",
-      font_size,
+      font_size = "text-body2",
       weight = "font-normal",
       whitespace,
       transform,
@@ -33,7 +33,6 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>(
       "focus-visible:outline-0 focus-visible:ring-3 focus-visible:ring-focus-ring focus-visible:ring-offset-0"
     )
     const merged_classes = cn(
-      "text-body2",
       !disabled && link_styles,
       color,
       border_color && ["border-b", border_color],

@@ -10,7 +10,7 @@ const meta: Meta<typeof Link> = {
     docs: {
       description: {
         component:
-          "A flexible Link component that supports custom styling, polymorphic rendering, and accessibility features. It supports Tailwind utility classes for typography and layout, and allows rendering as any HTML element via the `component` prop."
+          "A styled anchor (`<a>`) component with Tailwind support and accessibility features like keyboard focus and proper disabled handling."
       }
     }
   },
@@ -18,20 +18,36 @@ const meta: Meta<typeof Link> = {
   argTypes: {
     children: {
       control: { type: "text" },
-      description: "The content of the button."
+      description: "The content of the link."
     },
-
     disabled: {
       control: { type: "boolean" },
-      description: "Specifies whether the button is disabled or not."
+      description: "Specifies whether the link is disabled or not."
+    },
+    href: {
+      control: { type: "text" },
+      description: "Link target URL."
     },
     onClick: {
       action: "clicked",
-      description: "The click event handler for the button."
+      description: "The click event handler for the link."
+    },
+    target: {
+      control: { type: "select" },
+      options: ["_self", "_blank", "_parent", "_top"],
+      description: "Target behavior for the link."
     },
     font_size: {
       control: { type: "text" },
       description: "Option to control the Link font-size."
+    },
+    color: {
+      control: { type: "text" },
+      description: "The color for the Link component."
+    },
+    border_color: {
+      control: { type: "text" },
+      description: "The bottom border color of the link."
     },
     weight: {
       control: { type: "select" },
@@ -46,7 +62,7 @@ const meta: Meta<typeof Link> = {
         "font-extrabold",
         "font-black"
       ],
-      description: "The link font weight."
+      description: "The font weight for the Link component."
     },
     whitespace: {
       control: { type: "select" },
@@ -58,12 +74,12 @@ const meta: Meta<typeof Link> = {
         "whitespace-pre-wrap",
         "whitespace-break-spaces"
       ],
-      description: "Controls white-space property."
+      description: "Controls an element's white-space property."
     },
     transform: {
       control: { type: "select" },
       options: ["uppercase", "lowercase", "capitalize", "normal-case"],
-      description: "Controls the Link text transformation."
+      description: "Controls the transformation of link."
     },
     line_height: {
       control: { type: "select" },
@@ -75,7 +91,7 @@ const meta: Meta<typeof Link> = {
         "leading-relaxed",
         "leading-loose"
       ],
-      description: "The line height of the Text component."
+      description: "The line height of the Link component."
     },
     letter_spacing: {
       control: { type: "select" },
@@ -87,7 +103,7 @@ const meta: Meta<typeof Link> = {
         "tracking-wider",
         "tracking-widest"
       ],
-      description: "Controls the letter spacing of the Link text."
+      description: "The letter spacing of the Link component.."
     },
     className: {
       control: { type: "text" },

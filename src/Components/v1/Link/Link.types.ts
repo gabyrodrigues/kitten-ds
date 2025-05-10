@@ -12,6 +12,10 @@ import type {
 
 export type LinkTarget = "_self" | "_blank" | "_parent" | "_top"
 
+/**
+ * Props for the Link component, which wraps an anchor (<a>) element with extended styling and behavior.
+ * Inherits all standard <a> tag attributes.
+ */
 export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   /**
    * The content of the link.
@@ -19,19 +23,21 @@ export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   children?: ReactNode
 
   /**
-   * Tailwind text color class.
+   * The color for the Link component.
+   * This corresponds to Tailwind's `text-*` classes.
    * @default "text-link"
    */
   color?: TextColor
 
   /**
-   * Tailwind border-bottom color class.
+   * The bottom border color of the link.
+   * This corresponds to Tailwind's `border-*` classes.
    * @default "border-b-link"
    */
   border_color?: BorderColor
 
   /**
-   * Controls extra CSS class names in the Title component.
+   * Controls extra CSS class names in the Link component.
    */
   // biome-ignore lint/style/useNamingConvention: default className prop
   className?: string
@@ -60,33 +66,34 @@ export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   onClick?: MouseEventHandler<HTMLElement>
 
   /**
-   * Tailwind font size.
+   * Option to control the Link font-size.
    */
   font_size?: TextSize
 
   /**
-   * Tailwind font weight.
+   *  The font weight for the Link component.
    * @default "font-normal"
    */
   weight?: FontWeight
 
   /**
-   * Tailwind white-space class.
+   * Controls an element's white-space property.
    */
   whitespace?: WhiteSpace
 
   /**
-   * Tailwind text transform class.
+   * Controls the transformation of link.
    */
   transform?: TextTransform
 
   /**
-   * Tailwind line-height class.
+   * The line height of the Link component.
+   * This corresponds to Tailwind's `leading-*` classes.
    */
   line_height?: LineHeight
 
   /**
-   * Tailwind letter-spacing class.
+   * The letter spacing of the Link component.
    */
   letter_spacing?: LetterSpacing
 }
