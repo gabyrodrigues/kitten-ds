@@ -145,9 +145,4 @@ export interface FlexProps extends HTMLAttributes<HTMLElement> {
    * This corresponds to Tailwind's `w-*` classes.
    */
   width?: Width
-
-  /**
-   * The Flex component optional ref.
-   */
-  ref?: React.RefObject<HTMLElement>
 }

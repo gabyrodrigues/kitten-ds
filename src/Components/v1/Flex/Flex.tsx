@@ -16,7 +16,6 @@ export default function Flex({
   padding_x,
   padding_y,
   radius,
-  ref,
   row_gap,
   width,
   wrap,
@@ -46,7 +45,6 @@ export default function Flex({
   return (
     <COMPONENT
       className={merged_classes}
-      ref={ref}
       {...props}
     >
       {children}

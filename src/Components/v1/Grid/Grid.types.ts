@@ -168,9 +168,4 @@ export interface GridProps extends HTMLAttributes<HTMLElement> {
    */
   // biome-ignore lint/style/useNamingConvention: default className prop
   className?: string
-
-  /**
-   * The Grid component optional ref.
-   */
-  ref?: React.RefObject<HTMLElement>
 }

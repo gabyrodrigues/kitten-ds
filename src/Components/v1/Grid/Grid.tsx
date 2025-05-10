@@ -17,7 +17,6 @@ export default function Grid({
   gap,
   justify_items,
   order,
-  ref,
   rows,
   row_end,
   row_gap,
@@ -52,7 +51,6 @@ export default function Grid({
   return (
     <COMPONENT
       className={merged_classes}
-      ref={ref}
       {...props}
     >
       {children}
