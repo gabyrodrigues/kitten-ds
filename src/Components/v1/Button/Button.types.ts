@@ -18,7 +18,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean
 
   /**
-   * The CSS class name to be applied to the Container component.
+   * Optional additional CSS classes to apply to the button.
    */
   // biome-ignore lint/style/useNamingConvention: default className prop
   className?: string
