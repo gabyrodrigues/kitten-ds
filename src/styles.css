@@ -67,7 +67,7 @@
   --color-input-placeholder: var(--color-neutral-gray-400);
 
   /* ---  State Links & Focus --- */
-  --color-focus-ring: var(--color-brand-blue-900);
+  --color-focus-ring: var(--color-brand-blue-700);
   --color-link: var(--color-brand-blue-900);
   --color-link-hover: var(--color-brand-blue-800);
   --color-link-visited: var(--color-brand-purple-900);

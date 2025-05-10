@@ -1,6 +1,7 @@
 export * from "./Button"
 export * from "./Flex"
 export * from "./Icon"
+export * from "./Link"
 export * from "./Text"
 export * from "./Title"
 export * from "./types"
