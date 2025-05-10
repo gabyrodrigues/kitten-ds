@@ -26,18 +26,18 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     ref
   ): ReactElement => {
     const link_styles = cn(
-      "text-body2",
       "hover:text-link-hover hover:border-b-link-hover",
       "visited:text-link-visited visited:border-b-link-visited",
       "active:text-link-active active:border-b-link-active",
-      "disabled:text-disabled",
       "focus:ring-3 focus:ring-focus-ring focus:ring-offset-0",
       "focus-visible:outline-0 focus-visible:ring-3 focus-visible:ring-focus-ring focus-visible:ring-offset-0"
     )
     const merged_classes = cn(
-      link_styles,
+      "text-body2",
+      !disabled && link_styles,
       color,
       border_color && ["border-b", border_color],
+      disabled && "text-disabled border-b-disabled",
       font_size,
       weight,
       whitespace,
