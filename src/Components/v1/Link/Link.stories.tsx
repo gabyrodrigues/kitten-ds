@@ -1,6 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react"
-
-import { Icon } from "../Icon"
 import Link from "./Link"
 
 const meta: Meta<typeof Link> = {
@@ -123,6 +121,9 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    children: "Default Link"
+    children: "Default Link",
+    onClick: () => {
+      console.info("Link clicked")
+    }
   }
 }

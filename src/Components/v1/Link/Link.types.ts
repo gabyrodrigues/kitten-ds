@@ -45,7 +45,7 @@ export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   /**
    * Link target URL.
    */
-  href?: string
+  href: string
 
   /**
    * Target behavior for the link.
@@ -61,7 +61,6 @@ export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   /**
    * Click handler.
    */
-
   // biome-ignore lint/style/useNamingConvention: prop name is not camelCase
   onClick?: MouseEventHandler<HTMLElement>
 

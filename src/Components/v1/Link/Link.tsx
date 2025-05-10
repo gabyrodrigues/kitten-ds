@@ -1,4 +1,4 @@
-import { type MouseEvent, type ReactElement, forwardRef } from "react"
+import { type KeyboardEvent, type MouseEvent, type ReactElement, forwardRef } from "react"
 import type { LinkProps } from "./Link.types"
 
 import { cn } from "@utils"
@@ -55,6 +55,13 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>(
       onClick?.(event)
     }
 
+    function handleKeyDown(event: KeyboardEvent<HTMLAnchorElement>) {
+      if (event.key === " " || event.key === "Enter") {
+        event.preventDefault()
+        event.currentTarget.click()
+      }
+    }
+
     return (
       <a
         href={href}
@@ -64,6 +71,7 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>(
         data-disabled={disabled}
         className={merged_classes}
         onClick={handleClick}
+        onKeyDown={handleKeyDown}
         {...props}
       >
         {children}
