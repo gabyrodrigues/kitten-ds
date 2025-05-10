@@ -96,7 +96,7 @@ const meta: Meta<typeof Link> = {
   },
   args: {
     children: "Link",
-    target: "_self",
+    target: "_blank",
     href: "https://www.google.com"
   }
 }
