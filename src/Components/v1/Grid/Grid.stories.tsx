@@ -9,68 +9,103 @@ const meta = {
     docs: {
       description: {
         component:
-          "The grid component provides a flexible, responsive layout system based on CSS Grid. It allows precise control over columns, rows, spacing, and alignment to create complex designs efficiently."
+          "A utility component for building responsive layouts using CSS Grid. It provides props for defining columns, rows, spacing, alignment, and placement of items. Supports Tailwind CSS utility classes and includes full compatibility with standard HTML and accessibility attributes."
       }
     }
   },
   tags: ["autodocs"],
   argTypes: {
+    children: {
+      control: { type: "text" },
+      description: "The children of the Grid component."
+    },
+    className: {
+      control: { type: "text" },
+      description: "Optional additional CSS classes to apply to the Grid."
+    },
     component: {
       control: { type: "text" },
-      description: "The component used for the root node."
+      description: "Defines the HTML element to render as."
     },
     cols: {
       control: { type: "text" },
-      description: "Specifies the columns in a grid layout"
+      description: "Specifies the columns in a grid layout."
+    },
+    col_span: {
+      control: { type: "text" },
+      description: "Controls how many columns a grid item should span."
+    },
+    col_start: {
+      control: { type: "text" },
+      description: "Specifies the starting column position for a grid item."
+    },
+    col_end: {
+      control: { type: "text" },
+      description: "Specifies the ending column position for a grid item."
     },
     rows: {
       control: { type: "text" },
-      description: "Specifies the rows in a grid layout"
+      description: "Specifies the rows in a grid layout."
+    },
+    row_span: {
+      control: { type: "text" },
+      description: "Controls how many rows a grid item should span."
+    },
+    row_start: {
+      control: { type: "text" },
+      description: "Specifies the starting row position for a grid item."
+    },
+    row_end: {
+      control: { type: "text" },
+      description: "Specifies the ending row position for a grid item."
     },
     gap: {
       control: { type: "text" },
-      description: "The gap between grid items"
+      description: "The gap between items in the Grid component."
     },
     row_gap: {
       control: { type: "text" },
-      description: "The row gap between items"
+      description: "Sets the row gap between children."
     },
     col_gap: {
       control: { type: "text" },
-      description: "The column gap between items"
+      description: "Sets the column gap between children."
     },
     flow: {
-      control: { type: "radio" },
-      description: "Controls how elements in a grid are auto-placed"
+      control: { type: "text" },
+      description: "Controls how the grid auto-places items along rows or columns."
     },
     auto_cols: {
-      control: { type: "radio" },
-      description: "Controls the size of implicitly-created grid columns"
+      control: { type: "text" },
+      description: "Controls the size of implicitly-created grid columns."
     },
     auto_rows: {
-      control: { type: "object" },
-      description: "Controls the size of implicitly-created grid rows"
+      control: { type: "text" },
+      description: "Controls the size of implicitly-created grid rows."
     },
     justify_items: {
-      control: { type: "radio" },
-      description: "Controls how grid items are aligned along their inline axis"
+      control: { type: "text" },
+      description: "Controls how Grid component items are aligned along their inline axis."
     },
     align: {
-      control: { type: "object" },
-      description: "The alignment of the grid items"
+      control: { type: "text" },
+      description: "Aligns items on the cross axis."
     },
     order: {
       control: { type: "text" },
-      description: "Controls the order of the Grid component"
-    },
-    class_name: {
-      control: { type: "text" },
-      description: "Additional class name"
-    },
-    children: {
-      control: { type: "text" },
-      description: "Content to display"
+      description: "Controls the order in the Grid component."
     }
+  },
+  args: {
+    cols: "grid-cols-2",
+    rows: "grid-rows-2",
+    row_gap: "gap-x-2",
+    col_gap: "gap-y-3",
+    flow: "grid-flow-row",
+    auto_cols: "auto-cols-min",
+    auto_rows: "auto-rows-auto",
+    justify_items: "justify-items-center",
+    align: "items-center"
   }
 }
 
@@ -80,44 +115,22 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    cols: "grid-cols-2",
-    rows: "grid-rows-2",
-    gap: undefined,
-    order: undefined,
-    row_gap: "gap-x-2",
-    col_gap: "gap-y-3",
-    flow: "grid-flow-row",
-    auto_cols: "auto-cols-min",
-    auto_rows: "auto-rows-auto",
-    justify_items: "justify-items-center",
-    align: "items-center",
-    class_name: "h-344 w-344 bg-neutral-gray-200",
-    children: [
-      <div
-        key="without-breakpoint-1"
-        className="bg-neutral-gray-500 p-4 rounded-sm h-full w-full"
-      >
+    className: "h-86 w-86"
+  },
+  render: (args) => (
+    <Grid {...args}>
+      <div className="bg-primary p-6 rounded-lg w-full h-full text-typography-inverted font-semibold">
         Item 1
-      </div>,
-      <div
-        key="without-breakpoint-2"
-        className="bg-neutral-gray-500 p-4 rounded-sm h-full w-full"
-      >
+      </div>
+      <div className="bg-primary p-6 rounded-lg w-full h-full text-typography-inverted font-semibold">
         Item 2
-      </div>,
-      <div
-        key="without-breakpoint-3"
-        className="bg-neutral-gray-500 p-4 rounded-sm h-full w-full"
-      >
+      </div>
+      <div className="bg-primary p-6 rounded-lg w-full h-full text-typography-inverted font-semibold">
         Item 3
-      </div>,
-      <div
-        key="without-breakpoint-4"
-        className="bg-neutral-gray-500 p-4 rounded-sm h-full w-full"
-      >
+      </div>
+      <div className="bg-primary p-6 rounded-lg w-full h-full text-typography-inverted font-semibold">
         Item 4
       </div>
-    ]
-  },
-  name: "Default"
+    </Grid>
+  )
 }

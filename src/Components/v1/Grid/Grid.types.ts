@@ -48,13 +48,15 @@ type GridRowStart = "row-start-auto" | `row-start-${string}`
 type GridRowEnd = "row-end-auto" | `row-end-${string}`
 
 /**
- * Represents the props for the Grid component.
+ * Defines the props available for the Grid component,
+ * including layout controls (columns, rows, gap, alignment, etc.)
+ * and all standard HTML and accessibility attributes.
  */
 export interface GridProps extends HTMLAttributes<HTMLElement> {
   /**
    * The children of the Grid component.
    */
-  children: ReactNode
+  children?: ReactNode
 
   /**
    * Specifies the columns in a grid layout.
@@ -63,23 +65,22 @@ export interface GridProps extends HTMLAttributes<HTMLElement> {
   cols?: GridCols
 
   /**
-   * Control of how elements are sized and placed across grid columns.
+   * Controls how many columns a grid item should span.
    * This corresponds to Tailwind's `col-span-*` classes.
    */
   col_span?: GridColSpan
 
   /**
-   * Control of how elements are sized and placed across grid columns.
+   * Specifies the starting column position for a grid item.
    * This corresponds to Tailwind's `col-start-*` classes.
    */
   col_start?: GridColStart
 
   /**
-   * Control of how elements are sized and placed across grid columns.
+   * Specifies the ending column position for a grid item.
    * This corresponds to Tailwind's `col-end-*` classes.
    */
   col_end?: GridColEnd
-
   /**
    * Specifies the rows in a grid layout.
    * This corresponds to Tailwind's `grid-rows-*` classes.
@@ -87,19 +88,19 @@ export interface GridProps extends HTMLAttributes<HTMLElement> {
   rows?: GridRows
 
   /**
-   * Control of how elements are sized and placed across grid rows.
+   * Controls how many rows a grid item should span.
    * This corresponds to Tailwind's `row-span-*` classes.
    */
   row_span?: GridRowSpan
 
   /**
-   * Control of how elements are sized and placed across grid rows.
+   * Specifies the starting row position for a grid item.
    * This corresponds to Tailwind's `row-start-*` classes.
    */
   row_start?: GridRowStart
 
   /**
-   * Control of how elements are sized and placed across grid rows.
+   * Specifies the ending row position for a grid item.
    * This corresponds to Tailwind's `row-end-*` classes.
    */
   row_end?: GridRowEnd
