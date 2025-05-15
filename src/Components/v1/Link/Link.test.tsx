@@ -66,7 +66,7 @@ describe("Link", () => {
     const handle_click = vi.fn()
     render(
       <Link
-        href="https://example.com"
+        href="#"
         onClick={handle_click}
       >
         Clickable Link
@@ -86,7 +86,7 @@ describe("Link", () => {
     const handle_click = vi.fn()
     render(
       <Link
-        href="https://example.com"
+        href="#"
         onClick={handle_click}
       >
         Clickable Link
