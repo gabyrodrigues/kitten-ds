@@ -28,8 +28,8 @@
   --color-secondary-hover: var(--color-brand-blue-900);
   --color-secondary-highlight: var(--color-brand-blue-100);
 
-  --color-error: var(--color-error-500);
-  --color-error-hover: var(--color-error-400);
+  --color-error: var(--color-error-400);
+  --color-error-hover: var(--color-error-500);
   --color-error-highlight: var(--color-error-100);
 
   --color-success: var(--color-success-400);

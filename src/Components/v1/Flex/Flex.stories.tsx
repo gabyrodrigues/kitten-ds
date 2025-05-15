@@ -110,19 +110,17 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: (args) => {
-    return (
-      <Flex {...args}>
-        <div className="bg-primary p-6 rounded-lg w-full text-typography-inverted font-semibold">
-          Item 1
-        </div>
-        <div className="bg-primary p-6 rounded-lg w-full text-typography-inverted font-semibold">
-          Item 2
-        </div>
-        <div className="bg-primary p-6 rounded-lg w-full text-typography-inverted font-semibold">
-          Item 3
-        </div>
-      </Flex>
-    )
-  }
+  render: (args) => (
+    <Flex {...args}>
+      <div className="bg-primary p-6 rounded-lg w-full text-typography-inverted font-semibold">
+        Item 1
+      </div>
+      <div className="bg-primary p-6 rounded-lg w-full text-typography-inverted font-semibold">
+        Item 2
+      </div>
+      <div className="bg-primary p-6 rounded-lg w-full text-typography-inverted font-semibold">
+        Item 3
+      </div>
+    </Flex>
+  )
 }
