@@ -150,35 +150,6 @@ describe("Button", () => {
     stop_propagation_spy.mockRestore()
   })
 
-  it("calls onClick when not disabled", () => {
-    const disabled = false
-    const on_click = vi.fn()
-    const prevent_default = vi.fn()
-    const stop_propagation = vi.fn()
-
-    const event = {
-      // biome-ignore lint/style/useNamingConvention: prop name
-      preventDefault: prevent_default,
-      // biome-ignore lint/style/useNamingConvention: prop name
-      stopPropagation: stop_propagation
-    } as unknown as React.MouseEvent<HTMLElement>
-
-    function handleClick(event: React.MouseEvent<HTMLElement>) {
-      if (disabled) {
-        event.preventDefault()
-        event.stopPropagation()
-        return
-      }
-      on_click?.(event)
-    }
-
-    handleClick(event)
-
-    expect(prevent_default).not.toHaveBeenCalled()
-    expect(stop_propagation).not.toHaveBeenCalled()
-    expect(on_click).toHaveBeenCalledWith(event)
-  })
-
   it("shows visible focus outline when focused", () => {
     render(<Button>Focus me</Button>)
     const button = screen.getByRole("button", { name: "Focus me" })
