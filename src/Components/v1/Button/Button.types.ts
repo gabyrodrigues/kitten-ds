@@ -93,7 +93,9 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    * Will not be called if the button is disabled.
    * @returns The result of the click event handler.
    */
-  onClick?: MouseEventHandler<HTMLButtonElement>
+
+  // biome-ignore lint/style/useNamingConvention: prop name is not camelCase
+  onClick?: MouseEventHandler<HTMLElement>
 
   /**
    * Content displayed on the left side of the button content.

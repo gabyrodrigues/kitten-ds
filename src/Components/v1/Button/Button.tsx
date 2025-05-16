@@ -1,5 +1,5 @@
 import { cn } from "@utils"
-import type { MouseEvent, ReactElement } from "react"
+import type { KeyboardEvent, MouseEvent, ReactElement } from "react"
 import type { ButtonProps } from "./Button.types"
 import { button_variants } from "./Styles"
 
@@ -52,13 +52,20 @@ export default function Button({
     whitespace
   )
 
-  function handleClick(event: MouseEvent<HTMLButtonElement>) {
+  function handleClick(event: MouseEvent<HTMLElement>) {
     if (disabled) {
       event.preventDefault()
       event.stopPropagation()
       return
     }
     onClick?.(event)
+  }
+
+  function handleKeyDown(event: KeyboardEvent<HTMLAnchorElement>) {
+    if (event.key === " " || event.key === "Enter") {
+      event.preventDefault()
+      event.currentTarget.click()
+    }
   }
 
   const COMPONENT = component
@@ -71,6 +78,7 @@ export default function Button({
       aria-disabled={!is_native_button && disabled ? true : undefined}
       disabled={is_native_button ? disabled : undefined}
       tabIndex={!is_native_button && disabled ? 0 : undefined}
+      onKeyDown={is_native_button ? undefined : handleKeyDown}
       className={merged_classes}
       onClick={handleClick}
       {...props}
