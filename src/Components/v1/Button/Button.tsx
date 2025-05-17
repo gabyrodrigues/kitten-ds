@@ -61,8 +61,8 @@ export default function Button({
     onClick?.(event)
   }
 
-  function handleKeyDown(event: KeyboardEvent<HTMLAnchorElement>) {
-    if (event.key === " " || event.key === "Enter") {
+  function handleKeyDown(event: KeyboardEvent<HTMLElement>) {
+    if (!disabled && (event.key === " " || event.key === "Enter")) {
       event.preventDefault()
       event.currentTarget.click()
     }
@@ -77,11 +77,10 @@ export default function Button({
       role={is_native_button ? undefined : "button"}
       aria-disabled={disabled}
       data-disabled={disabled}
-      disabled={is_native_button ? disabled : undefined}
-      tabIndex={!is_native_button && disabled ? 0 : undefined}
-      onKeyDown={is_native_button ? undefined : handleKeyDown}
+      tabIndex={disabled ? 0 : undefined}
       className={merged_classes}
       onClick={handleClick}
+      onKeyDown={is_native_button ? undefined : handleKeyDown}
       {...props}
     >
       {left_section && left_section}
