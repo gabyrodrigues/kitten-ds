@@ -56,7 +56,7 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     }
 
     function handleKeyDown(event: KeyboardEvent<HTMLAnchorElement>) {
-      if (event.key === " " || event.key === "Enter") {
+      if (!disabled && (event.key === " " || event.key === "Enter")) {
         event.preventDefault()
         event.currentTarget.click()
       }
