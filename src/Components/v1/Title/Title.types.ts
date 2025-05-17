@@ -1,5 +1,4 @@
 import type { ReactNode } from "react"
-import type { MarginTop } from "tests/build/types"
 import type {
   FontStyle,
   FontWeight,
@@ -7,6 +6,7 @@ import type {
   LineClamp,
   LineHeight,
   MarginBottom,
+  MarginTop,
   TextAlign,
   TextColor,
   TextDecoration,
