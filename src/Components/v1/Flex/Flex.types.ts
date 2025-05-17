@@ -52,7 +52,6 @@ export interface FlexProps extends HTMLAttributes<HTMLElement> {
   /**
    * Optional additional CSS classes to apply to the Flex.
    */
-  // biome-ignore lint/style/useNamingConvention: default className prop
   className?: string
 
   /**
@@ -71,13 +70,13 @@ export interface FlexProps extends HTMLAttributes<HTMLElement> {
    * Applies horizontal padding.
    * This corresponds to Tailwind's `px-*` classes.
    */
-  padding_x?: PaddingX
+  paddingX?: PaddingX
 
   /**
    * Applies vertical padding.
    * This corresponds to Tailwind's `py-*` classes.
    */
-  padding_y?: PaddingY
+  paddingY?: PaddingY
 
   /**
    * Sets the direction of flex items.
@@ -126,13 +125,13 @@ export interface FlexProps extends HTMLAttributes<HTMLElement> {
    * Sets the column gap between children.
    * This corresponds to Tailwind's `gap-x-*` classes.
    */
-  col_gap?: GapX
+  colGap?: GapX
 
   /**
    * Sets the row gap between children.
    * This corresponds to Tailwind's `gap-y-*` classes.
    */
-  row_gap?: GapY
+  rowGap?: GapY
 
   /**
    * The Flex component height.

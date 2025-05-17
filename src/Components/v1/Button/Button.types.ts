@@ -62,7 +62,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    * This corresponds to Tailwind's `bg-*` classes.
    * @default "bg-primary"
    */
-  bg_color?: BgColor
+  bgColor?: BgColor
 
   /**
    * Text color of the button.
@@ -70,7 +70,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    * This corresponds to Tailwind's `text-*` classes.
    * @default "text-typography-secondary"
    */
-  text_color?: TextColor
+  textColor?: TextColor
 
   /**
    * Border color of the button.
@@ -78,7 +78,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    * This corresponds to Tailwind's `border-*` classes.
    * @default "border-hover-primary"
    */
-  border_color?: BorderColor
+  borderColor?: BorderColor
 
   /**
    * Whether the button is disabled.
@@ -93,19 +93,17 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    * Will not be called if the button is disabled.
    * @returns The result of the click event handler.
    */
-
-  // biome-ignore lint/style/useNamingConvention: prop name is not camelCase
   onClick?: MouseEventHandler<HTMLElement>
 
   /**
    * Content displayed on the left side of the button content.
    */
-  left_section?: ReactNode
+  leftSection?: ReactNode
 
   /**
    * Content displayed on the right side of the button content.
    */
-  right_section?: ReactNode
+  rightSection?: ReactNode
 
   /**
    * Justification of content inside button.
@@ -129,7 +127,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    * Font size of the button.
    * Overrides the font size set by `variant` if both are provided.
    */
-  font_size?: TextSize
+  fontSize?: TextSize
 
   /**
    * Font weight of the button.
@@ -153,19 +151,18 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    * Line height of the button.
    * This corresponds to Tailwind's `leading-*` classes.
    */
-  line_height?: LineHeight
+  lineHeight?: LineHeight
 
   /**
    * Letter spacing of the button.
    * This corresponds to Tailwind's `tracking-*` classes.
    * Possible values: "tracking-tighter", "tracking-tight", "tracking-normal", "tracking-wide", "tracking-wider" or "tracking-widest".
    */
-  letter_spacing?: LetterSpacing
+  letterSpacing?: LetterSpacing
 
   /**
    * Optional additional CSS classes to apply to the button.
    */
-  // biome-ignore lint/style/useNamingConvention: default className prop
   className?: string
 
   /**

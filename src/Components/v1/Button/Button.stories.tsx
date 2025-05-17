@@ -31,11 +31,11 @@ const meta: Meta<typeof Button> = {
       ],
       description: "Alignment of content inside button."
     },
-    bg_color: {
+    bgColor: {
       control: { type: "text" },
       description: "Background color of the button."
     },
-    border_color: {
+    borderColor: {
       control: { type: "text" },
       description: "Border color of the button."
     },
@@ -60,7 +60,7 @@ const meta: Meta<typeof Button> = {
       control: { type: "boolean" },
       description: "Whether the button is disabled."
     },
-    font_size: {
+    fontSize: {
       control: { type: "text" },
       description: "Font size of the button."
     },
@@ -81,11 +81,11 @@ const meta: Meta<typeof Button> = {
       ],
       description: "Justification of content inside button."
     },
-    left_section: {
+    leftSection: {
       control: { type: "text" },
       description: "Content displayed on the left side of the button content."
     },
-    line_height: {
+    lineHeight: {
       control: { type: "select" },
       options: [
         "leading-none",
@@ -97,7 +97,7 @@ const meta: Meta<typeof Button> = {
       ],
       description: "Line height of the button."
     },
-    letter_spacing: {
+    letterSpacing: {
       control: { type: "select" },
       options: [
         "tracking-tighter",
@@ -117,11 +117,11 @@ const meta: Meta<typeof Button> = {
       control: { type: "text" },
       description: "Border radius of the button."
     },
-    right_section: {
+    rightSection: {
       control: { type: "text" },
       description: "Content displayed on the left side of the button content."
     },
-    text_color: {
+    textColor: {
       control: { type: "text" },
       description: "Text color of the button."
     },

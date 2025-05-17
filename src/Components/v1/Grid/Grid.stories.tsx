@@ -1,8 +1,8 @@
-import type { StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react"
 
 import Grid from "./Grid"
 
-const meta = {
+const meta: Meta<typeof Grid> = {
   component: Grid,
   parameters: {
     layout: "centered",
@@ -31,15 +31,15 @@ const meta = {
       control: { type: "text" },
       description: "Specifies the columns in a grid layout."
     },
-    col_span: {
+    colSpan: {
       control: { type: "text" },
       description: "Controls how many columns a grid item should span."
     },
-    col_start: {
+    colStart: {
       control: { type: "text" },
       description: "Specifies the starting column position for a grid item."
     },
-    col_end: {
+    colEnd: {
       control: { type: "text" },
       description: "Specifies the ending column position for a grid item."
     },
@@ -47,15 +47,15 @@ const meta = {
       control: { type: "text" },
       description: "Specifies the rows in a grid layout."
     },
-    row_span: {
+    rowSpan: {
       control: { type: "text" },
       description: "Controls how many rows a grid item should span."
     },
-    row_start: {
+    rowStart: {
       control: { type: "text" },
       description: "Specifies the starting row position for a grid item."
     },
-    row_end: {
+    rowEnd: {
       control: { type: "text" },
       description: "Specifies the ending row position for a grid item."
     },
@@ -63,11 +63,11 @@ const meta = {
       control: { type: "text" },
       description: "The gap between items in the Grid component."
     },
-    row_gap: {
+    rowGap: {
       control: { type: "text" },
       description: "Sets the row gap between children."
     },
-    col_gap: {
+    colGap: {
       control: { type: "text" },
       description: "Sets the column gap between children."
     },
@@ -75,15 +75,15 @@ const meta = {
       control: { type: "text" },
       description: "Controls how the grid auto-places items along rows or columns."
     },
-    auto_cols: {
+    autoCols: {
       control: { type: "text" },
       description: "Controls the size of implicitly-created grid columns."
     },
-    auto_rows: {
+    autoRows: {
       control: { type: "text" },
       description: "Controls the size of implicitly-created grid rows."
     },
-    justify_items: {
+    justifyItems: {
       control: { type: "text" },
       description: "Controls how Grid component items are aligned along their inline axis."
     },
@@ -99,12 +99,12 @@ const meta = {
   args: {
     cols: "grid-cols-2",
     rows: "grid-rows-2",
-    row_gap: "gap-x-2",
-    col_gap: "gap-y-3",
+    rowGap: "gap-y-2",
+    colGap: "gap-x-3",
     flow: "grid-flow-row",
-    auto_cols: "auto-cols-min",
-    auto_rows: "auto-rows-auto",
-    justify_items: "justify-items-center",
+    autoCols: "auto-cols-min",
+    autoRows: "auto-rows-auto",
+    justifyItems: "justify-items-center",
     align: "items-center"
   }
 }

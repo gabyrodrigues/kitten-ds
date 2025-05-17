@@ -1,27 +1,27 @@
 import { cn } from "@utils"
 import type { KeyboardEvent, MouseEvent, ReactElement } from "react"
 import type { ButtonProps } from "./Button.types"
-import { button_variants } from "./Styles"
+import { buttonVariants } from "./Styles"
 
 export default function Button({
   align = "items-center",
-  bg_color,
-  border_color,
+  bgColor,
+  borderColor,
   children,
   className,
   color = "primary",
   component = "button",
   disabled,
-  font_size,
+  fontSize,
   full = false,
   justify = "justify-center",
-  left_section,
-  letter_spacing,
-  line_height,
+  leftSection,
+  letterSpacing,
+  lineHeight,
   radius,
-  right_section,
+  rightSection,
   transform,
-  text_color,
+  textColor,
   type = "button",
   variant = "filled",
   weight,
@@ -29,24 +29,24 @@ export default function Button({
   onClick,
   ...props
 }: ButtonProps): ReactElement {
-  const variant_classes = button_variants({
+  const variantClasses = buttonVariants({
     variant,
     color
   })
-  const merged_classes = cn(
-    variant_classes,
+  const mergedClasses = cn(
+    variantClasses,
     "text-button",
     align,
-    bg_color,
-    border_color,
+    bgColor,
+    borderColor,
     className,
-    font_size,
+    fontSize,
     full && "w-full",
     justify,
-    letter_spacing,
-    line_height,
+    letterSpacing,
+    lineHeight,
     radius,
-    text_color,
+    textColor,
     transform,
     weight,
     whitespace
@@ -69,23 +69,23 @@ export default function Button({
   }
 
   const COMPONENT = component
-  const is_native_button = COMPONENT === "button"
+  const isNativeButton = COMPONENT === "button"
 
   return (
     <COMPONENT
-      type={is_native_button ? type : undefined}
-      role={is_native_button ? undefined : "button"}
+      type={isNativeButton ? type : undefined}
+      role={isNativeButton ? undefined : "button"}
       aria-disabled={disabled}
       data-disabled={disabled}
       tabIndex={disabled ? 0 : undefined}
-      className={merged_classes}
+      className={mergedClasses}
       onClick={handleClick}
-      onKeyDown={is_native_button ? undefined : handleKeyDown}
+      onKeyDown={isNativeButton ? undefined : handleKeyDown}
       {...props}
     >
-      {left_section && left_section}
+      {leftSection && leftSection}
       {children}
-      {right_section && right_section}
+      {rightSection && rightSection}
     </COMPONENT>
   )
 }

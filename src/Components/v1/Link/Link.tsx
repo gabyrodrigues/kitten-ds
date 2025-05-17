@@ -7,17 +7,17 @@ import { cn } from "@utils"
 const Link = forwardRef<HTMLAnchorElement, LinkProps>(
   (
     {
-      border_color = "border-b-link",
+      borderColor = "border-b-link",
       children,
       color = "text-link",
       href,
       target = "_self",
-      font_size = "text-body2",
+      fontSize = "text-body2",
       weight = "font-normal",
       whitespace,
       transform,
-      line_height,
-      letter_spacing,
+      lineHeight,
+      letterSpacing,
       disabled,
       onClick,
       className,
@@ -25,24 +25,24 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     },
     ref
   ): ReactElement => {
-    const link_styles = cn(
+    const linkStyles = cn(
       "hover:text-link-hover hover:border-b-link-hover",
       "visited:text-link-visited visited:border-b-link-visited",
       "active:text-link-active active:border-b-link-active",
       "focus:ring-3 focus:ring-focus-ring focus:ring-offset-0",
       "focus-visible:outline-0 focus-visible:ring-3 focus-visible:ring-focus-ring focus-visible:ring-offset-0"
     )
-    const merged_classes = cn(
-      !disabled && link_styles,
+    const mergedClasses = cn(
+      !disabled && linkStyles,
       color,
-      border_color && ["border-b", border_color],
+      borderColor && ["border-b", borderColor],
       disabled && "text-disabled border-b-disabled",
-      font_size,
+      fontSize,
       weight,
       whitespace,
       transform,
-      line_height,
-      letter_spacing,
+      lineHeight,
+      letterSpacing,
       className
     )
 
@@ -69,7 +69,7 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>(
         target={target}
         aria-disabled={disabled}
         data-disabled={disabled}
-        className={merged_classes}
+        className={mergedClasses}
         onClick={handleClick}
         onKeyDown={handleKeyDown}
         {...props}

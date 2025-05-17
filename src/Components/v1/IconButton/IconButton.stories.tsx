@@ -15,6 +15,10 @@ const meta = {
   },
   tags: ["autodocs"],
   argTypes: {
+    ariaLabel: {
+      control: { type: "text" },
+      description: "Accessible label for screen readers. Describes the button's purpose."
+    },
     color: {
       control: { type: "select" },
       options: ["primary", "secondary", "gray"],
@@ -33,11 +37,11 @@ const meta = {
       description:
         "The icon name to render in the Icon Button Component. It matches a Material Symbols icon name."
     },
-    icon_class_name: {
+    iconClassName: {
       control: { type: "text" },
       description: "The CSS class name to be applied to the Icon."
     },
-    icon_variant: {
+    iconVariant: {
       control: { type: "select" },
       options: ["filled", "outlined"],
       description: "Style variant of the icon inside the button."
@@ -55,12 +59,12 @@ const meta = {
   },
   args: {
     icon: "settings",
-    icon_variant: "outlined",
+    iconVariant: "outlined",
     weight: 400,
     variant: "default",
     color: "gray",
     size: "large",
-    aria_label: "Settings"
+    ariaLabel: "Settings"
   }
 } satisfies Meta<typeof IconButton>
 

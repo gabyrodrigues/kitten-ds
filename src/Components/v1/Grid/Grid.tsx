@@ -3,44 +3,44 @@ import type { GridProps } from "./Grid.types"
 
 export default function Grid({
   align,
-  auto_cols,
-  auto_rows,
+  autoCols,
+  autoRows,
   children,
   className,
   component = "div",
   cols,
-  col_end,
-  col_gap,
-  col_span,
-  col_start,
+  colEnd,
+  colGap,
+  colSpan,
+  colStart,
   flow,
   gap,
-  justify_items,
+  justifyItems,
   order,
   rows,
-  row_end,
-  row_gap,
-  row_span,
-  row_start,
+  rowEnd,
+  rowGap,
+  rowSpan,
+  rowStart,
   ...props
 }: GridProps) {
-  const merged_classes = cn(
+  const mergedClasses = cn(
     "grid",
     cols,
-    col_span,
-    col_start,
-    col_end,
+    colSpan,
+    colStart,
+    colEnd,
     rows,
-    row_span,
-    row_start,
-    row_end,
+    rowSpan,
+    rowStart,
+    rowEnd,
     gap,
-    row_gap,
-    col_gap,
+    rowGap,
+    colGap,
     flow,
-    auto_cols,
-    auto_rows,
-    justify_items,
+    autoCols,
+    autoRows,
+    justifyItems,
     align,
     order,
     className
@@ -50,7 +50,7 @@ export default function Grid({
 
   return (
     <COMPONENT
-      className={merged_classes}
+      className={mergedClasses}
       {...props}
     >
       {children}

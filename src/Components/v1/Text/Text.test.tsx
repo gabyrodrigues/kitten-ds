@@ -42,11 +42,11 @@ describe("Text", () => {
     expect(text).toHaveClass("text-body2")
   })
 
-  it("adds htmlFor prop when component is 'label' and html_for is provided", () => {
+  it("adds htmlFor prop when component is 'label' and htmlFor is provided", () => {
     render(
       <Text
         component="label"
-        html_for="test-id"
+        htmlFor="test-id"
       >
         Label
       </Text>
@@ -59,7 +59,7 @@ describe("Text", () => {
     render(
       <Text
         color="text-blue-500"
-        font_size="text-3xl"
+        fontSize="text-3xl"
         className="border-red-500"
       >
         Styled Text
@@ -80,13 +80,13 @@ describe("Text", () => {
   })
 
   it("renders HTML content safely when children is a string", () => {
-    const raw_html = "this is a <b>html</b> text"
-    render(<Text>{raw_html}</Text>)
+    const rawHtml = "this is a <b>html</b> text"
+    render(<Text>{rawHtml}</Text>)
 
-    const bold_text = screen.getByText(/html/i)
+    const boldText = screen.getByText(/html/i)
 
-    expect(bold_text).toBeInTheDocument()
-    expect(bold_text.tagName).toBe("B")
+    expect(boldText).toBeInTheDocument()
+    expect(boldText.tagName).toBe("B")
 
     const text = screen.getByText(/this is a/i)
     expect(text).toBeInTheDocument()

@@ -6,21 +6,21 @@ export default function Text({
   color = "text-typography-primary",
   component = "p",
   variant = "body1",
-  font_size,
-  margin_bottom,
-  margin_top,
+  fontSize,
+  marginBottom,
+  marginTop,
   weight,
-  letter_spacing,
-  line_clamp,
-  line_height,
+  letterSpacing,
+  lineClamp,
+  lineHeight,
   transform,
   align,
   wrap,
   whitespace,
-  word_break,
-  font_style,
+  wordBreak,
+  fontStyle,
   decoration,
-  html_for,
+  htmlFor,
   className,
   ...props
 }: TextProps) {
@@ -31,39 +31,38 @@ export default function Text({
     body4: "text-body4"
   }
 
-  const merged_classes = cn(
+  const mergedClasses = cn(
     "block",
     VARIANTS[variant],
-    font_size,
-    margin_bottom,
-    margin_top,
+    fontSize,
+    marginBottom,
+    marginTop,
     color,
     weight,
-    letter_spacing,
-    line_clamp,
-    line_height,
+    letterSpacing,
+    lineClamp,
+    lineHeight,
     align,
     transform,
     wrap,
     whitespace,
-    word_break,
-    font_style,
+    wordBreak,
+    fontStyle,
     decoration,
     className
   )
 
   const COMPONENT = component
-  // biome-ignore lint/style/useNamingConvention: React prop
-  const label_props = component === "label" && html_for ? { htmlFor: html_for } : {}
+  const labelProps = component === "label" && htmlFor ? { htmlFor: htmlFor } : {}
 
   if (typeof children === "string") {
     return (
       <COMPONENT
         {...props}
-        {...label_props}
-        className={merged_classes}
-        // biome-ignore lint/style/useNamingConvention: prop attribute
+        {...labelProps}
+        className={mergedClasses}
         // biome-ignore lint/security/noDangerouslySetInnerHtml: sanitized content
+        // biome-ignore lint/style/useNamingConvention: prop name
         dangerouslySetInnerHTML={{ __html: sanitizeHtml(children) }}
       />
     )
@@ -72,8 +71,8 @@ export default function Text({
   return (
     <COMPONENT
       {...props}
-      {...label_props}
-      className={merged_classes}
+      {...labelProps}
+      className={mergedClasses}
     >
       {children}
     </COMPONENT>

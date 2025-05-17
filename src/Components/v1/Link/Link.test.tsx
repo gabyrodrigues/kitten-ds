@@ -46,11 +46,11 @@ describe("Link", () => {
   })
 
   it("should prevent default on click when disabled", () => {
-    const handle_click = vi.fn()
+    const handleClick = vi.fn()
     const { getByRole } = render(
       <Link
         href="#"
-        onClick={handle_click}
+        onClick={handleClick}
         disabled
       >
         Disabled
@@ -58,16 +58,16 @@ describe("Link", () => {
     )
 
     getByRole("link").click()
-    expect(handle_click).not.toHaveBeenCalled()
+    expect(handleClick).not.toHaveBeenCalled()
   })
 
   it("should activate the link on Enter key press", async () => {
     const user = userEvent.setup()
-    const handle_click = vi.fn()
+    const handleClick = vi.fn()
     render(
       <Link
         href="#"
-        onClick={handle_click}
+        onClick={handleClick}
       >
         Clickable Link
       </Link>
@@ -78,16 +78,16 @@ describe("Link", () => {
     expect(link).toHaveFocus()
 
     await user.keyboard("{Enter}")
-    expect(handle_click).toHaveBeenCalled()
+    expect(handleClick).toHaveBeenCalled()
   })
 
   it("should activate the link on Space key press", async () => {
     const user = userEvent.setup()
-    const handle_click = vi.fn()
+    const handleClick = vi.fn()
     render(
       <Link
         href="#"
-        onClick={handle_click}
+        onClick={handleClick}
       >
         Clickable Link
       </Link>
@@ -97,6 +97,6 @@ describe("Link", () => {
     expect(link).toHaveFocus()
 
     await user.keyboard(" ")
-    expect(handle_click).toHaveBeenCalled()
+    expect(handleClick).toHaveBeenCalled()
   })
 })

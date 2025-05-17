@@ -5,22 +5,22 @@ export default function Icon({
   type,
   variant = "outlined",
   color = "text-typography-primary",
-  font_size = "text-xl",
+  fontSize = "text-xl",
   weight = 400,
   className,
   ...props
 }: IconProps) {
-  const merged_classes = cn(
+  const mergedClasses = cn(
     "material-symbols-icons",
     "leading-none",
     color,
-    font_size,
+    fontSize,
     getWeightClass(),
     className
   )
 
   function getWeightClass() {
-    const weight_class = {
+    const weightClass = {
       outlined: {
         400: "icon-outlined-weight-400",
         500: "icon-outlined-weight-500",
@@ -32,12 +32,12 @@ export default function Icon({
         700: "icon-filled-weight-700"
       }
     }
-    return weight_class[variant]?.[weight] ?? "icon-outlined-weight-400"
+    return weightClass[variant]?.[weight] ?? "icon-outlined-weight-400"
   }
 
   return (
     <span
-      className={merged_classes}
+      className={mergedClasses}
       translate="no"
       aria-hidden={props["aria-label"] ? undefined : "true"}
       role={props["aria-label"] ? "img" : undefined}

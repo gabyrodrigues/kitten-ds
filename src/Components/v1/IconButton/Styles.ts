@@ -1,6 +1,6 @@
 import { tv } from "tailwind-variants"
 
-export const icon_button_variants = tv({
+export const iconButtonVariants = tv({
   base: [
     "flex justify-center items-center rounded-full shrink-0 data-[disabled=true]:text-typography-disabled",
     "focus:outline-0 focus:ring-3 focus:ring-focus-ring focus:ring-offset-2"
@@ -25,7 +25,6 @@ export const icon_button_variants = tv({
       large: "p-3 h-11 w-11 text-xl leading-none"
     }
   },
-  // biome-ignore lint/style/useNamingConvention: lib prop
   compoundVariants: [
     {
       variant: "filled",
@@ -75,7 +74,6 @@ export const icon_button_variants = tv({
       class: "text-gray hover:bg-highlight"
     }
   ],
-  // biome-ignore lint/style/useNamingConvention: lib prop
   defaultVariants: {
     variant: "default",
     color: "primary"

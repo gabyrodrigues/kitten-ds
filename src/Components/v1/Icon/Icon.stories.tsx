@@ -25,7 +25,7 @@ const meta = {
       description:
         "The icon name to render. It corresponds to a Material Symbols icon name (e.g., 'home', 'search')."
     },
-    font_size: {
+    fontSize: {
       control: { type: "text" },
       description: "Tailwind text size class to control the icon's size."
     },
@@ -47,7 +47,7 @@ const meta = {
   },
   args: {
     variant: "outlined",
-    font_size: "text-xl",
+    fontSize: "text-xl",
     weight: 400,
     color: "text-typography-primary"
   }

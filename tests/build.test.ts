@@ -4,17 +4,17 @@ import { join } from "node:path"
 import { promisify } from "node:util"
 import { beforeAll, describe, expect, it } from "vitest"
 
-const exec_promise = promisify(exec)
+const execPromise = promisify(exec)
 
 describe("Rollup Build", () => {
-  const cjs_dir = join(__dirname, "build/cjs")
-  const esm_dir = join(__dirname, "build/esm")
-  const types_file = join(__dirname, "build/types/index.d.ts")
-  const css_file = join(__dirname, "build/styles.css")
+  const cjsDir = join(__dirname, "build/cjs")
+  const esmDir = join(__dirname, "build/esm")
+  const typesFile = join(__dirname, "build/types/index.d.ts")
+  const cssFile = join(__dirname, "build/styles.css")
 
   beforeAll(async () => {
     try {
-      const { stdout } = await exec_promise("pnpm run build:test")
+      const { stdout } = await execPromise("pnpm run build:test")
       // biome-ignore lint/suspicious/noConsoleLog: testing build print
       console.log(`stdout: ${stdout}`)
     } catch (error) {
@@ -24,20 +24,20 @@ describe("Rollup Build", () => {
   }, 30000)
 
   it("should create CommonJS files", async () => {
-    const files = await fs.readdir(cjs_dir)
+    const files = await fs.readdir(cjsDir)
     expect(files).toContain("index.cjs")
     expect(files).toContain("index.cjs.map")
   })
 
   it("should create ESM files", async () => {
-    const files = await fs.readdir(esm_dir)
+    const files = await fs.readdir(esmDir)
     expect(files).toContain("index.mjs")
     expect(files).toContain("index.mjs.map")
   })
 
   it("should create TypeScript declaration file", async () => {
     try {
-      await fs.access(types_file)
+      await fs.access(typesFile)
       expect(true).toBe(true)
     } catch (error) {
       expect(error).toBeNull()
@@ -46,7 +46,7 @@ describe("Rollup Build", () => {
 
   it("should create styles files", async () => {
     try {
-      await fs.access(css_file)
+      await fs.access(cssFile)
       expect(true).toBe(true)
     } catch (error) {
       expect(error).toBeNull()

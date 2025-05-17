@@ -1,6 +1,6 @@
 import { tv } from "tailwind-variants"
 
-export const button_variants = tv({
+export const buttonVariants = tv({
   base: [
     "px-4 py-3 min-h-11",
     "focus:outline-0 focus:ring-3 focus:ring-focus-ring focus:ring-offset-2",
@@ -22,7 +22,6 @@ export const button_variants = tv({
       gray: ""
     }
   },
-  // biome-ignore lint/style/useNamingConvention: lib prop
   compoundVariants: [
     {
       variant: "filled",
@@ -102,7 +101,6 @@ export const button_variants = tv({
       class: "text-gray hover:bg-highlight"
     }
   ],
-  // biome-ignore lint/style/useNamingConvention: lib prop
   defaultVariants: {
     variant: "filled",
     color: "primary"

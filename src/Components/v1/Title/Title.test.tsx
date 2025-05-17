@@ -45,7 +45,7 @@ describe("Title", () => {
     render(
       <Title
         color="text-blue-500"
-        font_size="text-3xl"
+        fontSize="text-3xl"
         className="border-red-500"
       >
         Styled Title
@@ -66,13 +66,13 @@ describe("Title", () => {
   })
 
   it("renders HTML content safely when children is a string", () => {
-    const raw_html = "this is a <b>html</b> text"
-    render(<Title>{raw_html}</Title>)
+    const rawHtml = "this is a <b>html</b> text"
+    render(<Title>{rawHtml}</Title>)
 
-    const bold_text = screen.getByText(/html/i)
+    const boldText = screen.getByText(/html/i)
 
-    expect(bold_text).toBeInTheDocument()
-    expect(bold_text.tagName).toBe("B")
+    expect(boldText).toBeInTheDocument()
+    expect(boldText.tagName).toBe("B")
 
     const text = screen.getByText(/this is a/i)
     expect(text).toBeInTheDocument()

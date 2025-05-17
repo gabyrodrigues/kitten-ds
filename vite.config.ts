@@ -10,7 +10,6 @@ export default defineConfig(({ command }) => {
     return {
       plugins: [react(), tailwindcss()],
       build: {
-        // biome-ignore lint/style/useNamingConvention: lib custom property
         outDir: path.resolve(__dirname, "dist")
       },
       resolve: {
@@ -32,10 +31,8 @@ export default defineConfig(({ command }) => {
       lib: {
         entry: path.resolve(__dirname, "src/index.ts"),
         name: "Kitten-DS",
-        // biome-ignore lint/style/useNamingConvention: lib custom property
         fileName: "Kitten-DS"
       },
-      // biome-ignore lint/style/useNamingConvention: lib custom property
       rollupOptions: {
         external: ["react", "react-dom", "clsx", "tailwind-merge"],
         output: {

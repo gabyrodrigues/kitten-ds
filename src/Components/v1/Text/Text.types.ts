@@ -84,12 +84,11 @@ export interface TextProps {
   /**
    * Equivalent to the htmlFor attribute. Only used when component="label"
    */
-  html_for?: string
+  htmlFor?: string
 
   /**
    * Controls extra CSS class names in the Text component.
    */
-  // biome-ignore lint/style/useNamingConvention: default className prop
   className?: string
 
   /**
@@ -115,19 +114,19 @@ export interface TextProps {
    * Option to control the Text font-size.
    * Overrides the font size set by `variant` if both are provided.
    */
-  font_size?: TextSize
+  fontSize?: TextSize
 
   /**
    * The margin applied at the bottom of Text component.
    * This corresponds to Tailwind's `mb-*` classes.
    */
-  margin_bottom?: MarginBottom
+  marginBottom?: MarginBottom
 
   /**
    * The margin applied at the top of Text component.
    * This corresponds to Tailwind's `mt-*` classes.
    */
-  margin_top?: MarginTop
+  marginTop?: MarginTop
 
   /**
    * Defines the visual style of the text using typographic variants.
@@ -141,20 +140,20 @@ export interface TextProps {
    * This corresponds to Tailwind's `tracking-*` classes.
    * Possible values: "tracking-tighter", "tracking-tight", "tracking-normal", "tracking-wide", "tracking-wider" or "tracking-widest", "tracking-(<custom-property>)" or "tracking-[<value>]".
    */
-  letter_spacing?: LetterSpacing
+  letterSpacing?: LetterSpacing
 
   /**
    * The line clamp of the Text component.
    * This corresponds to Tailwind's `line-clamp-*` classes.
    */
-  line_clamp?: LineClamp
+  lineClamp?: LineClamp
 
   /**
    * The line height of the Text component.
    * Overrides the line height set by `variant` if both are provided.
    * This corresponds to Tailwind's `leading-*` classes.
    */
-  line_height?: LineHeight
+  lineHeight?: LineHeight
 
   /**
    * Controls the alignment of text.
@@ -178,7 +177,7 @@ export interface TextProps {
    * Controls how text wraps within an element.
    * Possible values: "break-normal", "break-words", "break-all" or "break-keep".
    */
-  word_break?: WordBreak
+  wordBreak?: WordBreak
 
   /**
    * Controls the transformation of text.
@@ -196,5 +195,5 @@ export interface TextProps {
    * Controls the font style.
    * Possible values: "italic" or "not-italic".
    */
-  font_style?: FontStyle
+  fontStyle?: FontStyle
 }

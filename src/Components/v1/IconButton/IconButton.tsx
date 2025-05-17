@@ -2,31 +2,31 @@ import { cn } from "@utils"
 import type { KeyboardEvent, MouseEvent } from "react"
 import { Icon } from "../Icon"
 import type { IconButtonProps } from "./IconButton.types"
-import { icon_button_variants } from "./Styles"
+import { iconButtonVariants } from "./Styles"
 
 export default function IconButton({
-  aria_label,
+  ariaLabel,
   className,
   color = "primary",
   disabled,
   icon,
-  icon_class_name,
-  icon_variant = "outlined",
+  iconClassName,
+  iconVariant = "outlined",
   size = "large",
   variant = "default",
   weight = 400,
   onClick,
   ...props
 }: IconButtonProps) {
-  const variant_classes = icon_button_variants({
+  const variantClasses = iconButtonVariants({
     color,
     variant,
     size
   })
 
-  const merged_classes = cn(
+  const mergedClasses = cn(
     disabled ? "cursor-default" : "cursor-pointer",
-    variant_classes,
+    variantClasses,
     className
   )
 
@@ -52,8 +52,8 @@ export default function IconButton({
       aria-disabled={disabled}
       tabIndex={disabled ? 0 : undefined}
       data-disabled={disabled}
-      aria-label={aria_label}
-      className={merged_classes}
+      aria-label={ariaLabel}
+      className={mergedClasses}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       {...props}
@@ -61,10 +61,10 @@ export default function IconButton({
       <Icon
         color="inherit"
         type={icon}
-        font_size="text-inherit"
-        variant={icon_variant}
+        fontSize="text-inherit"
+        variant={iconVariant}
         weight={weight}
-        className={cn(icon_class_name)}
+        className={cn(iconClassName)}
       />
     </button>
   )

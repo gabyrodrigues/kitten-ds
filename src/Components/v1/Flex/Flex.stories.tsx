@@ -1,8 +1,8 @@
-import type { StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react"
 
 import Flex from "./Flex"
 
-const meta = {
+const meta: Meta<typeof Flex> = {
   component: Flex,
   parameters: {
     layout: "centered",
@@ -57,11 +57,11 @@ const meta = {
       control: { type: "text" },
       description: "Defines the HTML element to render as."
     },
-    row_gap: {
+    rowGap: {
       control: { type: "text" },
       description: "ets the row gap between children."
     },
-    col_gap: {
+    colGap: {
       control: { type: "text" },
       description: "ets the row gap between children."
     },
@@ -81,11 +81,11 @@ const meta = {
       control: { type: "text" },
       description: "Controls the order in the Flex component."
     },
-    padding_x: {
+    paddingX: {
       control: { type: "text" },
       description: "Applies horizontal padding."
     },
-    padding_y: {
+    paddingY: {
       control: { type: "text" },
       description: "Applies vertical padding."
     },

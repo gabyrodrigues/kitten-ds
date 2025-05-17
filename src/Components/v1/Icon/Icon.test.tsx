@@ -25,7 +25,7 @@ describe("Icon", () => {
       <Icon
         type="person"
         color="text-red-500"
-        font_size="text-xl"
+        fontSize="text-xl"
         weight={700}
       />
     )

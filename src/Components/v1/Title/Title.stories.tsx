@@ -39,7 +39,7 @@ const meta: Meta<typeof Title> = {
       control: { type: "text" },
       description: "Tailwind class controlling the text color."
     },
-    font_size: {
+    fontSize: {
       control: { type: "select" },
       options: [
         "text-xs",
@@ -58,11 +58,11 @@ const meta: Meta<typeof Title> = {
       ],
       description: "The font-size of the Title component."
     },
-    margin_bottom: {
+    marginBottom: {
       control: { type: "text" },
       description: "The margin applied at the bottom of the Title component."
     },
-    margin_top: {
+    marginTop: {
       control: { type: "text" },
       description: "The margin applied at the top of the Title component."
     },
@@ -81,7 +81,7 @@ const meta: Meta<typeof Title> = {
       ],
       description: "Tailwind class for controlling the letter text weight for the Title component."
     },
-    letter_spacing: {
+    letterSpacing: {
       control: { type: "select" },
       options: [
         "tracking-tighter",
@@ -115,7 +115,7 @@ const meta: Meta<typeof Title> = {
       ],
       description: "Tailwind class for controlling an element's white-space property."
     },
-    word_break: {
+    wordBreak: {
       control: { type: "select" },
       options: ["break-normal", "break-all", "break-keep"],
       description: "Tailwind class for controlling how text wraps within an element."
@@ -125,11 +125,11 @@ const meta: Meta<typeof Title> = {
       options: ["uppercase", "lowercase", "capitalize", "normal-case"],
       description: "Tailwind class for controlling the transformation of text."
     },
-    line_clamp: {
+    lineClamp: {
       control: { type: "text" },
       description: "Tailwind class for controlling the number of lines before clamping."
     },
-    line_height: {
+    lineHeight: {
       control: { type: "select" },
       options: [
         "leading-none",
@@ -141,7 +141,7 @@ const meta: Meta<typeof Title> = {
       ],
       description: "Tailwind class for controlling the line height of the Title component."
     },
-    font_style: {
+    fontStyle: {
       control: { type: "select" },
       options: ["italic", "not-italic"],
       description: "Tailwind class for controlling the font style of the Title component."

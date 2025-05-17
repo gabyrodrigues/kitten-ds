@@ -15,7 +15,7 @@ describe("IconButton", () => {
             icon="settings"
             variant={variant}
             color={color}
-            aria_label={`IconButton ${variant} ${color}`}
+            ariaLabel={`IconButton ${variant} ${color}`}
           />
         )
 
@@ -34,13 +34,13 @@ describe("IconButton", () => {
   })
 
   it("handles keyboard interaction on custom component", async () => {
-    const handle_click = vi.fn()
+    const handleClick = vi.fn()
 
     render(
       <IconButton
         icon="settings"
-        onClick={handle_click}
-        aria_label="Settings"
+        onClick={handleClick}
+        ariaLabel="Settings"
       />
     )
 
@@ -52,7 +52,7 @@ describe("IconButton", () => {
 
     // Simulate Enter key
     fireEvent.keyDown(button, { key: "Enter" })
-    expect(handle_click).toHaveBeenCalled()
+    expect(handleClick).toHaveBeenCalled()
 
     // Check accessibility with axe
     const results = await axe(button)
@@ -60,14 +60,14 @@ describe("IconButton", () => {
   })
 
   it("is not clickable when disabled", () => {
-    const on_click = vi.fn()
+    const onClick = vi.fn()
 
     render(
       <IconButton
         icon="settings"
         disabled
-        onClick={on_click}
-        aria_label="Settings"
+        onClick={onClick}
+        ariaLabel="Settings"
       />
     )
 
@@ -76,7 +76,7 @@ describe("IconButton", () => {
 
     fireEvent.click(button)
 
-    expect(on_click).not.toHaveBeenCalled()
+    expect(onClick).not.toHaveBeenCalled()
   })
 
   it("shows visible focus outline when focused", () => {
@@ -84,7 +84,7 @@ describe("IconButton", () => {
       <IconButton
         icon="settings"
         disabled
-        aria_label="Settings"
+        ariaLabel="Settings"
       />
     )
     const button = screen.getByRole("button", { name: "Settings" })

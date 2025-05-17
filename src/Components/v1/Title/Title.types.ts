@@ -76,7 +76,6 @@ export interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
   /**
    * Controls extra CSS class names in the Title component.
    */
-  // biome-ignore lint/style/useNamingConvention: default className prop
   className?: string
 
   /**
@@ -95,39 +94,39 @@ export interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
    * Option to control the Title font-size.
    * Overrides the font size set by `variant` if both are provided.
    */
-  font_size?: TitleSize
+  fontSize?: TitleSize
 
   /**
    * The margin applied at the bottom of Title component.
    * This corresponds to Tailwind's `mb-*` classes.
    */
-  margin_bottom?: MarginBottom
+  marginBottom?: MarginBottom
 
   /**
    * The margin applied at the bottom of Title component.
    * This corresponds to Tailwind's `mt-*` classes.
    */
-  margin_top?: MarginTop
+  marginTop?: MarginTop
 
   /**
    * The letter spacing of the Title component.
    * This corresponds to Tailwind's `tracking-*` classes.
    * Possible values: "tracking-tighter", "tracking-tight", "tracking-normal", "tracking-wide", "tracking-wider" or "tracking-widest", "tracking-(<custom-property>)" or "tracking-[<value>]".
    */
-  letter_spacing?: LetterSpacing
+  letterSpacing?: LetterSpacing
 
   /**
    * The line clamp of the Title component.
    * This corresponds to Tailwind's `line-clamp-*` classes.
    */
-  line_clamp?: LineClamp
+  lineClamp?: LineClamp
 
   /**
    * The line height of the Title component.
    * Overrides the line height set by `variant` if both are provided.
    * This corresponds to Tailwind's `leading-*` classes.
    */
-  line_height?: LineHeight
+  lineHeight?: LineHeight
 
   /**
    * Controls the alignment of text.
@@ -151,7 +150,7 @@ export interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
    * Controls how text wraps within an element.
    * Possible values: "break-normal", "break-words", "break-all" or "break-keep".
    */
-  word_break?: WordBreak
+  wordBreak?: WordBreak
 
   /**
    * Controls the transformation of text.
@@ -169,5 +168,5 @@ export interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
    * Controls the font style.
    * Possible values: "italic" or "not-italic".
    */
-  font_style?: FontStyle
+  fontStyle?: FontStyle
 }

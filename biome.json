@@ -50,40 +50,28 @@
           "options": {
             "conventions": [
               {
-                "selector": {
-                  "kind": "variable"
-                },
-                "formats": ["snake_case", "CONSTANT_CASE"]
+                "selector": { "kind": "variable" },
+                "formats": ["camelCase", "CONSTANT_CASE"]
               },
               {
-                "selector": {
-                  "kind": "functionParameter"
-                },
-                "formats": ["snake_case", "CONSTANT_CASE"]
+                "selector": { "kind": "functionParameter" },
+                "formats": ["camelCase", "CONSTANT_CASE"]
               },
               {
-                "selector": {
-                  "kind": "objectLiteralProperty"
-                },
-                "formats": ["snake_case", "CONSTANT_CASE"]
+                "selector": { "kind": "objectLiteralProperty" },
+                "formats": ["camelCase", "CONSTANT_CASE"]
               },
               {
-                "selector": {
-                  "kind": "classProperty"
-                },
-                "formats": ["snake_case", "CONSTANT_CASE"]
+                "selector": { "kind": "classProperty" },
+                "formats": ["camelCase", "CONSTANT_CASE"]
               },
               {
-                "selector": {
-                  "kind": "typeLike"
-                },
+                "selector": { "kind": "typeLike" },
                 "formats": ["PascalCase", "CONSTANT_CASE"]
               },
               {
-                "selector": {
-                  "kind": "typeProperty"
-                },
-                "formats": ["snake_case", "CONSTANT_CASE"]
+                "selector": { "kind": "typeProperty" },
+                "formats": ["camelCase", "CONSTANT_CASE"]
               }
             ]
           }

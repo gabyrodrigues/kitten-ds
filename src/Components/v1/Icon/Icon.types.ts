@@ -40,14 +40,13 @@ export interface IconProps extends HTMLAttributes<HTMLSpanElement> {
   /**
    * Optional additional CSS classes to apply to the icon.
    */
-  // biome-ignore lint/style/useNamingConvention: default className prop
   className?: string
 
   /**
    * Tailwind text size class to control the icon's size.
    * @default "text-base"
    */
-  font_size?: TextSize
+  fontSize?: TextSize
 
   /**
    * Font weight to apply when rendering the icon.

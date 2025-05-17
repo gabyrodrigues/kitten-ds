@@ -6,19 +6,19 @@ export default function Title({
   color = "text-typography-primary",
   variant = "h1",
   component,
-  font_size,
-  margin_bottom,
-  margin_top,
+  fontSize,
+  marginBottom,
+  marginTop,
   weight,
-  letter_spacing,
-  line_clamp,
-  line_height,
+  letterSpacing,
+  lineClamp,
+  lineHeight,
   transform,
   align,
   wrap,
   whitespace,
-  word_break,
-  font_style,
+  wordBreak,
+  fontStyle,
   decoration,
   className,
   ...props
@@ -35,35 +35,35 @@ export default function Title({
     h6: "text-h6"
   }
 
-  const merged_classes = cn(
+  const mergedClasses = cn(
     "block",
     VARIANT_CLASSES[variant],
-    font_size,
-    margin_bottom,
-    margin_top,
+    fontSize,
+    marginBottom,
+    marginTop,
     weight,
-    letter_spacing,
-    line_clamp,
-    line_height,
+    letterSpacing,
+    lineClamp,
+    lineHeight,
     align,
     transform,
     wrap,
     whitespace,
-    word_break,
+    wordBreak,
     color,
-    font_style,
+    fontStyle,
     decoration,
     className
   )
 
-  const default_tag = ["display1", "display2", "display3"].includes(variant) ? "h1" : variant
-  const COMPONENT = component || (default_tag as TitleComponent)
+  const defaultTag = ["display1", "display2", "display3"].includes(variant) ? "h1" : variant
+  const COMPONENT = component || (defaultTag as TitleComponent)
 
   if (typeof children === "string") {
     return (
       <COMPONENT
         {...props}
-        className={merged_classes}
+        className={mergedClasses}
         // biome-ignore lint/style/useNamingConvention: prop attribute
         // biome-ignore lint/security/noDangerouslySetInnerHtml: sanitized content
         dangerouslySetInnerHTML={{ __html: sanitizeHtml(children) }}
@@ -74,7 +74,7 @@ export default function Title({
   return (
     <COMPONENT
       {...props}
-      className={merged_classes}
+      className={mergedClasses}
     >
       {children}
     </COMPONENT>

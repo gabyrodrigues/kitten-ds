@@ -68,19 +68,19 @@ export interface GridProps extends HTMLAttributes<HTMLElement> {
    * Controls how many columns a grid item should span.
    * This corresponds to Tailwind's `col-span-*` classes.
    */
-  col_span?: GridColSpan
+  colSpan?: GridColSpan
 
   /**
    * Specifies the starting column position for a grid item.
    * This corresponds to Tailwind's `col-start-*` classes.
    */
-  col_start?: GridColStart
+  colStart?: GridColStart
 
   /**
    * Specifies the ending column position for a grid item.
    * This corresponds to Tailwind's `col-end-*` classes.
    */
-  col_end?: GridColEnd
+  colEnd?: GridColEnd
   /**
    * Specifies the rows in a grid layout.
    * This corresponds to Tailwind's `grid-rows-*` classes.
@@ -91,19 +91,19 @@ export interface GridProps extends HTMLAttributes<HTMLElement> {
    * Controls how many rows a grid item should span.
    * This corresponds to Tailwind's `row-span-*` classes.
    */
-  row_span?: GridRowSpan
+  rowSpan?: GridRowSpan
 
   /**
    * Specifies the starting row position for a grid item.
    * This corresponds to Tailwind's `row-start-*` classes.
    */
-  row_start?: GridRowStart
+  rowStart?: GridRowStart
 
   /**
    * Specifies the ending row position for a grid item.
    * This corresponds to Tailwind's `row-end-*` classes.
    */
-  row_end?: GridRowEnd
+  rowEnd?: GridRowEnd
 
   /**
    * The gap between items in the Grid component.
@@ -121,13 +121,13 @@ export interface GridProps extends HTMLAttributes<HTMLElement> {
    * Sets the column gap between children.
    * This corresponds to Tailwind's `gap-x-*` classes.
    */
-  col_gap?: GapX
+  colGap?: GapX
 
   /**
    * Sets the row gap between children.
    * This corresponds to Tailwind's `gap-y-*` classes.
    */
-  row_gap?: GapY
+  rowGap?: GapY
 
   /**
    * Controls how the grid auto-places items along rows or columns.
@@ -139,19 +139,19 @@ export interface GridProps extends HTMLAttributes<HTMLElement> {
    * Controls the size of implicitly-created grid columns.
    * This corresponds to Tailwind's `auto-cols-*` classes.
    */
-  auto_cols?: GridAutoCols
+  autoCols?: GridAutoCols
 
   /**
    * Controls the size of implicitly-created grid rows.
    * This corresponds to Tailwind's `auto-rows-*` classes.
    */
-  auto_rows?: GridAutoRows
+  autoRows?: GridAutoRows
 
   /**
    * Controls how Grid component items are aligned along their inline axis.
    * This corresponds to Tailwind's `justify-items-*` classes.
    */
-  justify_items?: GridJustifyItems
+  justifyItems?: GridJustifyItems
 
   /**
    * Aligns items on the cross axis. Matches Tailwind `items-*` classes.
@@ -167,6 +167,5 @@ export interface GridProps extends HTMLAttributes<HTMLElement> {
   /**
    * Optional additional CSS classes to apply to the Grid.
    */
-  // biome-ignore lint/style/useNamingConvention: default className prop
   className?: string
 }

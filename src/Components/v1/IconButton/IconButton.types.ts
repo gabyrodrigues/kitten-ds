@@ -24,13 +24,12 @@ export interface IconButtonProps
   /**
    * Optional additional CSS classes to apply to the icon button component.
    */
-  // biome-ignore lint/style/useNamingConvention: default className prop
   className?: string
 
   /**
    * Optional additional CSS classes to apply to the icon element inside the button.
    */
-  icon_class_name?: string
+  iconClassName?: string
 
   /**
    * Font weight of the icon.
@@ -41,7 +40,7 @@ export interface IconButtonProps
    * Style variant of the icon inside the button ("filled" | "outlined").
    * @default "default"
    */
-  icon_variant?: IconVariant
+  iconVariant?: IconVariant
 
   /**
    * Size variant of the icon button ("small" | "medium" | "large").
@@ -70,12 +69,11 @@ export interface IconButtonProps
    * Accessible label for screen readers.
    * Describes the button's purpose.
    */
-  aria_label: string
+  ariaLabel: string
 
   /**
    * The click event handler for the button.
    * @returns The result of the click event handler.
    */
-  // biome-ignore lint/style/useNamingConvention: prop name is not camelCase
   onClick?: MouseEventHandler<HTMLButtonElement>
 }

@@ -61,7 +61,7 @@ describe("Button", () => {
   })
 
   it("handles keyboard interaction on custom component", async () => {
-    const handle_click = vi.fn()
+    const handleClick = vi.fn()
 
     render(
       <Button
@@ -69,7 +69,7 @@ describe("Button", () => {
         // biome-ignore lint/a11y/useSemanticElements: test case
         role="button"
         tabIndex={0}
-        onClick={handle_click}
+        onClick={handleClick}
       >
         Press me
       </Button>
@@ -83,7 +83,7 @@ describe("Button", () => {
 
     // Simulate Enter key
     fireEvent.keyDown(button, { key: "Enter" })
-    expect(handle_click).toHaveBeenCalled()
+    expect(handleClick).toHaveBeenCalled()
 
     // Check accessibility with axe
     const results = await axe(button)
@@ -91,12 +91,12 @@ describe("Button", () => {
   })
 
   it("is not clickable when disabled", () => {
-    const on_click = vi.fn()
+    const onClick = vi.fn()
 
     render(
       <Button
         disabled
-        onClick={on_click}
+        onClick={onClick}
       >
         Can't click
       </Button>
@@ -107,14 +107,14 @@ describe("Button", () => {
 
     fireEvent.click(button)
 
-    expect(on_click).not.toHaveBeenCalled()
+    expect(onClick).not.toHaveBeenCalled()
   })
 
   it("renders left and right sections", () => {
     render(
       <Button
-        left_section={<span data-testid="left">Left section</span>}
-        right_section={<span data-testid="right">Right section</span>}
+        leftSection={<span data-testid="left">Left section</span>}
+        rightSection={<span data-testid="right">Right section</span>}
       >
         Button
       </Button>
@@ -125,15 +125,15 @@ describe("Button", () => {
   })
 
   it("calls preventDefault and stopPropagation and does not call onClick when disabled (non-native button)", async () => {
-    const on_click = vi.fn()
-    const prevent_default_spy = vi.spyOn(Event.prototype, "preventDefault")
-    const stop_propagation_spy = vi.spyOn(Event.prototype, "stopPropagation")
+    const onClick = vi.fn()
+    const preventDefaultSpy = vi.spyOn(Event.prototype, "preventDefault")
+    const stopPropagationSpy = vi.spyOn(Event.prototype, "stopPropagation")
 
     render(
       <Button
         disabled
         component="div"
-        onClick={on_click}
+        onClick={onClick}
       >
         Click me
       </Button>
@@ -143,12 +143,12 @@ describe("Button", () => {
 
     await userEvent.click(button)
 
-    expect(on_click).not.toHaveBeenCalled()
-    expect(prevent_default_spy).toHaveBeenCalled()
-    expect(stop_propagation_spy).toHaveBeenCalled()
+    expect(onClick).not.toHaveBeenCalled()
+    expect(preventDefaultSpy).toHaveBeenCalled()
+    expect(stopPropagationSpy).toHaveBeenCalled()
 
-    prevent_default_spy.mockRestore()
-    stop_propagation_spy.mockRestore()
+    preventDefaultSpy.mockRestore()
+    stopPropagationSpy.mockRestore()
   })
 
   it("shows visible focus outline when focused", () => {

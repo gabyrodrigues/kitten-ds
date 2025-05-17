@@ -9,25 +9,25 @@ export default function Flex({
   justify = "justify-start",
   className,
   children,
-  col_gap,
+  colGap,
   gap,
   height,
   order,
-  padding_x,
-  padding_y,
+  paddingX,
+  paddingY,
   radius,
-  row_gap,
+  rowGap,
   width,
   wrap,
   ...props
 }: FlexProps) {
-  const merged_classes = cn(
+  const mergedClasses = cn(
     "flex",
     flex,
     radius,
     gap,
-    row_gap,
-    col_gap,
+    rowGap,
+    colGap,
     height,
     width,
     align,
@@ -35,8 +35,8 @@ export default function Flex({
     wrap,
     direction,
     order,
-    padding_x,
-    padding_y,
+    paddingX,
+    paddingY,
     className
   )
 
@@ -44,7 +44,7 @@ export default function Flex({
 
   return (
     <COMPONENT
-      className={merged_classes}
+      className={mergedClasses}
       {...props}
     >
       {children}

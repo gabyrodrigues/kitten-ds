@@ -29,7 +29,7 @@ const meta: Meta<typeof Text> = {
       options: ["body1", "body2", "body3", "body4"],
       description: "The variant of the Text component."
     },
-    font_size: {
+    fontSize: {
       control: { type: "select" },
       options: [
         "text-xs",
@@ -48,11 +48,11 @@ const meta: Meta<typeof Text> = {
       ],
       description: "The font-size of the Text component."
     },
-    margin_bottom: {
+    marginBottom: {
       control: { type: "text" },
       description: "The margin applied at the bottom of the Text component."
     },
-    margin_top: {
+    marginTop: {
       control: { type: "text" },
       description: "The margin applied at the top of the Text component."
     },
@@ -71,7 +71,7 @@ const meta: Meta<typeof Text> = {
       ],
       description: "Tailwind class for controlling the letter text weight for the Text component."
     },
-    letter_spacing: {
+    letterSpacing: {
       control: { type: "select" },
       options: [
         "tracking-tighter",
@@ -105,7 +105,7 @@ const meta: Meta<typeof Text> = {
       ],
       description: "Tailwind class for controlling an element's white-space property."
     },
-    word_break: {
+    wordBreak: {
       control: { type: "select" },
       options: ["break-normal", "break-all", "break-keep"],
       description: "Tailwind class for controlling how text wraps within an element."
@@ -115,11 +115,11 @@ const meta: Meta<typeof Text> = {
       options: ["uppercase", "lowercase", "capitalize", "normal-case"],
       description: "Tailwind class for controlling the transformation of text."
     },
-    line_clamp: {
+    lineClamp: {
       control: { type: "text" },
       description: "Tailwind class for controlling the number of lines before clamping."
     },
-    line_height: {
+    lineHeight: {
       control: { type: "select" },
       options: [
         "leading-none",
@@ -131,7 +131,7 @@ const meta: Meta<typeof Text> = {
       ],
       description: "Tailwind class for controlling the line height of the Text component."
     },
-    font_style: {
+    fontStyle: {
       control: { type: "select" },
       options: ["italic", "not-italic"],
       description: "Tailwind class for controlling the font style of the Text component."

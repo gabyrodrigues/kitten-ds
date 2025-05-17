@@ -34,12 +34,11 @@ export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
    * This corresponds to Tailwind's `border-*` classes.
    * @default "border-b-link"
    */
-  border_color?: BorderColor
+  borderColor?: BorderColor
 
   /**
    * Controls extra CSS class names in the Link component.
    */
-  // biome-ignore lint/style/useNamingConvention: default className prop
   className?: string
 
   /**
@@ -61,13 +60,12 @@ export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   /**
    * Click handler.
    */
-  // biome-ignore lint/style/useNamingConvention: prop name is not camelCase
   onClick?: MouseEventHandler<HTMLElement>
 
   /**
    * Option to control the Link font-size.
    */
-  font_size?: TextSize
+  fontSize?: TextSize
 
   /**
    *  The font weight for the Link component.
@@ -89,10 +87,10 @@ export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
    * The line height of the Link component.
    * This corresponds to Tailwind's `leading-*` classes.
    */
-  line_height?: LineHeight
+  lineHeight?: LineHeight
 
   /**
    * The letter spacing of the Link component.
    */
-  letter_spacing?: LetterSpacing
+  letterSpacing?: LetterSpacing
 }

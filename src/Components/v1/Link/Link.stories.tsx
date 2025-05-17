@@ -35,7 +35,7 @@ const meta: Meta<typeof Link> = {
       options: ["_self", "_blank", "_parent", "_top"],
       description: "Target behavior for the link."
     },
-    font_size: {
+    fontSize: {
       control: { type: "text" },
       description: "Option to control the Link font-size."
     },
@@ -43,7 +43,7 @@ const meta: Meta<typeof Link> = {
       control: { type: "text" },
       description: "The color for the Link component."
     },
-    border_color: {
+    borderColor: {
       control: { type: "text" },
       description: "The bottom border color of the link."
     },
@@ -79,7 +79,7 @@ const meta: Meta<typeof Link> = {
       options: ["uppercase", "lowercase", "capitalize", "normal-case"],
       description: "Controls the transformation of link."
     },
-    line_height: {
+    lineHeight: {
       control: { type: "select" },
       options: [
         "leading-none",
@@ -91,7 +91,7 @@ const meta: Meta<typeof Link> = {
       ],
       description: "The line height of the Link component."
     },
-    letter_spacing: {
+    letterSpacing: {
       control: { type: "select" },
       options: [
         "tracking-tighter",
