@@ -31,25 +31,11 @@ export interface IconProps extends HTMLAttributes<HTMLSpanElement> {
   type: IconType
 
   /**
-   * Whether the icon should appear visually disabled.
-   * If true, the `color_disabled` will be applied instead of `color`.
-   * @default false
-   */
-  disabled?: boolean
-
-  /**
    * Tailwind text color class applied when the icon is active.
    * This corresponds to Tailwind's `text-*` classes.
    * Use "inherit" to inherit color from parent.
    */
   color?: TextColor | "inherit"
-
-  /**
-   * Tailwind text color class applied when `disabled` is true.
-   * This corresponds to Tailwind's `text-*` classes.
-   * Use "inherit" to inherit color from parent.
-   */
-  color_disabled?: TextColor | "inherit"
 
   /**
    * Optional additional CSS classes to apply to the icon.

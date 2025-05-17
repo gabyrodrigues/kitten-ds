@@ -20,11 +20,6 @@ const meta = {
       description:
         "Option to control the icon's color. This corresponds to Tailwind's `text-*` classes."
     },
-    color_disabled: {
-      control: { type: "text" },
-      description:
-        "Tailwind text color class applied when `disabled` is true. This corresponds to Tailwind's `text-*` classes."
-    },
     type: {
       control: { type: "text" },
       description:
@@ -33,11 +28,6 @@ const meta = {
     font_size: {
       control: { type: "text" },
       description: "Tailwind text size class to control the icon's size."
-    },
-    disabled: {
-      control: { type: "boolean" },
-      options: [true, false],
-      description: "If true, applies the disabled state to the icon."
     },
     variant: {
       control: { type: "select" },
@@ -59,24 +49,15 @@ const meta = {
     variant: "outlined",
     font_size: "text-xl",
     weight: 400,
-    color: "text-typography-primary",
-    color_disabled: "text-typography-disabled",
-    disabled: false
+    color: "text-typography-primary"
   }
 } satisfies Meta<typeof Icon>
 export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Enable: Story = {
+export const Default: Story = {
   args: {
     type: "person"
-  }
-}
-
-export const Disable: Story = {
-  args: {
-    type: "person",
-    disabled: true
   }
 }

@@ -9,6 +9,17 @@ describe("Icon", () => {
     expect(screen.getByText("person")).toBeInTheDocument()
   })
 
+  it("falls back to default class when variant is missing", () => {
+    render(
+      <Icon
+        type="alert"
+        weight={500}
+      />
+    )
+    const icon = screen.getByText("alert")
+    expect(icon).toHaveClass("icon-outlined-weight-500")
+  })
+
   it("applies the correct Tailwind classes based on props", () => {
     render(
       <Icon
@@ -21,21 +32,6 @@ describe("Icon", () => {
 
     const icon = screen.getByText("person")
     expect(icon).toHaveClass("text-red-500", "text-xl", "icon-outlined-weight-700")
-  })
-
-  it("applies disabled color when `disabled` is true", () => {
-    render(
-      <Icon
-        type="lock"
-        disabled
-        color="text-blue-500"
-        color_disabled="text-gray-300"
-      />
-    )
-
-    const icon = screen.getByText("lock")
-    expect(icon).toHaveClass("text-gray-300")
-    expect(icon).not.toHaveClass("text-blue-500")
   })
 
   it("applies correct font weight classes for different font weights", () => {

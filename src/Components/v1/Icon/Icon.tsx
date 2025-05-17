@@ -4,9 +4,7 @@ import type { IconProps } from "./Icon.types"
 export default function Icon({
   type,
   variant = "outlined",
-  disabled = false,
   color = "text-typography-primary",
-  color_disabled = "text-typography-disabled",
   font_size = "text-xl",
   weight = 400,
   className,
@@ -15,9 +13,9 @@ export default function Icon({
   const merged_classes = cn(
     "material-symbols-icons",
     "leading-none",
+    color,
     font_size,
     getWeightClass(),
-    disabled ? color_disabled : color,
     className
   )
 
