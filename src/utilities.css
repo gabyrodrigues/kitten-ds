@@ -110,7 +110,7 @@
 @utility text-button {
   font-size: 0.875rem;
   font-weight: 700;
-  line-height: 1.4;
+  line-height: 1.42;
 }
 
 @utility text-chip {

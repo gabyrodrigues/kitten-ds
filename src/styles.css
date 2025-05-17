@@ -128,3 +128,7 @@
   --color-warning-200: #ffecb3;
   --color-warning-100: #fff8e1;
 }
+
+body {
+  font-family: "Inter", sans-serif;
+}
