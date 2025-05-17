@@ -103,9 +103,10 @@ describe("Button", () => {
     )
 
     const button = screen.getByRole("button", { name: "Can't click" })
-    expect(button).toBeDisabled()
+    expect(button).toHaveAttribute("aria-disabled", "true")
 
-    button.click()
+    fireEvent.click(button)
+
     expect(on_click).not.toHaveBeenCalled()
   })
 
