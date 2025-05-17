@@ -68,6 +68,7 @@ export type TextSize =
   | "text-body2"
   | "text-body3"
   | "text-body4"
+  | "text-inherit"
   | `text-(length:${string})`
   | `text-[${string}]`
 

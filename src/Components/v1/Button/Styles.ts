@@ -2,7 +2,7 @@ import { tv } from "tailwind-variants"
 
 export const button_variants = tv({
   base: [
-    "px-4 py-3",
+    "px-4 py-3 min-h-11",
     "focus:outline-0 focus:ring-3 focus:ring-focus-ring focus:ring-offset-2",
     "flex rounded-lg data-[disabled=true]:text-typography-disabled data-[disabled=true]:cursor-default relative"
   ],

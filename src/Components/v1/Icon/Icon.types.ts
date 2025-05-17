@@ -26,7 +26,7 @@ export type IconWeight = 400 | 500 | 700
 export interface IconProps extends HTMLAttributes<HTMLSpanElement> {
   /**
    * The icon name to render.
-   * Usually matches a Material Symbols icon name.
+   * It matches a Material Symbols icon name.
    */
   type: IconType
 

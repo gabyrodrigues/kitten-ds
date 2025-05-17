@@ -28,7 +28,7 @@ const meta = {
     type: {
       control: { type: "text" },
       description:
-        "The icon name to render. Usually corresponds to a Material Symbols icon name (e.g., 'home', 'search')."
+        "The icon name to render. It corresponds to a Material Symbols icon name (e.g., 'home', 'search')."
     },
     font_size: {
       control: { type: "text" },

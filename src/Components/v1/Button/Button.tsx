@@ -75,7 +75,8 @@ export default function Button({
     <COMPONENT
       type={is_native_button ? type : undefined}
       role={is_native_button ? undefined : "button"}
-      aria-disabled={!is_native_button && disabled ? true : undefined}
+      aria-disabled={disabled}
+      data-disabled={disabled}
       disabled={is_native_button ? disabled : undefined}
       tabIndex={!is_native_button && disabled ? 0 : undefined}
       onKeyDown={is_native_button ? undefined : handleKeyDown}

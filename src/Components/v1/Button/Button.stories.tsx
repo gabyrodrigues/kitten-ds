@@ -169,8 +169,6 @@ const meta: Meta<typeof Button> = {
     children: "Button",
     align: "items-center",
     justify: "justify-center",
-    letter_spacing: "tracking-normal",
-    line_height: "leading-normal",
     disabled: false,
     full: false
   }
