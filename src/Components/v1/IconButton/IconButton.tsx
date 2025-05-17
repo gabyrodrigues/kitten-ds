@@ -1,28 +1,28 @@
 import { cn } from "@utils"
-import type { KeyboardEvent, MouseEvent } from "react"
+import { type KeyboardEvent, type MouseEvent, type Ref, forwardRef } from "react"
 import { Icon } from "../Icon"
 import type { IconButtonProps } from "./IconButton.types"
 import { iconButtonVariants } from "./Styles"
 
-export default function IconButton({
-  ariaLabel,
-  className,
-  color = "primary",
-  disabled,
-  icon,
-  iconClassName,
-  iconVariant = "outlined",
-  size = "large",
-  variant = "default",
-  weight = 400,
-  onClick,
-  ...props
-}: IconButtonProps) {
-  const variantClasses = iconButtonVariants({
-    color,
-    variant,
-    size
-  })
+// biome-ignore lint/style/useNamingConvention: component name is IconButton
+const IconButton = forwardRef(function IconButton(
+  {
+    ariaLabel,
+    className,
+    color = "primary",
+    disabled,
+    icon,
+    iconClassName,
+    iconVariant = "outlined",
+    size = "large",
+    variant = "default",
+    weight = 400,
+    onClick,
+    ...props
+  }: IconButtonProps,
+  ref: Ref<HTMLButtonElement>
+) {
+  const variantClasses = iconButtonVariants({ color, variant, size })
 
   const mergedClasses = cn(
     disabled ? "cursor-default" : "cursor-pointer",
@@ -48,6 +48,7 @@ export default function IconButton({
 
   return (
     <button
+      ref={ref}
       type="button"
       aria-disabled={disabled}
       tabIndex={disabled ? 0 : undefined}
@@ -68,4 +69,8 @@ export default function IconButton({
       />
     </button>
   )
-}
+})
+
+IconButton.displayName = "IconButton"
+
+export default IconButton

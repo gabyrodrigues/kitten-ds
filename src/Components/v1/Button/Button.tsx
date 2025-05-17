@@ -1,38 +1,39 @@
 import { cn } from "@utils"
-import type { KeyboardEvent, MouseEvent, ReactElement } from "react"
+import { type KeyboardEvent, type MouseEvent, type ReactElement, forwardRef } from "react"
 import type { ButtonProps } from "./Button.types"
 import { buttonVariants } from "./Styles"
 
-export default function Button({
-  align = "items-center",
-  bgColor,
-  borderColor,
-  children,
-  className,
-  color = "primary",
-  component = "button",
-  disabled,
-  fontSize,
-  full = false,
-  justify = "justify-center",
-  leftSection,
-  letterSpacing,
-  lineHeight,
-  radius,
-  rightSection,
-  transform,
-  textColor,
-  type = "button",
-  variant = "filled",
-  weight,
-  whitespace,
-  onClick,
-  ...props
-}: ButtonProps): ReactElement {
-  const variantClasses = buttonVariants({
-    variant,
-    color
-  })
+// biome-ignore lint/style/useNamingConvention: component name is Button
+const Button = forwardRef<HTMLElement, ButtonProps>(function Button(
+  {
+    align = "items-center",
+    bgColor,
+    borderColor,
+    children,
+    className,
+    color = "primary",
+    component = "button",
+    disabled,
+    fontSize,
+    full = false,
+    justify = "justify-center",
+    leftSection,
+    letterSpacing,
+    lineHeight,
+    radius,
+    rightSection,
+    transform,
+    textColor,
+    type = "button",
+    variant = "filled",
+    weight,
+    whitespace,
+    onClick,
+    ...props
+  }: ButtonProps,
+  ref
+): ReactElement {
+  const variantClasses = buttonVariants({ variant, color })
   const mergedClasses = cn(
     variantClasses,
     "text-button",
@@ -73,6 +74,7 @@ export default function Button({
 
   return (
     <COMPONENT
+      ref={ref}
       type={isNativeButton ? type : undefined}
       role={isNativeButton ? undefined : "button"}
       aria-disabled={disabled}
@@ -88,4 +90,8 @@ export default function Button({
       {rightSection && rightSection}
     </COMPONENT>
   )
-}
+})
+
+Button.displayName = "Button"
+
+export default Button
