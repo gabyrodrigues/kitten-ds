@@ -49,7 +49,8 @@ const meta = {
     variant: "outlined",
     fontSize: "text-xl",
     weight: 400,
-    color: "text-typography-primary"
+    color: "text-typography-primary",
+    "aria-label": "Settings"
   }
 } satisfies Meta<typeof Icon>
 export default meta
@@ -58,6 +59,6 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    type: "person"
+    type: "settings"
   }
 }

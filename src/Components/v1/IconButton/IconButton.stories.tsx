@@ -64,7 +64,10 @@ const meta = {
     variant: "default",
     color: "gray",
     size: "large",
-    ariaLabel: "Settings"
+    ariaLabel: "Settings",
+    onClick: () => {
+      console.info("Icon Button clicked")
+    }
   }
 } satisfies Meta<typeof IconButton>
 

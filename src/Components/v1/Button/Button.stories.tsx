@@ -170,7 +170,10 @@ const meta: Meta<typeof Button> = {
     align: "items-center",
     justify: "justify-center",
     disabled: false,
-    full: false
+    full: false,
+    onClick: () => {
+      console.info("Button clicked")
+    }
   }
 }
 
