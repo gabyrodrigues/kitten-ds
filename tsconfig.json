@@ -17,7 +17,11 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "types": ["vitest/globals", "@testing-library/jest-dom"]
+    "types": ["vitest/globals", "@testing-library/jest-dom"],
+    "baseUrl": ".",
+    "paths": {
+      "@utils": ["src/utils.ts"]
+    }
   },
   "include": ["src", "tests", "vitest.setup.ts", "vitest.build.ts"],
   "exclude": ["**/*.stories.tsx", "src/stories"],

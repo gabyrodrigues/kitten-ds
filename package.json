@@ -1,6 +1,6 @@
 {
   "name": "kitten-ds",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "type": "module",
   "author": "Gabriely de Lima <gabrielylima.dev@gmail.com>",
   "description": "Kitten DS is an accessible, usability-tested design system focused on intuitive, user-friendly interfaces.",
@@ -27,7 +27,7 @@
     "build:test": "rm -rf dis tests/build && rollup -c rollup.test.js --bundleConfigAsCjs ",
     "build:vite": "rm -rf dist && tsc && vite build",
     "build-storybook": "storybook build",
-    "coverage": "vitest run --coverage",
+    "coverage": "vitest run --coverage --config vitest.build.ts",
     "dev": "vite",
     "lint": "biome check --fix --unsafe ./src/**",
     "lint:ci": "biome check --diagnostic-level=error ./src/**",

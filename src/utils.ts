@@ -3,7 +3,6 @@ import { extendTailwindMerge } from "tailwind-merge"
 
 export const CUSTOM_TW_MERGE = extendTailwindMerge({
   extend: {
-    // biome-ignore lint/style/useNamingConvention: lib custom property
     classGroups: {
       "font-size": [
         "text-display1",
@@ -19,12 +18,13 @@ export const CUSTOM_TW_MERGE = extendTailwindMerge({
         "text-body2",
         "text-body3",
         "text-body4",
-        "text-body5"
+        "text-body5",
+        "text-button",
+        "text-chip"
       ]
     }
   },
   override: {
-    // biome-ignore lint/style/useNamingConvention: lib custom property
     conflictingClassGroups: {
       "font-size": []
     }
@@ -33,4 +33,30 @@ export const CUSTOM_TW_MERGE = extendTailwindMerge({
 
 export function cn(...inputs: ClassValue[]) {
   return CUSTOM_TW_MERGE(clsx(inputs))
+}
+
+export function sanitizeHtml(input: string): string {
+  const allowedTags = ["b", "i", "u", "em", "strong", "p", "s", "small", "br", "a"]
+  const allowedAttributes = ["href", "class"]
+
+  // Create a temporary DOM element to parse the HTML
+  const container = document.createElement("div")
+  container.innerHTML = input
+
+  for (const node of container.querySelectorAll("*")) {
+    const tagName = node.tagName.toLowerCase()
+
+    if (!allowedTags.includes(tagName)) {
+      node.remove()
+      continue
+    }
+
+    for (const attr of [...node.attributes]) {
+      if (!allowedAttributes.includes(attr.name.toLowerCase())) {
+        node.removeAttribute(attr.name)
+      }
+    }
+  }
+
+  return container.innerHTML
 }

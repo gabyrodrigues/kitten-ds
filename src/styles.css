@@ -28,8 +28,8 @@
   --color-secondary-hover: var(--color-brand-blue-900);
   --color-secondary-highlight: var(--color-brand-blue-100);
 
-  --color-error: var(--color-error-500);
-  --color-error-hover: var(--color-error-400);
+  --color-error: var(--color-error-400);
+  --color-error-hover: var(--color-error-500);
   --color-error-highlight: var(--color-error-100);
 
   --color-success: var(--color-success-400);
@@ -67,7 +67,7 @@
   --color-input-placeholder: var(--color-neutral-gray-400);
 
   /* ---  State Links & Focus --- */
-  --color-focus-ring: var(--color-brand-blue-900);
+  --color-focus-ring: var(--color-brand-blue-700);
   --color-link: var(--color-brand-blue-900);
   --color-link-hover: var(--color-brand-blue-800);
   --color-link-visited: var(--color-brand-purple-900);
@@ -127,4 +127,8 @@
   --color-warning-300: #ffe082;
   --color-warning-200: #ffecb3;
   --color-warning-100: #fff8e1;
+}
+
+body {
+  font-family: "Inter", sans-serif;
 }

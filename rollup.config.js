@@ -11,10 +11,9 @@ const CJS_MJS_N_STYLES = {
       file: "dist/cjs/index.cjs",
       format: "cjs",
       sourcemap: true,
-      // biome-ignore lint/style/useNamingConvention: lib custom property
-      entryFileNames: (chunk_info) => {
-        if (chunk_info.name.includes("node_modules"))
-          return `${chunk_info.name.replace("node_modules", "external")}.cjs`
+      entryFileNames: (chunkInfo) => {
+        if (chunkInfo.name.includes("node_modules"))
+          return `${chunkInfo.name.replace("node_modules", "external")}.cjs`
         return "[name].cjs"
       }
     },
@@ -22,10 +21,9 @@ const CJS_MJS_N_STYLES = {
       file: "dist/esm/index.mjs",
       format: "esm",
       sourcemap: true,
-      // biome-ignore lint/style/useNamingConvention: lib custom property
-      entryFileNames: (chunk_info) => {
-        if (chunk_info.name.includes("node_modules"))
-          return `${chunk_info.name.replace("node_modules", "external")}.mjs`
+      entryFileNames: (chunkInfo) => {
+        if (chunkInfo.name.includes("node_modules"))
+          return `${chunkInfo.name.replace("node_modules", "external")}.mjs`
         return "[name].mjs"
       }
     }
@@ -55,15 +53,12 @@ const TYPES = {
     {
       dir: "./dist/types/",
       format: "es",
-      // biome-ignore lint/style/useNamingConvention: lib custom property
       preserveModules: true,
       sourcemap: true,
-      // biome-ignore lint/style/useNamingConvention: lib custom property
       preserveModulesRoot: "src",
-      // biome-ignore lint/style/useNamingConvention: lib custom property
-      entryFileNames: (chunk_info) => {
-        if (chunk_info.name.includes("node_modules"))
-          return `${chunk_info.name.replace("node_modules", "external")}.d.ts`
+      entryFileNames: (chunkInfo) => {
+        if (chunkInfo.name.includes("node_modules"))
+          return `${chunkInfo.name.replace("node_modules", "external")}.d.ts`
         return "[name].d.ts"
       }
     }
