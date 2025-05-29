@@ -16,23 +16,45 @@ const meta: Meta<typeof Flex> = {
   },
   tags: ["autodocs"],
   argTypes: {
+    align: {
+      control: { type: "select" },
+      options: ["items-start", "items-center", "items-end", "items-baseline", "items-stretch"],
+      description: "Alinha os itens no eixo cruzado do Flex."
+    },
+
     children: {
       control: { type: "text" },
       description: "Conteúdo interno do componente Flex."
     },
-    flex: {
+    className: {
       control: { type: "text" },
-      description:
-        "Define como os itens dentro do Flex crescem ou encolhem para ocupar o espaço disponível."
+      description: "Classes CSS adicionais opcionais para o Flex."
+    },
+    colGap: {
+      control: { type: "text" },
+      description: "Espaçamento entre colunas dos itens."
+    },
+    component: {
+      control: { type: "text" },
+      description: "Define o elemento HTML que será renderizado."
     },
     direction: {
       control: { type: "select" },
       options: ["flex-row", "flex-col", "flex-row-reverse", "flex-col-reverse"],
       description: "Direção do Flex."
     },
-    radius: {
+    flex: {
       control: { type: "text" },
-      description: "Controla o arredondamento das bordas do Flex."
+      description:
+        "Define como os itens dentro do Flex crescem ou encolhem para ocupar o espaço disponível."
+    },
+    gap: {
+      control: { type: "text" },
+      description: "Espaçamento entre os itens do Flex."
+    },
+    height: {
+      control: { type: "text" },
+      description: "Altura do componente Flex."
     },
     justify: {
       control: { type: "select" },
@@ -46,39 +68,6 @@ const meta: Meta<typeof Flex> = {
       ],
       description: "Justifica os itens no eixo principal do Flex."
     },
-    align: {
-      control: { type: "select" },
-      options: ["items-start", "items-center", "items-end", "items-baseline", "items-stretch"],
-      description: "Alinha os itens no eixo cruzado do Flex."
-    },
-    gap: {
-      control: { type: "text" },
-      description: "Espaçamento entre os itens do Flex."
-    },
-    component: {
-      control: { type: "text" },
-      description: "Define o elemento HTML que será renderizado."
-    },
-    rowGap: {
-      control: { type: "text" },
-      description: "Espaçamento entre linhas dos itens."
-    },
-    colGap: {
-      control: { type: "text" },
-      description: "Espaçamento entre colunas dos itens."
-    },
-    height: {
-      control: { type: "text" },
-      description: "Altura do componente Flex."
-    },
-    width: {
-      control: { type: "text" },
-      description: "Largura do componente Flex."
-    },
-    className: {
-      control: { type: "text" },
-      description: "Classes CSS adicionais opcionais para o Flex."
-    },
     order: {
       control: { type: "text" },
       description: "Controla a ordem dos itens dentro do Flex."
@@ -90,6 +79,18 @@ const meta: Meta<typeof Flex> = {
     paddingY: {
       control: { type: "text" },
       description: "Espaçamento interno vertical."
+    },
+    radius: {
+      control: { type: "text" },
+      description: "Controla o arredondamento das bordas do Flex."
+    },
+    rowGap: {
+      control: { type: "text" },
+      description: "Espaçamento entre linhas dos itens."
+    },
+    width: {
+      control: { type: "text" },
+      description: "Largura do componente Flex."
     },
     wrap: {
       control: { type: "select" },

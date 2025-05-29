@@ -16,18 +16,27 @@ const meta = {
   },
   tags: ["autodocs"],
   argTypes: {
+    "aria-label": {
+      control: { type: "text" },
+      description:
+        "Rótulo acessível para o ícone, usado por leitores de tela e tecnologias assistivas."
+    },
+    className: {
+      control: { type: "text" },
+      description: "Classes CSS adicionais opcionais para aplicar ao ícone."
+    },
     color: {
       control: { type: "text" },
       description: "Controla a cor do ícone."
+    },
+    fontSize: {
+      control: { type: "text" },
+      description: "Classe de tamanho de texto do Tailwind para controlar o tamanho do ícone."
     },
     type: {
       control: { type: "text" },
       description:
         "Nome do ícone a ser exibido, baseado nos nomes do Material Symbols (ex.: 'home', 'search')."
-    },
-    fontSize: {
-      control: { type: "text" },
-      description: "Classe de tamanho de texto do Tailwind para controlar o tamanho do ícone."
     },
     variant: {
       control: { type: "select" },
@@ -39,15 +48,6 @@ const meta = {
       control: { type: "select" },
       options: [400, 500, 700],
       description: "Define o peso da fonte usado para renderizar o ícone."
-    },
-    className: {
-      control: { type: "text" },
-      description: "Classes CSS adicionais opcionais para aplicar ao ícone."
-    },
-    "aria-label": {
-      control: { type: "text" },
-      description:
-        "Rótulo acessível para o ícone, usado por leitores de tela e tecnologias assistivas."
     }
   },
   args: {

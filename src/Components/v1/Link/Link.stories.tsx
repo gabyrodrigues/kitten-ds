@@ -15,14 +15,54 @@ const meta: Meta<typeof Link> = {
   },
   tags: ["autodocs"],
   argTypes: {
+    borderColor: {
+      control: { type: "text" },
+      description: "Cor da borda inferior do link."
+    },
     children: {
       control: { type: "text" },
       description: "Conteúdo exibido dentro do link."
+    },
+    className: {
+      control: { type: "text" },
+      description: "Classes CSS adicionais opcionais para o link."
+    },
+    color: {
+      control: { type: "text" },
+      description: "Cor do texto do link."
     },
     disabled: {
       control: { type: "boolean" },
       description:
         "Define se o link está desabilitado. Quando desabilitado, o link não pode ser clicado e não responde a eventos de interação."
+    },
+    fontSize: {
+      control: { type: "text" },
+      description: "Controla o tamanho da fonte do link."
+    },
+    letterSpacing: {
+      control: { type: "select" },
+      options: [
+        "tracking-tighter",
+        "tracking-tight",
+        "tracking-normal",
+        "tracking-wide",
+        "tracking-wider",
+        "tracking-widest"
+      ],
+      description: "Espaçamento entre as letras do link."
+    },
+    lineHeight: {
+      control: { type: "select" },
+      options: [
+        "leading-none",
+        "leading-tight",
+        "leading-snug",
+        "leading-normal",
+        "leading-relaxed",
+        "leading-loose"
+      ],
+      description: "Altura da linha do texto do link."
     },
     href: {
       control: { type: "text" },
@@ -37,17 +77,10 @@ const meta: Meta<typeof Link> = {
       options: ["_self", "_blank", "_parent", "_top"],
       description: "Define como o link será aberto (na mesma aba, nova aba, etc)."
     },
-    fontSize: {
-      control: { type: "text" },
-      description: "Controla o tamanho da fonte do link."
-    },
-    color: {
-      control: { type: "text" },
-      description: "Cor do texto do link."
-    },
-    borderColor: {
-      control: { type: "text" },
-      description: "Cor da borda inferior do link."
+    transform: {
+      control: { type: "select" },
+      options: ["uppercase", "lowercase", "capitalize", "normal-case"],
+      description: "Transformação do texto."
     },
     weight: {
       control: { type: "select" },
@@ -75,39 +108,6 @@ const meta: Meta<typeof Link> = {
         "whitespace-break-spaces"
       ],
       description: "Controla o comportamento do espaço em branco do texto."
-    },
-    transform: {
-      control: { type: "select" },
-      options: ["uppercase", "lowercase", "capitalize", "normal-case"],
-      description: "Transformação do texto."
-    },
-    lineHeight: {
-      control: { type: "select" },
-      options: [
-        "leading-none",
-        "leading-tight",
-        "leading-snug",
-        "leading-normal",
-        "leading-relaxed",
-        "leading-loose"
-      ],
-      description: "Altura da linha do texto do link."
-    },
-    letterSpacing: {
-      control: { type: "select" },
-      options: [
-        "tracking-tighter",
-        "tracking-tight",
-        "tracking-normal",
-        "tracking-wide",
-        "tracking-wider",
-        "tracking-widest"
-      ],
-      description: "Espaçamento entre as letras do link."
-    },
-    className: {
-      control: { type: "text" },
-      description: "Classes CSS adicionais opcionais para o link."
     }
   },
   args: {

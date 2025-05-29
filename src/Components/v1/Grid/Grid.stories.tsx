@@ -16,6 +16,18 @@ const meta: Meta<typeof Grid> = {
   },
   tags: ["autodocs"],
   argTypes: {
+    align: {
+      control: { type: "text" },
+      description: "Alinha os itens do Grid ao longo do eixo vertical."
+    },
+    autoCols: {
+      control: { type: "text" },
+      description: "Define o tamanho das colunas criadas implicitamente."
+    },
+    autoRows: {
+      control: { type: "text" },
+      description: "Define o tamanho das linhas criadas implicitamente."
+    },
     children: {
       control: { type: "text" },
       description: "Conteúdo interno do componente Grid."
@@ -44,30 +56,6 @@ const meta: Meta<typeof Grid> = {
       control: { type: "text" },
       description: "Define a posição final da coluna para um item do grid."
     },
-    rows: {
-      control: { type: "text" },
-      description: "Define as linhas do layout grid."
-    },
-    rowSpan: {
-      control: { type: "text" },
-      description: "Define quantas linhas um item do grid deve ocupar."
-    },
-    rowStart: {
-      control: { type: "text" },
-      description: "Define a posição inicial da linha para um item do grid."
-    },
-    rowEnd: {
-      control: { type: "text" },
-      description: "Define a posição final da linha para um item do grid."
-    },
-    gap: {
-      control: { type: "text" },
-      description: "Espaçamento entre os itens do Grid."
-    },
-    rowGap: {
-      control: { type: "text" },
-      description: "Espaçamento entre as linhas."
-    },
     colGap: {
       control: { type: "text" },
       description: "Espaçamento entre as colunas."
@@ -76,21 +64,33 @@ const meta: Meta<typeof Grid> = {
       control: { type: "text" },
       description: "Controla como os itens são posicionados automaticamente em linhas ou colunas."
     },
-    autoCols: {
+    gap: {
       control: { type: "text" },
-      description: "Define o tamanho das colunas criadas implicitamente."
-    },
-    autoRows: {
-      control: { type: "text" },
-      description: "Define o tamanho das linhas criadas implicitamente."
+      description: "Espaçamento entre os itens do Grid."
     },
     justifyItems: {
       control: { type: "text" },
       description: "Alinha os itens do Grid ao longo do eixo horizontal."
     },
-    align: {
+    rows: {
       control: { type: "text" },
-      description: "Alinha os itens do Grid ao longo do eixo vertical."
+      description: "Define as linhas do layout grid."
+    },
+    rowEnd: {
+      control: { type: "text" },
+      description: "Define a posição final da linha para um item do grid."
+    },
+    rowGap: {
+      control: { type: "text" },
+      description: "Espaçamento entre as linhas."
+    },
+    rowSpan: {
+      control: { type: "text" },
+      description: "Define quantas linhas um item do grid deve ocupar."
+    },
+    rowStart: {
+      control: { type: "text" },
+      description: "Define a posição inicial da linha para um item do grid."
     },
     order: {
       control: { type: "text" },
