@@ -5,39 +5,44 @@ import { Title } from "."
 
 const meta: Meta<typeof Title> = {
   component: Title,
+  title: "Componentes/Title",
   parameters: {
     layout: "centered",
     docs: {
       description: {
         component:
-          "The Title component provides standardized typography styles for headings and page titles. It supports predefined visual variants (e.g., 'h1'-'h6', 'display1'-'display3') to suit different use cases. The rendered HTML element can be customized via the `component` prop."
+          "O componente Title oferece estilos tipográficos padronizados para títulos e cabeçalhos de página. Suporta variantes visuais pré-definidas (por exemplo, 'h1' a 'h6', 'display1' a 'display3') para atender a diferentes casos de uso. O componente permite escolher o elemento HTML usado para renderizar o título a partir da propriedade `component`."
       }
     }
   },
   tags: ["autodocs"],
   argTypes: {
+    align: {
+      control: { type: "select" },
+      options: ["text-left", "text-center", "text-right", "text-justify", "text-start", "text-end"],
+      description: "Classe do Tailwind para controlar o alinhamento do título."
+    },
     children: {
       control: { type: "text" },
-      description: "The content to be displayed inside the Title component."
-    },
-    variant: {
-      control: { type: "select" },
-      options: ["display1", "display2", "display3", "h1", "h2", "h3", "h4", "h5", "h6"],
-      description:
-        "Visual style of the title. 'h1'-'h6' map to heading styles, 'display1'-'display3' are larger variants. The rendered HTML tag can be overridden via the `component` prop."
+      description: "Conteúdo a ser exibido dentro do componente Title."
     },
     component: {
       control: { type: "select" },
       options: ["h1", "h2", "h3", "h4", "h5", "h6"],
-      description: "The HTML element used to render the Title component."
+      description: "Elemento HTML usado para renderizar o componente Title."
     },
     className: {
       control: { type: "text" },
-      description: "Controls extra CSS class names in the Title component."
+      description: "Classes CSS extras aplicadas ao componente Title."
     },
     color: {
       control: { type: "text" },
-      description: "Tailwind class controlling the text color."
+      description: "Classe do Tailwind para controlar a cor do título."
+    },
+    decoration: {
+      control: { type: "select" },
+      options: ["underline", "overline", "line-through", "no-underline"],
+      description: "Classe do Tailwind para controlar a decoração do título."
     },
     fontSize: {
       control: { type: "select" },
@@ -56,15 +61,59 @@ const meta: Meta<typeof Title> = {
         "text-8xl",
         "text-9xl"
       ],
-      description: "The font-size of the Title component."
+      description: "Tamanho da fonte do componente Title."
+    },
+    fontStyle: {
+      control: { type: "select" },
+      options: ["italic", "not-italic"],
+      description: "Classe do Tailwind para controlar o estilo da fonte."
+    },
+    letterSpacing: {
+      control: { type: "select" },
+      options: [
+        "tracking-tighter",
+        "tracking-tight",
+        "tracking-normal",
+        "tracking-wide",
+        "tracking-wider",
+        "tracking-widest"
+      ],
+      description: "Classe do Tailwind para controlar o espaçamento entre letras."
+    },
+    lineClamp: {
+      control: { type: "text" },
+      description: "Classe do Tailwind para limitar o número de linhas antes de truncar."
+    },
+    lineHeight: {
+      control: { type: "select" },
+      options: [
+        "leading-none",
+        "leading-tight",
+        "leading-snug",
+        "leading-normal",
+        "leading-relaxed",
+        "leading-loose"
+      ],
+      description: "Classe do Tailwind para controlar a altura da linha."
     },
     marginBottom: {
       control: { type: "text" },
-      description: "The margin applied at the bottom of the Title component."
+      description: "Margem aplicada na parte inferior do componente Title."
     },
     marginTop: {
       control: { type: "text" },
-      description: "The margin applied at the top of the Title component."
+      description: "Margem aplicada na parte superior do componente Title."
+    },
+    transform: {
+      control: { type: "select" },
+      options: ["uppercase", "lowercase", "capitalize", "normal-case"],
+      description: "Classe do Tailwind para controlar a transformação do título."
+    },
+    variant: {
+      control: { type: "select" },
+      options: ["display1", "display2", "display3", "h1", "h2", "h3", "h4", "h5", "h6"],
+      description:
+        "Estilo visual do título. 'h1' a 'h6' são estilos de cabeçalho; 'display1' a 'display3' são variantes maiores. O elemento HTML pode ser alterado a partir da propriedade `component`."
     },
     weight: {
       control: { type: "select" },
@@ -79,29 +128,7 @@ const meta: Meta<typeof Title> = {
         "font-extrabold",
         "font-black"
       ],
-      description: "Tailwind class for controlling the letter text weight for the Title component."
-    },
-    letterSpacing: {
-      control: { type: "select" },
-      options: [
-        "tracking-tighter",
-        "tracking-tight",
-        "tracking-normal",
-        "tracking-wide",
-        "tracking-wider",
-        "tracking-widest"
-      ],
-      description: "Tailwind class for controlling the letter spacing of the Title component."
-    },
-    align: {
-      control: { type: "select" },
-      options: ["text-left", "text-center", "text-right", "text-justify", "text-start", "text-end"],
-      description: "Tailwind class for controlling the alignment of text."
-    },
-    wrap: {
-      control: { type: "select" },
-      options: ["text-wrap", "text-nowrap", "text-balance", "text-pretty"],
-      description: "Tailwind class for controlling how text wraps within an element."
+      description: "Classe do Tailwind para controlar o peso da fonte."
     },
     whitespace: {
       control: { type: "select" },
@@ -113,47 +140,21 @@ const meta: Meta<typeof Title> = {
         "whitespace-pre-wrap",
         "whitespace-break-spaces"
       ],
-      description: "Tailwind class for controlling an element's white-space property."
+      description: "Classe do Tailwind para controlar a propriedade white-space do títuo."
     },
     wordBreak: {
       control: { type: "select" },
       options: ["break-normal", "break-all", "break-keep"],
-      description: "Tailwind class for controlling how text wraps within an element."
+      description: "Classe do Tailwind para controlar como o título quebra dentro do elemento."
     },
-    transform: {
+    wrap: {
       control: { type: "select" },
-      options: ["uppercase", "lowercase", "capitalize", "normal-case"],
-      description: "Tailwind class for controlling the transformation of text."
-    },
-    lineClamp: {
-      control: { type: "text" },
-      description: "Tailwind class for controlling the number of lines before clamping."
-    },
-    lineHeight: {
-      control: { type: "select" },
-      options: [
-        "leading-none",
-        "leading-tight",
-        "leading-snug",
-        "leading-normal",
-        "leading-relaxed",
-        "leading-loose"
-      ],
-      description: "Tailwind class for controlling the line height of the Title component."
-    },
-    fontStyle: {
-      control: { type: "select" },
-      options: ["italic", "not-italic"],
-      description: "Tailwind class for controlling the font style of the Title component."
-    },
-    decoration: {
-      control: { type: "select" },
-      options: ["underline", "overline", "line-through", "no-underline"],
-      description: "Tailwind class for controlling decoration of the Title component."
+      options: ["text-wrap", "text-nowrap", "text-balance", "text-pretty"],
+      description: "Classe do Tailwind para controlar a quebra de linha do título."
     }
   },
   args: {
-    children: "Title",
+    children: "Componente de Título",
     color: "text-typography-primary",
     variant: "h1",
     align: "text-left"
@@ -165,25 +166,26 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  name: "Padrão",
   args: {
     color: "text-typography-primary",
     align: "text-center"
   }
 }
 
-export const WithElements: Story = {
+export const WithHtmlChildren: Story = {
+  name: "Com Tag HTML",
   args: {
-    children: (
-      <>
-        This is a <i>title</i>
-      </>
-    )
+    align: "text-center",
+    children: "<b>Título com tag</b>"
   }
 }
 
 export const WithHtmlContent: Story = {
+  name: "Com Conteúdo HTML Interno",
   args: {
-    children: "<b>This is a string title</b> with html content"
+    align: "text-center",
+    children: "<b>Título</b> com conteúdo <i>HTML</i>"
   }
 }
 
@@ -196,7 +198,7 @@ export const WithResponsiveSize: Story = {
         color="text-typography-primary"
         className="md:text-display2 xl:text-display1"
       >
-        This is a title
+        Componente de título responsivo
       </Title>
     )
   }

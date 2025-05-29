@@ -1,6 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react"
-
-import React from "react"
 import { Text } from "."
 
 const meta: Meta<typeof Text> = {
@@ -212,7 +210,7 @@ export const WithHtmlChildren: Story = {
   name: "Com Tag HTML",
   args: {
     align: "text-center",
-    children: "<b>Texto com tag.</b>"
+    children: "<b>Texto com tag</b>"
   }
 }
 
@@ -220,7 +218,7 @@ export const WithHtmlContent: Story = {
   name: "Com Conteúdo HTML Interno",
   args: {
     align: "text-center",
-    children: "<b>Texto</b> com conteúdo <i>HTML</i>."
+    children: "<b>Texto</b> com conteúdo <i>HTML</i>"
   }
 }
 
