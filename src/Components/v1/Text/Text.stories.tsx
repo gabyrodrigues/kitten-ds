@@ -5,141 +5,22 @@ import { Text } from "."
 
 const meta: Meta<typeof Text> = {
   component: Text,
+  title: "Componentes/Text",
   parameters: {
     layout: "centered",
     docs: {
       description: {
         component:
-          "The Text component offers several styling variants (e.g., 'body1', 'body2') that control text size, weight, and line height. Fully responsive and customizable with Tailwind CSS utility classes, the component allows easy adjustments to alignment, color, and other properties."
+          "O componente Text oferece diversas variantes de estilo (por exemplo, 'body1', 'body2') que controlam o tamanho da fonte, peso e altura da linha. Totalmente responsivo e personalizável com classes utilitárias do Tailwind CSS, o componente permite ajustes fáceis no alinhamento, cor e outras propriedades."
       }
     }
   },
   tags: ["autodocs"],
   argTypes: {
-    children: {
-      control: { type: "text" },
-      description: "The content to be displayed inside the Text component."
-    },
-    color: {
-      control: { type: "text" },
-      description: "The text color for the Text component."
-    },
-    variant: {
-      control: { type: "select" },
-      options: ["body1", "body2", "body3", "body4"],
-      description: "The variant of the Text component."
-    },
-    fontSize: {
-      control: { type: "select" },
-      options: [
-        "text-xs",
-        "text-sm",
-        "text-base",
-        "text-lg",
-        "text-xl",
-        "text-2xl",
-        "text-3xl",
-        "text-4xl",
-        "text-5xl",
-        "text-6xl",
-        "text-7xl",
-        "text-8xl",
-        "text-9xl"
-      ],
-      description: "The font-size of the Text component."
-    },
-    marginBottom: {
-      control: { type: "text" },
-      description: "The margin applied at the bottom of the Text component."
-    },
-    marginTop: {
-      control: { type: "text" },
-      description: "The margin applied at the top of the Text component."
-    },
-    weight: {
-      control: { type: "select" },
-      options: [
-        "font-thin",
-        "font-extralight",
-        "font-light",
-        "font-normal",
-        "font-medium",
-        "font-semibold",
-        "font-bold",
-        "font-extrabold",
-        "font-black"
-      ],
-      description: "Tailwind class for controlling the letter text weight for the Text component."
-    },
-    letterSpacing: {
-      control: { type: "select" },
-      options: [
-        "tracking-tighter",
-        "tracking-tight",
-        "tracking-normal",
-        "tracking-wide",
-        "tracking-wider",
-        "tracking-widest"
-      ],
-      description: "Tailwind class for controlling the letter spacing of the Text component."
-    },
     align: {
       control: { type: "select" },
       options: ["text-left", "text-center", "text-right", "text-justify", "text-start", "text-end"],
-      description: "Tailwind class for controlling the alignment of text."
-    },
-    wrap: {
-      control: { type: "select" },
-      options: ["text-wrap", "text-nowrap", "text-balance", "text-pretty"],
-      description: "Tailwind class for controlling how text wraps within an element."
-    },
-    whitespace: {
-      control: { type: "select" },
-      options: [
-        "whitespace-normal",
-        "whitespace-nowrap",
-        "whitespace-pre",
-        "whitespace-pre-line",
-        "whitespace-pre-wrap",
-        "whitespace-break-spaces"
-      ],
-      description: "Tailwind class for controlling an element's white-space property."
-    },
-    wordBreak: {
-      control: { type: "select" },
-      options: ["break-normal", "break-all", "break-keep"],
-      description: "Tailwind class for controlling how text wraps within an element."
-    },
-    transform: {
-      control: { type: "select" },
-      options: ["uppercase", "lowercase", "capitalize", "normal-case"],
-      description: "Tailwind class for controlling the transformation of text."
-    },
-    lineClamp: {
-      control: { type: "text" },
-      description: "Tailwind class for controlling the number of lines before clamping."
-    },
-    lineHeight: {
-      control: { type: "select" },
-      options: [
-        "leading-none",
-        "leading-tight",
-        "leading-snug",
-        "leading-normal",
-        "leading-relaxed",
-        "leading-loose"
-      ],
-      description: "Tailwind class for controlling the line height of the Text component."
-    },
-    fontStyle: {
-      control: { type: "select" },
-      options: ["italic", "not-italic"],
-      description: "Tailwind class for controlling the font style of the Text component."
-    },
-    decoration: {
-      control: { type: "select" },
-      options: ["underline", "overline", "line-through", "no-underline"],
-      description: "Tailwind class for controlling decoration of the Text component."
+      description: "Classe Tailwind para controlar o alinhamento do texto."
     },
     component: {
       control: { type: "select" },
@@ -177,15 +58,136 @@ const meta: Meta<typeof Text> = {
         "dfn",
         "samp"
       ],
-      description: "The HTML element used to render the Text component."
+      description: "Elemento HTML usado para renderizar o componente Text."
     },
     className: {
       control: { type: "text" },
-      description: "Controls extra CSS class names in the Text component."
+      description: "Classes CSS adicionais opcionais para o componente Text."
+    },
+    children: {
+      control: { type: "text" },
+      description: "Conteúdo a ser exibido dentro do componente Text."
+    },
+
+    color: {
+      control: { type: "text" },
+      description: "Cor do texto para o componente Text."
+    },
+    decoration: {
+      control: { type: "select" },
+      options: ["underline", "overline", "line-through", "no-underline"],
+      description: "Classe Tailwind para controlar a decoração do texto do componente Text."
+    },
+    fontSize: {
+      control: { type: "select" },
+      options: [
+        "text-xs",
+        "text-sm",
+        "text-base",
+        "text-lg",
+        "text-xl",
+        "text-2xl",
+        "text-3xl",
+        "text-4xl",
+        "text-5xl",
+        "text-6xl",
+        "text-7xl",
+        "text-8xl",
+        "text-9xl"
+      ],
+      description: "Tamanho da fonte do componente Text."
+    },
+    fontStyle: {
+      control: { type: "select" },
+      options: ["italic", "not-italic"],
+      description: "Classe Tailwind para controlar o estilo da fonte do componente Text."
+    },
+    letterSpacing: {
+      control: { type: "select" },
+      options: [
+        "tracking-tighter",
+        "tracking-tight",
+        "tracking-normal",
+        "tracking-wide",
+        "tracking-wider",
+        "tracking-widest"
+      ],
+      description: "Classe Tailwind para controlar o espaçamento entre letras do componente Text."
+    },
+    marginBottom: {
+      control: { type: "text" },
+      description: "Margem aplicada na parte inferior do componente Text."
+    },
+    marginTop: {
+      control: { type: "text" },
+      description: "Margem aplicada na parte superior do componente Text."
+    },
+    lineClamp: {
+      control: { type: "text" },
+      description: "Classe Tailwind para controlar o número de linhas antes de truncar o texto."
+    },
+    lineHeight: {
+      control: { type: "select" },
+      options: [
+        "leading-none",
+        "leading-tight",
+        "leading-snug",
+        "leading-normal",
+        "leading-relaxed",
+        "leading-loose"
+      ],
+      description: "Classe Tailwind para controlar a altura da linha do componente Text."
+    },
+    transform: {
+      control: { type: "select" },
+      options: ["uppercase", "lowercase", "capitalize", "normal-case"],
+      description: "Classe Tailwind para controlar a transformação do texto."
+    },
+    variant: {
+      control: { type: "select" },
+      options: ["body1", "body2", "body3", "body4"],
+      description: "Variante do componente Text."
+    },
+    weight: {
+      control: { type: "select" },
+      options: [
+        "font-thin",
+        "font-extralight",
+        "font-light",
+        "font-normal",
+        "font-medium",
+        "font-semibold",
+        "font-bold",
+        "font-extrabold",
+        "font-black"
+      ],
+      description: "Classe Tailwind para controlar o peso da fonte do componente Text."
+    },
+    whitespace: {
+      control: { type: "select" },
+      options: [
+        "whitespace-normal",
+        "whitespace-nowrap",
+        "whitespace-pre",
+        "whitespace-pre-line",
+        "whitespace-pre-wrap",
+        "whitespace-break-spaces"
+      ],
+      description: "Classe Tailwind para controlar a propriedade white-space do elemento."
+    },
+    wrap: {
+      control: { type: "select" },
+      options: ["text-wrap", "text-nowrap", "text-balance", "text-pretty"],
+      description: "Classe Tailwind para controlar a quebra de linha do texto."
+    },
+    wordBreak: {
+      control: { type: "select" },
+      options: ["break-normal", "break-all", "break-keep"],
+      description: "Classe Tailwind para controlar como o texto quebra dentro do elemento."
     }
   },
   args: {
-    children: "Text",
+    children: "Componente de Texto",
     color: "text-typography-primary",
     variant: "body1",
     weight: "font-normal",
@@ -199,26 +201,31 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  name: "Padrão",
   args: {
     align: "text-center",
     className: "w-full"
   }
 }
 
-export const WithElements: Story = {
+export const WithHtmlChildren: Story = {
+  name: "Com Tag HTML",
   args: {
-    children: <b>This is a plain text</b>
+    align: "text-center",
+    children: "<b>Texto com tag.</b>"
   }
 }
 
 export const WithHtmlContent: Story = {
+  name: "Com Conteúdo HTML Interno",
   args: {
     align: "text-center",
-    children: "<b>This is a string text</b> with html content"
+    children: "<b>Texto</b> com conteúdo <i>HTML</i>."
   }
 }
 
 export const WithResponsiveSize: Story = {
+  name: "Com Tamanho Responsivo",
   render: (args) => {
     return (
       <Text
@@ -227,7 +234,7 @@ export const WithResponsiveSize: Story = {
         color="text-typography-primary"
         className="md:text-body3 xl:text-body1"
       >
-        This is a text
+        Componente de Texto com tamanho responsivo
       </Text>
     )
   }
