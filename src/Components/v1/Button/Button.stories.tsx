@@ -213,6 +213,7 @@ const ButtonTemplate = (args) => (
 )
 
 export const Filled: Story = {
+  name: "Variante Filled",
   args: {
     variant: "filled",
     children: "Button"
@@ -221,6 +222,7 @@ export const Filled: Story = {
 }
 
 export const Outlined: Story = {
+  name: "Variante Outlined",
   args: {
     variant: "outlined",
     color: "primary",
@@ -230,6 +232,7 @@ export const Outlined: Story = {
 }
 
 export const Text: Story = {
+  name: "Variante Text",
   args: {
     variant: "text",
     color: "primary",
