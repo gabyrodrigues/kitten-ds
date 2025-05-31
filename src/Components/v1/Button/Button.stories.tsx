@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
 import Flex from "../Flex/Flex"
-import { Icon } from "../Icon"
 import Button from "./Button"
 
 const meta: Meta<typeof Button> = {
