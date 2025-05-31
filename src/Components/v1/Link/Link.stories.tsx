@@ -3,49 +3,84 @@ import Link from "./Link"
 
 const meta: Meta<typeof Link> = {
   component: Link,
+  title: "Componentes/Link",
   parameters: {
     layout: "centered",
     docs: {
       description: {
         component:
-          "A styled anchor (`<a>`) component with Tailwind support and accessibility features like keyboard focus and proper disabled handling."
+          "Componente de link estilizado, com suporte a utilitários do Tailwind. Suporta navegação por teclado, efeitos de foco e hover, além de tratamento correto do estado desabilitado."
       }
     }
   },
   tags: ["autodocs"],
   argTypes: {
+    borderColor: {
+      control: { type: "text" },
+      description: "Cor da borda inferior do link."
+    },
     children: {
       control: { type: "text" },
-      description: "The content of the link."
+      description: "Conteúdo exibido dentro do link."
+    },
+    className: {
+      control: { type: "text" },
+      description: "Classes CSS adicionais opcionais para o link."
+    },
+    color: {
+      control: { type: "text" },
+      description: "Cor do texto do link."
     },
     disabled: {
       control: { type: "boolean" },
-      description: "Specifies whether the link is disabled or not."
+      description:
+        "Define se o link está desabilitado. Quando desabilitado, o link não pode ser clicado e não responde a eventos de interação."
+    },
+    fontSize: {
+      control: { type: "text" },
+      description: "Controla o tamanho da fonte do link."
+    },
+    letterSpacing: {
+      control: { type: "select" },
+      options: [
+        "tracking-tighter",
+        "tracking-tight",
+        "tracking-normal",
+        "tracking-wide",
+        "tracking-wider",
+        "tracking-widest"
+      ],
+      description: "Espaçamento entre as letras do link."
+    },
+    lineHeight: {
+      control: { type: "select" },
+      options: [
+        "leading-none",
+        "leading-tight",
+        "leading-snug",
+        "leading-normal",
+        "leading-relaxed",
+        "leading-loose"
+      ],
+      description: "Altura da linha do texto do link."
     },
     href: {
       control: { type: "text" },
-      description: "Link target URL."
+      description: "URL de destino do link."
     },
     onClick: {
       action: "clicked",
-      description: "The click event handler for the link."
+      description: "Função acionada ao clicar no link."
     },
     target: {
       control: { type: "select" },
       options: ["_self", "_blank", "_parent", "_top"],
-      description: "Target behavior for the link."
+      description: "Define como o link será aberto (na mesma aba, nova aba, etc)."
     },
-    fontSize: {
-      control: { type: "text" },
-      description: "Option to control the Link font-size."
-    },
-    color: {
-      control: { type: "text" },
-      description: "The color for the Link component."
-    },
-    borderColor: {
-      control: { type: "text" },
-      description: "The bottom border color of the link."
+    transform: {
+      control: { type: "select" },
+      options: ["uppercase", "lowercase", "capitalize", "normal-case"],
+      description: "Transformação do texto."
     },
     weight: {
       control: { type: "select" },
@@ -60,7 +95,7 @@ const meta: Meta<typeof Link> = {
         "font-extrabold",
         "font-black"
       ],
-      description: "The font weight for the Link component."
+      description: "Peso da fonte do link."
     },
     whitespace: {
       control: { type: "select" },
@@ -72,40 +107,7 @@ const meta: Meta<typeof Link> = {
         "whitespace-pre-wrap",
         "whitespace-break-spaces"
       ],
-      description: "Controls an element's white-space property."
-    },
-    transform: {
-      control: { type: "select" },
-      options: ["uppercase", "lowercase", "capitalize", "normal-case"],
-      description: "Controls the transformation of link."
-    },
-    lineHeight: {
-      control: { type: "select" },
-      options: [
-        "leading-none",
-        "leading-tight",
-        "leading-snug",
-        "leading-normal",
-        "leading-relaxed",
-        "leading-loose"
-      ],
-      description: "The line height of the Link component."
-    },
-    letterSpacing: {
-      control: { type: "select" },
-      options: [
-        "tracking-tighter",
-        "tracking-tight",
-        "tracking-normal",
-        "tracking-wide",
-        "tracking-wider",
-        "tracking-widest"
-      ],
-      description: "The letter spacing of the Link component.."
-    },
-    className: {
-      control: { type: "text" },
-      description: "Optional additional CSS classes to apply to the Link."
+      description: "Controla o comportamento do espaço em branco do texto."
     }
   },
   args: {
@@ -120,10 +122,11 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  name: "Padrão",
   args: {
-    children: "Default Link",
+    children: "Link",
     onClick: () => {
-      console.info("Link clicked")
+      console.info("clicked")
     }
   }
 }

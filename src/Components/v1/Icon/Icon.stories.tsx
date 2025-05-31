@@ -4,45 +4,50 @@ import Icon from "./Icon"
 
 const meta = {
   component: Icon,
+  title: "Componentes/Icon",
   parameters: {
     layout: "centered",
     docs: {
       description: {
         component:
-          "The icon component is used to represent visual indicators, such as labels or actions, and can be styled in various ways."
+          "Componente de ícone utilizado para representar elementos visuais, como indicadores, rótulos ou ações. Permite personalização e aplicação de diferentes estilos, além de oferecer suporte a práticas de acessibilidade para garantir que seja interpretado corretamente por leitores de tela e outras tecnologias assistivas."
       }
     }
   },
   tags: ["autodocs"],
   argTypes: {
-    color: {
+    "aria-label": {
       control: { type: "text" },
       description:
-        "Option to control the icon's color. This corresponds to Tailwind's `text-*` classes."
+        "Rótulo acessível para o ícone, usado por leitores de tela e tecnologias assistivas."
+    },
+    className: {
+      control: { type: "text" },
+      description: "Classes CSS adicionais opcionais para aplicar ao ícone."
+    },
+    color: {
+      control: { type: "text" },
+      description: "Controla a cor do ícone."
+    },
+    fontSize: {
+      control: { type: "text" },
+      description: "Classe de tamanho de texto do Tailwind para controlar o tamanho do ícone."
     },
     type: {
       control: { type: "text" },
       description:
-        "The icon name to render. It corresponds to a Material Symbols icon name (e.g., 'home', 'search')."
-    },
-    fontSize: {
-      control: { type: "text" },
-      description: "Tailwind text size class to control the icon's size."
+        "Nome do ícone a ser exibido, baseado nos nomes do Material Symbols (ex.: 'home', 'search')."
     },
     variant: {
       control: { type: "select" },
       options: ["outlined", "filled"],
       description:
-        "Determines the visual variant of the icon. Either 'outlined' (hollow) or 'filled' (solid)."
+        "Define a variação visual do ícone: 'outlined' (contorno) ou 'filled' (preenchido)."
     },
     weight: {
       control: { type: "select" },
       options: [400, 500, 700],
-      description: "Font weight to apply when rendering the icon."
-    },
-    className: {
-      control: { type: "text" },
-      description: "Optional additional CSS classes to apply to the icon."
+      description: "Define o peso da fonte usado para renderizar o ícone."
     }
   },
   args: {
@@ -58,6 +63,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  name: "Padrão",
   args: {
     type: "settings"
   }

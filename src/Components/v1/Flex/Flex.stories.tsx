@@ -4,33 +4,57 @@ import Flex from "./Flex"
 
 const meta: Meta<typeof Flex> = {
   component: Flex,
+  title: "Componentes/Flex",
   parameters: {
     layout: "centered",
     docs: {
       description: {
         component:
-          "A utility component for building responsive layouts using Flexbox. It provides props for controlling direction, alignment, spacing, and wrapping of child elements, with full support for Tailwind CSS utility classes and standard accessibility attributes."
+          "Componente de layout com suporte a acessibilidade, baseado em Flexbox. Compatível com diferentes tamanhos de tela e personalizável com utilitários do Tailwind. Permite ajustar direção, alinhamento, espaçamento e quebra de linha dos elementos internos."
       }
     }
   },
   tags: ["autodocs"],
   argTypes: {
+    align: {
+      control: { type: "select" },
+      options: ["items-start", "items-center", "items-end", "items-baseline", "items-stretch"],
+      description: "Alinha os itens no eixo cruzado do Flex."
+    },
+
     children: {
       control: { type: "text" },
-      description: "The children of the Flex component."
+      description: "Conteúdo interno do componente Flex."
     },
-    flex: {
+    className: {
       control: { type: "text" },
-      description: "Controls how the Flex container's items grow and shrink."
+      description: "Classes CSS adicionais opcionais para o Flex."
+    },
+    colGap: {
+      control: { type: "text" },
+      description: "Espaçamento entre colunas dos itens."
+    },
+    component: {
+      control: { type: "text" },
+      description: "Define o elemento HTML que será renderizado."
     },
     direction: {
       control: { type: "select" },
       options: ["flex-row", "flex-col", "flex-row-reverse", "flex-col-reverse"],
-      description: "Flex direction"
+      description: "Direção do Flex."
     },
-    radius: {
+    flex: {
       control: { type: "text" },
-      description: "Controls the Flex border radius."
+      description:
+        "Define como os itens dentro do Flex crescem ou encolhem para ocupar o espaço disponível."
+    },
+    gap: {
+      control: { type: "text" },
+      description: "Espaçamento entre os itens do Flex."
+    },
+    height: {
+      control: { type: "text" },
+      description: "Altura do componente Flex."
     },
     justify: {
       control: { type: "select" },
@@ -42,57 +66,36 @@ const meta: Meta<typeof Flex> = {
         "justify-around",
         "justify-evenly"
       ],
-      description: "Justifies items on the main axis."
-    },
-    align: {
-      control: { type: "select" },
-      options: ["items-start", "items-center", "items-end", "items-baseline", "items-stretch"],
-      description: "Aligns items on the cross axis."
-    },
-    gap: {
-      control: { type: "text" },
-      description: "The gap between items in the Flex component."
-    },
-    component: {
-      control: { type: "text" },
-      description: "Defines the HTML element to render as."
-    },
-    rowGap: {
-      control: { type: "text" },
-      description: "ets the row gap between children."
-    },
-    colGap: {
-      control: { type: "text" },
-      description: "ets the row gap between children."
-    },
-    height: {
-      control: { type: "text" },
-      description: "The Flex component height."
-    },
-    width: {
-      control: { type: "text" },
-      description: "The Flex component width."
-    },
-    className: {
-      control: { type: "text" },
-      description: "Optional additional CSS classes to apply to the Flex."
+      description: "Justifica os itens no eixo principal do Flex."
     },
     order: {
       control: { type: "text" },
-      description: "Controls the order in the Flex component."
+      description: "Controla a ordem dos itens dentro do Flex."
     },
     paddingX: {
       control: { type: "text" },
-      description: "Applies horizontal padding."
+      description: "Espaçamento interno horizontal."
     },
     paddingY: {
       control: { type: "text" },
-      description: "Applies vertical padding."
+      description: "Espaçamento interno vertical."
+    },
+    radius: {
+      control: { type: "text" },
+      description: "Controla o arredondamento das bordas do Flex."
+    },
+    rowGap: {
+      control: { type: "text" },
+      description: "Espaçamento entre linhas dos itens."
+    },
+    width: {
+      control: { type: "text" },
+      description: "Largura do componente Flex."
     },
     wrap: {
       control: { type: "select" },
       options: ["flex-nowrap", "flex-wrap", "flex-wrap-reverse"],
-      description: "The wrapping behavior of the Flex component."
+      description: "Define o comportamento de quebra de linha dos itens."
     }
   },
   args: {
@@ -110,6 +113,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  name: "Padrão",
   render: (args) => (
     <Flex {...args}>
       <div className="bg-primary p-6 rounded-lg w-full text-typography-inverted font-semibold">

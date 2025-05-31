@@ -6,12 +6,13 @@ import Button from "./Button"
 
 const meta: Meta<typeof Button> = {
   component: Button,
+  title: "Componentes/Button",
   parameters: {
     layout: "centered",
     docs: {
       description: {
         component:
-          "Accessible button component for performing actions. Supports native and custom elements with proper ARIA roles, states, and keyboard interaction."
+          "Componente de botão acessível, compatível com elementos nativos e personalizados. Oferece suporte a leitores de tela, navegação por teclado e outros recursos de acessibilidade."
       }
     }
   },
@@ -29,40 +30,41 @@ const meta: Meta<typeof Button> = {
         "items-baseline-last",
         "items-stretch"
       ],
-      description: "Alignment of content inside button."
+      description: "Alinhamento do conteúdo dentro do botão."
     },
     bgColor: {
       control: { type: "text" },
-      description: "Background color of the button."
+      description: "Cor de fundo do botão."
     },
     borderColor: {
       control: { type: "text" },
-      description: "Border color of the button."
+      description: "Cor da borda do botão."
     },
     children: {
       control: { type: "text" },
-      description: "The content of the button."
+      description: "Conteúdo exibido dentro do botão. Pode ser texto, ícones ou outros componentes."
     },
     className: {
       control: { type: "text" },
-      description: "Optional additional CSS classes to apply to the icon."
+      description: "Classes CSS adicionais (opcional)."
     },
     color: {
       control: { type: "select" },
       options: ["primary", "secondary", "error", "success", "gray"],
-      description: "Color scheme of the button."
+      description: "Esquema de cores do botão."
     },
     component: {
       control: { type: "text" },
-      description: "The underlying element or component to render."
+      description: "Elemento ou componente HTML usado para renderizar o botão."
     },
     disabled: {
       control: { type: "boolean" },
-      description: "Whether the button is disabled."
+      description:
+        "Define se o botão está desabilitado. Quando desabilitado, o botão não pode ser clicado e não dispara eventos de clique."
     },
     fontSize: {
       control: { type: "text" },
-      description: "Font size of the button."
+      description: "Tamanho da fonte do texto no botão."
     },
     justify: {
       control: { type: "select" },
@@ -79,11 +81,11 @@ const meta: Meta<typeof Button> = {
         "justify-baseline",
         "justify-normal"
       ],
-      description: "Justification of content inside button."
+      description: "Justificação do conteúdo dentro do botão."
     },
     leftSection: {
       control: { type: "text" },
-      description: "Content displayed on the left side of the button content."
+      description: "Conteúdo exibido à esquerda do texto principal do botão."
     },
     lineHeight: {
       control: { type: "select" },
@@ -95,7 +97,8 @@ const meta: Meta<typeof Button> = {
         "leading-relaxed",
         "leading-loose"
       ],
-      description: "Line height of the button."
+      description:
+        "Altura da linha do texto no botão. Define o espaçamento vertical entre linhas de texto."
     },
     letterSpacing: {
       control: { type: "select" },
@@ -107,33 +110,33 @@ const meta: Meta<typeof Button> = {
         "tracking-wider",
         "tracking-widest"
       ],
-      description: "Letter spacing of the button."
+      description: "Espaçamento entre letras no texto do botão."
     },
     onClick: {
       action: "clicked",
-      description: "Click event handler. Will not be called if the button is disabled."
+      description: "Função chamada ao clicar no botão (não é chamada se estiver desabilitado)."
     },
     radius: {
       control: { type: "text" },
-      description: "Border radius of the button."
+      description: "Raio de borda (arredondamento) do botão."
     },
     rightSection: {
       control: { type: "text" },
-      description: "Content displayed on the left side of the button content."
+      description: "Conteúdo exibido à direita do texto principal do botão."
     },
     textColor: {
       control: { type: "text" },
-      description: "Text color of the button."
+      description: "Cor do texto do botão."
     },
     transform: {
       control: { type: "select" },
       options: ["uppercase", "lowercase", "capitalize", "normal-case"],
-      description: "Text transform CSS property."
+      description: "Transformação do texto do botão."
     },
     variant: {
       control: { type: "select" },
       options: ["filled", "outlined", "text"],
-      description: "Style variant of the button."
+      description: "Estilo visual do botão (variante)."
     },
     weight: {
       control: { type: "select" },
@@ -148,7 +151,7 @@ const meta: Meta<typeof Button> = {
         "font-extrabold",
         "font-black"
       ],
-      description: "Font weight of the button."
+      description: "Peso da fonte usada no botão."
     },
     whitespace: {
       control: { type: "select" },
@@ -160,7 +163,7 @@ const meta: Meta<typeof Button> = {
         "whitespace-pre-wrap",
         "whitespace-break-spaces"
       ],
-      description: "White-space CSS property."
+      description: "Tratamento de espaços em branco no conteúdo do botão."
     }
   },
   args: {
@@ -172,7 +175,7 @@ const meta: Meta<typeof Button> = {
     disabled: false,
     full: false,
     onClick: () => {
-      console.info("Button clicked")
+      console.info("clicked")
     }
   }
 }
@@ -210,27 +213,30 @@ const ButtonTemplate = (args) => (
 )
 
 export const Filled: Story = {
+  name: "Variante Filled",
   args: {
     variant: "filled",
-    children: "Filled Button"
+    children: "Button"
   },
   render: (args) => <ButtonTemplate {...args} />
 }
 
 export const Outlined: Story = {
+  name: "Variante Outlined",
   args: {
     variant: "outlined",
     color: "primary",
-    children: "Outlined Button"
+    children: "Button"
   },
   render: (args) => <ButtonTemplate {...args} />
 }
 
 export const Text: Story = {
+  name: "Variante Text",
   args: {
     variant: "text",
     color: "primary",
-    children: "Text Button"
+    children: "Button"
   },
   render: (args) => <ButtonTemplate {...args} />
 }

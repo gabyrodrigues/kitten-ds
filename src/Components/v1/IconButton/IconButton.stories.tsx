@@ -4,12 +4,13 @@ import Flex from "../Flex/Flex"
 
 const meta = {
   component: IconButton,
+  title: "Componentes/IconButton",
   parameters: {
     layout: "centered",
     docs: {
       description: {
         component:
-          "An accessible icon-only button for triggering actions, customizable in style and size. Supports proper ARIA labels and keyboard interaction."
+          "Botão com ícone único, acessível e focado em usabilidade. Usado para acionar funções, permite personalização de estilo e tamanho, e oferece suporte à navegação por teclado e descrição para leitores de tela."
       }
     }
   },
@@ -17,44 +18,45 @@ const meta = {
   argTypes: {
     ariaLabel: {
       control: { type: "text" },
-      description: "Accessible label for screen readers. Describes the button's purpose."
+      description: "Rótulo acessível para leitores de tela, descreve a função do botão."
     },
     color: {
       control: { type: "select" },
       options: ["primary", "secondary", "gray"],
-      description: "The color of the icon button."
+      description: "Cor do Icon Button."
     },
     className: {
       control: { type: "text" },
-      description: "Optional additional CSS classes to apply to the icon button component.."
+      description: "Classes CSS adicionais opcionais para aplicar ao IconButton."
     },
     disabled: {
       control: { type: "boolean" },
-      description: "Whether the button is disabled."
+      description:
+        "Define se o botão está desabilitado. Quando desabilitado, o botão não pode ser clicado e não responde a eventos de interação."
     },
     icon: {
       control: { type: "text" },
       description:
-        "The icon name to render in the Icon Button Component. It matches a Material Symbols icon name."
+        "Nome do ícone a ser exibido no botão, corresponde ao nome de um ícone Material Symbols (ex.: 'home', 'search')."
     },
     iconClassName: {
       control: { type: "text" },
-      description: "The CSS class name to be applied to the Icon."
+      description: "Nome da classe CSS para aplicar ao ícone dentro do botão."
     },
     iconVariant: {
       control: { type: "select" },
       options: ["filled", "outlined"],
-      description: "Style variant of the icon inside the button."
+      description: "Variante visual do ícone dentro do botão."
     },
     variant: {
       control: { type: "select" },
       options: ["filled", "outlined", "default"],
-      description: "Style variant of the icon button component."
+      description: "Variante visual do Icon Button."
     },
     size: {
       control: { type: "select" },
       options: ["small", "medium", "large"],
-      description: "Size variant of the icon button."
+      description: "Tamanho do componente."
     }
   },
   args: {
@@ -66,7 +68,7 @@ const meta = {
     size: "large",
     ariaLabel: "Settings",
     onClick: () => {
-      console.info("Icon Button clicked")
+      console.info("clicked")
     }
   }
 } satisfies Meta<typeof IconButton>
@@ -96,6 +98,7 @@ const IconButtonTemplate = (args) => (
 )
 
 export const Default: Story = {
+  name: "Padrão",
   args: {
     variant: "default",
     color: "primary"
@@ -104,6 +107,7 @@ export const Default: Story = {
 }
 
 export const Filled: Story = {
+  name: "Variante Filled",
   args: {
     variant: "filled"
   },
@@ -111,6 +115,7 @@ export const Filled: Story = {
 }
 
 export const Outlined: Story = {
+  name: "Variante Outlined",
   args: {
     variant: "outlined",
     color: "primary"

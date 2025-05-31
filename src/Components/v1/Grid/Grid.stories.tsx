@@ -4,96 +4,97 @@ import Grid from "./Grid"
 
 const meta: Meta<typeof Grid> = {
   component: Grid,
+  title: "Componentes/Grid",
   parameters: {
     layout: "centered",
     docs: {
       description: {
         component:
-          "A utility component for building responsive layouts using CSS Grid. It provides props for defining columns, rows, spacing, alignment, and placement of items. Supports Tailwind CSS utility classes and includes full compatibility with standard HTML and accessibility attributes."
+          "Componente de layout com suporte a acessibilidade, baseado em CSS Grid. Compatível com diferentes tamanhos de tela e personalizável com utilitários do Tailwind. Permite definir colunas, linhas, espaçamento, alinhamento e posicionamento dos itens internos."
       }
     }
   },
   tags: ["autodocs"],
   argTypes: {
-    children: {
+    align: {
       control: { type: "text" },
-      description: "The children of the Grid component."
-    },
-    className: {
-      control: { type: "text" },
-      description: "Optional additional CSS classes to apply to the Grid."
-    },
-    component: {
-      control: { type: "text" },
-      description: "Defines the HTML element to render as."
-    },
-    cols: {
-      control: { type: "text" },
-      description: "Specifies the columns in a grid layout."
-    },
-    colSpan: {
-      control: { type: "text" },
-      description: "Controls how many columns a grid item should span."
-    },
-    colStart: {
-      control: { type: "text" },
-      description: "Specifies the starting column position for a grid item."
-    },
-    colEnd: {
-      control: { type: "text" },
-      description: "Specifies the ending column position for a grid item."
-    },
-    rows: {
-      control: { type: "text" },
-      description: "Specifies the rows in a grid layout."
-    },
-    rowSpan: {
-      control: { type: "text" },
-      description: "Controls how many rows a grid item should span."
-    },
-    rowStart: {
-      control: { type: "text" },
-      description: "Specifies the starting row position for a grid item."
-    },
-    rowEnd: {
-      control: { type: "text" },
-      description: "Specifies the ending row position for a grid item."
-    },
-    gap: {
-      control: { type: "text" },
-      description: "The gap between items in the Grid component."
-    },
-    rowGap: {
-      control: { type: "text" },
-      description: "Sets the row gap between children."
-    },
-    colGap: {
-      control: { type: "text" },
-      description: "Sets the column gap between children."
-    },
-    flow: {
-      control: { type: "text" },
-      description: "Controls how the grid auto-places items along rows or columns."
+      description: "Alinha os itens do Grid ao longo do eixo vertical."
     },
     autoCols: {
       control: { type: "text" },
-      description: "Controls the size of implicitly-created grid columns."
+      description: "Define o tamanho das colunas criadas implicitamente."
     },
     autoRows: {
       control: { type: "text" },
-      description: "Controls the size of implicitly-created grid rows."
+      description: "Define o tamanho das linhas criadas implicitamente."
+    },
+    children: {
+      control: { type: "text" },
+      description: "Conteúdo interno do componente Grid."
+    },
+    className: {
+      control: { type: "text" },
+      description: "Classes CSS adicionais opcionais para o Grid."
+    },
+    component: {
+      control: { type: "text" },
+      description: "Define o elemento HTML que será renderizado."
+    },
+    cols: {
+      control: { type: "text" },
+      description: "Define as colunas do layout grid."
+    },
+    colSpan: {
+      control: { type: "text" },
+      description: "Define quantas colunas um item do grid deve ocupar."
+    },
+    colStart: {
+      control: { type: "text" },
+      description: "Define a posição inicial da coluna para um item do grid."
+    },
+    colEnd: {
+      control: { type: "text" },
+      description: "Define a posição final da coluna para um item do grid."
+    },
+    colGap: {
+      control: { type: "text" },
+      description: "Espaçamento entre as colunas."
+    },
+    flow: {
+      control: { type: "text" },
+      description: "Controla como os itens são posicionados automaticamente em linhas ou colunas."
+    },
+    gap: {
+      control: { type: "text" },
+      description: "Espaçamento entre os itens do Grid."
     },
     justifyItems: {
       control: { type: "text" },
-      description: "Controls how Grid component items are aligned along their inline axis."
+      description: "Alinha os itens do Grid ao longo do eixo horizontal."
     },
-    align: {
+    rows: {
       control: { type: "text" },
-      description: "Aligns items on the cross axis."
+      description: "Define as linhas do layout grid."
+    },
+    rowEnd: {
+      control: { type: "text" },
+      description: "Define a posição final da linha para um item do grid."
+    },
+    rowGap: {
+      control: { type: "text" },
+      description: "Espaçamento entre as linhas."
+    },
+    rowSpan: {
+      control: { type: "text" },
+      description: "Define quantas linhas um item do grid deve ocupar."
+    },
+    rowStart: {
+      control: { type: "text" },
+      description: "Define a posição inicial da linha para um item do grid."
     },
     order: {
       control: { type: "text" },
-      description: "Controls the order in the Grid component."
+      description: "Define a ordem dos itens no Grid."
     }
   },
   args: {
@@ -114,6 +115,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  name: "Padrão",
   args: {
     className: "h-86 w-86"
   },
