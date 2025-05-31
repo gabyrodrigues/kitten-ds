@@ -21,6 +21,13 @@ const preview: Preview = {
       controls: {
         sort: "alpha"
       }
+    },
+    options: {
+      storySort: {
+        method: "alphabetical",
+        order: [["Guia de Uso", "Propriedades"]],
+        includeNames: true
+      }
     }
   },
   tags: ["autodocs"]
