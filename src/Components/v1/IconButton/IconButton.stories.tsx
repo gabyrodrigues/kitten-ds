@@ -98,7 +98,7 @@ const IconButtonTemplate = (args) => (
 )
 
 export const Default: Story = {
-  name: "Padrão",
+  name: "Versão Padrão",
   args: {
     variant: "default",
     color: "primary"
