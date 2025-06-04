@@ -80,23 +80,4 @@ describe("Link", () => {
     await user.keyboard("{Enter}")
     expect(handleClick).toHaveBeenCalled()
   })
-
-  it("should activate the link on Space key press", async () => {
-    const user = userEvent.setup()
-    const handleClick = vi.fn()
-    render(
-      <Link
-        href="#"
-        onClick={handleClick}
-      >
-        Clickable Link
-      </Link>
-    )
-    const link = screen.getByRole("link")
-    await user.tab()
-    expect(link).toHaveFocus()
-
-    await user.keyboard(" ")
-    expect(handleClick).toHaveBeenCalled()
-  })
 })

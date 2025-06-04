@@ -68,8 +68,8 @@
 
   /* ---  State Links & Focus --- */
   --color-focus-ring: var(--color-brand-blue-700);
-  --color-link: var(--color-brand-blue-900);
-  --color-link-hover: var(--color-brand-blue-800);
+  --color-link: var(--color-brand-blue-800);
+  --color-link-hover: var(--color-brand-blue-900);
   --color-link-visited: var(--color-brand-purple-900);
   --color-link-active: var(--color-brand-purple-800);
 
