@@ -10,9 +10,9 @@ import { Title } from "../Title"
 
 ## 📘 Visão Geral
 
-O componente `Link` é utilizado para criar links de navegação a partir da tag `<a>`, permitindo que os usuários possam ser redirecionados para outras páginas ou seções. O `Link` foi projetado desde o seu início para ser acessível e intuitivo, seguindo as diretrizes de usabilidade e acessibilidade, recomendadas pela diretrizes WCAG 2.1.
+O componente `Link` é utilizado para criar links de navegação baseados na tag `<a>`, permitindo que os usuários possam ser redirecionados para outras páginas ou seções. O `Link` foi projetado desde o início para ser acessível e intuitivo, seguindo as diretrizes de usabilidade e acessibilidade recomendadas pelas diretrizes WCAG 2.1.
 
-A partir das suas variações de estados, o `Link` assegura uma experiência de navegação consistente e clara, permitindo que os usuários compreendam facilmente o propósito de cada link e como interagir com ele, além de garantir que todos os links sejam facilmente identificáveis e acessíveis.
+Por meio das suas variações de estados, o `Link` assegura uma experiência de navegação consistente e clara, facilitando a compreensão do propósito de cada link e como interagir com ele, além de garantir que todos os links sejam facilmente identificáveis e acessíveis.
 
 <img src="/assets/link-variants.png" alt="Exibição do componente de Link em uma lista com as suas variações e estados como hover, focus e disabled e aplicação com ícone" style={{ margin: '0 auto' }} />
 
@@ -24,15 +24,14 @@ Um componente `Link` é indicado para criar links de navegação para:
 
 ## 💡 Recomendações de Uso
 
-- Os links devem ser utilizados para navegação entre páginas ou seções, e não para ações que não envolvam redirecionamento;
-- Os links devem ser claros e descritivos, indicando exatamente o que vai acontecer ao clicar neles;
-- Não use links para "envolver" outros componentes de ação, como botões, no código HTML, pois isso pode causa problemas de acessibilidade e navegação;
-- O padrão de abertura dos links na mesma janela deve ser mantido, deixando o usuário no controle de abrir em uma nova aba ou não;
-- Os links devem abrir em uma nova aba ou janela a partir da propriedade `target="_blank"` apenas quando necessário, como em links externos, documentos que não fazem parte da navegação principal do site ou quando o usuário precisa manter a página atual aberta;
-- Os estilos visuais padrão dos links, como sublinhado e estados, devem ser mantidos para garantir a consistência e a identificação clara dos links;
-- Use a propriedade `disabled` para indicar que o link não está disponível no momento, mas evite usar links desabilitados, pois eles podem causar confusão;
-- Em casos de espaços limitados ou componentes compactos, considere o uso do componente de `IconButton` para manter a clareza e a funcionalidade, de preferência com um tooltip explicativo e uso de `aria-label` para acessibilidade.
-
+- Utilize links para navegação entre páginas ou seções, evitando seu uso para ações que não envolvam redirecionamento;
+- Os textos dos links devem ser claros e descritivos, indicando exatamente o que acontecerá ao serem ativados;
+- Evite usar links para "envolver" outros componentes de ação, como botões, no código HTML, pois isso pode comprometer a acessibilidade e a navegação;
+- Mantenha o padrão de abertura dos links na mesma janela, deixando o usuário livre para abrir em nova aba quando desejar;
+- Utilize `target="_blank"` para abrir links em nova aba ou janela somente quando necessário, como em links externos, documentos fora da navegação principal ou quando for importante que a página atual permaneça aberta;
+- Preserve os estilos visuais padrão dos links, como sublinhado e seus estados, para garantir consistência e facilitar a identificação;
+- Embora a propriedade `disabled` possa ser usada para indicar que o link está indisponível, evite links desabilitados, pois podem causar confusão ao usuário;
+Utilize o componente `Button` para ações que executam uma operação na própria página, como enviar formulários, abrir modais, toggles, ou executar comandos sem navegação.
 
 ## ☑️✖️ O que fazer vs. O que não fazer
 
