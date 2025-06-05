@@ -1,0 +1,79 @@
+import { ColorItem, ColorPalette, Meta } from '@storybook/blocks';
+import { Title } from '../Title';
+import { Text } from '../Text';
+
+<Meta title="Componentes/Text/Guia de Uso" />
+
+# 🧭  Guia de Uso
+
+## 📘 Visão Geral
+
+O componente `Title` é utilizado para criar títulos e cabeçalhos. Ele oferece variantes baseadas nas tags de título HTML (`h1`, `h2`, etc.) e variantes de exibição (`display1`, `display2`, etc.), cada uma projetada para se adequar a diferentes casos de uso e tipos de conteúdo. O componente `Title` foi desenvolvido a partir de classes do Tailwind CSS e são totalmente customizáveis, permitindo que você escolha a variante mais adequada dependendo do contexto do conteúdo.
+
+O componente `Title` pode ser utilizado dessa forma:
+
+```tsx
+<Text variant="body1">Body 1 Text</Text>
+```
+
+### ⚙️ Propriedades
+
+O componente `Title` possui as propriedades `variant` e `component`, que permitem definir a variante do título e o elemento HTML a ser utilizado, respectivamente. O componente também aceita propriedades como `fontSize`, `weight`, `lineHeight`, `textAlign`, `color`, e `className` para personalização adicional, todas baseadas nas classes do Tailwind CSS.
+
+A propriedade `variant` aceita valores como `display1`, `display2`, `display3`, `h1`, `h2`, `h3`, que possuem tamanhos e estilos específicos, como `text-display1`, `text-display2`, `text-display3`, `text-h1`, `text-h2`, `text-h3`, `text-h4`, `text-h5`, `text-h6`. Essas variantes são projetadas para diferentes tamanhos e pesos de fonte, adequando-se a títulos de diferentes níveis e importâncias. Por exemplo, as variantes de exibição são geralmente usadas para títulos maiores e mais destacados, enquanto as variantes de cabeçalho (`h1`, `h2`, etc.) são usadas para títulos hierárquicos em documentos e páginas.
+
+A propriedade `component` permite a escolha do elemento HTML a ser usado para o título, como `h1`, `h2`, `h3`, etc. Isso é útil para garantir que o título seja semanticamente correto e acessível, além de permitir que você use o componente em diferentes contextos, como títulos de seções, subtítulos, etc.
+
+Inicialmente, o `Title` foi projetado com os seguintes valores padrão que viraram *tokens* e classes CSS aplicadas no componente:
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome da variante</th>
+      <th>Nome do token</th>
+      <th>Fonte padrão</th>
+      <th>Peso padrão</th>
+      <th>Tamanho (rem & px)</th>
+      <th>Line height</th>
+      <th>Letter spacing</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><Text variant="body1" className="sb-unstyled">Body1</Text></td>
+      <td>body1</td>
+      <td>Inter</td>
+      <td>Regular (400)</td>
+      <td>1.25rem / 20px</td>
+      <td>150%</td>
+      <td>0%</td>
+    </tr>
+    <tr>
+      <td><Text variant="body2" className="sb-unstyled">Body2</Text></td>
+      <td>body2</td>
+      <td>Inter</td>
+      <td>Regular (400)</td>
+      <td>1rem / 16px</td>
+      <td>150%</td>
+      <td>0%</td>
+    </tr>
+    <tr>
+      <td><Text variant="body3" className="sb-unstyled">Body3</Text></td>
+      <td>body3</td>
+      <td>Inter</td>
+      <td>Regular (400)</td>
+      <td>0.875rem / 14px</td>
+      <td>150%</td>
+      <td>0%</td>
+    </tr>
+    <tr>
+      <td><Text variant="body4" className="sb-unstyled">Body4</Text></td>
+      <td>body4</td>
+      <td>Inter</td>
+      <td>Regular (400)</td>
+      <td>0.75rem / 12px</td>
+      <td>150%</td>
+      <td>0%</td>
+    </tr>
+  </tbody>
+</table>
