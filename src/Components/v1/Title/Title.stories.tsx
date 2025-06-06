@@ -166,7 +166,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  name: "Padrão",
+  name: "Versão comum de exemplo",
   args: {
     color: "text-typography-primary",
     align: "text-center"
@@ -174,7 +174,7 @@ export const Default: Story = {
 }
 
 export const WithHtmlChildren: Story = {
-  name: "Com Tag HTML",
+  name: "Versão com tag HTML",
   args: {
     align: "text-center",
     children: "<b>Título com tag</b>"
@@ -182,7 +182,7 @@ export const WithHtmlChildren: Story = {
 }
 
 export const WithHtmlContent: Story = {
-  name: "Com Conteúdo HTML Interno",
+  name: "Versão com conteúdo HTML interno",
   args: {
     align: "text-center",
     children: "<b>Título</b> com conteúdo <i>HTML</i>"
@@ -190,6 +190,7 @@ export const WithHtmlContent: Story = {
 }
 
 export const WithResponsiveSize: Story = {
+  name: "Versão responsiva",
   render: (args) => {
     return (
       <Title
