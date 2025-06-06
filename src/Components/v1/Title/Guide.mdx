@@ -1,6 +1,9 @@
 import { ColorItem, ColorPalette, Meta } from '@storybook/blocks';
-import { Title } from '../Title';
+import { Flex } from '../Flex';
+import { Grid } from '../Grid';
+import { Link } from '../Link';
 import { Text } from '../Text';
+import { Title } from '../Title';
 
 <Meta title="Componentes/Title/Guia de Uso" />
 
@@ -132,5 +135,64 @@ Inicialmente, o `Title` foi projetado com os seguintes valores padrão que virar
 - Evite o uso excessivo de títulos de exibição (`display1`, `display2`) em contextos onde títulos hierárquicos são mais apropriados, como em documentos ou páginas com estrutura clara.
 
 ## ☑️✖️ O que fazer vs. O que não fazer
-{/* https://www.engie.design/fluid-design-system/foundations/typography/ */}
+
+O componente `Title` foi desenvolvido com foco em acessibilidade e usabilidade. Dessa forma, através de seus estilos e propriedades, ele permite o uso adequado de ícones na interface do usuário. No entanto, é importante que seu uso siga boas práticas de acessibilidade para preservar esse foco e garantir uma experiência eficaz e inclusiva.
+
+<Title component="h1" className="!text-h5">Ao usar títulos, sempre priorize a clareza e a hierarquia do conteúdo. Evite repetir a mesma tag semântica (como múltiplos `h1`) dentro de um mesmo grupo, pois isso dificulta a interpretação da estrutura por leitores de tela e outros recursos assistivos.</Title>
+
+<Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-4" rowGap="gap-y-4" className="!mb-12 !mt-6">
+  <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-4" radius="rounded-lg" paddingX="px-4" paddingY="py-4" className="border border-default-border">
+    <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-2" className="!mb-4">
+      <Flex radius="rounded-full" paddingX="px-2" paddingY="py-1" className="bg-success">
+        <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
+      </Flex>
+    </Flex>
+    <Title className="sb-unstyled">Primeiro título</Title>
+    <Title className="sb-unstyled" variant="h2">Subtítulo</Title>
+    <Text className="sb-unstyled">Texto explicativo abaixo do título</Text>
+  </Flex>
+  <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-4" radius="rounded-lg" paddingX="px-4" paddingY="py-4" className="border border-default-border">
+    <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-2" className="!mb-4">
+      <Flex radius="rounded-full" paddingX="px-2" paddingY="py-1" className="bg-error">
+        <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
+      </Flex>
+    </Flex>
+    <Title className="sb-unstyled">Primeiro título</Title>
+    <Title className="sb-unstyled" variant="h5">Subtítulo</Title>
+    <Title className="sb-unstyled" variant="h4">Texto explicativo abaixo do título</Title>
+  </Flex>
+</Grid>
+
+<Title component="h1" className="!text-h5">Use títulos com pesos e estilos consistentes, dando preferência às variantes já predefinidas. Evite customizações excessivas que possam comprometer a clareza visual ou a hierarquia semântica do conteúdo.</Title>
+
+<Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-4" rowGap="gap-y-4" className="!mb-12 !mt-6">
+  <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-4" radius="rounded-lg" paddingX="px-4" paddingY="py-4" className="border border-default-border">
+    <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-2" className="!mb-4">
+      <Flex radius="rounded-full" paddingX="px-2" paddingY="py-1" className="bg-success">
+        <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
+      </Flex>
+    </Flex>
+    <Title className="sb-unstyled">Primeiro título</Title>
+    <Title className="sb-unstyled" variant="h2">Subtítulo</Title>
+    <Text className="sb-unstyled">Texto explicativo abaixo do título</Text>
+  </Flex>
+  <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-4" radius="rounded-lg" paddingX="px-4" paddingY="py-4" className="border border-default-border">
+    <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-2" className="!mb-4">
+      <Flex radius="rounded-full" paddingX="px-2" paddingY="py-1" className="bg-error">
+        <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
+      </Flex>
+    </Flex>
+    <Title className="sb-unstyled" weight="font-normal">Primeiro título</Title>
+    <Title className="sb-unstyled" variant="h5" fontStyle="italic">Subtítulo</Title>
+    <Title className="sb-unstyled" variant="h4" weight="font-bold">Texto explicativo abaixo do título</Title>
+  </Flex>
+</Grid>
+
 ## ♿ Acessibilidade
+
+O componente `Title` foi desenvolvido e testado para atender às diretrizes WCAG 2.1, oferecendo suporte a propriedades de acessibilidade e práticas recomendadas para um conteúdo acessível. Para garantir que o uso do componente `Title` esteja em conformidade com as diretrizes de acessibilidade, é importante seguir algumas práticas recomendadas:
+
+- Utilize o componente `Title` para criar títulos e cabeçalhos que sejam semanticamente corretos, garantindo que a hierarquia do conteúdo seja clara e compreensível por leitores de tela, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/meaningful-sequence.html" target="_blank">WCAG 1.3.2 (Meaningful Sequence)</Link>;
+- Escolha a variante adequada (`display1`, `display2`, `h1`, etc.) de acordo com a hierarquia visual e semântica desejada. Sempre que necessário, utilize a propriedade component para renderizar o título com a tag HTML correta (`h1`, `h2`, etc.), respeitando a estrutura lógica do conteúdo, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html" target="_blank">WCAG 1.3.1 (Info and Relationships)</Link>;
+- Variantes de exibição (`display1`, `display2`) são utilizadas principalmente para títulos com maior destaque visual, como chamadas ou seções especiais. Por padrão, essas variantes usam a tag HTML `h1`, mas é importante garantir a hierarquia correta do conteúdo. Para isso, utilize a propriedade `component` para ajustar a tag conforme necessário (`h2`, `h3`, etc.), especialmente em contextos como artigos, seções ou documentos estruturados — garantindo que a estrutura da página seja compreensível e acessível para todos os usuários, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html" target="_blank">WCAG 1.3.1 (Info and Relationships)</Link>;
+- Garanta que o contraste entre o texto do título e o fundo esteja de acordo com os critérios de contraste mínimo, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html" target="_blank">WCAG 1.4.3 (Contrast (Minimum))</Link>. Dê preferência aos tokens de tipografia disponíveis, como `text-typography-primary`, `text-typography-secondary`, etc., para manter consistência visual e boa legibilidade.
