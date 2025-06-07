@@ -1,0 +1,166 @@
+import { ColorItem, ColorPalette, Meta } from '@storybook/blocks';
+import { Flex, Text, Title } from '../../Components'
+
+<Meta title="Design/Tipografia" />
+
+# ⌨️ Tipografia
+
+A tipografia traz estrutura e clareza ao conteúdo por meio do uso consistente de fontes, tamanhos e estilos — aprimorando a hierarquia visual, a legibilidade e a experiência do usuário como um todo. A tipografia do **Kitten DS** é dividida entre títulos e textos, cada um com variantes específicas para diferentes contextos, com títulos divididos entre os tipos `display` ou `heading` para títulos, e textos do tipo `body`.
+
+## 📝 Família tipográfica
+
+A família tipográfica padrão é a **Inter**, uma fonte *sans-serif* projetada para ser altamente legível em telas, além de ser um tipo de fonte de código aberto. Ela é utilizada em todas as variantes de títulos e textos para oferecer consistência e clareza na apresentação do conteúdo.
+
+<Title variant="h4" component="h3" className="sb-unstyled">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br/>abcdefghijklmnopqrstuvwxyz<br/>1234567890</Title>
+<Title variant="h4" component="h3" className="sb-unstyled" fontStyle="italic">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br/>abcdefghijklmnopqrstuvwxyz<br/>1234567890</Title>
+
+## ⚙️ Variantes e tokens
+
+As variantes de tipografia possuem estilos e tamanhos específicos atribuídos a diferentes contextos de uso, como títulos, subtítulos e textos de corpo. Cada variante possui um nome e é representada por um *token* que define suas propriedades, como fonte, peso, tamanho, altura de linha (*line height*) e espaçamento entre letras (*letter spacing*). Esses *tokens* são utilizados para garantir a consistência em todo o design do **Kitten DS**, além de facilitar a manutenção e a atualização do *design system*.
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome da variante</th>
+      <th>Nome do token</th>
+      <th>Fonte padrão</th>
+      <th>Peso padrão</th>
+      <th>Tamanho (rem & px)</th>
+      <th>Line height</th>
+      <th>Letter spacing</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><Title variant="display1" className="sb-unstyled">Display1</Title></td>
+      <td>display1</td>
+      <td>Inter</td>
+      <td>Bold (700)</td>
+      <td>6rem / 96px</td>
+      <td>120%</td>
+      <td>0%</td>
+    </tr>
+    <tr>
+      <td><Title variant="display2" className="sb-unstyled">Display2</Title></td>
+      <td>display2</td>
+      <td>Inter</td>
+      <td>Bold (700)</td>
+      <td>5rem / 80px</td>
+      <td>120%</td>
+      <td>0%</td>
+    </tr>
+    <tr>
+      <td><Title variant="display3" className="sb-unstyled">Display3</Title></td>
+      <td>display3</td>
+      <td>Inter</td>
+      <td>Bold (700)</td>
+      <td>4.25rem / 68px</td>
+      <td>120%</td>
+      <td>0%</td>
+    </tr>
+    <tr>
+      <td><Title variant="h1" className="sb-unstyled">Heading1</Title></td>
+      <td>h1</td>
+      <td>Inter</td>
+      <td>Semibold (600)</td>
+      <td>3.25rem / 52px</td>
+      <td>150%</td>
+      <td>0%</td>
+    </tr>
+    <tr>
+      <td><Title variant="h2" className="sb-unstyled">Heading2</Title></td>
+      <td>h2</td>
+      <td>Inter</td>
+      <td>Semibold (600)</td>
+      <td>2.75rem / 44px</td>
+      <td>150%</td>
+      <td>0%</td>
+    </tr>
+    <tr>
+      <td><Title variant="h3" className="sb-unstyled">Heading3</Title></td>
+      <td>h3</td>
+      <td>Inter</td>
+      <td>Semibold (600)</td>
+      <td>2rem / 32px</td>
+      <td>150%</td>
+      <td>0%</td>
+    </tr>
+    <tr>
+      <td><Title variant="h4" className="sb-unstyled">Heading4</Title></td>
+      <td>h4</td>
+      <td>Inter</td>
+      <td>Semibold (600)</td>
+      <td>1.5rem / 24px</td>
+      <td>150%</td>
+      <td>0%</td>
+    </tr>
+    <tr>
+      <td><Title variant="h5" className="sb-unstyled">Heading5</Title></td>
+      <td>h5</td>
+      <td>Inter</td>
+      <td>Semibold (600)</td>
+      <td>1.25rem / 20px</td>
+      <td>150%</td>
+      <td>0%</td>
+    </tr>
+    <tr>
+      <td><Title variant="h6" className="sb-unstyled">Heading6</Title></td>
+      <td>h6</td>
+      <td>Inter</td>
+      <td>Semibold (600)</td>
+      <td>1rem / 16px</td>
+      <td>150%</td>
+      <td>0%</td>
+    </tr>
+    <tr>
+      <td><Text variant="body1" className="sb-unstyled">Body1</Text></td>
+      <td>body1</td>
+      <td>Inter</td>
+      <td>Regular (400)</td>
+      <td>1.25rem / 20px</td>
+      <td>150%</td>
+      <td>0%</td>
+    </tr>
+    <tr>
+      <td><Text variant="body2" className="sb-unstyled">Body2</Text></td>
+      <td>body2</td>
+      <td>Inter</td>
+      <td>Regular (400)</td>
+      <td>1rem / 16px</td>
+      <td>150%</td>
+      <td>0%</td>
+    </tr>
+    <tr>
+      <td><Text variant="body3" className="sb-unstyled">Body3</Text></td>
+      <td>body3</td>
+      <td>Inter</td>
+      <td>Regular (400)</td>
+      <td>0.875rem / 14px</td>
+      <td>150%</td>
+      <td>0%</td>
+    </tr>
+    <tr>
+      <td><Text variant="body4" className="sb-unstyled">Body4</Text></td>
+      <td>body4</td>
+      <td>Inter</td>
+      <td>Regular (400)</td>
+      <td>0.75rem / 12px</td>
+      <td>150%</td>
+      <td>0%</td>
+    </tr>
+  </tbody>
+</table>
+
+## ♿ Acessibilidade
+
+A tipografia do **Kitten DS** foi prototipada com foco na acessibilidade, em conformidade com as diretrizes de acessibilidade do *WCAG* (Web Content Accessibility Guidelines) 2.1, para oferecer suporte a um conteúdo legível e compreensível para todos os usuários.
+
+Essa preocupação influenciou desde a escolha da fonte até a nomeação dos *tokens* tipográficos e das cores aplicadas à tipografia. Durante a fase de prototipação, esses *tokens* foram validados com testes de contraste e legibilidade, considerando tamanho de fonte e espaçamento, para garantir uma leitura confortável e acessível, já desde o processo de design.
+
+A tipografia foi projetada para ser responsiva, utilizando unidades relativas como `rem` e `em`, o que permite que o texto se ajuste conforme as preferências do usuário e o tamanho da tela, promovendo uma boa experiência em diferentes dispositivos.
+
+Para facilitar o uso e manter a consistência, a tipografia do **Kitten DS** foi dividida em dois componentes principais: `Title` e `Text`, cada um com suas variantes específicas. Esses componentes foram pensados para diferentes contextos de uso, com base nos tokens tipográficos e na separação clara de tags semânticas de acordo com cada variante.
+
+Além das verificações feitas durante o design, como testes de contraste e legibilidade aplicados diretamente na prototipação, também foram realizados testes unitários e manuais com foco em acessibilidade e usabilidade. Esses testes verificaram se os componentes tipográficos oferecem suporte ao desenvolvimento de interfaces funcionais e inclusivas, considerando não apenas os estilos padrão definidos pelos tokens, mas também a flexibilidade para customizações e extensões.
+
+Isso garante que os componentes tipográficos do **Kitten DS** sejam adaptáveis às necessidades dos desenvolvedores e usuários, permitindo que as interfaces construídas com eles possam ser inclusivas em diferentes cenários de uso.
