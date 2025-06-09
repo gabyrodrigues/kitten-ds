@@ -1,14 +1,25 @@
 import { ColorItem, ColorPalette, Meta } from '@storybook/blocks';
+import { Link } from '../../Components';
 
 <Meta title="Design/Tokens de Cor" />
 
 # Tokens de cor
 
-O **Kitten DS** possui paleta de cores que são nomeadas de acordo com seu objetivo e função. A partir desses nomes e da atribuição de um sistema de pesos numéricos para cada cor — de 100 a 900 nas paletas *Brand* e *Neutral*, e de 100 a 500 nas paletas de *Feedback* — foi possível criar uma paleta de cores que permite flexibilidade e hierarquia visual, além de facilitar a reutilização e sobreposição dessas cores em projetos com identidades visuais próprias.
+O **Kitten DS** possui uma paleta de cores nomeada de acordo com seus objetivos e funções. A partir desses nomes e da atribuição de um sistema de pesos numéricos — de 100 a 900 nas paletas *Brand* e *Neutral*, e de 100 a 500 nas paletas de *Feedback* — foi possível criar uma estrutura que oferece flexibilidade, hierarquia visual e facilidade de reutilização em projetos com identidades próprias.
 
-A partir dessa estrutura, foi possível criar os *tokens* de cor, que atribuíram valores semânticos às cores e definiram seu propósito. Cada *token* permitiu uma linguagem visual exclusiva e a capacidade de ser sobrescrito para se adaptar às necessidades específicas de cada produto ou projeto, mantendo a consistência do *design system* e possibilitando a personalização através de variáveis CSS inseridas no projeto.
+Com essa base, foram criados os *tokens* de cor, que atribuem valores semânticos às cores e definem seu propósito de uso. Esses *tokens* ajudam a guiar decisões de aplicação de cor e permitem criar uma linguagem visual consistente, além de poderem ser sobrescritos conforme as necessidades específicas de cada produto ou projeto.
 
-Os *tokens* de cor são variáveis semânticas definidas no tema. Cada *token* pode ser substituído em projetos individuais para se adaptar a necessidades específicas de marca, mantendo a consistência.
+Os *tokens* de cor são disponibilizados como variáveis CSS semânticas e também foram integrados ao Tailwind CSS, facilitando seu uso direto em código com utilitários como `bg-primary`, `text-typography-primary` ou `bg-disabled`. Isso proporciona consistência visual e flexibilidade em diferentes contextos de design e desenvolvimento.
+
+Cada token pode ter variações adaptadas ao tema claro e escuro, o que garante contraste adequado e acessibilidade em diferentes modos de visualização. Essa adaptação é feita automaticamente via variáveis CSS.
+
+Exemplo de uso com Tailwind CSS:
+
+```tsx
+<button className="bg-primary text-typography-inverted hover:bg-primary-hover">
+  Ação principal
+</button>
+```
 
 <table className="!mx-auto">
   <thead>
@@ -443,264 +454,13 @@ Os *tokens* de cor são variáveis semânticas definidas no tema. Cada *token* p
   </tbody>
 </table>
 
-<ColorPalette>
-  <ColorItem
-    title="primary"
-    subtitle="Cor usada para ações e variantes de componentes primários"
-    colors={{
-      'primary': 'var(--color-primary)',
-    }}
-  />
-  <ColorItem
-    title="primary-hover"
-    subtitle="Variação do estado de hover e a cor mais escura para tokens primários"
-    colors={{
-      'primary-hover': 'var(--color-primary-hover)',
-    }}
-  />
-  <ColorItem
-    title="primary-highlight"
-    subtitle="Cor de destaque ou de fundo para as variantes primárias de cor"
-    colors={{
-      'primary-highlight': 'var(--color-primary-highlight)',
-    }}
-  />
-  
-  <ColorItem
-    title="secondary"
-    subtitle="Cor usada para ações e variantes de componentes secundários"
-    colors={{
-      'secondary': 'var(--color-secondary)',
-    }}
-  />
-  <ColorItem
-    title="secondary-hover"
-    subtitle="Variação do estado de hover e a cor mais escura para tokens secundários"
-    colors={{
-      'secondary-hover': 'var(--color-secondary-hover)',
-    }}
-  />
-  <ColorItem
-    title="secondary-highlight"
-    subtitle="Cor de destaque ou de fundo para as variantes secundárias de cor"
-    colors={{
-      'secondary-highlight': 'var(--color-secondary-highlight)',
-    }}
-  />
+## ☑️ Testes
 
- <ColorItem
-    title="disabled"
-    subtitle="Cor usada para planos de fundo e elementos em um estado desativado ou inativo"
-    colors={{
-      'disabled': 'var(--color-disabled)',
-    }}
-  />
- 
- <ColorItem
-    title="highlight"
-    subtitle="Cor de fundo clara usada para enfatizar de forma sutil os elementos neutros"
-    colors={{
-      'highlight': 'var(--color-highlight)',
-    }}
-  />
- 
-  <ColorItem
-    title="background"
-    subtitle="Plano de fundo padrão da página"
-    colors={{
-      'background': 'var(--color-background)',
-    }}
-  />
-  
-  <ColorItem
-    title="surface"
-    subtitle="Cor do plano de fundo para superfícies e camadas sobre o plano de fundo"
-    colors={{
-      'surface': 'var(--color-surface)',
-    }}
-  />
+Os tokens de tipografia `typography-primary`, `typography-secondary` e `typography-inverted` foram testados com a ferramenta Stark no Figma, garantindo contraste adequado conforme as diretrizes WCAG.
 
-  <ColorItem
-    title="error"
-    subtitle="Cor de base usada para estados de erro e feedback crítico"
-    colors={{
-      'error': 'var(--color-error)',
-    }}
-  />
-  <ColorItem
-    title="error-hover"
-    subtitle="Variação do estado de hover e a cor mais escura para tokens de erro"
-    colors={{
-      'error-hover': 'var(--color-error-hover)',
-    }}
-  />
-  <ColorItem
-    title="error-highlight"
-    subtitle="Cor de destaque ou de fundo para as variantes de erro"
-    colors={{
-      'error-highlight': 'var(--color-error-highlight)',
-    }}
-  />
-  
-  <ColorItem
-    title="success"
-    subtitle="Cor base usada para estados de sucesso e ações de confirmação"
-    colors={{
-      'success': 'var(--color-success)',
-    }}
-  />
-  <ColorItem
-    title="success-hover"
-    subtitle="Variação do estado de hover e a cor mais escura para tokens de sucesso"
-    colors={{
-      'success-hover': 'var(--color-success-hover)',
-    }}
-  />
-  <ColorItem
-    title="success-highlight"
-    subtitle="Cor de destaque ou de fundo para as variantes de sucesso"
-    colors={{
-      'success-highlight': 'var(--color-success-highlight)',
-    }}
-  />
-  
-  <ColorItem
-    title="warning"
-    subtitle="Cor de base usada para estados e componentes de aviso e alerta"
-    colors={{
-      'warning': 'var(--color-warning)',
-    }}
-  />
-  <ColorItem
-    title="warning-hover"
-    subtitle="Variação do estado de hover e a cor mais escura para tokens de aviso e alerta"
-    colors={{
-      'warning-hover': 'var(--color-warning-hover)',
-    }}
-  />
-  <ColorItem
-    title="warning-highlight"
-    subtitle="Cor de destaque ou de fundo para as variantes de aviso e alerta"
-    colors={{
-      'warning-highlight': 'var(--color-warning-highlight)',
-    }}
-  />
-  
-  <ColorItem
-    title="gray"
-    subtitle="Variante de cor neutra básica usada para componentes e ações"
-    colors={{
-      'gray': 'var(--color-gray)',
-    }}
-  />
-  <ColorItem
-    title="gray-hover"
-    subtitle="Variação do estado de hover e a cor mais escura para tokens neutros/cinza"
-    colors={{
-      'gray-hover': 'var(--color-gray-hover)',
-    }}
-  />
- 
-  <ColorItem
-    title="typography-primary"
-    subtitle="Cor principal usada para o conteúdo de texto primário"
-    colors={{
-      'typography-primary': 'var(--color-typography-primary)',
-    }}
-  />
-  <ColorItem
-    title="typography-secondary"
-    subtitle="Cor usada para texto secundário ou de apoio"
-    colors={{
-      'typography-secondary': 'var(--color-typography-secondary)',
-    }}
-  />
-  <ColorItem
-    title="typography-inverted"
-    subtitle="Cor usada para texto em fundos escuros ou coloridos"
-    colors={{
-      'typography-inverted': 'var(--color-typography-inverted)',
-    }}
-  />
-  <ColorItem
-    title="typography-disabled"
-    subtitle="Cor usada para o texto em estados desativados ou inativos"
-    colors={{
-      'typography-disabled': 'var(--color-typography-disabled)',
-    }}
-  />
-  
-  <ColorItem
-    title="default-black"
-    subtitle="Cor preta padrão usada em todo o sistema quando necessário"
-    colors={{
-      'default-black': 'var(--color-default-black)',
-    }}
-  />
-  <ColorItem
-    title="default-white"
-    subtitle="Cor branca padrão usada em todo o sistema quando necessário"
-    colors={{
-      'default-white': 'var(--color-default-white)',
-    }}
-  />
-  <ColorItem
-    title="default-border"
-    subtitle="Cor padrão usada para bordas de componentes e elementos"
-    colors={{
-      'default-border': 'var(--color-default-border)',
-    }}
-  />
+Com base nesses testes, a documentação recomenda:
 
-  <ColorItem
-    title="input-border"
-    subtitle="Cor padrão usada para bordas de inputs e elementos de formulário"
-    colors={{
-      'input-border': 'var(--color-input-border)',
-    }}
-  />
-  <ColorItem
-    title="input-placeholder"
-    subtitle="Cor do placeholder dos componentes Input e Select"
-    colors={{
-      'input-placeholder': 'var(--color-input-placeholder)',
-    }}
-  />
+- O uso de `typography-primary`, `typography-secondary` em fundos claros;
+- O uso de `typography-inverted` em fundos escuros — garantindo contraste ideal e legibilidade.
 
-  <ColorItem
-    title="focus-ring"
-    subtitle="Cor usada para indicar estados de foco, como ao usar a navegação pelo teclado"
-    colors={{
-      'focus-ring': 'var(--color-focus-ring)',
-    }}
-  />
- 
-  <ColorItem
-    title="link"
-    subtitle="Cor padrão usada para links em seu estado padrão"
-    colors={{
-      'link': 'var(--color-link)',
-    }}
-  />
-  <ColorItem
-    title="link-hover"
-    subtitle="Cor usada para links quando o mouse é posicionado sobre eles"
-    colors={{
-      'link-hover': 'var(--color-link-hover)',
-    }}
-  />
-  <ColorItem
-    title="link-visited"
-    subtitle="Cor usada para links depois de terem sido visitados"
-    colors={{
-      'link-visited': 'var(--color-link-visited)',
-    }}
-  />
-  <ColorItem
-    title="link-active"
-    subtitle="Cor usada para links enquanto eles estão sendo ativamente clicados"
-    colors={{
-      'link-active': 'var(--color-link-active)',
-    }}
-  />
-</ColorPalette>
+Todas as definições documentadas seguem os critérios de contraste do <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-enhanced.html">nível AAA das diretrizes WCAG</Link>, com foco em acessibilidade e em uma experiência de leitura inclusiva em diferentes contextos e condições de visualização.
