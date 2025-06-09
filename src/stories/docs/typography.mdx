@@ -1,7 +1,7 @@
 import { ColorItem, ColorPalette, Meta } from '@storybook/blocks';
 import { Flex, Text, Title } from '../../Components'
 
-<Meta title="Design/Tipografia" />
+<Meta title="Design/Tipografia e Tokens" />
 
 # ⌨️ Tipografia
 
@@ -16,7 +16,12 @@ A família tipográfica padrão é a **Inter**, uma fonte *sans-serif* projetada
 
 ## ⚙️ Variantes e tokens
 
-As variantes de tipografia possuem estilos e tamanhos específicos atribuídos a diferentes contextos de uso, como títulos, subtítulos e textos de corpo. Cada variante possui um nome e é representada por um *token* que define suas propriedades, como fonte, peso, tamanho, altura de linha (*line height*) e espaçamento entre letras (*letter spacing*). Esses *tokens* são utilizados para garantir a consistência em todo o design do **Kitten DS**, além de facilitar a manutenção e a atualização do *design system*.
+
+As variantes de tipografia possuem estilos e tamanhos específicos atribuídos a diferentes contextos de uso, como títulos, subtítulos e textos de corpo. Cada variante tem um nome e é representada por um *token* que define suas propriedades, como fonte, peso, tamanho, altura de linha (*line height*) e espaçamento entre letras (*letter spacing*). Esses *tokens* são utilizados para garantir a consistência em todo o design do **Kitten DS**, facilitando a manutenção e a evolução do *design system*.
+
+Esses tokens tipográficos — como `h1`, `body1`, `display1`, entre outros — foram convertidos em variáveis CSS e também integrados ao Tailwind CSS, permitindo seu uso direto em classes utilitárias como `text-h1`, `text-body1` ou `text-display1`. Isso torna sua aplicação no código mais prática e flexível, além de permitir sobrescrições personalizadas conforme o contexto de cada projeto (modo claro/escuro, branding, acessibilidade, etc).
+
+Essa integração com o Tailwind também facilita a padronização entre design e desenvolvimento, garantindo que os estilos tipográficos sigam exatamente as definições do *design system* em qualquer projeto que use o **Kitten DS**.
 
 <table>
   <thead>
