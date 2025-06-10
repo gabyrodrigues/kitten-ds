@@ -6,7 +6,7 @@ const config: StorybookConfig = {
     "../src/**/*.mdx",
     "../src/stories/docs/**/*.mdx"
   ],
-  staticDirs: [{ from: "../src/assets", to: "/assets" }],
+  staticDirs: [{ from: "../src/assets", to: "/assets" }, "./public"],
   addons: [
     "@storybook/addon-essentials",
     "@chromatic-com/storybook",
