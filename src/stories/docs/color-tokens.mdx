@@ -3,7 +3,7 @@ import { Link } from '../../Components';
 
 <Meta title="Design/Tokens de Cor" />
 
-# Tokens de cor
+# 🌈 Tokens de cor
 
 O **Kitten DS** possui uma paleta de cores nomeada de acordo com seus objetivos e funções. A partir desses nomes e da atribuição de um sistema de pesos numéricos — de 100 a 900 nas paletas *Brand* e *Neutral*, e de 100 a 500 nas paletas de *Feedback* — foi possível criar uma estrutura que oferece flexibilidade, hierarquia visual e facilidade de reutilização em projetos com identidades próprias.
 
@@ -464,3 +464,8 @@ Com base nesses testes, a documentação recomenda:
 - O uso de `typography-inverted` em fundos escuros — garantindo contraste ideal e legibilidade.
 
 Todas as definições documentadas seguem os critérios de contraste do <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-enhanced.html">nível AAA das diretrizes WCAG</Link>, com foco em acessibilidade e em uma experiência de leitura inclusiva em diferentes contextos e condições de visualização.
+
+> **⚠️ Atenção ao uso dos tokens `warning`:**  
+> Por se tratar de um tom de amarelo claro, essa cor pode apresentar **baixo contraste sobre fundos igualmente claros**, como `background` e `surface`.  
+> Recomenda-se **evitar seu uso em textos ou ícones nesses contextos**, especialmente em mensagens de alerta.  
+> Sempre verifique se o contraste atende às diretrizes de acessibilidade (<Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-enhanced.html" target="_blank" rel="noopener noreferrer">WCAG AAA</Link>) antes de aplicar esse token.
