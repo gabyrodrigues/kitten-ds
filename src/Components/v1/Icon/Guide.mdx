@@ -14,7 +14,7 @@ import { Title } from "../Title"
 
 O `Icon` é um componente que exibe um símbolo ou imagem gráfica, utilizado para representar visualmente uma ação, estado ou conteúdo. Seu uso contribui para a clareza e compreensão da interface, facilitando a identificação de ações e informações importantes.
 
-O componente é baseado no *Google Material Icons* e a sua exibição é feita através de uma lista de ícones disponíveis, definida pelo nome do ícone passado através da propriedade `type`. Os nomes podem ser consultados na <Link href="https://fonts.google.com/icons?selected=Material+Symbols+Outlined" className="sb-unstyled text-sm">página oficial do Material Icons</Link>.
+O componente é baseado no *Google Material Icons* e a sua exibição é feita através de uma lista de ícones disponíveis, definida pelo nome do ícone passado através da propriedade `type`. Os nomes podem ser consultados na <Link href="https://fonts.google.com/icons?selected=Material+Symbols+Outlined" className="sb-unstyled text-sm" target="_blank">página oficial do Material Icons</Link>.
 
 <Flex align="items-center" justify="justify-center" direction="flex-col">
   <Flex justify="justify-center">
@@ -131,17 +131,17 @@ O componente `Icon` foi desenvolvido com foco em acessibilidade e usabilidade. D
 
 O componente `Icon` foi desenvolvido e testado para atender às diretrizes WCAG 2.1, oferecendo suporte a propriedades de acessibilidade e práticas recomendadas para garantir uma experiência inclusiva para todos os usuários. Como, por exemplo:
 
-- Ícones puramente decorativos são marcados com `aria-hidden="true"` para que leitores de tela os ignorem, conforme recomendado no critério <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html" target="_blank" rel="noopener noreferrer">WCAG 1.1.1 – Conteúdo não textual</Link>;
-- Quando necessário, permite que o ícone seja interpretado como imagem acessível `(role="img")` ao receber uma `aria-label`, garantindo que o leitor de tela possa descrever o propósito do ícone, seguindo as diretrizes do <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value.html" target="_blank" rel="noopener noreferrer">4.1.2 Nome, função e valor</Link>;
+- Ícones puramente decorativos são marcados com `aria-hidden="true"` para que leitores de tela os ignorem, conforme recomendado no critério <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html" target="_blank">WCAG 1.1.1 – Conteúdo não textual</Link>;
+- Quando necessário, permite que o ícone seja interpretado como imagem acessível `(role="img")` ao receber uma `aria-label`, garantindo que o leitor de tela possa descrever o propósito do ícone, seguindo as diretrizes do <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value.html" target="_blank">4.1.2 Nome, função e valor</Link>;
 - Usa elementos semanticamente neutros `(<span>)` para garantir flexibilidade e controle total sobre o comportamento de acessibilidade e estilização;
 - Bloqueia a tradução automática com `translate="no"`, evitando alterações indesejadas do conteúdo do ícone por serviços de tradução automática;
-- Suporta personalização acessível por meio de propriedades como `aria-label`, `aria-labelledby` e `role`, permitindo adaptação conforme o contexto de uso, conforme indicado nos critérios <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html" target="_blank" rel="noopener noreferrer">1.1.1 Conteúdo não textual</Link> e <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html" target="_blank" rel="noopener noreferrer">1.3.1 Informações e relacionamentos</Link>.
+- Suporta personalização acessível por meio de propriedades como `aria-label`, `aria-labelledby` e `role`, permitindo adaptação conforme o contexto de uso, conforme indicado nos critérios <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html" target="_blank">1.1.1 Conteúdo não textual</Link> e <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html" target="_blank">1.3.1 Informações e relacionamentos</Link>.
 
 Para complementar e garantir a acessibilidade, recomenda-se:
 
 - Evite depender exclusivamente do ícone para transmitir informação: certifique-se de que o significado do ícone também esteja presente em texto visível ou acessível, conforme o critério
-<Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html" target="_blank" rel="noopener noreferrer">1.1.1 Conteúdo não textual (WCAG)</Link>;
+<Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html" target="_blank">1.1.1 Conteúdo não textual (WCAG)</Link>;
 - Use `aria-label` ou `aria-labelledby` em ícones com função interativa (como botões) para garantir que leitores de tela consigam anunciar o propósito da ação, conforme
-<Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value.html" target="_blank" rel="noopener noreferrer">4.1.2 Nome, função e valor (WCAG)</Link>;
+<Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value.html" target="_blank">4.1.2 Nome, função e valor (WCAG)</Link>;
 - Garanta contraste suficiente entre o ícone e o fundo, especialmente se o ícone for fundamental para o entendimento da interface, conforme
-<Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html" target="_blank" rel="noopener noreferrer">1.4.11 Contraste de Elementos Não Textuais (WCAG)</Link>.
+<Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html" target="_blank">1.4.11 Contraste de Elementos Não Textuais (WCAG)</Link>.
