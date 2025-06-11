@@ -26,13 +26,20 @@ O componente `IconButton` oferece três variantes principais, cada uma com um pr
 - **Outlined (Delineado)**: Os botões de ícones delineados são recomendados para ações menos prioritárias ou alternativas às ações principais. Eles tem menos destaque visual que os preenchidos, mas ainda são visíveis e funcionais.
 - **Default (Padrão)**: Os botões de ícone padrão são recomendados para ações secundárias ou complementares, onde o foco deve ser menor que as outras ações. Eles são mais sutis e menos destacados que os preenchidos e delineados.
 
-<img src="/assets/icon-button-colors.png" alt="Exibição de uma lista de botões preenchidos e cada botão tem sua cor atribuída: primária, secundária e cinza." style={{ margin: '24px auto' }} />
+<img src="/assets/icon-button-colors.png" alt="Exibição de uma lista de botões preenchidos e cada botão tem sua cor atribuída: primária, secundária e cinza." style={{ margin: '8px auto' }} />
 
 Cada botão de ícone pode ser personalizado com diferentes cores, permitindo que o usuário identifique rapidamente a importância da ação. As cores disponíveis são:
 
 - **Primary**: Ação principal da página.
 - **Secondary**: Ação complementar ou alternativa.
 - **Gray**: Ações neutras ou de suporte, com menor destaque.
+
+<img src="/assets/icon-button-sizes.png" alt="Exibição de uma lista de botões delineados, cada um demonstrando um tamanho diferente: small, medium e large." style={{ margin: '8px auto' }} />
+
+Escolha o tamanho do `IconButton` a partir da propridade `size` conforme o contexto de uso:  
+- **Small**: (24x24px) é indicado para áreas densas como listas ou barras de ferramentas;  
+- **Medium**: (32x32px) para interfaces padrão;  
+- **Large**: (44x44px) é ideal para contextos em que a acessibilidade e a área de toque são prioridade, como em dispositivos móveis.
 
 ## 💡 Recomendações de Uso
 
@@ -125,6 +132,7 @@ Por padrão, o componente `IconButton` já implementa diretrizes essenciais de a
 
 Para complementar e garantir a acessibilidade, recomenda-se:
 
+- Priorize o uso do tamanho `large` (44x44px) do `IconButton` em contextos onde o botão será tocado diretamente, garantindo a área mínima recomendada pela <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/target-size.html" target="_blank">WCAG 2.5.5 (Target Size)</Link> para dispositivos de toque. Se optar pelos tamanhos `medium` (32x32px) ou `small` (24x24px), certifique-se de que haja espaçamento suficiente ao redor do botão para compensar a área de toque, mantendo a acessibilidade;
 - Quando o botão é representado apenas por um ícone, o componente já exige o uso da propriedade `ariaLabel`, que garante uma descrição acessível da ação, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html" target="_blank">WCAG 1.1.1 (Non-text Content)</Link>;
 O uso de `Tooltip` é opcional, mas pode ajudar a reforçar visualmente o significado do botão para todos os usuários. Embora não seja obrigatório, ele pode apoiar a compreensão conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions.html" target="_blank">WCAG 3.3.2 (Labels or Instructions)</Link>;
 - Quando os botões estão desativados na interface do usuário, as diretrizes de contraste de cores não se aplicam aos componentes desativados. As <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html#inactive-controls" target="_blank">diretrizes de contraste mínimo definidas nas WCAG 2.1</Link> declaram explicitamente que os componentes desativados estão isentos da diretriz;
