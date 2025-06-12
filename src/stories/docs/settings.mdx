@@ -1,0 +1,99 @@
+import { Meta } from "@storybook/blocks"
+import { Link } from "../../Components"
+
+<Meta title="Guia de Instalação e Uso" />
+
+# 🐾 Guia de instalação e uso do Kitten DS
+
+Este guia mostra como instalar e começar a usar o **Kitten DS**, uma biblioteca de componentes acessíveis, focado na criação de interfaces amigáveis e fáceis de usar. 
+
+## ⚙️ Pré-requisitos
+
+Antes de instalar o Kitten DS, você precisa ter:
+
+- Conhecimento básico em **JavaScript**, **React**, **CSS** e familiaridade com as classes do **Tailwind CSS** (que já são baseadas em CSS);
+- Instalado em sua máquina:
+  - <Link target="_blank" className="sb-unstyled text-sm" href="https://nodejs.org">Node.js</Link>;
+  - <Link target="_blank" className="sb-unstyled text-sm" href="https://www.npmjs.com">npm</Link>, <Link target="_blank" className="sb-unstyled text-sm" href="https://pnpm.io">pnpm</Link> ou <Link target="_blank" className="sb-unstyled text-sm" href="https://yarnpkg.com">yarn</Link> como gerenciador de pacotes;
+  - Um projeto React configurado (pode ser criado com <Link target="_blank" className="sb-unstyled text-sm" href="https://vitejs.dev">Vite</Link>, <Link target="_blank" className="sb-unstyled text-sm" href="https://nextjs.org">Next.js</Link>, ou outro framework de sua escolha);
+
+### 🎨 Integração com Tailwind CSS e Tokens de design
+
+O Kitten DS utiliza o Tailwind CSS (versão 4) como base para estilização e oferece um sistema de **tokens CSS** que garantem consistência e fácil personalização visual.
+
+Esses tokens são variáveis CSS customizadas definidas nas configurações do Tailwind, por exemplo:
+
+```css
+--color-primary: var(--color-brand-purple-800);
+--color-primary-hover: var(--color-brand-purple-900);
+--color-primary-highlight: var(--color-brand-purple-100);
+
+--shadow-variant1: 0px 0px 4px 0px rgba(33, 33, 33, 0.16);
+--shadow-variant2: 0px 2px 4px 0px rgba(33, 33, 33, 0.16);
+--shadow-variant3: 0px 4px 8px 0px rgba(33, 33, 33, 0.16);
+
+--color-typography-primary: var(--color-neutral-gray-800);
+--color-typography-secondary: var(--color-neutral-gray-600);
+--color-typography-inverted: var(--color-neutral-gray-100);
+--color-typography-disabled: var(--color-neutral-gray-500);
+```
+
+Esses tokens foram criados durante a fase de prototipação do design system, garantindo consistência visual e conformidade com critérios de acessibilidade, como contraste adequado e legibilidade. Eles são utilizados em todos os componentes do Kitten DS, permitindo fácil personalização e adaptação ao branding de cada projeto.
+
+⚠️ Flexibilidade: Embora esses tokens sejam definidos como padrão, o Kitten DS permite que eles sejam sobrescritos ou ajustados diretamente via CSS no seu projeto, facilitando a adaptação da biblioteca à identidade visual e necessidades específicas do seu contexto.
+
+⚠️ Para garantir o funcionamento correto, seu projeto React deve ter o Tailwind CSS configurado. Caso ainda não tenha configurado, siga as instruções oficiais:
+<Link target="_blank" className="sb-unstyled text-sm" href="https://tailwindcss.com/docs/installation/framework-guides">https://tailwindcss.com/docs/installation/framework-guides</Link>
+
+## 📦 Instalação
+
+Instale o Kitten DS com o gerenciador de pacotes de sua preferência:
+
+### Usando `npm`:
+
+```bash
+npm install kitten-ds
+```
+### Usando `pnpm`:
+
+```bash
+pnpm install kitten-ds
+```
+
+### Usando `yarn`:
+
+```bash
+yarn add kitten-ds
+```
+
+## ⚛️ Uso básico em React
+
+Após a instalação, importe os componentes do Kitten DS diretamente em seus arquivos React. Por exemplo:
+
+```javascript
+import { Button } from "kitten-ds"
+function App() {
+  return (
+    <div>
+      <Button>Clique aqui</Button>
+    </div>
+  );
+}
+export default App;
+```
+
+## ♿ Acessibilidade
+
+O Kitten DS é desenvolvido com foco em acessibilidade, seguindo as Diretrizes de Acessibilidade para Conteúdo Web (WCAG), incluindo:
+
+- Foco visível e navegável por teclado;
+- Contraste adequado entre texto e fundo;
+- Tamanho mínimo recomendado para áreas de toque.
+
+## ❤️🐱 Sobre o Kitten DS
+
+- Design system acessível e amigável;
+- Componentes reutilizáveis e responsivos;
+- Personalização via tokens de design;
+- Integração com Storybook para documentação e testes;
+- Testes de acessibilidade e usabilidade.
