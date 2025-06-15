@@ -17,35 +17,7 @@ Antes de instalar o Kitten DS, você precisa ter:
   - <Link target="_blank" className="sb-unstyled text-sm" href="https://www.npmjs.com">npm</Link>, <Link target="_blank" className="sb-unstyled text-sm" href="https://pnpm.io">pnpm</Link> ou <Link target="_blank" className="sb-unstyled text-sm" href="https://yarnpkg.com">yarn</Link> como gerenciador de pacotes;
   - Um projeto React configurado (pode ser criado com <Link target="_blank" className="sb-unstyled text-sm" href="https://vitejs.dev">Vite</Link>, <Link target="_blank" className="sb-unstyled text-sm" href="https://nextjs.org">Next.js</Link>, ou outro framework de sua escolha);
 
-### 🎨 Integração com Tailwind CSS e Tokens de design
-
-O Kitten DS utiliza o Tailwind CSS (versão 4) como base para estilização e oferece um sistema de **tokens CSS** que garantem consistência e fácil personalização visual.
-
-Esses tokens são variáveis CSS customizadas definidas nas configurações do Tailwind, por exemplo:
-
-```css
---color-primary: var(--color-brand-purple-800);
---color-primary-hover: var(--color-brand-purple-900);
---color-primary-highlight: var(--color-brand-purple-100);
-
---shadow-variant1: 0px 0px 4px 0px rgba(33, 33, 33, 0.16);
---shadow-variant2: 0px 2px 4px 0px rgba(33, 33, 33, 0.16);
---shadow-variant3: 0px 4px 8px 0px rgba(33, 33, 33, 0.16);
-
---color-typography-primary: var(--color-neutral-gray-800);
---color-typography-secondary: var(--color-neutral-gray-600);
---color-typography-inverted: var(--color-neutral-gray-100);
---color-typography-disabled: var(--color-neutral-gray-500);
-```
-
-Esses tokens foram criados durante a fase de prototipação do design system, garantindo consistência visual e conformidade com critérios de acessibilidade, como contraste adequado e legibilidade. Eles são utilizados em todos os componentes do Kitten DS, permitindo fácil personalização e adaptação ao branding de cada projeto.
-
-⚠️ Flexibilidade: Embora esses tokens sejam definidos como padrão, o Kitten DS permite que eles sejam sobrescritos ou ajustados diretamente via CSS no seu projeto, facilitando a adaptação da biblioteca à identidade visual e necessidades específicas do seu contexto.
-
-⚠️ Para garantir o funcionamento correto, seu projeto React deve ter o Tailwind CSS configurado. Caso ainda não tenha configurado, siga as instruções oficiais:
-<Link target="_blank" className="sb-unstyled text-sm" href="https://tailwindcss.com/docs/installation/framework-guides">https://tailwindcss.com/docs/installation/framework-guides</Link>
-
-## 📦 Instalação
+### 📦 Instalação
 
 Instale o Kitten DS com o gerenciador de pacotes de sua preferência:
 
@@ -65,6 +37,57 @@ pnpm install kitten-ds
 ```bash
 yarn add kitten-ds
 ```
+
+## 🎨 Integração com Tailwind CSS e Tokens de design
+
+O Kitten DS utiliza o Tailwind CSS (versão 4) como base para estilização e oferece um sistema de **tokens CSS** que garantem consistência e fácil personalização visual.
+
+Durante a fase de prototipação do design system, esses tokens foram definidos com foco em critérios de acessibilidade (como contraste adequado, legibilidade e foco visível) e experiência do usuário. Eles são aplicados globalmente aos componentes do Kitten DS, criando uma base visual consistente.
+
+### 🎯 Customização via Tokens CSS
+
+Esses tokens são variáveis CSS customizadas e podem ser sobrescritos diretamente no seu CSS global para adaptar o Kitten DS ao branding e às necessidades do seu projeto — sem a necessidade de alterar a biblioteca.
+
+Por exemplo, os tokens padrão incluem:
+
+```css
+--color-primary: var(--color-brand-purple-800);
+--color-primary-hover: var(--color-brand-purple-900);
+--color-primary-highlight: var(--color-brand-purple-100);
+
+--shadow-variant1: 0px 0px 4px 0px rgba(33, 33, 33, 0.16);
+--shadow-variant2: 0px 2px 4px 0px rgba(33, 33, 33, 0.16);
+--shadow-variant3: 0px 4px 8px 0px rgba(33, 33, 33, 0.16);
+
+--color-typography-primary: var(--color-neutral-gray-800);
+--color-typography-secondary: var(--color-neutral-gray-600);
+--color-typography-inverted: var(--color-neutral-gray-100);
+--color-typography-disabled: var(--color-neutral-gray-500);
+```
+
+Se quiser alterar a paleta, por exemplo, basta definir novos valores no seu CSS global:
+
+```css
+  @theme {
+    --color-primary: var(--color-brand-blue-700);
+    --color-primary-hover: var(--color-brand-blue-800);
+    --color-primary-highlight: var(--color-brand-blue-100);
+
+    --shadow-variant1: 0px 1px 4px rgba(0, 0, 0, 0.12);
+  }
+```
+
+✔️ Dessa forma, você tem liberdade para ajustar cores, sombras, tipografia e outros aspectos visuais, mantendo a consistência e acessibilidade que fazem parte do DNA do Kitten DS.
+
+⚠️🔧 Importante: Embora seja possível sobrescrever qualquer token, recomendamos sempre validar alterações com ferramentas de acessibilidade para garantir contraste, legibilidade e foco, respeitando as diretrizes WCAG.
+
+### 🚀 Dependência do Tailwind CSS
+
+O Kitten DS depende do Tailwind CSS para seu funcionamento. Certifique-se de que seu projeto React está com o Tailwind CSS (versão 4) corretamente configurado.
+
+Se ainda não configurou, siga o guia oficial de instalação do Tailwind:
+
+<Link target="_blank" className="sb-unstyled text-sm" href="https://tailwindcss.com/docs/installation/framework-guides">https://tailwindcss.com/docs/installation/framework-guides</Link>
 
 ## ⚛️ Uso básico em React
 
@@ -89,6 +112,12 @@ O Kitten DS é desenvolvido com foco em acessibilidade, seguindo as Diretrizes d
 - Foco visível e navegável por teclado;
 - Contraste adequado entre texto e fundo;
 - Tamanho mínimo recomendado para áreas de toque.
+
+## 🤝 Contribuindo
+
+O Kitten DS está em constante evolução. Se quiser contribuir, sugerir melhorias ou reportar problemas, acesse o repositório:
+
+<Link target="_blank" className="sb-unstyled text-sm" href="https://github.com/gabyrodrigues/kitten-ds">GitHub - kitten-ds</Link>
 
 ## ❤️🐱 Sobre o Kitten DS
 
