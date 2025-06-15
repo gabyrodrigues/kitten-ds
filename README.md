@@ -4,7 +4,7 @@
 
 # 🐾 Kitten DS
 
-**Kitten DS** é um design system acessível, focado na criação de interfaces amigáveis e fáceis de usar. Ele combina a flexibilidade de um *UI kit* com a estrutura de um *design system* completo, integrado a uma biblioteca de componentes, fundações de design, tokens e variáveis de design adaptáveis, testes e documentação interativa — oferecendo uma experiência fluida e agradável para todos os usuários. Seus componentes foram desenvolvidos e testados em conformidade com as [Diretrizes WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/).
+**Kitten DS** é um *design system* acessível, focado na criação de interfaces amigáveis e fáceis de usar. Ele combina a flexibilidade de um *UI kit* com a estrutura de um *design system* completo, integrado a uma biblioteca de componentes, fundações de design, *tokens* e variáveis de design adaptáveis, testes e documentação interativa — oferecendo uma experiência fluida e agradável para todos os usuários. Seus componentes foram desenvolvidos e testados em conformidade com as [Diretrizes WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/).
 
 ## ⚙️ Pré-requisitos
 
@@ -37,17 +37,17 @@ pnpm install kitten-ds
 yarn add kitten-ds
 ```
 
-## 🎨 Integração com Tailwind CSS e Tokens de design
+## 🎨 Integração com Tailwind CSS e *Tokens* de design
 
 O Kitten DS utiliza o Tailwind CSS (versão 4) como base para estilização e oferece um sistema de **tokens CSS** que garantem consistência e fácil personalização visual.
 
-Durante a fase de prototipação do design system, esses tokens foram definidos com foco em critérios de acessibilidade (como contraste adequado, legibilidade e foco visível) e experiência do usuário. Eles são aplicados globalmente aos componentes do Kitten DS, criando uma base visual consistente.
+Durante a fase de prototipação do *design system*, esses *tokens* foram definidos com foco em critérios de acessibilidade (como contraste adequado, legibilidade e foco visível) e experiência do usuário. Eles são aplicados globalmente aos componentes do Kitten DS, criando uma base visual consistente.
 
-### 🎯 Customização via Tokens CSS
+### 🎯 Customização via *Tokens* CSS
 
-Esses tokens são variáveis CSS customizadas e podem ser sobrescritos diretamente no seu CSS global para adaptar o Kitten DS ao branding e às necessidades do seu projeto — sem a necessidade de alterar a biblioteca.
+Esses *tokens* são variáveis CSS customizadas e podem ser sobrescritos diretamente no seu CSS global para adaptar o Kitten DS ao branding e às necessidades do seu projeto — sem a necessidade de alterar a biblioteca.
 
-Por exemplo, os tokens padrão incluem:
+Por exemplo, os *tokens* padrão incluem:
 
 ```css
 --color-primary: var(--color-brand-purple-800);
@@ -78,7 +78,7 @@ Se quiser alterar a paleta, por exemplo, basta definir novos valores no seu CSS 
 
 ✔️ Dessa forma, você tem liberdade para ajustar cores, sombras, tipografia e outros aspectos visuais, mantendo a consistência e acessibilidade que fazem parte do DNA do Kitten DS.
 
-⚠️🔧 Importante: Embora seja possível sobrescrever qualquer token, recomendamos sempre validar alterações com ferramentas de acessibilidade para garantir contraste, legibilidade e foco, respeitando as diretrizes WCAG.
+⚠️🔧 Importante: Embora seja possível sobrescrever qualquer *token*, recomendamos sempre validar alterações com ferramentas de acessibilidade para garantir contraste, legibilidade e foco, respeitando as diretrizes WCAG.
 
 ### 🚀 Dependência do Tailwind CSS
 
@@ -119,8 +119,8 @@ Sinta-se à vontade para abrir uma issue, sugerir melhorias ou enviar um pull re
 
 ## ❤️🐱 Sobre o Kitten DS
 
-- Design system acessível e amigável;
+- *Design system* acessível e amigável;
 - Componentes reutilizáveis e responsivos;
-- Personalização via tokens de design;
+- Personalização via *tokens* de design;
 - Integração com Storybook para documentação e testes;
 - Testes de acessibilidade e usabilidade.

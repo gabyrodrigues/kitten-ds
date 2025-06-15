@@ -3,7 +3,7 @@ import { Link } from "../../Components"
 
 <Meta title="Design/Tokens de cor" />
 
-# 🌈 Tokens de cor
+# 🌈 *Tokens* de cor
 
 O **Kitten DS** possui uma paleta de cores nomeada de acordo com seus objetivos e funções. A partir desses nomes e da atribuição de um sistema de pesos numéricos — de 100 a 900 nas paletas *Brand* e *Neutral*, e de 100 a 500 nas paletas de *Feedback* — foi possível criar uma estrutura que oferece flexibilidade, hierarquia visual e facilidade de reutilização em projetos com identidades próprias.
 
@@ -11,7 +11,7 @@ Com essa base, foram criados os *tokens* de cor, que atribuem valores semântico
 
 Os *tokens* de cor são disponibilizados como variáveis CSS semânticas e também foram integrados ao Tailwind CSS, facilitando seu uso direto em código com utilitários como `bg-primary`, `text-typography-primary` ou `bg-disabled`. Isso proporciona consistência visual e flexibilidade em diferentes contextos de design e desenvolvimento.
 
-Cada token pode ter variações adaptadas ao tema claro e escuro, o que garante contraste adequado e acessibilidade em diferentes modos de visualização. Essa adaptação é feita automaticamente via variáveis CSS.
+Cada *token* pode ter variações adaptadas ao tema claro e escuro, o que garante contraste adequado e acessibilidade em diferentes modos de visualização. Essa adaptação é feita automaticamente via variáveis CSS.
 
 Exemplo de uso com Tailwind CSS:
 
@@ -24,7 +24,7 @@ Exemplo de uso com Tailwind CSS:
 <table className="!mx-auto">
   <thead>
     <tr>
-      <th>Nome do token</th>
+      <th>Nome do *token*</th>
       <th>Nome da cor base</th>
       <th>Função</th>
       <th>Amostra</th>
@@ -46,7 +46,7 @@ Exemplo de uso com Tailwind CSS:
     <tr>
       <td>primary-hover</td>
       <td>Brand Purple 900</td>
-      <td>Variação do estado de hover e a cor mais escura para tokens primários</td>
+      <td>Variação do estado de hover e a cor mais escura para *tokens* primários</td>
       <td className="[&>*]:!block">
         <ColorItem
           colors={{
@@ -82,7 +82,7 @@ Exemplo de uso com Tailwind CSS:
     <tr>
       <td>secondary-hover</td>
       <td>Brand Blue 900</td>
-      <td>Variação do estado de hover e a cor mais escura para tokens secundários</td>
+      <td>Variação do estado de hover e a cor mais escura para *tokens* secundários</td>
       <td className="[&>*]:!block">
         <ColorItem
           colors={{
@@ -166,7 +166,7 @@ Exemplo de uso com Tailwind CSS:
     <tr>
       <td>error-hover</td>
       <td>Error 500</td>
-      <td>Variação do estado de hover e a cor mais escura para tokens de erro</td>
+      <td>Variação do estado de hover e a cor mais escura para *tokens* de erro</td>
       <td className="[&>*]:!block">
         <ColorItem
           colors={{
@@ -202,7 +202,7 @@ Exemplo de uso com Tailwind CSS:
     <tr>
       <td>success-hover</td>
       <td>Success 500</td>
-      <td>Variação do estado de hover e a cor mais escura para tokens de sucesso</td>
+      <td>Variação do estado de hover e a cor mais escura para *tokens* de sucesso</td>
       <td className="[&>*]:!block">
         <ColorItem
           colors={{
@@ -238,7 +238,7 @@ Exemplo de uso com Tailwind CSS:
     <tr>
       <td>warning-hover</td>
       <td>Warning 500</td>
-      <td>Variação do estado de hover e a cor mais escura para tokens de aviso e alerta</td>
+      <td>Variação do estado de hover e a cor mais escura para *tokens* de aviso e alerta</td>
       <td className="[&>*]:!block">
         <ColorItem
           colors={{
@@ -274,7 +274,7 @@ Exemplo de uso com Tailwind CSS:
     <tr>
       <td>gray-hover</td>
       <td>Neutral Gray 800</td>
-      <td>Variação do estado de hover e a cor mais escura para tokens neutros/cinza</td>
+      <td>Variação do estado de hover e a cor mais escura para *tokens* neutros/cinza</td>
       <td className="[&>*]:!block">
         <ColorItem
           colors={{
@@ -456,7 +456,7 @@ Exemplo de uso com Tailwind CSS:
 
 ## ☑️ Testes
 
-Os tokens de tipografia `typography-primary`, `typography-secondary` e `typography-inverted` foram testados com a ferramenta Stark no Figma, garantindo contraste adequado conforme as diretrizes WCAG.
+Os *tokens* de tipografia `typography-primary`, `typography-secondary` e `typography-inverted` foram testados com a ferramenta Stark no Figma, garantindo contraste adequado conforme as diretrizes WCAG.
 
 Com base nesses testes, a documentação recomenda:
 
@@ -465,7 +465,7 @@ Com base nesses testes, a documentação recomenda:
 
 Todas as definições documentadas seguem os critérios de contraste do <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-enhanced.html" target="_blank">nível AAA das diretrizes WCAG</Link>, com foco em acessibilidade e em uma experiência de leitura inclusiva em diferentes contextos e condições de visualização.
 
-> **⚠️ Atenção ao uso dos tokens `warning`:**  
+> **⚠️ Atenção ao uso dos *tokens* `warning`:**  
 > Por se tratar de um tom de amarelo claro, essa cor pode apresentar **baixo contraste sobre fundos igualmente claros**, como `background` e `surface`.  
 > Recomenda-se **evitar seu uso em textos ou ícones nesses contextos**, especialmente em mensagens de alerta.  
-> Sempre verifique se o contraste atende às diretrizes de acessibilidade (<Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-enhanced.html" target="_blank">WCAG AAA</Link>) antes de aplicar esse token.
+> Sempre verifique se o contraste atende às diretrizes de acessibilidade (<Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-enhanced.html" target="_blank">WCAG AAA</Link>) antes de aplicar esse *token*.
