@@ -4,7 +4,7 @@
 
 # 🐾 Kitten DS
 
-**Kitten DS** é um design system acessível, focado na criação de interfaces amigáveis e fáceis de usar. Ele combina a flexibilidade de um *UI kit* com a estrutura de um *design system* completo, integrado a uma biblioteca de componentes, fundações de design, testes e documentação interativa, — oferecendo uma experiência fluida e agradável para todos os usuários. Seus componentes foram desenvolvidos e testados em conformidade com as [Diretrizes WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/).
+**Kitten DS** é um design system acessível, focado na criação de interfaces amigáveis e fáceis de usar. Ele combina a flexibilidade de um *UI kit* com a estrutura de um *design system* completo, integrado a uma biblioteca de componentes, fundações de design, tokens e variáveis de design adaptáveis, testes e documentação interativa — oferecendo uma experiência fluida e agradável para todos os usuários. Seus componentes foram desenvolvidos e testados em conformidade com as [Diretrizes WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/).
 
 ## ⚙️ Pré-requisitos
 
