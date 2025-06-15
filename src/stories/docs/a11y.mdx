@@ -1,0 +1,47 @@
+import { Meta } from "@storybook/blocks"
+
+<Meta title="Sobre a acessibilidade" />
+
+# 📐 Acessibilidade e Qualidade
+
+A acessibilidade é um dos pilares do Kitten DS, presente desde as fases iniciais do design até o desenvolvimento e testes finais. O objetivo do Kitten DS é garantir que todos os usuários tenham uma experiência inclusiva e eficiente ao interagir com interfaces que utilizam os seus componentes e fundações de design.
+
+## ⚙️ Tecnologias e ferramentas
+
+O Kitten DS foi desenvolvido com foco em acessibilidade desde o início, utilizando:
+
+- Figma para prototipação, documentação das fundações do *design system* e testes iniciais de acessibilidade;
+- Stark - Contrast & Accessibility Checker (plugin do Figma) para validar contraste, tipografia e áreas de toque conforme as Diretrizes WCAG;
+- React com Typescript para tipagem clara e segura no desenvolvimento dos componentes;
+- Tailwind CSS para estilização consistente e flexível;
+- Storybook com extensão de acessibilidade para documentação e testes manuais;
+- Vitest, React Testing Library e Vitest Axe para testes unitários automatizados.
+
+## 🛠️ Fluxo de desenvolvimento
+
+O processo começa no Figma, onde o UI Kit é prototipado e as fundações do *design system* são documentadas. As etapas incluem:
+
+- Definição de paletas de cores acessíveis, testadas com o plugin **Stark - Contrast & Accessibility Checker**, garantindo conformidade com as Diretrizes WCAG nível AAA;
+- Criação de guias de estilo e tokens que servem como base para o design e desenvolvimento;
+- Validação de contraste, tipografia e áreas de toque para assegurar legibilidade e usabilidade.
+
+A partir daí, o desenvolvimento dos componentes segue etapas padronizadas:
+
+1. Definição clara das propriedades, considerando atributos acessíveis como `aria-label` e `aria-describedby`;
+2. Implementação usando React, Typescript e Tailwind CSS;
+3. Documentação e demonstração interativa no Storybook, com testes manuais usando a extensão de acessibilidade;
+4. Testes automatizados com Vitest, React Testing Library e Vitest Axe para garantir usabilidade e conformidade com WCAG.
+
+Este fluxo integrado entre design, desenvolvimento e testes assegura que cada componente do Kitten DS seja acessível, consistente e fácil de usar.
+
+## 🔍 Foco do Kitten DS em cada componente
+
+- Tipagem rigorosa das propriedades via Typescript;
+- Cumprimento das Diretrizes WCAG;
+- Compatibilidade com navegação via teclado, foco visível e zoom até 200%;
+- Contraste adequado e legibilidade;
+- Áreas de toque adequadas para dispositivos móveis.
+
+## 🚀 Benefícios
+
+Esse processo permite entregar componentes confiáveis, acessíveis e consistentes, prontos para serem usados em projetos reais. O Kitten DS não apenas atende aos requisitos de acessibilidade, mas também proporciona uma experiência de usuário fluida e intuitiva, essencial para o sucesso de qualquer interface digital.
