@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./docs/logo.svg" alt="Kitten DS logo" width="160" />
+  <img src="https://raw.githubusercontent.com/gabyrodrigues/kitten-ds/main/docs/logo.svg" alt="Kitten DS logo" height="120">
 </p>
 
 # 🐾 Kitten DS
