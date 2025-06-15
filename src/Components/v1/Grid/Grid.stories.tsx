@@ -115,7 +115,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  name: "Padrão",
+  name: "Versão de exemplo",
   args: {
     className: "h-86 w-86"
   },

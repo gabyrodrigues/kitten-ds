@@ -44,11 +44,11 @@
   --color-gray-hover: var(--color-neutral-gray-800);
 
   /* --- Backgrounds and States --- */
-  --color-disabled: var(--color-neutral-gray-200);
-  --color-highlight: var(--color-neutral-gray-100);
+  --color-disabled: var(--color-neutral-gray-300);
+  --color-highlight: var(--color-neutral-gray-200);
 
-  --color-background: var(--color-neutral-gray-100);
-  --color-surface: var(--color-neutral-gray-50);
+  --color-background: var(--color-neutral-gray-200);
+  --color-surface: var(--color-neutral-gray-100);
 
   --color-transparent: transparent;
   --color-inherit: inherit;
@@ -56,20 +56,20 @@
   /* --- Text --- */
   --color-typography-primary: var(--color-neutral-gray-800);
   --color-typography-secondary: var(--color-neutral-gray-600);
-  --color-typography-inverted: var(--color-neutral-gray-50);
-  --color-typography-disabled: var(--color-neutral-gray-400);
+  --color-typography-inverted: var(--color-neutral-gray-100);
+  --color-typography-disabled: var(--color-neutral-gray-500);
 
   /* ---  Default & Inputs --- */
   --color-default-black: var(--color-neutral-gray-900);
-  --color-default-white: var(--color-neutral-gray-50);
-  --color-default-border: var(--color-neutral-gray-300);
+  --color-default-white: var(--color-neutral-gray-100);
+  --color-default-border: var(--color-neutral-gray-400);
   --color-input-border: var(--color-neutral-gray-600);
-  --color-input-placeholder: var(--color-neutral-gray-400);
+  --color-input-placeholder: var(--color-neutral-gray-500);
 
   /* ---  State Links & Focus --- */
   --color-focus-ring: var(--color-brand-blue-700);
-  --color-link: var(--color-brand-blue-900);
-  --color-link-hover: var(--color-brand-blue-800);
+  --color-link: var(--color-brand-blue-800);
+  --color-link-hover: var(--color-brand-blue-900);
   --color-link-visited: var(--color-brand-purple-900);
   --color-link-active: var(--color-brand-purple-800);
 
@@ -92,7 +92,7 @@
   --color-brand-blue-500: #42a5f5;
   --color-brand-blue-400: #64b5f6;
   --color-brand-blue-300: #90caf9;
-  --color-brand-blue-200: #f1f9ff;
+  --color-brand-blue-200: #bbdefb;
   --color-brand-blue-100: #f1f9ff;
 
   /*  --- Gray --- */
@@ -100,12 +100,11 @@
   --color-neutral-gray-800: #373737;
   --color-neutral-gray-700: #4f4f51;
   --color-neutral-gray-600: #727275;
-  --color-neutral-gray-500: #9c9c9e;
-  --color-neutral-gray-400: #b8b8ba;
-  --color-neutral-gray-300: #d0d0d1;
-  --color-neutral-gray-200: #e3e3e3;
-  --color-neutral-gray-100: #f2f2f2;
-  --color-neutral-gray-50: #fcfcfc;
+  --color-neutral-gray-500: #b8b8ba;
+  --color-neutral-gray-400: #d0d0d1;
+  --color-neutral-gray-300: #e3e3e3;
+  --color-neutral-gray-200: #f2f2f2;
+  --color-neutral-gray-100: #fcfcfc;
 
   /*  --- Success --- */
   --color-success-500: #174f39;

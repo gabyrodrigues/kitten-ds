@@ -26,6 +26,7 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     ref
   ): ReactElement => {
     const linkStyles = cn(
+      "cursor-pointer",
       "hover:text-link-hover hover:border-b-link-hover",
       "visited:text-link-visited visited:border-b-link-visited",
       "active:text-link-active active:border-b-link-active",
@@ -56,7 +57,7 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     }
 
     function handleKeyDown(event: KeyboardEvent<HTMLAnchorElement>) {
-      if (!disabled && (event.key === " " || event.key === "Enter")) {
+      if (!disabled && event.key === "Enter") {
         event.preventDefault()
         event.currentTarget.click()
       }

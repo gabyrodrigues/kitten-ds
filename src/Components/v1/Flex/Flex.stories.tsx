@@ -113,7 +113,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  name: "Padrão",
+  name: "Versão de Exemplo",
   render: (args) => (
     <Flex {...args}>
       <div className="bg-primary p-6 rounded-lg w-full text-typography-inverted font-semibold">

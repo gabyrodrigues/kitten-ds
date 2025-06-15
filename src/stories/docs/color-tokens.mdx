@@ -1,0 +1,471 @@
+import { ColorItem, ColorPalette, Meta } from "@storybook/blocks"
+import { Link } from "../../Components"
+
+<Meta title="Design/Tokens de cor" />
+
+# 🌈 *Tokens* de cor
+
+O **Kitten DS** possui uma paleta de cores nomeada de acordo com seus objetivos e funções. A partir desses nomes e da atribuição de um sistema de pesos numéricos — de 100 a 900 nas paletas *Brand* e *Neutral*, e de 100 a 500 nas paletas de *Feedback* — foi possível criar uma estrutura que oferece flexibilidade, hierarquia visual e facilidade de reutilização em projetos com identidades próprias.
+
+Com essa base, foram criados os *tokens* de cor, que atribuem valores semânticos às cores e definem seu propósito de uso. Esses *tokens* ajudam a guiar decisões de aplicação de cor e permitem criar uma linguagem visual consistente, além de poderem ser sobrescritos conforme as necessidades específicas de cada produto ou projeto.
+
+Os *tokens* de cor são disponibilizados como variáveis CSS semânticas e também foram integrados ao Tailwind CSS, facilitando seu uso direto em código com utilitários como `bg-primary`, `text-typography-primary` ou `bg-disabled`. Isso proporciona consistência visual e flexibilidade em diferentes contextos de design e desenvolvimento.
+
+Cada *token* pode ter variações adaptadas ao tema claro e escuro, o que garante contraste adequado e acessibilidade em diferentes modos de visualização. Essa adaptação é feita automaticamente via variáveis CSS.
+
+Exemplo de uso com Tailwind CSS:
+
+```tsx
+<button className="bg-primary text-typography-inverted hover:bg-primary-hover">
+  Ação principal
+</button>
+```
+
+<table className="!mx-auto">
+  <thead>
+    <tr>
+      <th>Nome do *token*</th>
+      <th>Nome da cor base</th>
+      <th>Função</th>
+      <th>Amostra</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>primary</td>
+      <td>Brand Purple 800</td>
+      <td>Cor usada para ações e variantes de componentes primários</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'primary': 'var(--color-primary)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>primary-hover</td>
+      <td>Brand Purple 900</td>
+      <td>Variação do estado de hover e a cor mais escura para *tokens* primários</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'primary-hover': 'var(--color-primary-hover)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>primary-highlight</td>
+      <td>Brand Purple 100</td>
+      <td>Cor de destaque ou de fundo para as variantes primárias de cor</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'primary-highlight': 'var(--color-primary-highlight)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>secondary</td>
+      <td>Brand Blue 800</td>
+      <td>Cor usada para ações e variantes de componentes secundários</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'secondary': 'var(--color-secondary)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>secondary-hover</td>
+      <td>Brand Blue 900</td>
+      <td>Variação do estado de hover e a cor mais escura para *tokens* secundários</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'secondary-hover': 'var(--color-secondary-hover)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>secondary-highlight</td>
+      <td>Brand Blue 100</td>
+      <td>Cor de destaque ou de fundo para as variantes secundárias de cor</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'secondary-highlight': 'var(--color-secondary-highlight)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>disabled</td>
+      <td>Neutral Gray 200</td>
+      <td>Cor usada para planos de fundo e elementos em um estado desativado ou inativo</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'disabled': 'var(--color-disabled)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>highlight</td>
+      <td>Neutral Gray 100</td>
+      <td>Cor de fundo clara usada para enfatizar de forma sutil os elementos neutros</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'highlight': 'var(--color-highlight)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>background</td>
+      <td>Neutral Gray 100</td>
+      <td>Plano de fundo padrão da página</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'background': 'var(--color-background)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>surface</td>
+      <td>Neutral Gray 50</td>
+      <td>Cor do plano de fundo para superfícies e camadas sobre o plano de fundo</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'surface': 'var(--color-surface)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td>Error 400</td>
+      <td>Cor de base usada para estados de erro e feedback crítico</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'error': 'var(--color-error)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>error-hover</td>
+      <td>Error 500</td>
+      <td>Variação do estado de hover e a cor mais escura para *tokens* de erro</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'error-hover': 'var(--color-error-hover)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>error-highlight</td>
+      <td>Error 100</td>
+      <td>Cor de destaque ou de fundo para as variantes de erro</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'error-highlight': 'var(--color-error-highlight)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>success</td>
+      <td>Success 400</td>
+      <td>Cor base usada para estados de sucesso e ações de confirmação</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'success': 'var(--color-success)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>success-hover</td>
+      <td>Success 500</td>
+      <td>Variação do estado de hover e a cor mais escura para *tokens* de sucesso</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'success-hover': 'var(--color-success-hover)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>success-highlight</td>
+      <td>Success 100</td>
+      <td>Cor de destaque ou de fundo para as variantes de sucesso</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'success-highlight': 'var(--color-success-highlight)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>warning</td>
+      <td>Warning 400</td>
+      <td>Cor de base usada para estados e componentes de aviso e alerta</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'warning': 'var(--color-warning)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>warning-hover</td>
+      <td>Warning 500</td>
+      <td>Variação do estado de hover e a cor mais escura para *tokens* de aviso e alerta</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'warning-hover': 'var(--color-warning-hover)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>warning-highlight</td>
+      <td>Warning 100</td>
+      <td>Cor de destaque ou de fundo para as variantes de aviso e alerta</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'warning-highlight': 'var(--color-warning-highlight)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>gray</td>
+      <td>Neutral Gray 700</td>
+      <td>Variante de cor neutra básica usada para componentes e ações</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'gray': 'var(--color-gray)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>gray-hover</td>
+      <td>Neutral Gray 800</td>
+      <td>Variação do estado de hover e a cor mais escura para *tokens* neutros/cinza</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'gray-hover': 'var(--color-gray-hover)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>typography-primary</td>
+      <td>Neutral Gray 800</td>
+      <td>Cor principal usada para o conteúdo de texto primário</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'typography-primary': 'var(--color-typography-primary)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>typography-secondary</td>
+      <td>Neutral Gray 600</td>
+      <td>Cor usada para texto secundário ou de apoio</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'typography-secondary': 'var(--color-typography-secondary)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>typography-inverted</td>
+      <td>Neutral Gray 50</td>
+      <td>Cor usada para texto em fundos escuros ou coloridos</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'typography-inverted': 'var(--color-typography-inverted)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>typography-disabled</td>
+      <td>Neutral Gray 400</td>
+      <td>Cor usada para o texto em estados desativados ou inativos</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'typography-disabled': 'var(--color-typography-disabled)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>default-black</td>
+      <td>Neutral Gray 900</td>
+      <td>Cor preta padrão usada em todo o sistema quando necessário</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'default-black': 'var(--color-default-black)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>default-white</td>
+      <td>Neutral Gray 50</td>
+      <td>Cor branca padrão usada em todo o sistema quando necessário</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'default-white': 'var(--color-default-white)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>default-border</td>
+      <td>Neutral Gray 300</td>
+      <td>Cor padrão usada para bordas de componentes e elementos</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'default-border': 'var(--color-default-border)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>input-border</td>
+      <td>Neutral Gray 600</td>
+      <td>Cor padrão usada para bordas de inputs e elementos de formulário</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'input-border': 'var(--color-input-border)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>input-placeholder</td>
+      <td>Neutral Gray 400</td>
+      <td>Cor do placeholder dos componentes Input e Select</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'input-placeholder': 'var(--color-input-placeholder)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>focus-ring</td>
+      <td>Brand Blue 700</td>
+      <td>Cor usada para indicar estados de foco, como ao usar a navegação pelo teclado</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'focus-ring': 'var(--color-focus-ring)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>link</td>
+      <td>Brand Blue 800</td>
+      <td>Cor padrão usada para links em seu estado padrão</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'link': 'var(--color-link)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>link-hover</td>
+      <td>Brand Blue 900</td>
+      <td>Cor usada para links quando o mouse é posicionado sobre eles</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'link-hover': 'var(--color-link-hover)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>link-visited</td>
+      <td>Brand Purple 900</td>
+      <td>Cor usada para links depois de terem sido visitados</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'link-visited': 'var(--color-link-visited)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>link-active</td>
+      <td>Brand Purple 800</td>
+      <td>Cor usada para links enquanto eles estão sendo ativamente clicados</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'link-active': 'var(--color-link-active)',
+          }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## ☑️ Testes
+
+Os *tokens* de tipografia `typography-primary`, `typography-secondary` e `typography-inverted` foram testados com a ferramenta Stark no Figma, garantindo contraste adequado conforme as diretrizes WCAG.
+
+Com base nesses testes, a documentação recomenda:
+
+- O uso de `typography-primary`, `typography-secondary` em fundos claros;
+- O uso de `typography-inverted` em fundos escuros — garantindo contraste ideal e legibilidade.
+
+Todas as definições documentadas seguem os critérios de contraste do <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-enhanced.html" target="_blank">nível AAA das diretrizes WCAG</Link>, com foco em acessibilidade e em uma experiência de leitura inclusiva em diferentes contextos e condições de visualização.
+
+> **⚠️ Atenção ao uso dos *tokens* `warning`:**  
+> Por se tratar de um tom de amarelo claro, essa cor pode apresentar **baixo contraste sobre fundos igualmente claros**, como `background` e `surface`.  
+> Recomenda-se **evitar seu uso em textos ou ícones nesses contextos**, especialmente em mensagens de alerta.  
+> Sempre verifique se o contraste atende às diretrizes de acessibilidade (<Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-enhanced.html" target="_blank">WCAG AAA</Link>) antes de aplicar esse *token*.

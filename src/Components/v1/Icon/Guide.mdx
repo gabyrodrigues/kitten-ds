@@ -1,0 +1,147 @@
+import { Meta } from "@storybook/blocks"
+import { Flex } from "../Flex"
+import { Grid } from "../Grid"
+import { Icon } from "../Icon"
+import { Link } from "../Link"
+import { Text } from "../Text"
+import { Title } from "../Title"
+
+<Meta title="Componentes/Icon/Guia de Uso" />
+
+# 🧭  Guia de Uso
+
+## 📘 Visão Geral
+
+O `Icon` é um componente que exibe um símbolo ou imagem gráfica, utilizado para representar visualmente uma ação, estado ou conteúdo. Seu uso contribui para a clareza e compreensão da interface, facilitando a identificação de ações e informações importantes.
+
+O componente é baseado no *Google Material Icons* e a sua exibição é feita através de uma lista de ícones disponíveis, definida pelo nome do ícone passado através da propriedade `type`. Os nomes podem ser consultados na <Link href="https://fonts.google.com/icons?selected=Material+Symbols+Outlined" className="sb-unstyled text-sm" target="_blank">página oficial do Material Icons</Link>.
+
+<Flex align="items-center" justify="justify-center" direction="flex-col">
+  <Flex justify="justify-center">
+    <Icon type="person" variant="outlined" fontSize="text-6xl" className="sb-unstyled" aria-label="Person Icon com variante Outlined aplicada para exemplicar o uso do componente" />
+    <Icon type="person" variant="filled" fontSize="text-6xl" className="sb-unstyled" aria-label="Person Icon com variante Filled aplicada para exemplicar o uso do componente" />
+  </Flex>
+  <Text className="!mb-0">Exemplo de ícones com as variantes `outlined` e `filled` respectivamente</Text>
+</Flex>
+
+O componente `Icon` possui diversas propriedades que permitem personalizar sua aparência e comportamento, como `size`, `fontSize` e `className`. Também conta com as propriedades `weight` e `variant`, que controlam a espessura e o estilo visual dos ícones, permitindo a exibição de diferentes variações visuais.
+
+## 💡 Recomendações de Uso
+
+
+- Utilize o componente `Icon` para representar visualmente ações, estados ou conteúdos de forma clara e intuitiva;
+- Escolha ícones que sejam facilmente reconhecíveis e compreensíveis pelo usuário, evitando símbolos ambíguos ou pouco conhecidos;
+- Mantenha a consistência visual ao usar ícones em toda a interface, utilizando o mesmo estilo e tamanho para ícones semelhantes;
+- Utilize a propriedade `aria-label` para fornecer uma descrição acessível do ícone, especialmente se ele não tiver um texto associado, garantindo que usuários de leitores de tela possam compreender seu propósito;
+- Evite o uso excessivo de ícones, pois isso pode tornar a interface confusa e sobrecarregada visualmente;
+- Utilize ícones com contraste adequado em relação ao fundo, garantindo que sejam facilmente visíveis para todos os usuários, incluindo aqueles com deficiências visuais.
+
+### ☑️✖️ O que fazer vs. O que não fazer
+
+O componente `Icon` foi desenvolvido com foco em acessibilidade e usabilidade. Dessa forma, através de seus estilos e propriedades, ele permite o uso adequado de ícones na interface do usuário. No entanto, é importante que seu uso siga boas práticas de acessibilidade para preservar esse foco e garantir uma experiência eficaz e inclusiva.
+
+<Title component="h1" className="!text-h5">Use ícones de fácil reconhecimento e compreensão, com associações claras e estabelecidas entre produtos ou ações.</Title>
+
+<Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-4" rowGap="gap-y-4" className="!mb-12 !mt-6">
+  <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-4" radius="rounded-lg" paddingX="px-4" paddingY="py-4" className="border border-default-border">
+    <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-2" className="!mb-4">
+      <Flex radius="rounded-full" paddingX="px-2" paddingY="py-1" className="bg-success">
+        <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
+      </Flex>
+      <Text className="!m-0">Associe o ícone com associações já estabelecidas, como o ícone de disquete para salvar, que é amplamente reconhecido como padrão para essa ação. Em casos de o texto não estar vísivel, recomenda-se usar o atributo `aria-label`.</Text>
+    </Flex>
+    <Icon color="inherit" type="save" fontSize="text-6xl" className="sb-unstyled text-6xl" aria-label="Ícone de disquete representando a ação de salvar" />
+  </Flex>
+  <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-4" radius="rounded-lg" paddingX="px-4" paddingY="py-4" className="border border-default-border">
+    <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-2" className="!mb-4">
+      <Flex radius="rounded-full" paddingX="px-2" paddingY="py-1" className="bg-error">
+        <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
+      </Flex>
+      <Text className="!m-0">Evite usar ícone incomuns ou pouco reconhecíveis, principalmente se não estiverem acompanhados de texto visível. Eles podem ser associados com outros conceitos e causar confusão.</Text>
+    </Flex>
+    <Icon color="inherit" type="cloud_download" fontSize="text-6xl" className="sb-unstyled mt-auto" aria-label="Ícone de núvem junto com uma seta para baixo representando a ação de salvar" />
+  </Flex>
+</Grid>
+
+<Title component="h1" className="!text-h5">Evite usar uma grande quantidade de ícones em um mesmo grupo ou área, isso pode sobrecarregar visualmente o usuário e dificultar a compreensão da interface.</Title>
+
+
+<Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-4" rowGap="gap-y-4" className="!mb-12 !mt-6">
+  <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-4" radius="rounded-lg" paddingX="px-4" paddingY="py-4" className="border border-default-border">
+    <Flex radius="rounded-full" paddingX="px-2" paddingY="py-1" className="bg-success !mb-4">
+      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
+    </Flex>
+    <ul>
+      <li>
+        <Link className="sb-unstyled flex w-fit">
+          Editar item
+        </Link>
+      </li>
+      <li>
+        <Link className="sb-unstyled flex w-fit">
+          Excluir item
+        </Link>
+      </li>
+      <li>
+        <Link className="sb-unstyled flex w-fit">
+          Compartilhar item
+        </Link>
+      </li>
+      <li>
+        <Link className="sb-unstyled flex w-fit">
+          Adicionar comentário
+        </Link>
+      </li>
+    </ul>
+  </Flex>
+   <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-4" radius="rounded-lg" paddingX="px-4" paddingY="py-4" className="border border-default-border">
+    <Flex radius="rounded-full" paddingX="px-2" paddingY="py-1" className="bg-error !mb-4">
+      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
+    </Flex>
+    <ul>
+      <li>
+        <Link className="sb-unstyled flex w-fit">
+          <Icon color="inherit" type="edit" className="sb-unstyled mr-2" />
+          Editar item
+        </Link>
+      </li>
+      <li>
+        <Link className="sb-unstyled flex w-fit">
+          <Icon color="inherit" type="delete" className="sb-unstyled mr-2" />
+          Excluir item
+        </Link>
+      </li>
+      <li>
+        <Link className="sb-unstyled flex w-fit">
+          <Icon color="inherit" type="share" className="sb-unstyled mr-2" />
+          Compartilhar item
+        </Link>
+      </li>
+      <li>
+        <Link className="sb-unstyled flex w-fit">
+          <Icon color="inherit" type="mode_comment" className="sb-unstyled mr-2" />
+          Adicionar comentário
+        </Link>
+      </li>
+    </ul>
+  </Flex>
+</Grid>
+
+## ♿ Acessibilidade
+
+O componente `Icon` foi desenvolvido e testado para atender às diretrizes WCAG 2.1, oferecendo suporte a propriedades de acessibilidade e práticas recomendadas para garantir uma experiência inclusiva para todos os usuários. Como, por exemplo:
+
+- Ícones puramente decorativos são marcados com `aria-hidden="true"` para que leitores de tela os ignorem, conforme recomendado no critério <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html" target="_blank">WCAG 1.1.1 – Conteúdo não textual</Link>;
+- Quando necessário, permite que o ícone seja interpretado como imagem acessível `(role="img")` ao receber uma `aria-label`, garantindo que o leitor de tela possa descrever o propósito do ícone, seguindo as diretrizes do <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value.html" target="_blank">4.1.2 Nome, função e valor</Link>;
+- Usa elementos semanticamente neutros `(<span>)` para garantir flexibilidade e controle total sobre o comportamento de acessibilidade e estilização;
+- Bloqueia a tradução automática com `translate="no"`, evitando alterações indesejadas do conteúdo do ícone por serviços de tradução automática;
+- Suporta personalização acessível por meio de propriedades como `aria-label`, `aria-labelledby` e `role`, permitindo adaptação conforme o contexto de uso, conforme indicado nos critérios <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html" target="_blank">1.1.1 Conteúdo não textual</Link> e <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html" target="_blank">1.3.1 Informações e relacionamentos</Link>.
+
+Para complementar e garantir a acessibilidade, recomenda-se:
+
+- Evite depender exclusivamente do ícone para transmitir informação: certifique-se de que o significado do ícone também esteja presente em texto visível ou acessível, conforme o critério
+<Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html" target="_blank">1.1.1 Conteúdo não textual (WCAG)</Link>;
+- Use `aria-label` ou `aria-labelledby` em ícones com função interativa (como botões) para garantir que leitores de tela consigam anunciar o propósito da ação, conforme
+<Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value.html" target="_blank">4.1.2 Nome, função e valor (WCAG)</Link>;
+- Garanta contraste suficiente entre o ícone e o fundo, especialmente se o ícone for fundamental para o entendimento da interface, conforme
+<Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html" target="_blank">1.4.11 Contraste de Elementos Não Textuais (WCAG)</Link>.

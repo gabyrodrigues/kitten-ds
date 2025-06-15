@@ -1,0 +1,152 @@
+import { ColorItem, ColorPalette, Meta } from "@storybook/blocks"
+
+<Meta title="Design/Paleta de cores padrão" />
+
+# 🎨 Paleta de cores padrão do Kitten DS
+
+A paleta de cores padrão do **Kitten DS** foi projetada para fornecer uma base sólida, acessível e flexível para a criação de interfaces digitais. 
+
+Ela é dividida em quatro categorias principais: **Paleta de marca (Brand Colors)**, **Paleta neutra (Neutral Colors)** e **Paleta de feedback**. Cada categoria possui com conjuntos específicos de tons adequados a diferentes contextos, garantindo consistência visual e clareza na comunicação.
+
+Cada paleta é composta por uma série de tons, variando de mais claros a mais escuros, o que permite flexibilidade na aplicação em elementos como **fundos**, **textos**, **bordas** e **estados interativos**. Essa estrutura facilita a criação de hierarquia visual e a adaptação em diferentes temas e modos (claro/escuro).
+
+As cores de feedback são geralmente comuns a todos os projetos, enquanto as paletas de **marca** e **neutra** devem ser avaliadas com atenção para garantir que estejam alinhadas à identidade visual da marca e às diretrizes de acessibilidade do projeto.
+
+## Paleta de marca (Brand Colors)
+
+As paletas de marca são conjuntos de cores principais que representam a identidade visual dos produtos. Elas oferecem opções consistentes e acessíveis para usos primários e secundários em diferentes contextos de projeto.
+
+O **Kitten DS** define duas paletas principais: `Purple` e `Blue`, estabelecidas como **primária** e **secundária**, respectivamente. Cada uma é composta por uma escala de tons — do 100 ao 900 — permitindo flexibilidade no design e possibilitando aplicações eficazes em elementos como **botões, ícones e campos de entrada**.
+
+<ColorPalette>
+  <ColorItem
+    title="Purple"
+    colors={{
+      '100': 'var(--color-brand-purple-100)',
+      '200': 'var(--color-brand-purple-200)',
+      '300': 'var(--color-brand-purple-300)',
+      '400': 'var(--color-brand-purple-400)',
+      '500': 'var(--color-brand-purple-500)',
+      '600': 'var(--color-brand-purple-600)',
+      '700': 'var(--color-brand-purple-700)',
+      '800': 'var(--color-brand-purple-800)',
+      '900': 'var(--color-brand-purple-900)',
+    }}
+  />
+  A paleta `Purple` é definida como **primária**, representando a identidade visual principal. É usada em elementos de destaque, como **botões principais e ícones**, trazendo uma presença marcante e consistente à interface.
+
+  <br />
+  <br />
+  <br />
+
+  <ColorItem
+    title="Blue"
+    colors={{
+      '100': 'var(--color-brand-blue-100)',
+      '200': 'var(--color-brand-blue-200)',
+      '300': 'var(--color-brand-blue-300)',
+      '400': 'var(--color-brand-blue-400)',
+      '500': 'var(--color-brand-blue-500)',
+      '600': 'var(--color-brand-blue-600)',
+      '700': 'var(--color-brand-blue-700)',
+      '800': 'var(--color-brand-blue-800)',
+      '900': 'var(--color-brand-blue-900)',
+    }}
+  />
+  A paleta `Blue` é definida como **secundária**, complementando a paleta primária. É utilizada em elementos de apoio, como **botões secundários**, proporcionando um contraste suave em relação à `Purple`.
+</ColorPalette>
+
+<br />
+<br />
+
+## Paleta neutra (Neutral Colors)
+
+A paleta neutra é composta por tons de cinza utilizados amplamente em tipografia, bordas e fundos — oferecendo estrutura, legibilidade e equilíbrio visual.
+
+<ColorPalette>
+  <ColorItem
+    title="Gray"
+    colors={{
+      '100': 'var(--color-neutral-gray-100)',
+      '200': 'var(--color-neutral-gray-200)',
+      '300': 'var(--color-neutral-gray-300)',
+      '400': 'var(--color-neutral-gray-400)',
+      '500': 'var(--color-neutral-gray-500)',
+      '600': 'var(--color-neutral-gray-600)',
+      '700': 'var(--color-neutral-gray-700)',
+      '800': 'var(--color-neutral-gray-800)',
+      '900': 'var(--color-neutral-gray-900)',
+    }}
+  />
+  A paleta `Gray` abrange uma escala de tons neutros, do mais claro (`100`) ao mais escuro (`900`). Ela é usada principalmente em **tipografia, bordas e planos de fundo**, oferecendo uma base sólida e acessível para a construção de interfaces digitais. 
+
+  Os tons mais claros funcionam bem como **fundos**, enquanto os mais escuros são recomendados para **textos e elementos de contraste**.
+
+  Ao utilizar a paleta neutra, é essencial garantir que o **contraste entre elementos** atenda às diretrizes de acessibilidade, especialmente ao empregar a mesma escala tanto para **fundos quanto para textos**.
+</ColorPalette>
+
+<br />
+<br />
+
+## Paleta de feedback
+
+A paleta de feedback tem como objetivo oferecer uma comunicação clara e acessível sobre os estados do sistema, quando aplicada com combinações de contraste apropriadas. Ela é composta por três categorias principais: **Success**, **Error** e **Warning**, cada uma com uma escala de tons, do mais claro ao mais escuro, que permite flexibilidade no uso e clareza na comunicação visual.
+
+Esses estados são comuns em qualquer tipo de produto ou serviço digital. Embora seja possível sobrescrever essas cores para alinhar-se à identidade de uma marca específica, recomenda-se fortemente manter a paleta padrão do **Kitten DS**. Isso garante **consistência na experiência do usuário** entre diferentes produtos e reforça a **compreensão visual dos estados**, já validados em múltiplos contextos.
+
+<ColorPalette>
+  <ColorItem
+    title="Success"
+    colors={{
+      '100': 'var(--color-success-100)',
+      '200': 'var(--color-success-200)',
+      '300': 'var(--color-success-300)',
+      '400': 'var(--color-success-400)',
+      '500': 'var(--color-success-500)',
+    }}
+  />
+  A paleta `Success` comunica **ações bem-sucedidas**, como confirmações e validações. Os tons mais claros funcionam como plano de fundo ou destaque sutil, enquanto os mais escuros reforçam a informação principal.
+
+  <br />
+  <br />
+  <br />
+
+  <ColorItem
+    title="Error"
+    colors={{
+      '100': 'var(--color-error-100)',
+      '200': 'var(--color-error-200)',
+      '300': 'var(--color-error-300)',
+      '400': 'var(--color-error-400)',
+      '500': 'var(--color-error-500)',
+    }}
+  />
+  A paleta `Error` é usada para **informar problemas ou falhas** que requerem correção. Sua escala tonal garante visibilidade em diferentes componentes da interface, mantendo a clareza e a acessibilidade.
+
+  <br />
+  <br />
+  <br />
+
+  <ColorItem
+    title="Warning"
+    colors={{
+      '100': 'var(--color-warning-100)',
+      '200': 'var(--color-warning-200)',
+      '300': 'var(--color-warning-300)',
+      '400': 'var(--color-warning-400)',
+      '500': 'var(--color-warning-500)',
+    }}
+  />
+
+  A paleta `Warning` sinaliza **situações que exigem atenção**, mas que não representam um erro direto. Sua aplicação deve ser cuidadosa para garantir contraste suficiente, especialmente em fundos claros.
+</ColorPalette>
+
+<br />
+
+## 🌈 *Tokens* de cor
+
+As paletas de cores do **Kitten DS** servem como base para a criação dos *tokens* de cor — variáveis CSS utilizadas para garantir consistência visual e acessibilidade em toda a interface.
+
+Esses *tokens* podem ser aplicados diretamente no código, sendo integrados a classes utilitárias do Tailwind CSS ou usados em propriedades personalizadas de componentes. Isso permite uma aplicação mais fluida e padronizada das cores ao longo do sistema.
+
+Para saber como utilizar os *tokens* em projetos, consulte a seção de [*Tokens* de cor](/docs/design-tokens-de-cor--propriedades).

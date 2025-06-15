@@ -1,0 +1,162 @@
+import { Meta } from "@storybook/blocks"
+import { Button } from "../Button"
+import { Flex } from "../Flex"
+import { Grid } from "../Grid"
+import { Link } from "../Link"
+import { Title } from "../Title"
+
+<Meta title="Componentes/Button/Guia de Uso" />
+
+# 🧭  Guia de Uso
+
+## 📘 Visão Geral
+
+O componente `Button` é utilizado para acionar interações ou iniciar navegação dentro da interface, seja em páginas ou componentes. Ele foi projetado com foco em usabilidade e acessibilidade, seguindo as diretrizes WCAG 2.1, garantindo que todas as ações estejam claramente identificadas, sejam acessíveis por teclado, tenham feedback visual apropriado e funcionem com leitores de tela.
+
+Com um conjunto flexível de variações e estados, o `Button` assegura consistência visual e semântica em toda a aplicação, permitindo que usuários compreendam facilmente o propósito e a importância de cada ação.
+
+### ⚙️ Tipos de botão
+
+<img src="/assets/button-variants.png" alt="Exibição dos tipos de botão em uma lista com as suas variações e estados como hover, focus e disabled e aplicação com ícone" style={{ margin: '0 auto' }} />
+
+O componente oferece três variantes principais, cada uma com um nível de hierarquia visual e de prioridade de ação:
+
+- **Filled (Preenchido)**: Destaca a ação principal da interface. Devido ao seu alto contraste, deve ser usado com moderação. Idealmente, apenas um botão preenchido por tela.
+- **Outlined (Delineado)**: Indicado para ações secundárias. Oferece destaque moderado, suficiente para chamar atenção sem competir com o botão principal.
+- **Text (Texto)**: Botões discretos, utilizados em ações de baixo impacto, como links, etapas auxiliares ou dentro de componentes compactos. Ideal onde o espaço é limitado ou quando o foco está em outras ações.
+
+<img src="/assets/button-colors.png" alt="Exibição de uma lista de botões preenchidos e cada botão tem sua cor atribuída: primária, secundária, erro, successo e cinza." style={{ margin: '48px auto' }} />
+
+Cada tipo de botão possui variantes de cor que também indicam a importância da ação e seu estado, sendo:
+- **Primary**: Ação principal da página.
+- **Secondary**: Ação complementar ou alternativa.
+- **Error**: Ações destrutivas ou que alertam sobre um risco.
+- **Success**: Ação que indica sucesso ou confirmação.
+- **Gray**: Ações neutras ou de suporte, com menor destaque.
+
+O botão também possui suporte para ícones ou outros elementos visuais, através de suas propriedades `left_section` e `right_section`, que permitem adicionar conteúdo antes ou depois do texto do botão, respectivamente. Essa flexibilidade melhora a percepção da ação e oferece feedback visual imediato, sem comprometer a acessibilidade textual.
+
+## 💡 Recomendações de Uso
+
+- Utilize rótulos claros, objetivos e fáceis de entender. Botões devem indicar exatamente o que acontecerá ao interagir com eles.
+- Ao decidir a variante do botão, considere a importância da ação e o contexto em que o botão será usado.
+- Ao decidir a cor do botão, considere o estado da ação (ex: sucesso, erro, ação primária ou secundária).
+- Os ícones podem ser usados para reforçar a ação do botão, tanto do lado esquedo (`left_section`) quanto do lado direito (`right_section`).
+- Verifique sempre se o botão manteve o padrão adequado para área de toque, garantindo que o usuário possa clicar facilmente, especialmente em dispositivos móveis.
+- Em casos de espaços limitados ou componentes compactos, considere o uso do componente de `IconButton` para manter a clareza e a funcionalidade, de preferência com um tooltip explicativo e uso de `aria-label` para acessibilidade.
+- Use o estado `disabled` para indicar ações que não estão disponíveis no momento.
+- Evite o uso excessivo de botões preenchidos em uma mesma página para não sobrecarregar visualmente o usuário.
+- Mantenha a consistência no uso de cores e estilos de botões em toda a aplicação.
+- Evite o uso de botões para ações que não são claras ou que podem causar confusão ao usuário.
+
+### ☑️✖️ O que fazer vs. O que não fazer
+
+O componente `Button` foi desenvolvido desde o início com foco na acessibilidade, alinhado às Diretrizes de Acessibilidade para Conteúdo Web (WCAG) 2.1. Além disso, foram incorporados padrões de usabilidade para garantir uma experiência intuitiva e eficaz para todos os usuários.
+
+Por isso, ao utilizar esse componente, é fundamental que o responsável pelo conteúdo siga boas práticas e critérios específicos para manter sua acessibilidade e usabilidade:
+
+<Title component="h1" className="!text-h5">Comece com uma letra maiúscula e use letras maiúsculas na frase, mas não adicione pontos finais ou frases em caixa alta.</Title>
+
+<Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-4" rowGap="gap-y-4" className="!mb-12 !mt-6">
+  <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-4" radius="rounded-lg" paddingX="px-4" paddingY="py-4" className="border border-default-border">
+    <Flex radius="rounded-full" paddingX="px-2" paddingY="py-1" className="bg-success !mb-4">
+      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
+    </Flex>
+    <Button color="gray">Adicionar ao carrinho</Button>
+  </Flex>
+  <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-4" radius="rounded-lg" paddingX="px-4" paddingY="py-4" className="border border-default-border">
+    <Flex radius="rounded-full" paddingX="px-2" paddingY="py-1" className="bg-error !mb-4">
+      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
+    </Flex>
+    <Button color="gray">ADICIONAR AO CARRINHO.</Button>
+  </Flex>
+</Grid>
+
+<Title component="h1" className="!text-h5">Comece com um verbo claro e direto que indique a ação a ser executada. Se necessário, complemente com um substantivo que traga contexto <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels" target="_blank">(WCAG 2.4.6: Headings and Labels)</Link>.</Title>
+<Title component="h1" className="!text-h5">Evite frases longas, técnicas ou vagas. Prefira termos simples e acessíveis, garantindo que o texto visível seja o mesmo nome lido por leitores de tela <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/label-in-name" target="_blank">(WCAG 2.5.3: Label in Name)</Link>.</Title>
+
+<Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-4" rowGap="gap-y-4" className="!mb-12 !mt-6">
+  <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-4" radius="rounded-lg" paddingX="px-4" paddingY="py-4" className="border border-default-border">
+    <Flex radius="rounded-full" paddingX="px-2" paddingY="py-1" className="bg-success !mb-4">
+      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
+    </Flex>
+    <Flex rowGap="gap-x-4" className="mt-auto">
+      <Button color="gray">Salvar</Button>
+      <Button color="gray">Adicionar item</Button>
+      <Button color="gray">Salvar rascunho</Button>
+    </Flex>
+  </Flex>
+  <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-4" radius="rounded-lg" paddingX="px-4" paddingY="py-4" className="border border-default-border">
+    <Flex radius="rounded-full" paddingX="px-2" paddingY="py-1" className="bg-error !mb-4">
+      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
+    </Flex>
+    <Flex gap="gap-4">
+      <Button color="gray">Ir</Button>
+      <Button color="gray">Clique aqui para iniciar o envio de formulário</Button>
+    </Flex>
+  </Flex>
+</Grid>
+
+<Title component="h1" className="!text-h5">Limite a quantidade de botões por tela. Muitas opções aumentam a complexidade visual e dificultam a tomada de decisão pelo usuário.</Title>
+
+<Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-4" rowGap="gap-y-4" className="!mb-12 !mt-6">
+  <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-4" radius="rounded-lg" paddingX="px-4" paddingY="py-4" className="border border-default-border">
+    <Flex radius="rounded-full" paddingX="px-2" paddingY="py-1" className="bg-success !mb-4">
+      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
+    </Flex>
+    <Flex rowGap="gap-x-4">
+      <Button>Ver detalhes</Button>
+    </Flex>
+  </Flex>
+  <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-4" radius="rounded-lg" paddingX="px-4" paddingY="py-4" className="border border-default-border">
+    <Flex radius="rounded-full" paddingX="px-2" paddingY="py-1" className="bg-error !mb-4">
+      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
+    </Flex>
+    <Flex rowGap="gap-x-4">
+      <Button>Ver detalhes</Button>
+      <Button variant="outlined" color="secondary">Voltar</Button>
+      <Button variant="outlined">Acessar perfil</Button>
+      <Button variant="text" color="gray">Sair</Button>
+    </Flex>
+  </Flex>
+</Grid>
+
+<Title component="h1" className="!text-h5">Adicione ícones ou elementos ao lado da label (à esquerda ou direita) para reforçar a ação, sem substituir o texto. Nunca posicione o ícone acima ou abaixo da label.</Title>
+
+<Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-4" rowGap="gap-y-4" className="!mb-12 !mt-6">
+  <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-4" radius="rounded-lg" paddingX="px-4" paddingY="py-4" className="border border-default-border">
+    <Flex radius="rounded-full" paddingX="px-2" paddingY="py-1" className="bg-success !mb-4">
+      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
+    </Flex>
+    <Flex rowGap="gap-x-4">
+      <Button color="gray">🞢 Adicionar detalhes</Button>
+    </Flex>
+  </Flex>
+  <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-4" radius="rounded-lg" paddingX="px-4" paddingY="py-4" className="border border-default-border">
+    <Flex radius="rounded-full" paddingX="px-2" paddingY="py-1" className="bg-error !mb-4">
+      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
+    </Flex>
+    <Flex rowGap="gap-x-4">
+      <Button color="gray">🞢 <br /> Adicionar detalhes</Button>
+    </Flex>
+  </Flex>
+</Grid>
+
+## ♿ Acessibilidade
+
+Por padrão, o componente `Button` já implementa diretrizes essenciais de acessibilidade para garantir que todos os usuários possam interagir com ele de forma eficaz:
+
+- O botão pode ser ativado pelas teclas Espaço e *Enter* no teclado, conforme recomendado pelo padrão <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html" target="_blank">WCAG 2.1.1 Button (Keyboard Interaction)</Link>;
+- A borda de foco visível possui pelo menos 2px de espessura e está sempre visível, sem ficar oculta por outros elementos, conforme <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance-enhanced" target="_blank">WCAG 2.4.13 (Focus Appearance)</Link>;
+- O estado de foco é sempre preservado quando aplicável, inclusive com suporte visual claro, conforme recomendado pela <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible" target="_blank">WCAG 2.4.7 (Focus Visible)</Link>.
+
+Para complementar e garantir a acessibilidade, recomenda-se:
+
+- Quando os botões estão desativados na interface do usuário, as diretrizes de contraste de cores não se aplicam aos componentes desativados. As <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html#inactive-controls" target="_blank">diretrizes de contraste mínimo definidas nas WCAG 2.1</Link> declaram explicitamente que os componentes desativados estão isentos da diretriz;
+- Garanta que elementos interativos mantenham uma área de toque acessível — idealmente com pelo menos 44x44 pixels em dispositivos de toque — para facilitar o uso por pessoas com mobilidade reduzida ou precisão limitada; conforme recomendado na <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/target-size.html" target="_blank">WCAG 2.5.5 (Target Size)</Link>;
+- O componente já possui as propridades `aria-disabled` e `data-disabled` para indicar que o botão está desativado, mas é importante se atentar ao uso da propridade `disabled` quando o botão não deve ser clicável e garantir que o estado visual também seja claro;
+- É recomendado informar o motivo do botão estar desabilitado para garantir clareza ao usuário, seguindo as diretrizes de <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html" target="_blank">WCAG 1.3.1 (Information and Relationships)</Link> e <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions.html" target="_blank">3.3.2 (Labels or Instructions)</Link>, podendo usar texto visível ou `aria-describedby`;
+- Ao usar a propriedade `component` para renderizar elementos que não são `<button>`, o componente já aplica `role="button"` automaticamente, mas é importante garantir que o elemento seja semanticamente correto para a ação que está sendo realizada;
+- Use `aria-label` para descrever a ação do botão, especialmente quando o texto não for suficiente para transmitir a ação, conforme recomendado pela <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions.html" target="_blank">WCAG 3.3.2 Labels or Instructions</Link>;
+- Utilize `onClick` para definir a ação ao clicar e `onKeyDown` para capturar eventos de teclado (*Enter* e Espaço), garantindo ativação pelo teclado além das funções padrão; conforme <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html" target="_blank">WCAG 2.1 (Keyboard)</Link> e <Link className="sb-unstyled text-sm" href="https://www.w3.org/TR/wai-aria-practices-1.1/#button" target="_blank">WAI-ARIA Button Keyboard Interaction</Link>;
+- Preserve os recursos visuais de acessibilidade (foco, contraste) ao customizar estilos ou *tokens*, mantendo a consistência com os testes de acessibilidade já realizados; conforme <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html" target="_blank">WCAG 2.4.7 (Focus Visible)</Link>, <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html" target="_blank">WCAG 1.4.3 (Contrast Minimum)</Link> e <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance-enhanced.html" target="_blank">WCAG 2.4.13 (Focus Appearance)</Link>.
