@@ -1,5 +1,6 @@
 export * from "./Button"
 export * from "./Flex"
+export * from "./Grid"
 export * from "./Icon"
 export * from "./IconButton"
 export * from "./Link"
