@@ -1,0 +1,126 @@
+import { ColorItem, ColorPalette, Meta } from "@storybook/blocks"
+import { Flex, Text, Button, Title } from "../../Components"
+
+<Meta title="Design/Espaçamento" />
+
+# 📏 Espaçamento do Kitten DS
+
+O sistema de espaçamento do Kitten DS é baseado em uma escala modular que segue incrementos de `4px`, alinhada à abordagem do Tailwind CSS. Essa escala padronizada garante consistência visual, facilita o alinhamento dos componentes e cria padrões de espaçamento previsíveis em toda a interface.
+
+Embora não existam *tokens* CSS personalizados no tema para espaçamento, recomenda-se o uso das classes utilitárias do Tailwind, como `p-4`, `mb-6`, `gap-x-8`, `gap-y-4`, que correspondem diretamente aos valores desta escala. Isso torna a construção de layouts mais simples, coerente e alinhada com os componentes do Kitten DS.
+
+> 💡 **Por que isso importa?**  
+> Adotar uma escala de espaçamento consistente melhora a harmonia visual, reduz erros de alinhamento, melhora a legibilidade e simplifica muito a manutenção. Alterações futuras são mais rápidas e seguras, já que os espaçamentos ficam concentrados na configuração dos containers — e não dispersos em ajustes manuais e margens avulsas.
+
+## ℹ️ Uso recomendado das classes Tailwind para espaçamento
+
+- **`gap`**: usado em containers (`Flex`, `Grid`) para definir espaçamento entre elementos irmãos, como campos de formulários, listas, blocos ou botões alinhados;
+- **`padding` (`p-`, `px-`, `py-`)**: usado para espaçamento interno, por exemplo, para o conteúdo dentro de botões, inputs, cards e containers;
+- **`margin` (`m-`, `mx-`, `my-`)**: ideal para espaçamento externo, separando títulos das seções ou labels dos inputs.
+
+Essa divisão ajuda a manter o código limpo, evita regras sobrepostas e facilita ajustes futuros para manter a consistência do design.
+
+<table>
+  <thead>
+    <tr>
+      <th>Valor (px)</th>
+      <th>Uso recomendado</th>
+      <th>Classes Tailwind recomendadas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>4px</strong></td>
+      <td>Espaçamento interno entre ícones e texto</td>
+      <td><code>p-1</code>, <code>gap-1</code></td>
+    </tr>
+    <tr>
+      <td><strong>8px</strong></td>
+      <td>Separação de elementos relacionados, como entre labels e inputs de formulários, ícones e texto ou itens em uma lista</td>
+      <td><code>m-2</code>, <code>gap-2</code>, <code>p-2</code></td>
+    </tr>
+    <tr>
+      <td><strong>12px</strong></td>
+      <td>Espaçamento vertical em elementos de formulário, preenchimento lateral de botões e outros elementos de formulário</td>
+      <td><code>m-3</code>, <code>p-3</code></td>
+    </tr>
+    <tr>
+      <td><strong>16px</strong></td>
+      <td>Separação entre grupos de conteúdo distintos</td>
+      <td><code>m-4</code>, <code>gap-4</code>, <code>p-4</code></td>
+    </tr>
+    <tr>
+      <td><strong>24px</strong></td>
+      <td>Separação entre subseções de conteúdo, como blocos de texto e títulos</td>
+      <td><code>m-6</code>, <code>p-6</code></td>
+    </tr>
+    <tr>
+      <td><strong>32px</strong></td>
+      <td>Separação entre áreas maiores, como seções ou blocos principais da página</td>
+      <td><code>m-8</code>, <code>p-8</code></td>
+    </tr>
+  </tbody>
+</table>
+
+> ✅ **Dica prática:**  
+> Usar `gap` como padrão simplifica muito a construção dos layouts. Isso é especialmente relevante porque muitos componentes do *design system*, como `Input` e `Button`, já possuem espaçamentos internos (via `padding`) e não exigem margens adicionais. Dessa forma, o container que agrupa esses elementos é responsável pelo espaçamento entre eles.
+
+> ⚠️ **Atenção:**  
+> No Kitten DS, o uso de `gap` é priorizado nos containers (`Flex`, `Grid`) para definir o espaçamento entre elementos que fazem parte de uma mesma estrutura (irmãos dentro do mesmo container). Já o uso de `margin` é recomendado quando:
+> - Não existe um container controlando o espaçamento, como na separação entre um título e um bloco de conteúdo, ou entre seções da página. Para elementos como `Input` e `Button`, o próprio componente já encapsula os espaçamentos internos, incluindo `labels` quando aplicável;
+> - Ou quando você quer criar um espaçamento externo em relação a outros blocos.
+
+> 🚫 Evite misturar `margin` e `gap` no mesmo grupo de elementos, pois isso gera espaçamentos duplicados e desalinhamentos.
+
+## 🛠️ Exemplo prático de espaçamento com Kitten DS
+
+Aqui temos um layout simples utilizando os componentes `Flex`, `Title`, `Input` e `Button`, aplicando os espaçamentos recomendados segundo este guia:
+
+```jsx live
+
+export function SpacingExample() {
+  return (
+    <Flex direction="flex-col" paddingX="px-8" paddingY="py-8">
+      <Title variant="h4" marginBottom="mb-6">
+        Formulário de Contato
+      </Title>
+
+      {/* Container principal com espaçamento entre os blocos */}
+      <Flex direction="flex-col" gap="gap-6" className="sb-unstyled">
+        {/* Campos do formulário, espaçamento vertical entre inputs via gap */}
+        <Flex direction="flex-col" gap="gap-4">
+          <Input placeholder="Digite seu nome" full />
+          <Input placeholder="Digite seu email" full />
+        </Flex>
+
+        {/* Botões alinhados horizontalmente com gap */}
+        <Flex direction="flex-row" colGap="gap-x-4" width="w-full">
+          <Button color="primary" full>Enviar</Button>
+          <Button color="error" full>Cancelar</Button>
+        </Flex>
+      </Flex>
+    </Flex>
+  );
+}
+```
+
+### 💻 Resultado do exemplo
+
+<Flex direction="flex-col" paddingX="px-8" paddingY="py-8" className="sb-unstyled max-w-92">
+  <Title variant="h4" marginBottom="mb-6" className="sb-unstyled">Formulário de Contato</Title>
+  
+  <Flex direction="flex-col" gap="gap-6" className="sb-unstyled">
+    <Flex direction="flex-col" gap="gap-4" width="w-full" className="sb-unstyled">
+      <input type="text" placeholder="Nome" className="w-full p-3 border rounded flex-1 sb-unstyled" />
+      <input type="email" placeholder="Email" className="w-full p-3 border rounded flex-1 sb-unstyled" />
+    </Flex>
+
+    <Flex direction="flex-row" colGap="gap-x-4" width="w-full" className="sb-unstyled">
+      <Button color="success" full className="sb-unstyled">Enviar</Button>
+      <Button color="error" full className="sb-unstyled">Cancelar</Button>
+    </Flex>
+  </Flex>
+</Flex>
+
+> ✨ Nota: A utilização correta dos espaçamentos não é apenas uma questão estética, mas também contribui para interfaces mais legíveis, acessíveis e com maior coerência visual. O Kitten DS, alinhado ao Tailwind, promove essa consistência de forma simples e escalável.
+> **Seguir essas recomendações reduz retrabalho, evita desalinhamentos e torna seu código mais fácil de manter.**
