@@ -1,0 +1,83 @@
+import { ColorItem, ColorPalette, Meta } from "@storybook/blocks"
+import { Flex, Text } from "../../Components"
+
+<Meta title="Design/Breakpoints" />
+
+# 📐 Breakpoints do Kitten DS
+
+Os valores de *breakpoint* (pontos de ruptura de layout) são definidos no tema para garantir um layout responsivo. Esses valores podem ser sobrescritos em projetos individuais para atender a requisitos específicos de design, mantendo uma estrutura consistente.
+
+Os *breakpoints* são fundamentais para garantir que o layout se adapte adequadamente a diferentes tamanhos de tela, proporcionando uma experiência de usuário consistente e otimizada. Eles permitem que os desenvolvedores criem interfaces responsivas que se ajustam automaticamente, melhorando a usabilidade em dispositivos variados.
+
+A definição de *breakpoints* como *tokens* de design no tema facilita a personalização e a manutenção do layout responsivo, permitindo que os projetos sejam facilmente adaptados a diferentes necessidades e contextos de uso. Além disso, o uso de *breakpoints* bem definidos contribui para a acessibilidade, garantindo que o conteúdo seja legível e navegável em todos os dispositivos, independentemente do tamanho da tela.
+
+> ✅ Observação: O Kitten DS segue o modelo *mobile-first*, onde os estilos são aplicados inicialmente para o menor tamanho de tela (xs) e os *breakpoints* definem as regras para telas maiores.
+
+## 📏 Valores de Breakpoints
+
+Os *breakpoints* são definidos como *tokens* de design no tema, permitindo fácil personalização e adaptação a diferentes tamanhos de tela. Os valores padrão são:
+
+- **xs**: 0px (extra pequeno), representa o valor base para telas menores — utilizado como ponto inicial no modelo *mobile-first*;
+- **sm**: 320px (pequeno), ideal para smartphones em modo paisagem;
+- **md**: 768px (médio), adequado para tablets e dispositivos menores;
+- **lg**: 1024px (grande), projetado para desktops e laptops;
+- **xl**: 1536px (extra grande), para telas grandes, como monitores widescreen;
+- **2xl**: 1920px (2x extra grande), para telas ultra-wide e displays de alta resolução.
+
+Os *tokens* de *breakpoint* são definidos no tema como variáveis CSS, permitindo fácil acesso e customização, tendo como base os seguintes valores:
+
+```css
+--breakpoint-xs: 0px;
+--breakpoint-sm: 320px;
+--breakpoint-md: 768px;
+--breakpoint-lg: 1024px;
+--breakpoint-xl: 1536px;
+--breakpoint-2xl: 1920px;
+```
+
+## 💡 Recomendações de Uso
+
+O uso dos *breakpoints* no **Kitten DS** é fundamental para criar interfaces responsivas, escaláveis e acessíveis. Aqui estão orientações práticas para aplicá-los de forma eficiente:
+
+- Adote sempre o modelo *mobile-first*, começando pelos estilos base e aplicando *breakpoints* progressivamente para telas maiores;
+- Utilize as classes utilitárias baseadas no Tailwind CSS (`sm:`, `md:`, `lg:`, `xl:`, `2xl:`) ou para manter consistência e facilidade de manutenção;
+- Priorize simplicidade — evite regras excessivas que dificultem a manutenção;
+- Garanta que a hierarquia visual e a legibilidade se mantenham em qualquer tamanho de tela, reforçando a acessibilidade;
+- Teste sempre em diferentes tamanhos e dispositivos para validar a responsividade real, não apenas no *devtools*;
+- Exemplos comuns de aplicação:
+
+<table>
+  <thead>
+    <tr>
+      <th>Breakpoint</th>
+      <th>Resolução</th>
+      <th>Aplicações e Recomendações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>md</strong></td>
+      <td>&ge; 768px</td>
+      <td>Introdução de colunas, expansão de containers, mudanças de alinhamento.</td>
+    </tr>
+    <tr>
+      <td><strong>lg</strong></td>
+      <td>&ge; 1024px</td>
+      <td>Ativação de sidebars, grids maiores e layout mais distribuído.</td>
+    </tr>
+    <tr>
+      <td><strong>xl</strong></td>
+      <td>&ge; 1536px</td>
+      <td>Expansão de grids, aumento de gaps, ajustes de alinhamentos, espaçamento mais confortável.</td>
+    </tr>
+    <tr>
+      <td><strong>2xl</strong></td>
+      <td>&ge; 1920px</td>
+      <td>Definição de larguras máximas, controle de espaços excessivos, balanceamento para telas ultra-wide.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+> ⚠️ Dica: Lembre-se de que nem todo layout precisa se transformar em todos os breakpoints. Avalie as necessidades do seu produto e faça adaptações que façam sentido para a experiência do usuário e os objetivos da interface.
