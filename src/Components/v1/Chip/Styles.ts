@@ -184,7 +184,7 @@ export const chipDeleteVariants = tv({
   base: [
     "rounded-full shrink-0 data-[disabled=true]:text-typography-disabled",
     "relative inline-flex items-center justify-center",
-    "before:content-[''] before:absolute before:inset-[-4px]",
+    "before:content-[''] before:absolute before:-inset-1",
     "before:pointer-events-none",
     "focus:outline-0 focus:ring-3 focus:ring-focus-ring focus:ring-offset-2"
   ],
