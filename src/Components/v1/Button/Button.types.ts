@@ -119,7 +119,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    * Border radius of the button.
    * Overrides the border radius set by `variant` if both are provided.
    * This corresponds to Tailwind's `rounded-*` classes.
-   * @default "rounded-full"
+   * @default "rounded-lg"
    */
   radius?: BorderRadius
 
