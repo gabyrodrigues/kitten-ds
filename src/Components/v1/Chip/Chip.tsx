@@ -98,14 +98,14 @@ export default function Chip({
       {onDelete && (
         <button
           type="button"
+          className={cn(deleteVariantClasses, deleteButtonProps?.className)}
+          {...deleteButtonProps}
           disabled={disabled}
           aria-disabled={disabled}
           data-disabled={disabled}
-          aria-label="delete chip"
+          aria-label={deleteButtonProps?.["aria-label"] || "delete chip"}
           onClick={handleClickDelete}
           onKeyDown={handleKeyDownDelete}
-          className={cn(deleteVariantClasses, deleteButtonProps?.className)}
-          {...deleteButtonProps}
         >
           <Icon
             color="inherit"
