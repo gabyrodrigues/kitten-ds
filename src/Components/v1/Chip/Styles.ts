@@ -2,7 +2,7 @@ import { tv } from "tailwind-variants"
 
 export const chipVariants = tv({
   base: [
-    "px-3 py-2",
+    "px-3 py-1 min-h-8",
     "flex items-center justify-center rounded-full gap-x-1",
     "relative",
     "data-[disabled=true]:text-typography-disabled",
@@ -20,7 +20,8 @@ export const chipVariants = tv({
         "border-2",
         "bg-transparent",
         "data-[disabled=true]:border-disabled",
-        "data-[disabled=true]:hover:bg-transparent",
+        "data-[disabled=true]:bg-typography-inverted",
+        "data-[disabled=true]:hover:bg-typography-inverted",
         "data-[disabled=true]:hover:text-typography-disabled",
         "data-[disabled=true]:text-typography-disabled"
       ]
@@ -191,9 +192,9 @@ export const chipDeleteVariants = tv({
   variants: {
     variant: {
       filled:
-        "data-[disabled=true]:bg-disabled data-[disabled=true]:text-typography-inverted data-[disabled=true]:hover:bg-disabled",
+        "data-[disabled=true]:bg-typography-disabled data-[disabled=true]:text-disabled data-[disabled=true]:hover:bg-typography-disabled",
       outlined:
-        "bg-transparent data-[disabled=true]:border-disabled data-[disabled=true]:hover:bg-transparent data-[disabled=true]:hover:text-typography-disabled data-[disabled=true]:text-typography-disabled"
+        "bg-transparent data-[disabled=true]:bg-typography-disabled data-[disabled=true]:hover:bg-typography-disabled data-[disabled=true]:hover:text-typography-inverted data-[disabled=true]:text-typography-inverted"
     },
     color: {
       primary: "",

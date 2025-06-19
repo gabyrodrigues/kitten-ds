@@ -28,12 +28,13 @@ export default function Chip({
   onDelete,
   ...props
 }: ChipProps) {
-  const variantClasses = chipVariants({ variant, color, clickable: Boolean(onClick) })
+  const variantClasses = chipVariants({ variant, color, clickable: Boolean(onClick) && !onDelete })
   const deleteVariantClasses = chipDeleteVariants({ variant, color })
   const mergedClasses = cn(
     variantClasses,
-    "text-chip",
-    onClick && "focus:outline-0 focus:ring-3 focus:ring-focus-ring focus:ring-offset-2",
+    onClick &&
+      !onDelete &&
+      "focus:outline-0 focus:ring-3 focus:ring-focus-ring focus:ring-offset-2",
     align,
     bgColor,
     borderColor,
@@ -81,7 +82,7 @@ export default function Chip({
     onDelete?.(event)
   }
 
-  const COMPONENT = onClick ? "button" : component
+  const COMPONENT = onClick && !onDelete ? "button" : component
 
   return (
     <COMPONENT
@@ -94,7 +95,8 @@ export default function Chip({
       onKeyDown={onClick ? undefined : handleKeyDown}
       {...props}
     >
-      {children}
+      {typeof children === "string" ? <span className="text-chip">{children}</span> : children}
+
       {onDelete && (
         <button
           type="button"
