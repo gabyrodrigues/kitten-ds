@@ -88,7 +88,7 @@ export default function Chip({
     <COMPONENT
       aria-disabled={onClick || onDelete ? disabled : undefined}
       data-disabled={onClick || onDelete ? disabled : undefined}
-      tabIndex={(onClick || onDelete) && disabled ? 0 : undefined}
+      tabIndex={onClick && disabled ? 0 : undefined}
       className={mergedClasses}
       onClick={onClick && !onDelete ? handleClick : undefined}
       onKeyDown={onClick && !onDelete ? handleKeyDown : undefined}
@@ -101,7 +101,6 @@ export default function Chip({
           type="button"
           className={cn(deleteVariantClasses, deleteButtonProps?.className)}
           {...deleteButtonProps}
-          disabled={disabled}
           aria-disabled={disabled}
           data-disabled={disabled}
           aria-label={deleteButtonProps?.["aria-label"] || "delete chip"}
