@@ -245,7 +245,7 @@ export const Clickable: Story = {
 }
 
 export const Deletable: Story = {
-  name: "Versão removível",
+  name: "Versão deletável",
   args: {
     variant: "filled",
     onDelete: () => {
