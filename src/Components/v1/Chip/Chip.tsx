@@ -24,16 +24,16 @@ export default function Chip({
   weight,
   whitespace,
   deleteButtonProps,
-  onClick,
-  onDelete,
+  onClick = undefined,
+  onDelete = undefined,
   ...props
 }: ChipProps) {
   const variantClasses = chipVariants({ variant, color, clickable: Boolean(onClick) && !onDelete })
   const deleteVariantClasses = chipDeleteVariants({ variant, color })
   const mergedClasses = cn(
     variantClasses,
-    onClick &&
-      !onDelete &&
+    "text-chip",
+    (onClick || onDelete) &&
       "focus:outline-0 focus:ring-3 focus:ring-focus-ring focus:ring-offset-2",
     align,
     bgColor,
@@ -86,16 +86,15 @@ export default function Chip({
 
   return (
     <COMPONENT
-      role={COMPONENT ? undefined : "button"}
       aria-disabled={onClick || onDelete ? disabled : undefined}
       data-disabled={onClick || onDelete ? disabled : undefined}
       tabIndex={(onClick || onDelete) && disabled ? 0 : undefined}
       className={mergedClasses}
-      onClick={onClick ? handleClick : undefined}
-      onKeyDown={onClick ? undefined : handleKeyDown}
+      onClick={onClick && !onDelete ? handleClick : undefined}
+      onKeyDown={onClick && !onDelete ? handleKeyDown : undefined}
       {...props}
     >
-      {typeof children === "string" ? <span className="text-chip">{children}</span> : children}
+      {children}
 
       {onDelete && (
         <button

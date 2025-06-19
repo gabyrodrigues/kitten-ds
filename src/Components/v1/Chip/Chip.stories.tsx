@@ -56,6 +56,11 @@ const meta: Meta<typeof Chip> = {
       control: { type: "text" },
       description: "Elemento ou componente HTML usado para renderizar o chip."
     },
+    deleteButtonProps: {
+      control: { type: "object" },
+      description:
+        "Adiciona propriedades ao botão de exclusão do chip. Se `onDelete` não for fornecido, o botão de exclusão não será exibido."
+    },
     disabled: {
       control: { type: "boolean" },
       description:
@@ -82,6 +87,18 @@ const meta: Meta<typeof Chip> = {
       ],
       description: "Justificação do conteúdo dentro do chip."
     },
+    letterSpacing: {
+      control: { type: "select" },
+      options: [
+        "tracking-tighter",
+        "tracking-tight",
+        "tracking-normal",
+        "tracking-wide",
+        "tracking-wider",
+        "tracking-widest"
+      ],
+      description: "Espaçamento entre letras no texto do chip."
+    },
     lineHeight: {
       control: { type: "select" },
       options: [
@@ -95,21 +112,15 @@ const meta: Meta<typeof Chip> = {
       description:
         "Altura da linha do texto no chip. Define o espaçamento vertical entre linhas de texto."
     },
-    letterSpacing: {
-      control: { type: "select" },
-      options: [
-        "tracking-tighter",
-        "tracking-tight",
-        "tracking-normal",
-        "tracking-wide",
-        "tracking-wider",
-        "tracking-widest"
-      ],
-      description: "Espaçamento entre letras no texto do chip."
-    },
     onClick: {
       action: "clicked",
-      description: "Função chamada ao clicar no chip (não é chamada se estiver desabilitado)."
+      description:
+        "Função chamada ao clicar no chip (não é chamada se estiver desabilitado ou se a função `onDelete` estiver presente)."
+    },
+    onDelete: {
+      action: "clicked",
+      description:
+        "Essa função exibe o botão de exclusão no chip e é chamada ao clicar nele (não é chamada se estiver desabilitado)."
     },
     radius: {
       control: { type: "text" },
@@ -164,7 +175,8 @@ const meta: Meta<typeof Chip> = {
     align: "items-center",
     justify: "justify-center",
     disabled: false,
-    onClick: undefined
+    onClick: undefined,
+    onDelete: undefined
   }
 }
 
