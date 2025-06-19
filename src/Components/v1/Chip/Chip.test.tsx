@@ -33,12 +33,12 @@ describe("Chip", () => {
   })
 
   it("is not clickable when disabled", () => {
-    const onClick = vi.fn()
+    const handleClick = vi.fn()
 
     render(
       <Chip
         disabled
-        onClick={onClick}
+        onClick={handleClick}
       >
         Can't click
       </Chip>
@@ -49,15 +49,179 @@ describe("Chip", () => {
 
     fireEvent.click(chip)
 
-    expect(onClick).not.toHaveBeenCalled()
+    expect(handleClick).not.toHaveBeenCalled()
+  })
+
+  it("is not deletable when disabled", () => {
+    const handleDelete = vi.fn()
+
+    render(
+      <Chip
+        disabled
+        onDelete={handleDelete}
+        deleteButtonProps={{ "aria-label": "delete option" }}
+      >
+        Can't delete
+      </Chip>
+    )
+
+    const deleteButton = screen.getByRole("button", { name: /delete option/i })
+
+    fireEvent.click(deleteButton)
+
+    expect(handleDelete).not.toHaveBeenCalled()
+  })
+
+  it("is not clickable when onDelete is passed with onClick", () => {
+    const handleDelete = vi.fn()
+    const handleClick = vi.fn()
+
+    render(
+      <Chip
+        onClick={handleClick}
+        onDelete={handleDelete}
+      >
+        Can't click with delete
+      </Chip>
+    )
+
+    const chip = screen.getByText("Can't click with delete")
+    fireEvent.click(chip)
+
+    expect(handleClick).not.toHaveBeenCalled()
+  })
+
+  it("calls delete action when clicking delete button", () => {
+    const handleClick = vi.fn()
+    const handleDelete = vi.fn()
+
+    render(
+      <Chip
+        onClick={handleClick}
+        onDelete={handleDelete}
+        deleteButtonProps={{ "aria-label": "delete option" }}
+      >
+        Delete button
+      </Chip>
+    )
+
+    const deleteButton = screen.getByRole("button", { name: /delete option/i })
+    fireEvent.click(deleteButton)
+
+    expect(handleDelete).toHaveBeenCalled()
+  })
+
+  it("handles keyboard interaction when clicking chip with Enter key", () => {
+    const handleClick = vi.fn()
+
+    render(<Chip onClick={handleClick}>Press me</Chip>)
+
+    const chip = screen.getByRole("button", { name: "Press me" }) as HTMLElement
+
+    // Focus the element manually
+    chip.focus()
+    expect(chip).toHaveFocus()
+
+    // Simulate Enter key
+    fireEvent.keyDown(chip, { key: "Enter" })
+    expect(handleClick).toHaveBeenCalled()
+  })
+
+  it("handles keyboard interaction when clicking chip with Space key", () => {
+    const handleClick = vi.fn()
+
+    render(<Chip onClick={handleClick}>Press me</Chip>)
+
+    const chip = screen.getByRole("button", { name: "Press me" }) as HTMLElement
+
+    // Focus the element manually
+    chip.focus()
+    expect(chip).toHaveFocus()
+
+    // Simulate Space key
+    fireEvent.keyDown(chip, { key: " " })
+    expect(handleClick).toHaveBeenCalled()
+  })
+
+  it("handles keyboard interaction when deleting chip with Delete key", async () => {
+    const handleDelete = vi.fn()
+
+    render(
+      <Chip
+        onDelete={handleDelete}
+        deleteButtonProps={{ "aria-label": "delete option" }}
+      >
+        Deletable option
+      </Chip>
+    )
+
+    const deleteButton = screen.getByRole("button", { name: /delete option/i })
+
+    // Focus the element manually
+    deleteButton.focus()
+    expect(deleteButton).toHaveFocus()
+
+    // Simulate Delete key
+    fireEvent.keyDown(deleteButton, { key: "Delete" })
+    expect(handleDelete).toHaveBeenCalled()
+
+    // Check accessibility with axe
+    const results = await axe(deleteButton)
+    expect(results.violations).toEqual([])
+  })
+
+  it("handles keyboard interaction when deleting chip with Enter key", () => {
+    const handleDelete = vi.fn()
+
+    render(
+      <Chip
+        onDelete={handleDelete}
+        deleteButtonProps={{ "aria-label": "delete option" }}
+      >
+        Deletable option
+      </Chip>
+    )
+
+    const deleteButton = screen.getByRole("button", { name: /delete option/i })
+
+    // Focus the element manually
+    deleteButton.focus()
+    expect(deleteButton).toHaveFocus()
+
+    // Simulate Delete key
+    fireEvent.keyDown(deleteButton, { key: "Enter" })
+    expect(handleDelete).toHaveBeenCalled()
+  })
+
+  it("handles keyboard interaction when deleting chip with space key", () => {
+    const handleDelete = vi.fn()
+
+    render(
+      <Chip
+        onDelete={handleDelete}
+        deleteButtonProps={{ "aria-label": "delete option" }}
+      >
+        Deletable option
+      </Chip>
+    )
+
+    const deleteButton = screen.getByRole("button", { name: /delete option/i })
+
+    // Focus the element manually
+    deleteButton.focus()
+    expect(deleteButton).toHaveFocus()
+
+    // Simulate Space key
+    fireEvent.keyDown(deleteButton, { key: " " })
+    expect(handleDelete).toHaveBeenCalled()
   })
 
   it("renders delete button with accessible touch target", async () => {
-    const onDelete = vi.fn()
+    const handleDelete = vi.fn()
 
     const { container } = render(
       <Chip
-        onDelete={onDelete}
+        onDelete={handleDelete}
         aria-label="Chip with delete"
       >
         Chip
@@ -67,14 +231,41 @@ describe("Chip", () => {
     const deleteButton = screen.getByRole("button", { name: /delete/i })
     expect(deleteButton).toBeInTheDocument()
 
-    // ✅ Check that it has the necessary classes for hit target
     expect(deleteButton.className).toMatch(/before:-inset-1/)
 
-    // ✅ Or if you're using ring trick:
-    // expect(deleteButton.className).toMatch(/ring-8/)
-
-    // ✅ Run axe for general accessibility
     const results = await axe(container)
     expect(results.violations).toEqual([])
+  })
+
+  it("is focusable when disabled and has onClick", () => {
+    const handleClick = vi.fn()
+
+    render(
+      <Chip
+        disabled
+        onClick={handleClick}
+      >
+        Disabled chip
+      </Chip>
+    )
+    const chip = screen.getByText("Disabled chip")
+    chip.focus()
+    expect(chip).toHaveFocus()
+  })
+
+  it("delete button is focusable when disabled", () => {
+    const handleDelete = vi.fn()
+    render(
+      <Chip
+        disabled
+        onDelete={handleDelete}
+        deleteButtonProps={{ "aria-label": "delete option" }}
+      >
+        Disabled chip
+      </Chip>
+    )
+    const deleteButton = screen.getByRole("button", { name: /delete option/i })
+    deleteButton.focus()
+    expect(deleteButton).toHaveFocus()
   })
 })
