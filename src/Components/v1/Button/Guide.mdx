@@ -36,17 +36,22 @@ Cada tipo de botão possui variantes de cor que também indicam a importância d
 
 O botão também possui suporte para ícones ou outros elementos visuais, através de suas propriedades `left_section` e `right_section`, que permitem adicionar conteúdo antes ou depois do texto do botão, respectivamente. Essa flexibilidade melhora a percepção da ação e oferece feedback visual imediato, sem comprometer a acessibilidade textual.
 
+> ⚠️ Observação: Use os tipos de cores de acordo com o contexto e importância da ação, não use variantes de cor que não comuniquem o contexto da ação, como por exemplo, usar a variante de cor "negative" (erro) para ações que não são destrutivas ou que não alertam sobre um risco. 
+
+> ⚠️ Apesar da flexibilidade, não é recomendado utilizar as propriedades `left_section` e `right_section` ao mesmo tempo, principalmente em casos de ícones combinados, pois isso pode causar confusão visual e comprometer a clareza da ação.
+
 ## 💡 Recomendações de Uso
 
-- Utilize rótulos claros, objetivos e fáceis de entender. Botões devem indicar exatamente o que acontecerá ao interagir com eles.
-- Ao decidir a variante do botão, considere a importância da ação e o contexto em que o botão será usado.
-- Ao decidir a cor do botão, considere o estado da ação (ex: sucesso, erro, ação primária ou secundária).
-- Os ícones podem ser usados para reforçar a ação do botão, tanto do lado esquedo (`left_section`) quanto do lado direito (`right_section`).
-- Verifique sempre se o botão manteve o padrão adequado para área de toque, garantindo que o usuário possa clicar facilmente, especialmente em dispositivos móveis.
-- Em casos de espaços limitados ou componentes compactos, considere o uso do componente de `IconButton` para manter a clareza e a funcionalidade, de preferência com um tooltip explicativo e uso de `aria-label` para acessibilidade.
-- Use o estado `disabled` para indicar ações que não estão disponíveis no momento.
+- Utilize rótulos claros, objetivos e fáceis de entender. Botões devem indicar exatamente o que acontecerá ao interagir com eles;
+- Ao combinar labels com ícones, é importante garantir que o texto seja claro e compreensível por si só, mesmo sem o ícone. O ícone deve complementar a ação, mas não substituí-la;
+- Ao decidir a variante do botão, considere a importância da ação e o contexto em que o botão será usado;
+- Ao decidir a cor do botão, considere o estado da ação (ex: sucesso, erro, ação primária ou secundária);
+- Os ícones podem ser usados para reforçar a ação do botão, tanto do lado esquedo (`left_section`) quanto do lado direito (`right_section`);
+- Verifique sempre se o botão manteve o padrão adequado para área de toque, garantindo que o usuário possa clicar facilmente, especialmente em dispositivos móveis;
+- Em casos de espaços limitados ou componentes compactos, considere o uso do componente de `IconButton` para manter a clareza e a funcionalidade, de preferência com um tooltip explicativo e uso de `aria-label` para acessibilidade;
+- Use o estado `disabled` para indicar ações que não estão disponíveis no momento;
 - Evite o uso excessivo de botões preenchidos em uma mesma página para não sobrecarregar visualmente o usuário.
-- Mantenha a consistência no uso de cores e estilos de botões em toda a aplicação.
+- Mantenha a consistência no uso de cores e estilos de botões em toda a aplicação;
 - Evite o uso de botões para ações que não são claras ou que podem causar confusão ao usuário.
 
 ### ☑️✖️ O que fazer vs. O que não fazer
@@ -150,7 +155,7 @@ Por padrão, o componente `Button` já implementa diretrizes essenciais de acess
 - A borda de foco visível possui pelo menos 2px de espessura e está sempre visível, sem ficar oculta por outros elementos, conforme <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance-enhanced" target="_blank">WCAG 2.4.13 (Focus Appearance)</Link>;
 - O estado de foco é sempre preservado quando aplicável, inclusive com suporte visual claro, conforme recomendado pela <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible" target="_blank">WCAG 2.4.7 (Focus Visible)</Link>.
 
-Para complementar e garantir a acessibilidade, recomenda-se:
+Para complementar e garantir a acessibilidade, é importante considerar:
 
 - Quando os botões estão desativados na interface do usuário, as diretrizes de contraste de cores não se aplicam aos componentes desativados. As <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html#inactive-controls" target="_blank">diretrizes de contraste mínimo definidas nas WCAG 2.1</Link> declaram explicitamente que os componentes desativados estão isentos da diretriz;
 - Garanta que elementos interativos mantenham uma área de toque acessível — idealmente com pelo menos 44x44 pixels em dispositivos de toque — para facilitar o uso por pessoas com mobilidade reduzida ou precisão limitada; conforme recomendado na <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/target-size.html" target="_blank">WCAG 2.5.5 (Target Size)</Link>;

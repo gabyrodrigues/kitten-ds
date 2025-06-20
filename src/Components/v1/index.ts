@@ -1,4 +1,5 @@
 export * from "./Button"
+export * from "./Chip"
 export * from "./Flex"
 export * from "./Grid"
 export * from "./Icon"
