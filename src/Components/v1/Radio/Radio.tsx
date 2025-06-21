@@ -13,7 +13,7 @@ export default function Radio({
   id,
   onChange,
   contentClassName,
-  rootClassName,
+  className,
   inputClassName,
   labelClassName,
   checkedClassName,
@@ -29,7 +29,7 @@ export default function Radio({
     color
   })
 
-  const mergedRootClasses = cn("flex-wrap", rootClassName)
+  const mergedRootClasses = cn("flex-wrap", className)
   const mergedContentClasses = cn("relative", "rounded-full", contentClassName)
   const mergedInputClasses = cn(radioInputClasses, inputClassName)
   const mergedLabelClasses = cn(labelClassName)

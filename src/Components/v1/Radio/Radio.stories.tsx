@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
-import { type ChangeEvent, useState } from "react"
-import { Flex } from "../Flex"
+import { type ChangeEvent, useEffect, useState } from "react"
 import Radio from "./Radio"
+import RadioGroup from "./RadioGroup"
 
 const meta = {
   component: Radio,
@@ -64,7 +64,7 @@ const meta = {
       control: { type: "text" },
       description: "The CSS class name to be applied to the Radio component Input."
     },
-    rootClassName: {
+    className: {
       control: { type: "text" },
       description: "The CSS class name to be applied to the Radio component root."
     },
@@ -87,10 +87,10 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Primary: Story = {
+export const Default: Story = {
   name: "Versão padrão",
   args: {
-    value: "test",
+    value: "default",
     onChange: () => null
   }
 }
@@ -99,7 +99,7 @@ export const WithErrorText: Story = {
   name: "Versão com texto de erro",
   args: {
     errorText: "Texto de erro",
-    value: "test",
+    value: "error",
     onChange: () => null
   }
 }
@@ -108,7 +108,7 @@ export const WithHelpText: Story = {
   name: "Versão com texto de ajuda",
   args: {
     helperText: "Texto de ajuda",
-    value: "test",
+    value: "helper",
     onChange: () => null
   }
 }
@@ -117,48 +117,46 @@ export const WithSuccessText: Story = {
   name: "Versão com texto de sucesso",
   args: {
     successText: "Texto de sucesso",
-    value: "test",
+    value: "success",
     onChange: () => null
   }
 }
 
-export const RadioListGroup: Story = {
-  name: "Versão de lista de Radios",
+export const RadioGroupItems: Story = {
+  name: "Versão de lista com RadioGroup",
   args: {
-    value: "test",
-    checked: false,
-    disabled: false
+    value: "cupcake"
   },
   render: (args) => {
-    const [selectedValue, setSelectedValue] = useState("")
+    const [selectedValue, setSelectedValue] = useState(args.value)
 
-    const options = [
-      { value: "cupcake", label: "Cupcake" },
-      { value: "pizza", label: "Pizza" },
-      { value: "sushi", label: "Sushi" }
-    ]
-
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-      setSelectedValue(event.target.value)
+    function handleChange(event: ChangeEvent<HTMLInputElement>) {
+      const newValue = event.target.value
+      setSelectedValue(newValue)
+      args.onChange?.(event)
     }
 
     return (
-      <Flex
-        gap="gap-4"
-        component="fieldset"
+      <RadioGroup
+        {...args}
+        name="food"
+        value={selectedValue}
+        onChange={handleChange}
+        label="Escolha um alimento"
       >
-        {options.map((option) => (
-          <Radio
-            {...args}
-            key={option.value}
-            value={option.value}
-            label={option.label}
-            name="food"
-            checked={selectedValue === option.value}
-            onChange={handleChange}
-          />
-        ))}
-      </Flex>
+        <Radio
+          value="cupcake"
+          label="Cupcake"
+        />
+        <Radio
+          value="pizza"
+          label="Pizza"
+        />
+        <Radio
+          value="sushi"
+          label="Sushi"
+        />
+      </RadioGroup>
     )
   }
 }

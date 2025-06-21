@@ -1,4 +1,4 @@
-import type { ChangeEvent, InputHTMLAttributes } from "react"
+import type { ChangeEvent, InputHTMLAttributes, ReactNode } from "react"
 
 export type RadioColor = "primary" | "secondary" | "gray"
 
@@ -20,22 +20,22 @@ export interface RadioProps
   id?: string
 
   /**
-   * The label text for the Radio Button.
+   * The label text for the Radio component.
    */
   label?: string
 
   /**
-   * Specifies whether the Radio Button is checked or not.
+   * Specifies whether the Radio component is checked or not.
    */
   checked?: boolean
 
   /**
-   * Specifies whether the Radio Button is disabled or not.
+   * Specifies whether the Radio component is disabled or not.
    */
   disabled?: boolean
 
   /**
-   * The value associated with the Radio Button.
+   * The value associated with the Radio component.
    */
   value: string | number
 
@@ -46,47 +46,84 @@ export interface RadioProps
 
   /**
    * The CSS class name to be applied to the Radio component root.
+   * This is the outermost container of the Radio component.
    */
-  rootClassName?: string
+  className?: string
 
   /**
    * The CSS class name to be applied to the Radio component Input.
+   * This is the actual radio input element.
+   * It is useful for styling the Radio input itself.
    */
   inputClassName?: string
 
   /**
    * The CSS class name to be applied to the Radio component content container.
+   * This is the container that holds the Radio input.
    */
   contentClassName?: string
 
   /**
    * The CSS class name to be applied to the Radio component Label.
+   * This is the text label that appears next to the Radio component.
    */
   labelClassName?: string
 
   /**
    * The CSS class name to be applied to the Radio component checked input indicator.
+   * This is the visual indicator that appears when the Radio component is checked.
    */
   checkedClassName?: string
 
   /**
-   * The radio button variant.
+   * The Radio component variant.
    * Possible values: "primary", "secondary" or "gray".
    */
   color?: RadioColor
 
   /**
-   * The helper text for the radio file.
+   * The helper text for the Radio component.
    */
   helperText?: string
 
   /**
-   * The error text to be displayed below the radio in case of an error.
+   * The error text to be displayed below the Radio in case of an error.
    */
   errorText?: string
 
   /**
-   * The success text to be displayed below the radio in case of success.
+   * The success text to be displayed below the Radio in case of success.
    */
   successText?: string
+}
+
+export interface RadioGroupProps
+  extends Pick<
+    RadioProps,
+    | "color"
+    | "disabled"
+    | "name"
+    | "value"
+    | "onChange"
+    | "label"
+    | "helperText"
+    | "errorText"
+    | "successText"
+  > {
+  /**
+   * The CSS class name to be applied to the RadioGroup root.
+   */
+  className?: string
+
+  /**
+   * The list of Radio components to be rendered inside the RadioGroup.
+   * It only accepts Radio components as children.
+   */
+  children: ReactNode
+
+  /**
+   * The CSS class name to be applied to the Radio Group list container.
+   * This is useful for styling the list of radio buttons.
+   */
+  listClassName?: string
 }
