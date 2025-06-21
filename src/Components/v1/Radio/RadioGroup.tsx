@@ -30,8 +30,9 @@ export default function RadioGroup({
   const mergedClasses = cn("flex flex-col", className)
 
   function handleRadioChange(event: ChangeEvent<HTMLInputElement>) {
-    if (disabled) return
-    onChange?.(event)
+    if (!disabled) {
+      onChange?.(event)
+    }
   }
 
   return (
@@ -63,6 +64,7 @@ export default function RadioGroup({
           }
 
           const childProps = child.props as RadioProps
+          const isDisabled = Boolean(disabled) || Boolean(childProps.disabled)
 
           return (
             <Radio
@@ -71,8 +73,8 @@ export default function RadioGroup({
               name={name}
               checked={childProps.value === value}
               onChange={handleRadioChange}
-              color={childProps.color ?? color}
-              disabled={disabled || childProps.disabled}
+              color={color}
+              disabled={isDisabled}
             />
           )
         })}

@@ -1,0 +1,389 @@
+import { fireEvent, render, screen } from "@testing-library/react"
+import { describe, expect, it } from "vitest"
+import { axe } from "vitest-axe"
+
+import userEvent from "@testing-library/user-event"
+import Radio from "./Radio"
+import RadioGroup from "./RadioGroup"
+
+describe("RadioGroup", () => {
+  it("renders correctly with legend and radios", async () => {
+    const { container } = render(
+      <RadioGroup
+        label="Choose food"
+        name="food"
+        value="pizza"
+      >
+        <Radio
+          value="cupcake"
+          label="Cupcake"
+        />
+        <Radio
+          value="pizza"
+          label="Pizza"
+        />
+      </RadioGroup>
+    )
+
+    const group = screen.getByRole("group")
+    expect(group).toBeInTheDocument()
+    expect(screen.getByText("Choose food")).toBeInTheDocument()
+
+    const pizza = screen.getByRole("radio", { name: "Pizza" })
+    expect(pizza).toBeChecked()
+
+    const cupcake = screen.getByRole("radio", { name: "Cupcake" })
+    expect(cupcake).not.toBeChecked()
+
+    const results = await axe(container)
+    expect(results.violations).toEqual([])
+  })
+
+  it("updates selection when clicked", () => {
+    const handleChange = vi.fn()
+
+    render(
+      <RadioGroup
+        label="Select food"
+        name="food"
+        value="cupcake"
+        onChange={handleChange}
+      >
+        <Radio
+          value="cupcake"
+          label="Cupcake"
+        />
+        <Radio
+          value="pizza"
+          label="Pizza"
+        />
+      </RadioGroup>
+    )
+
+    const pizza = screen.getByRole("radio", { name: "Pizza" })
+    fireEvent.click(pizza)
+    expect(handleChange).toHaveBeenCalled()
+  })
+
+  it("should navigate radios with keyboard", async () => {
+    const user = userEvent.setup()
+
+    render(
+      <RadioGroup
+        label="Choose food"
+        name="food"
+        value="cupcake"
+      >
+        <Radio
+          value="cupcake"
+          label="Cupcake"
+        />
+        <Radio
+          value="pizza"
+          label="Pizza"
+        />
+        <Radio
+          value="sushi"
+          label="Sushi"
+        />
+      </RadioGroup>
+    )
+
+    const radios = screen.getAllByRole("radio")
+    expect(radios.length).toBe(3)
+
+    await user.tab() // focus first radio
+    expect(radios[0]).toHaveFocus()
+
+    await user.keyboard("[ArrowDown]")
+    expect(radios[1]).toHaveFocus()
+
+    await user.keyboard("[ArrowDown]")
+    expect(radios[2]).toHaveFocus()
+
+    await user.keyboard("[ArrowUp]")
+    expect(radios[1]).toHaveFocus()
+  })
+
+  it("renders disabled radios and blocks onChange", () => {
+    const handleChange = vi.fn()
+
+    render(
+      <RadioGroup
+        label="Choose disabled food"
+        name="food"
+        value="pizza"
+        disabled
+        onChange={handleChange}
+      >
+        <Radio
+          value="cupcake"
+          label="Cupcake"
+        />
+        <Radio
+          value="pizza"
+          label="Pizza"
+        />
+      </RadioGroup>
+    )
+
+    const pizza = screen.getByRole("radio", { name: "Pizza" })
+    expect(pizza).toBeDisabled()
+
+    fireEvent.click(pizza)
+    expect(handleChange).not.toHaveBeenCalled()
+  })
+
+  it("renders helper, error and success text correctly", () => {
+    render(
+      <Radio
+        value="cake"
+        label="Cake"
+        helperText="Helpful info"
+        errorText="Error message"
+        successText="Success message"
+      />
+    )
+
+    expect(screen.getByText("Helpful info")).toBeInTheDocument()
+    expect(screen.getByText("Error message")).toBeInTheDocument()
+    expect(screen.getByText("Success message")).toBeInTheDocument()
+  })
+
+  it("applies custom classNames and colors", () => {
+    const { container } = render(
+      <Radio
+        value="cake"
+        label="Cake"
+        color="secondary"
+        className="custom-class"
+        inputClassName="input-class"
+        labelClassName="label-class"
+      />
+    )
+
+    expect(container.querySelector("input")).toHaveClass("input-class")
+    expect(container.querySelector("label")).toHaveClass("label-class")
+    expect(container.firstChild).toHaveClass("custom-class")
+  })
+
+  it("flattens children inside React.Fragment", () => {
+    render(
+      <RadioGroup
+        label="Fragment test"
+        name="food"
+        value="pizza"
+      >
+        <>
+          <Radio
+            value="pizza"
+            label="Pizza"
+          />
+          <Radio
+            value="sushi"
+            label="Sushi"
+          />
+        </>
+      </RadioGroup>
+    )
+
+    expect(screen.getByRole("radio", { name: "Pizza" })).toBeInTheDocument()
+    expect(screen.getByRole("radio", { name: "Sushi" })).toBeInTheDocument()
+  })
+
+  it("warns and ignores invalid children", () => {
+    const consoleWarnSpy = vi.spyOn(console, "warn").mockImplementation(() => null)
+
+    render(
+      <RadioGroup
+        label="Invalid child test"
+        name="food"
+        value="pizza"
+      >
+        <Radio
+          value="pizza"
+          label="Pizza"
+        />
+        <div>Invalid child</div>
+      </RadioGroup>
+    )
+
+    expect(consoleWarnSpy).toHaveBeenCalledWith(
+      "RadioGroup only accepts Radio components as children."
+    )
+    expect(screen.getByRole("radio", { name: "Pizza" })).toBeInTheDocument()
+    expect(screen.queryByText("Invalid child")).toBeNull()
+
+    consoleWarnSpy.mockRestore()
+  })
+
+  it("renders helperText, errorText, and successText", () => {
+    render(
+      <RadioGroup
+        label="Text test"
+        name="food"
+        value="pizza"
+        helperText="Helper info"
+        errorText="Error info"
+        successText="Success info"
+      >
+        <Radio
+          value="pizza"
+          label="Pizza"
+        />
+      </RadioGroup>
+    )
+
+    expect(screen.getByText("Helper info")).toBeInTheDocument()
+    expect(screen.getByText("Error info")).toBeInTheDocument()
+    expect(screen.getByText("Success info")).toBeInTheDocument()
+  })
+
+  it("does not call onChange when disabled", () => {
+    const onChange = vi.fn()
+
+    render(
+      <RadioGroup
+        label="Disabled test"
+        name="food"
+        value="pizza"
+        onChange={onChange}
+        disabled
+      >
+        <Radio
+          value="pizza"
+          label="Pizza"
+        />
+      </RadioGroup>
+    )
+
+    const pizzaRadio = screen.getByRole("radio", { name: "Pizza" })
+
+    fireEvent.click(pizzaRadio)
+
+    expect(onChange).not.toHaveBeenCalled()
+  })
+
+  it("renders label with correct color depending on disabled", () => {
+    const { rerender } = render(
+      <RadioGroup
+        label="Label test"
+        name="food"
+        value="pizza"
+        disabled={false}
+      >
+        <Radio
+          value="pizza"
+          label="Pizza"
+        />
+      </RadioGroup>
+    )
+
+    const label = screen.getByText("Label test")
+    expect(label).toHaveClass("text-typography-primary")
+
+    rerender(
+      <RadioGroup
+        label="Label test"
+        name="food"
+        value="pizza"
+        disabled
+      >
+        <Radio
+          value="pizza"
+          label="Pizza"
+        />
+      </RadioGroup>
+    )
+
+    expect(screen.getByText("Label test")).toHaveClass("text-typography-disabled")
+  })
+
+  it("renders helper, error and success text together", () => {
+    render(
+      <RadioGroup
+        name="food"
+        value="pizza"
+        helperText="Helpful"
+        errorText="Error"
+        successText="Success"
+      >
+        <Radio
+          value="pizza"
+          label="Pizza"
+        />
+      </RadioGroup>
+    )
+
+    expect(screen.getByText("Helpful")).toBeInTheDocument()
+    expect(screen.getByText("Error")).toBeInTheDocument()
+    expect(screen.getByText("Success")).toBeInTheDocument()
+  })
+
+  it("disables all radios when group is disabled", () => {
+    render(
+      <RadioGroup
+        disabled
+        name="food"
+        value="pizza"
+      >
+        <Radio
+          value="pizza"
+          label="Pizza"
+        />
+        <Radio
+          value="sushi"
+          label="Sushi"
+          disabled={false}
+        />
+      </RadioGroup>
+    )
+    expect(screen.getByRole("radio", { name: "Pizza" })).toBeDisabled()
+    expect(screen.getByRole("radio", { name: "Sushi" })).toBeDisabled()
+  })
+
+  it("disables only the disabled radio when group is enabled", () => {
+    render(
+      <RadioGroup
+        name="food"
+        value="pizza"
+      >
+        <Radio
+          value="pizza"
+          label="Pizza"
+        />
+        <Radio
+          value="sushi"
+          label="Sushi"
+          disabled
+        />
+      </RadioGroup>
+    )
+    expect(screen.getByRole("radio", { name: "Pizza" })).not.toBeDisabled()
+    expect(screen.getByRole("radio", { name: "Sushi" })).toBeDisabled()
+  })
+
+  it("disables radio when both group and child are disabled", () => {
+    render(
+      <RadioGroup
+        name="food"
+        value="pizza"
+        disabled
+      >
+        <Radio
+          value="pizza"
+          label="Pizza"
+          disabled
+        />
+        <Radio
+          value="sushi"
+          label="Sushi"
+        />
+      </RadioGroup>
+    )
+    const pizza = screen.getByRole("radio", { name: "Pizza" })
+    const sushi = screen.getByRole("radio", { name: "Sushi" })
+    expect(pizza).toBeDisabled()
+    expect(sushi).toBeDisabled()
+  })
+})
