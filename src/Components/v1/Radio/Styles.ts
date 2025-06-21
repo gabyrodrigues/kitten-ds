@@ -19,11 +19,10 @@ export const radioInputVariants = tv({
     "before:transition-opacity",
     "hover:ring-8",
     "bg-surface",
-    "disabled:border-disabled",
-    "disabled:ring-0",
-    "disabled:cursor-default",
+    "data-[disabled=true]:border-disabled",
+    "data-[disabled=true]:cursor-default",
+    "data-[disabled=true]:hover:ring-0 data-[disabled=true]:focus:ring-3",
     "focus:outline-0 focus:ring-3 focus:ring-focus-ring focus:ring-offset-2",
-
     "before:content-['']",
     "before:absolute",
     "before:inset-[-12px]",
@@ -57,7 +56,7 @@ export const radioSpanVariants = tv({
     "-translate-y-1/2",
     "-translate-x-1/2",
     "peer-checked:opacity-100",
-    "peer-disabled:bg-disabled"
+    "peer-data-[disabled=true]:bg-disabled"
   ],
   variants: {
     color: {

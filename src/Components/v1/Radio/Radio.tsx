@@ -61,7 +61,9 @@ export default function Radio({
           type="radio"
           value={value}
           checked={checked}
-          disabled={disabled}
+          aria-disabled={disabled}
+          data-disabled={disabled}
+          tabIndex={disabled ? 0 : undefined}
           onChange={(event) => !disabled && onChange?.(event)}
           {...props}
           className={mergedInputClasses}

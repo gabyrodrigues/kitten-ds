@@ -95,7 +95,9 @@ describe("Radio", () => {
       />
     )
     const input = screen.getByRole("radio")
-    expect(input).toBeDisabled()
+    expect(input).toHaveAttribute("aria-disabled", "true")
+    expect(input).toHaveAttribute("data-disabled", "true")
+    expect(input).not.toBeDisabled() // not natively disabled
   })
 
   it("does not call onChange when disabled", () => {

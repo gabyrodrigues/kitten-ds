@@ -128,7 +128,9 @@ describe("RadioGroup", () => {
     )
 
     const pizza = screen.getByRole("radio", { name: "Pizza" })
-    expect(pizza).toBeDisabled()
+    expect(pizza).not.toBeDisabled()
+    expect(pizza).toHaveAttribute("aria-disabled", "true")
+    expect(pizza).toHaveAttribute("data-disabled", "true") // not natively disabled
 
     fireEvent.click(pizza)
     expect(handleChange).not.toHaveBeenCalled()
@@ -338,8 +340,15 @@ describe("RadioGroup", () => {
         />
       </RadioGroup>
     )
-    expect(screen.getByRole("radio", { name: "Pizza" })).toBeDisabled()
-    expect(screen.getByRole("radio", { name: "Sushi" })).toBeDisabled()
+    const pizza = screen.getByRole("radio", { name: "Pizza" })
+    const sushi = screen.getByRole("radio", { name: "Sushi" })
+    expect(pizza).toHaveAttribute("aria-disabled", "true")
+    expect(pizza).toHaveAttribute("data-disabled", "true")
+    expect(pizza).not.toBeDisabled() // not natively disabled
+
+    expect(sushi).toHaveAttribute("aria-disabled", "true")
+    expect(sushi).toHaveAttribute("data-disabled", "true")
+    expect(sushi).not.toBeDisabled() // not natively disabled
   })
 
   it("disables only the disabled radio when group is enabled", () => {
@@ -359,8 +368,15 @@ describe("RadioGroup", () => {
         />
       </RadioGroup>
     )
-    expect(screen.getByRole("radio", { name: "Pizza" })).not.toBeDisabled()
-    expect(screen.getByRole("radio", { name: "Sushi" })).toBeDisabled()
+    const pizza = screen.getByRole("radio", { name: "Pizza" })
+    const sushi = screen.getByRole("radio", { name: "Sushi" })
+    expect(pizza).toHaveAttribute("aria-disabled", "false")
+    expect(pizza).toHaveAttribute("data-disabled", "false")
+    expect(pizza).not.toBeDisabled() // not natively disabled
+
+    expect(sushi).toHaveAttribute("aria-disabled", "true")
+    expect(sushi).toHaveAttribute("data-disabled", "true")
+    expect(sushi).not.toBeDisabled() // not natively disabled
   })
 
   it("disables radio when both group and child are disabled", () => {
@@ -383,7 +399,12 @@ describe("RadioGroup", () => {
     )
     const pizza = screen.getByRole("radio", { name: "Pizza" })
     const sushi = screen.getByRole("radio", { name: "Sushi" })
-    expect(pizza).toBeDisabled()
-    expect(sushi).toBeDisabled()
+    expect(pizza).toHaveAttribute("aria-disabled", "true")
+    expect(pizza).toHaveAttribute("data-disabled", "true")
+    expect(pizza).not.toBeDisabled() // not natively disabled
+
+    expect(sushi).toHaveAttribute("aria-disabled", "true")
+    expect(sushi).toHaveAttribute("data-disabled", "true")
+    expect(sushi).not.toBeDisabled() // not natively disabled
   })
 })
