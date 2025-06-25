@@ -1,5 +1,5 @@
 import { cn } from "@utils"
-import { type ChangeEvent, type MouseEvent, useEffect, useRef } from "react"
+import { type ChangeEvent, type MouseEvent, useRef } from "react"
 import { Flex } from "../Flex"
 import { Icon } from "../Icon"
 import { Text } from "../Text"
@@ -64,11 +64,12 @@ export default function Checkbox({
     onChange?.(nextChecked, event)
   }
 
-  useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.indeterminate = indeterminate
+  function setInputRef(element: HTMLInputElement | null) {
+    if (element) {
+      element.indeterminate = indeterminate
+      inputRef.current = element
     }
-  }, [indeterminate])
+  }
 
   return (
     <Flex
@@ -83,7 +84,7 @@ export default function Checkbox({
       >
         <input
           id={baseId}
-          ref={inputRef}
+          ref={setInputRef}
           aria-describedby={describedByIds}
           aria-invalid={!!errorText}
           aria-checked={indeterminate ? "mixed" : checked}
