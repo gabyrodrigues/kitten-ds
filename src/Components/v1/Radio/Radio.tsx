@@ -8,7 +8,7 @@ export default function Radio({
   checked,
   value,
   label,
-  disabled,
+  disabled = false,
   color = "primary",
   id,
   onChange,
@@ -32,7 +32,7 @@ export default function Radio({
   const mergedRootClasses = cn("flex-wrap", className)
   const mergedContentClasses = cn("relative", "rounded-full", contentClassName)
   const mergedInputClasses = cn(radioInputClasses, inputClassName)
-  const mergedLabelClasses = cn(labelClassName)
+  const mergedLabelClasses = cn("cursor-pointer", disabled && "cursor-default", labelClassName)
   const mergedCheckedClasses = cn(radioSpanClasses, checkedClassName)
 
   const baseId = id ?? `radio-${value}`
@@ -53,6 +53,7 @@ export default function Radio({
     >
       <Flex
         align="items-center"
+        justify="justify-center"
         className={mergedContentClasses}
       >
         <input
