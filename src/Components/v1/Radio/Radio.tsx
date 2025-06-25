@@ -58,6 +58,7 @@ export default function Radio({
         <input
           id={baseId}
           aria-describedby={describedByIds}
+          aria-invalid={!!errorText}
           type="radio"
           value={value}
           checked={checked}

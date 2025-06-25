@@ -160,4 +160,27 @@ describe("Radio", () => {
     expect(screen.getByText("Error text")).toHaveClass("text-error")
     expect(screen.getByText("Success text")).toHaveClass("text-success")
   })
+
+  it("adds aria-invalid and aria-describedby when errorText is present", () => {
+    const errorMessage = "This field is required"
+    const id = "test-radio"
+
+    render(
+      <Radio
+        label="Test Radio"
+        value="test"
+        id={id}
+        errorText={errorMessage}
+      />
+    )
+
+    const input = screen.getByRole("radio", { name: /test radio/i })
+
+    expect(input).toHaveAttribute("aria-invalid", "true")
+    expect(input).toHaveAttribute("aria-describedby", `${id}_error`)
+
+    const errorTextElement = screen.getByText(errorMessage)
+    expect(errorTextElement).toBeInTheDocument()
+    expect(errorTextElement).toHaveAttribute("id", `${id}_error`)
+  })
 })
