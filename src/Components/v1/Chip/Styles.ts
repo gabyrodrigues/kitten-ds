@@ -187,7 +187,7 @@ export const chipDeleteVariants = tv({
     "relative inline-flex items-center justify-center",
     "before:content-[''] before:absolute before:-inset-1",
     "before:pointer-events-none",
-    "focus:outline-0 focus:ring-3 focus:ring-focus-ring focus:ring-offset-2"
+    "focus-visible:outline-0 focus-visible:ring-3 focus-visible:ring-focus-ring focus-visible:ring-offset-2"
   ],
   variants: {
     variant: {
