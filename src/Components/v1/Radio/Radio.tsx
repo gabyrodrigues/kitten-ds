@@ -81,6 +81,7 @@ export default function Radio({
             component="label"
             color={disabled ? "text-typography-disabled" : "text-typography-primary"}
             className={mergedLabelClasses}
+            aria-live="polite"
           >
             {label}
           </Text>
@@ -101,6 +102,7 @@ export default function Radio({
             variant="body3"
             color="text-success"
             id={`${baseId}_success`}
+            aria-live="polite"
           >
             {successText}
           </Text>

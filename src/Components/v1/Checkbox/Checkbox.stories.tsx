@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
 import { useState } from "react"
+import { Button } from "../Button"
+import { Flex } from "../Flex"
 import Checkbox from "./Checkbox"
 import type { CheckboxProps } from "./Checkbox.types"
 
@@ -91,9 +93,9 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const CHECKBOX_WITH_STATE = (args: CheckboxProps) => {
-  const [checked, setChecked] = useState(args.checked || false)
+  const [checked, setChecked] = useState(args.checked ?? false)
 
-  const handleChange = () => {
+  function handleChange() {
     setChecked(!checked)
     args.onChange?.(!checked)
   }
@@ -107,12 +109,56 @@ const CHECKBOX_WITH_STATE = (args: CheckboxProps) => {
   )
 }
 
+const CHECKBOX_WITH_INDETERMINATE_STATE = (args: CheckboxProps) => {
+  const [checked, setChecked] = useState(args.checked ?? false)
+  const [indeterminate, setIndeterminate] = useState<boolean>(args.indeterminate ?? false)
+
+  function handleChange(nextChecked: boolean) {
+    if (indeterminate) {
+      setIndeterminate(false)
+      setChecked(true)
+    } else {
+      setChecked(nextChecked)
+    }
+  }
+
+  return (
+    <Flex
+      direction="flex-col"
+      gap="gap-12"
+    >
+      <Checkbox
+        {...args}
+        checked={checked}
+        indeterminate={indeterminate}
+        onChange={handleChange}
+      />
+
+      <Button
+        variant="outlined"
+        onClick={() => setIndeterminate(true)}
+      >
+        Tornar indeterminado
+      </Button>
+    </Flex>
+  )
+}
+
 export const Default: Story = {
   name: "Versão padrão",
   args: {
     value: "default"
   },
   render: (args) => <CHECKBOX_WITH_STATE {...args} />
+}
+
+export const Indeterminate: Story = {
+  name: "Versão estado indeterminado",
+  args: {
+    value: "default",
+    indeterminate: false
+  },
+  render: (args) => <CHECKBOX_WITH_INDETERMINATE_STATE {...args} />
 }
 
 export const WithErrorText: Story = {

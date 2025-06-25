@@ -1,5 +1,5 @@
 import { cn } from "@utils"
-import type { ChangeEvent, MouseEvent } from "react"
+import { type ChangeEvent, type MouseEvent, useEffect, useRef } from "react"
 import { Flex } from "../Flex"
 import { Icon } from "../Icon"
 import { Text } from "../Text"
@@ -24,20 +24,13 @@ export default function Checkbox({
   onClick,
   ...props
 }: CheckboxProps) {
-  function handleChange(event: ChangeEvent<HTMLInputElement>) {
-    event.stopPropagation()
-    onChange?.(Boolean(checked), event)
-  }
+  const inputRef = useRef<HTMLInputElement>(null)
 
-  function handleClick(event: MouseEvent<HTMLInputElement>) {
-    event.stopPropagation()
-    onClick?.(event)
-  }
-
-  const iconClasses = cn(SPAN_STYLE)
+  const iconClasses = cn(SPAN_STYLE, indeterminate && "opacity-100")
   const iconType = indeterminate ? "check_indeterminate_small" : "check"
   const checkboxInputClasses = checkboxInputVariants({
-    color
+    color,
+    indeterminate
   })
 
   const mergedRootClasses = cn("flex-wrap", className)
@@ -55,6 +48,28 @@ export default function Checkbox({
       .filter(Boolean)
       .join(" ") || undefined
 
+  function handleClick(event: MouseEvent<HTMLInputElement>) {
+    event.stopPropagation()
+    onClick?.(event)
+  }
+
+  function handleChange(event: ChangeEvent<HTMLInputElement>) {
+    event.stopPropagation()
+
+    if (inputRef.current?.indeterminate) {
+      inputRef.current.indeterminate = false
+    }
+
+    const nextChecked = indeterminate ? true : !checked
+    onChange?.(nextChecked, event)
+  }
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.indeterminate = indeterminate
+    }
+  }, [indeterminate])
+
   return (
     <Flex
       align="items-start"
@@ -68,8 +83,10 @@ export default function Checkbox({
       >
         <input
           id={baseId}
+          ref={inputRef}
           aria-describedby={describedByIds}
           aria-invalid={!!errorText}
+          aria-checked={indeterminate ? "mixed" : checked}
           type="checkbox"
           checked={checked}
           aria-disabled={disabled}
@@ -85,6 +102,7 @@ export default function Checkbox({
             <Icon
               color={disabled ? "text-typography-disabled" : "text-typography-inverted"}
               type={iconType}
+              aria-hidden="true"
             />
           </div>
         )}
@@ -118,6 +136,7 @@ export default function Checkbox({
             variant="body3"
             color="text-success"
             id={`${baseId}_success`}
+            aria-live="polite"
           >
             {successText}
           </Text>
@@ -128,6 +147,7 @@ export default function Checkbox({
             variant="body3"
             color="text-error"
             id={`${baseId}_error`}
+            aria-live="polite"
           >
             {errorText}
           </Text>
