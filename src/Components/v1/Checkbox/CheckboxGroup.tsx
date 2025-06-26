@@ -26,10 +26,25 @@ export default function CheckboxGroup({
 
   const mergedClasses = cn("flex flex-col", className)
 
+  const baseId = label
+    ? `checkboxgroup-${label.toString().replace(/\s+/g, "-").toLowerCase()}`
+    : `checkboxgroup-${Math.random().toString(36).slice(2, 10)}`
+
+  const describedByIds =
+    [
+      errorText ? `${baseId}_error` : null,
+      successText ? `${baseId}_success` : null,
+      helperText ? `${baseId}_help` : null
+    ]
+      .filter(Boolean)
+      .join(" ") || undefined
+
   return (
     <Flex
       component="fieldset"
       className={mergedClasses}
+      aria-describedby={describedByIds}
+      aria-invalid={!!errorText}
     >
       {label && (
         <Text
@@ -48,23 +63,29 @@ export default function CheckboxGroup({
         className={cn(listClassName)}
       >
         {flattenedChildren.map((child, index) => {
-          if (!React.isValidElement(child) || child.type !== Checkbox) {
-            console.warn("CheckboxGroup only accepts Checkbox components as children.")
+          if (!React.isValidElement(child)) {
             return null
           }
+          if (child.type === Checkbox) {
+            const childProps = child.props as CheckboxProps
+            const isDisabled = Boolean(disabled) || Boolean(childProps.disabled)
+            return (
+              <Checkbox
+                key={childProps?.name ?? `checkbox-${index}`}
+                {...props}
+                {...childProps}
+                color={color}
+                disabled={isDisabled}
+              />
+            )
+          }
+          // Allow for indentation/nesting
+          if (child.type === Flex || child.type === "div") {
+            return child
+          }
 
-          const childProps = child.props as CheckboxProps
-          const isDisabled = Boolean(disabled) || Boolean(childProps.disabled)
-
-          return (
-            <Checkbox
-              key={childProps?.name ?? `checkbox-${index}`}
-              {...props}
-              {...childProps}
-              color={color}
-              disabled={isDisabled}
-            />
-          )
+          console.warn("CheckboxGroup only accepts Checkbox, Flex, or div as children.")
+          return null
         })}
       </Flex>
 
@@ -74,11 +95,19 @@ export default function CheckboxGroup({
           gap="gap-1"
           className="mt-2"
         >
-          {helperText && <Text variant="body3">{helperText}</Text>}
+          {helperText && (
+            <Text
+              variant="body3"
+              id={`${baseId}_help`}
+            >
+              {helperText}
+            </Text>
+          )}
           {errorText && (
             <Text
               variant="body3"
               color="text-error"
+              id={`${baseId}_error`}
             >
               {errorText}
             </Text>
@@ -87,6 +116,7 @@ export default function CheckboxGroup({
             <Text
               variant="body3"
               color="text-success"
+              id={`${baseId}_success`}
             >
               {successText}
             </Text>

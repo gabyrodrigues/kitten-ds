@@ -216,3 +216,52 @@ export const CheckboxGroupItems: Story = {
     )
   }
 }
+
+export const IndeterminateGroup: Story = {
+  name: "Versão de lista com indeterminado",
+  render: () => {
+    const [checked, setChecked] = useState([true, false])
+
+    const handleParentChange = (checked: boolean) => {
+      setChecked([checked, checked])
+    }
+
+    const handleChild1Change = (checked1: boolean) => {
+      setChecked([checked1, checked[1]])
+    }
+
+    const handleChild2Change = (checked2: boolean) => {
+      setChecked([checked[0], checked2])
+    }
+
+    return (
+      <CheckboxGroup label="Cardápio">
+        <Checkbox
+          checked={checked[0] && checked[1]}
+          indeterminate={checked[0] !== checked[1]}
+          onChange={handleParentChange}
+          label="Sobremesa"
+          name="parent"
+        />
+        <Flex
+          direction="flex-col"
+          rowGap="gap-y-3"
+          className="ml-8"
+        >
+          <Checkbox
+            checked={checked[0]}
+            onChange={handleChild1Change}
+            label="Brigadeiro"
+            name="child1"
+          />
+          <Checkbox
+            checked={checked[1]}
+            onChange={handleChild2Change}
+            label="Mousse"
+            name="child2"
+          />
+        </Flex>
+      </CheckboxGroup>
+    )
+  }
+}
