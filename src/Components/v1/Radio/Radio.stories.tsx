@@ -114,7 +114,7 @@ export const WithErrorText: Story = {
   }
 }
 
-export const WithHelpText: Story = {
+export const WithHelperText: Story = {
   name: "Versão com texto de ajuda",
   args: {
     helperText: "Texto de ajuda",

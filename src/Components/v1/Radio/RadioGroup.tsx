@@ -39,7 +39,6 @@ export default function RadioGroup({
     <Flex
       component="fieldset"
       className={mergedClasses}
-      {...props}
     >
       {label && (
         <Text
@@ -69,6 +68,7 @@ export default function RadioGroup({
           return (
             <Radio
               key={childProps.value ?? `radio-${index}`}
+              {...props}
               {...childProps}
               name={name}
               checked={childProps.value === value}
