@@ -35,10 +35,25 @@ export default function RadioGroup({
     }
   }
 
+  const baseId = label
+    ? `radiogroup-${label.toString().replace(/\s+/g, "-").toLowerCase()}`
+    : `radiogroup-${Math.random().toString(36).slice(2, 10)}`
+  const describedByIds =
+    [
+      errorText ? `${baseId}_error` : null,
+      successText ? `${baseId}_success` : null,
+      helperText ? `${baseId}_help` : null
+    ]
+      .filter(Boolean)
+      .join(" ") || undefined
+
   return (
     <Flex
       component="fieldset"
       className={mergedClasses}
+      aria-describedby={describedByIds}
+      aria-invalid={!!errorText}
+      {...props}
     >
       {label && (
         <Text
@@ -86,11 +101,19 @@ export default function RadioGroup({
           gap="gap-1"
           className="mt-2"
         >
-          {helperText && <Text variant="body3">{helperText}</Text>}
+          {helperText && (
+            <Text
+              variant="body3"
+              id={`${baseId}_help`}
+            >
+              {helperText}
+            </Text>
+          )}
           {errorText && (
             <Text
               variant="body3"
               color="text-error"
+              id={`${baseId}_error`}
             >
               {errorText}
             </Text>
@@ -99,6 +122,7 @@ export default function RadioGroup({
             <Text
               variant="body3"
               color="text-success"
+              id={`${baseId}_success`}
             >
               {successText}
             </Text>
