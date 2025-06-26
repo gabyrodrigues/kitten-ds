@@ -114,6 +114,7 @@ export default function RadioGroup({
               variant="body3"
               color="text-error"
               id={`${baseId}_error`}
+              aria-live="polite"
             >
               {errorText}
             </Text>
@@ -123,6 +124,7 @@ export default function RadioGroup({
               variant="body3"
               color="text-success"
               id={`${baseId}_success`}
+              aria-live="polite"
             >
               {successText}
             </Text>
