@@ -127,7 +127,7 @@ describe("Radio", () => {
     expect(onChange).toHaveBeenCalledTimes(1)
   })
 
-  it("shows correct colors when enabled", () => {
+  it("shows correct message colors when enabled", () => {
     render(
       <Radio
         value="test"
@@ -144,7 +144,7 @@ describe("Radio", () => {
     expect(screen.getByText("Success text")).toHaveClass("text-success")
   })
 
-  it("shows correct colors when disabled", () => {
+  it("shows correct message colors when disabled", () => {
     render(
       <Radio
         value="test"
