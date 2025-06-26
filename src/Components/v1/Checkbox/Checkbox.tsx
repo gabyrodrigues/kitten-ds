@@ -7,7 +7,7 @@ import type { CheckboxProps } from "./Checkbox.types"
 import { CHECKBOX_INPUT_CONTAINER, SPAN_STYLE, checkboxInputVariants } from "./Styles"
 
 export default function Checkbox({
-  id = "checkbox",
+  id,
   checked = false,
   indeterminate = false,
   disabled,

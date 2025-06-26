@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
-import { useState } from "react"
+import { type ChangeEvent, useState } from "react"
 import { Button } from "../Button"
 import { Flex } from "../Flex"
 import Checkbox from "./Checkbox"
 import type { CheckboxProps } from "./Checkbox.types"
+import CheckboxGroup from "./CheckboxGroup"
 
 const meta = {
   component: Checkbox,
@@ -24,16 +25,16 @@ const meta = {
       control: { type: "boolean" },
       description: "Exibe o Checkbox como selecionado ou não."
     },
+    className: {
+      control: { type: "text" },
+      description:
+        "Opção para adicionar classes CSS à raíz do Checkbox. Útil para personalizar o estilo da parte externa do componente."
+    },
     color: {
       control: { type: "radio" },
       options: ["primary", "secondary", "gray"],
       description:
         "Define a cor do Checkbox. As opções disponíveis são: 'primary', 'secondary' e 'gray'. Se o componente for usado dentro de um CheckboxGroup, a cor será herdada do grupo e não poderá ser alterada individualmente."
-    },
-    labelClassName: {
-      control: { type: "text" },
-      description:
-        "Opção para adicionar classes CSS ao rótulo do Checkbox. Útil para personalizar o estilo do texto do rótulo associado ao Checkbox."
     },
     disabled: {
       control: { type: "boolean" },
@@ -60,25 +61,25 @@ const meta = {
       description:
         "O texto do rótulo associado ao Checkbox. Este texto é exibido ao lado do botão de opção e é usado para descrever a opção selecionável."
     },
+    labelClassName: {
+      control: { type: "text" },
+      description:
+        "Opção para adicionar classes CSS ao rótulo do Checkbox. Útil para personalizar o estilo do texto do rótulo associado ao Checkbox."
+    },
     inputClassName: {
       control: { type: "text" },
       description:
         "Opção para adicionar classes CSS ao input do Checkbox. Útil para personalizar o estilo do elemento de entrada do Checkbox."
     },
-    className: {
+    name: {
       control: { type: "text" },
       description:
-        "Opção para adicionar classes CSS à raíz do Checkbox. Útil para personalizar o estilo da parte externa do componente."
+        "O nome do Checkbox. Este atributo é usado para identificar o Checkbox em formulários e eventos de mudança."
     },
     successText: {
       control: { type: "text" },
       description:
         "Texto de sucesso para o checkbox. Este texto é exibido quando o Checkbox está em um estado de sucesso, indicando que a seleção foi bem-sucedida."
-    },
-    value: {
-      control: { type: "text" },
-      description:
-        "O valor associado ao Checkbox. Este valor é usado para identificar a opção selecionada quando o Checkbox é parte de um grupo de seleção."
     }
   },
   args: {
@@ -146,16 +147,12 @@ const CHECKBOX_WITH_INDETERMINATE_STATE = (args: CheckboxProps) => {
 
 export const Default: Story = {
   name: "Versão padrão",
-  args: {
-    value: "default"
-  },
   render: (args) => <CHECKBOX_WITH_STATE {...args} />
 }
 
 export const Indeterminate: Story = {
   name: "Versão estado indeterminado",
   args: {
-    value: "default",
     indeterminate: false
   },
   render: (args) => <CHECKBOX_WITH_INDETERMINATE_STATE {...args} />
@@ -164,17 +161,15 @@ export const Indeterminate: Story = {
 export const WithErrorText: Story = {
   name: "Versão com texto de erro",
   args: {
-    errorText: "Texto de erro",
-    value: "error"
+    errorText: "Texto de erro"
   },
   render: (args) => <CHECKBOX_WITH_STATE {...args} />
 }
 
-export const WithHelpText: Story = {
+export const WithHelperText: Story = {
   name: "Versão com texto de ajuda",
   args: {
-    helperText: "Texto de ajuda",
-    value: "helper"
+    helperText: "Texto de ajuda"
   },
   render: (args) => <CHECKBOX_WITH_STATE {...args} />
 }
@@ -182,8 +177,42 @@ export const WithHelpText: Story = {
 export const WithSuccessText: Story = {
   name: "Versão com texto de sucesso",
   args: {
-    successText: "Texto de sucesso",
-    value: "success"
+    successText: "Texto de sucesso"
   },
   render: (args) => <CHECKBOX_WITH_STATE {...args} />
+}
+
+export const CheckboxGroupItems: Story = {
+  name: "Versão de lista com CheckboxGroup",
+  render: () => {
+    const [state, setState] = useState({ cupcake: true, pizza: false, sushi: false })
+
+    function handleChange(checked: boolean, event: ChangeEvent<HTMLInputElement>) {
+      if (!event?.target?.name) return
+      setState({ ...state, [event.target.name]: checked })
+    }
+
+    return (
+      <CheckboxGroup label="Selecione seus alimentos favoritos">
+        <Checkbox
+          checked={state.cupcake}
+          onChange={handleChange}
+          name="cupcake"
+          label="Cupcake"
+        />
+        <Checkbox
+          name="pizza"
+          label="Pizza"
+          checked={state.pizza}
+          onChange={handleChange}
+        />
+        <Checkbox
+          name="sushi"
+          label="Sushi"
+          checked={state.sushi}
+          onChange={handleChange}
+        />
+      </CheckboxGroup>
+    )
+  }
 }

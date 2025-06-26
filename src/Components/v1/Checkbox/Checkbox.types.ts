@@ -39,9 +39,11 @@ export interface CheckboxProps
   disabled?: boolean
 
   /**
-   * The value associated with the Checkbox component.
+   * The name of the Checkbox component.
+   * This is useful for grouping checkboxes or when the Checkbox is part of a form.
+   * It is recommended to use a unique name for each Checkbox in a group to avoid conflicts during form submission.
    */
-  value: string | number
+  name?: string
 
   /**
    * The callback function to be called when the Checkbox button is changed.
@@ -101,19 +103,7 @@ export interface CheckboxProps
   successText?: string
 }
 
-export interface CheckboxGroupProps
-  extends Pick<
-    CheckboxProps,
-    | "color"
-    | "disabled"
-    | "name"
-    | "value"
-    | "onChange"
-    | "label"
-    | "helperText"
-    | "errorText"
-    | "successText"
-  > {
+export interface CheckboxGroupProps extends Omit<CheckboxProps, "checked" | "onChange" | "value"> {
   /**
    * The CSS class name to be applied to the CheckboxGroup root.
    */
@@ -127,7 +117,7 @@ export interface CheckboxGroupProps
 
   /**
    * The CSS class name to be applied to the Checkbox Group list container.
-   * This is useful for styling the list of checkbox buttons.
+   * This is useful for styling the list of checkboxes.
    */
   listClassName?: string
 }
