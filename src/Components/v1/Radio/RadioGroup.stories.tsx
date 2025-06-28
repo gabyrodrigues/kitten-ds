@@ -70,6 +70,11 @@ const meta = {
       control: { type: "text" },
       description: "Classes CSS para o contêiner da lista de radios dentro do RadioGroup."
     },
+    required: {
+      control: { type: "boolean" },
+      description:
+        "Indica se o RadioGroup é obrigatório. Isso pode ser usado para validação de formulários, onde o usuário deve selecionar pelo menos uma opção."
+    },
     successText: {
       control: { type: "text" },
       description:
@@ -79,6 +84,11 @@ const meta = {
       control: { type: "text" },
       description:
         "O valor do Radio selecionado. Este valor é usado para identificar qual opção foi escolhida pelo usuário."
+    },
+    withAsterisk: {
+      control: { type: "boolean" },
+      description:
+        "Determina se o asterisco obrigatório deve ser exibido. Isso é útil para indicar que o RadioGroup é obrigatório em um formulário. O asterisco só será exibido se o RadioGroup for marcado como obrigatório."
     }
   },
   args: {
@@ -156,6 +166,17 @@ export const WithSuccessText: Story = {
   args: {
     successText: "Texto de sucesso",
     value: "cupcake"
+  },
+  render: (args) => <RADIO_GROUP_WITH_STATE {...args} />
+}
+
+export const WithAsterisk: Story = {
+  name: "Versão de lista obrigatória",
+  args: {
+    errorText: "Campo obrigatório",
+    required: true,
+    value: "sushi",
+    withAsterisk: true
   },
   render: (args) => <RADIO_GROUP_WITH_STATE {...args} />
 }

@@ -20,6 +20,8 @@ export default function RadioGroup({
   successText,
   className,
   listClassName,
+  required = false,
+  withAsterisk = false,
   ...props
 }: RadioGroupProps): ReactElement {
   const flattenedChildren = React.Children.toArray(children).flatMap((child) => {
@@ -54,6 +56,7 @@ export default function RadioGroup({
       className={mergedClasses}
       aria-describedby={describedByIds}
       aria-invalid={!!errorText}
+      aria-required={required}
       {...props}
     >
       <Text
@@ -63,6 +66,18 @@ export default function RadioGroup({
         className={label ? "mb-2" : "sr-only"}
       >
         {label || defaultA11yLabel}
+
+        {withAsterisk && required && (
+          <Text
+            component="span"
+            variant="body2"
+            color="text-error"
+            className="ml-1 inline"
+            aria-hidden="true"
+          >
+            *
+          </Text>
+        )}
       </Text>
 
       <Flex
@@ -88,6 +103,7 @@ export default function RadioGroup({
               onChange={handleRadioChange}
               color={color}
               disabled={isDisabled}
+              required={typeof childProps.required === "boolean" ? childProps.required : required}
             />
           )
         })}

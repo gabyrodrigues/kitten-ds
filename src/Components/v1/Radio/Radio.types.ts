@@ -139,4 +139,20 @@ export interface RadioGroupProps
    * @default "Radio Group"
    */
   defaultA11yLabel?: string
+
+  /**
+   * Determines whether the required asterisk should be displayed.
+   * This is useful for indicating that the Radio is required in a form.
+   * It also depends on required property to be displayed.
+   *
+   * @default false
+   */
+  withAsterisk?: boolean
+
+  /**
+   * Indicates whether the RadioGroup is required.
+   * This is useful for form validation to indicate that at least one radio must be selected.
+   * If true, the asterisk will be displayed next to the label if withAsterisk is also true.
+   */
+  required?: boolean
 }
