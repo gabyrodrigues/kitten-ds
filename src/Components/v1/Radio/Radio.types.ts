@@ -126,4 +126,13 @@ export interface RadioGroupProps
    * This is useful for styling the list of radio buttons.
    */
   listClassName?: string
+
+  /**
+   * The default accessible label for the Radio Group.
+   * This label is used for screen readers when no label is provided.
+   * It helps users understand the purpose of the Radio Group.
+   *
+   * @default "Radio Group"
+   */
+  defaultA11yLabel?: string
 }

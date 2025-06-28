@@ -136,15 +136,21 @@ describe("RadioGroup", () => {
     expect(handleChange).not.toHaveBeenCalled()
   })
 
-  it("renders helper, error and success text correctly", () => {
+  it("renders helper, error and success text correctly in RadioGroup Radio", () => {
     render(
-      <Radio
+      <RadioGroup
+        label="Select food"
+        name="food"
         value="cake"
-        label="Cake"
-        helperText="Helpful info"
-        errorText="Error message"
-        successText="Success message"
-      />
+      >
+        <Radio
+          value="cake"
+          label="Cake"
+          helperText="Helpful info"
+          errorText="Error message"
+          successText="Success message"
+        />
+      </RadioGroup>
     )
 
     expect(screen.getByText("Helpful info")).toBeInTheDocument()
@@ -152,21 +158,29 @@ describe("RadioGroup", () => {
     expect(screen.getByText("Success message")).toBeInTheDocument()
   })
 
-  it("applies custom classNames and colors", () => {
-    const { container } = render(
-      <Radio
+  it("applies custom classNames and colors to RadioGroup Radio", () => {
+    render(
+      <RadioGroup
+        label="Select food"
+        name="food"
         value="cake"
-        label="Cake"
-        color="secondary"
-        className="custom-class"
-        inputClassName="input-class"
-        labelClassName="label-class"
-      />
+      >
+        <Radio
+          value="cake"
+          label="Cake"
+          color="secondary"
+          className="custom-class"
+          inputClassName="input-class"
+          labelClassName="label-class"
+        />
+      </RadioGroup>
     )
 
-    expect(container.querySelector("input")).toHaveClass("input-class")
-    expect(container.querySelector("label")).toHaveClass("label-class")
-    expect(container.firstChild).toHaveClass("custom-class")
+    expect(screen.getByRole("radio", { name: "Cake" })).toHaveClass("input-class")
+    expect(screen.getByText("Cake").closest("label")).toHaveClass("label-class")
+    expect(screen.getByRole("radio", { name: "Cake" }).parentElement?.parentElement).toHaveClass(
+      "custom-class"
+    )
   })
 
   it("flattens children inside React.Fragment", () => {
@@ -207,38 +221,25 @@ describe("RadioGroup", () => {
           label="Pizza"
         />
         <div>Invalid child</div>
+        {"Just a string"}
+        {42}
       </RadioGroup>
     )
 
+    expect(consoleWarnSpy).toHaveBeenCalledTimes(3)
     expect(consoleWarnSpy).toHaveBeenCalledWith(
       "RadioGroup only accepts Radio components as children."
     )
+
     expect(screen.getByRole("radio", { name: "Pizza" })).toBeInTheDocument()
+
     expect(screen.queryByText("Invalid child")).toBeNull()
+    expect(screen.queryByText("Just a string")).toBeNull()
+    expect(screen.queryByText("42")).toBeNull()
+    expect(screen.queryByText("null")).toBeNull()
+    expect(screen.queryByText("false")).toBeNull()
 
     consoleWarnSpy.mockRestore()
-  })
-
-  it("renders helperText, errorText, and successText", () => {
-    render(
-      <RadioGroup
-        label="Text test"
-        name="food"
-        value="pizza"
-        helperText="Helper info"
-        errorText="Error info"
-        successText="Success info"
-      >
-        <Radio
-          value="pizza"
-          label="Pizza"
-        />
-      </RadioGroup>
-    )
-
-    expect(screen.getByText("Helper info")).toBeInTheDocument()
-    expect(screen.getByText("Error info")).toBeInTheDocument()
-    expect(screen.getByText("Success info")).toBeInTheDocument()
   })
 
   it("does not call onChange when disabled", () => {
@@ -259,11 +260,14 @@ describe("RadioGroup", () => {
       </RadioGroup>
     )
 
-    const pizzaRadio = screen.getByRole("radio", { name: "Pizza" })
+    const pizza = screen.getByRole("radio", { name: "Pizza" })
 
-    fireEvent.click(pizzaRadio)
+    fireEvent.click(pizza)
 
     expect(onChange).not.toHaveBeenCalled()
+
+    expect(pizza).toHaveAttribute("aria-disabled", "true")
+    expect(pizza).toHaveAttribute("data-disabled", "true")
   })
 
   it("renders label with correct color depending on disabled", () => {
@@ -301,7 +305,7 @@ describe("RadioGroup", () => {
     expect(screen.getByText("Label test")).toHaveClass("text-typography-disabled")
   })
 
-  it("renders helper, error and success text together", () => {
+  it("renders RadioGroup helper, error and success text together", () => {
     render(
       <RadioGroup
         name="food"
@@ -320,35 +324,6 @@ describe("RadioGroup", () => {
     expect(screen.getByText("Helpful")).toBeInTheDocument()
     expect(screen.getByText("Error")).toBeInTheDocument()
     expect(screen.getByText("Success")).toBeInTheDocument()
-  })
-
-  it("disables all radios when group is disabled", () => {
-    render(
-      <RadioGroup
-        disabled
-        name="food"
-        value="pizza"
-      >
-        <Radio
-          value="pizza"
-          label="Pizza"
-        />
-        <Radio
-          value="sushi"
-          label="Sushi"
-          disabled={false}
-        />
-      </RadioGroup>
-    )
-    const pizza = screen.getByRole("radio", { name: "Pizza" })
-    const sushi = screen.getByRole("radio", { name: "Sushi" })
-    expect(pizza).toHaveAttribute("aria-disabled", "true")
-    expect(pizza).toHaveAttribute("data-disabled", "true")
-    expect(pizza).not.toBeDisabled() // not natively disabled
-
-    expect(sushi).toHaveAttribute("aria-disabled", "true")
-    expect(sushi).toHaveAttribute("data-disabled", "true")
-    expect(sushi).not.toBeDisabled() // not natively disabled
   })
 
   it("disables only the disabled radio when group is enabled", () => {
@@ -372,39 +347,56 @@ describe("RadioGroup", () => {
     const sushi = screen.getByRole("radio", { name: "Sushi" })
     expect(pizza).toHaveAttribute("aria-disabled", "false")
     expect(pizza).toHaveAttribute("data-disabled", "false")
-    expect(pizza).not.toBeDisabled() // not natively disabled
+    expect(pizza).not.toBeDisabled()
 
     expect(sushi).toHaveAttribute("aria-disabled", "true")
     expect(sushi).toHaveAttribute("data-disabled", "true")
-    expect(sushi).not.toBeDisabled() // not natively disabled
+    expect(sushi).not.toBeDisabled()
   })
 
-  it("disables radio when both group and child are disabled", () => {
+  it("renders defaultA11yLabel in a visually hidden legend when label is missing", () => {
     render(
       <RadioGroup
         name="food"
         value="pizza"
-        disabled
       >
         <Radio
           value="pizza"
           label="Pizza"
-          disabled
         />
         <Radio
           value="sushi"
           label="Sushi"
+          disabled
         />
       </RadioGroup>
     )
-    const pizza = screen.getByRole("radio", { name: "Pizza" })
-    const sushi = screen.getByRole("radio", { name: "Sushi" })
-    expect(pizza).toHaveAttribute("aria-disabled", "true")
-    expect(pizza).toHaveAttribute("data-disabled", "true")
-    expect(pizza).not.toBeDisabled() // not natively disabled
 
-    expect(sushi).toHaveAttribute("aria-disabled", "true")
-    expect(sushi).toHaveAttribute("data-disabled", "true")
-    expect(sushi).not.toBeDisabled() // not natively disabled
+    const legend = screen.getByText("Radio Group")
+    expect(legend).toBeInTheDocument()
+    expect(legend).toHaveClass("sr-only")
+  })
+
+  it("renders custom defaultA11yLabel when provided and label is missing", () => {
+    render(
+      <RadioGroup
+        name="food"
+        value="pizza"
+        defaultA11yLabel="Custom a11y label"
+      >
+        <Radio
+          value="pizza"
+          label="Pizza"
+        />
+        <Radio
+          value="sushi"
+          label="Sushi"
+          disabled
+        />
+      </RadioGroup>
+    )
+    const legend = screen.getByText("Custom a11y label")
+    expect(legend).toBeInTheDocument()
+    expect(legend).toHaveClass("sr-only")
   })
 })

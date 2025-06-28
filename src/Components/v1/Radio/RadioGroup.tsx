@@ -11,6 +11,7 @@ export default function RadioGroup({
   value,
   onChange,
   color = "primary",
+  defaultA11yLabel = "Radio Group",
   disabled = false,
   label,
   helperText,
@@ -53,16 +54,14 @@ export default function RadioGroup({
       aria-invalid={!!errorText}
       {...props}
     >
-      {label && (
-        <Text
-          component="legend"
-          variant="body2"
-          color={disabled ? "text-typography-disabled" : "text-typography-primary"}
-          className="mb-2"
-        >
-          {label}
-        </Text>
-      )}
+      <Text
+        component="legend"
+        variant="body2"
+        color={disabled ? "text-typography-disabled" : "text-typography-primary"}
+        className={label ? "mb-2" : "sr-only"}
+      >
+        {label || defaultA11yLabel}
+      </Text>
 
       <Flex
         direction="flex-col"
