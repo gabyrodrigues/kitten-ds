@@ -8,6 +8,7 @@ import type { CheckboxGroupProps, CheckboxProps } from "./Checkbox.types"
 export default function CheckboxGroup({
   children,
   color = "primary",
+  defaultA11yLabel = "Checkbox Group",
   disabled = false,
   label,
   helperText,
@@ -44,16 +45,14 @@ export default function CheckboxGroup({
       aria-describedby={describedByIds}
       aria-invalid={!!errorText}
     >
-      {label && (
-        <Text
-          component="legend"
-          variant="body2"
-          color={disabled ? "text-typography-disabled" : "text-typography-primary"}
-          className="mb-2"
-        >
-          {label}
-        </Text>
-      )}
+      <Text
+        component="legend"
+        variant="body2"
+        color={disabled ? "text-typography-disabled" : "text-typography-primary"}
+        className={label ? "mb-2" : "sr-only"}
+      >
+        {label || defaultA11yLabel}
+      </Text>
 
       <Flex
         direction="flex-col"
@@ -62,6 +61,7 @@ export default function CheckboxGroup({
       >
         {flattenedChildren.map((child, index) => {
           if (!React.isValidElement(child)) {
+            console.warn("CheckboxGroup only accepts Checkbox, Flex, or div elements as children.")
             return null
           }
           if (child.type === Checkbox) {
@@ -82,7 +82,8 @@ export default function CheckboxGroup({
             return child
           }
 
-          console.warn("CheckboxGroup only accepts Checkbox, Flex, or div as children.")
+          // If it's a valid element but not an allowed type
+          console.warn("CheckboxGroup only accepts Checkbox, Flex, or div elements as children.")
           return null
         })}
       </Flex>

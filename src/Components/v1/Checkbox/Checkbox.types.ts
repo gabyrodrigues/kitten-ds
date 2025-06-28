@@ -120,4 +120,13 @@ export interface CheckboxGroupProps extends Omit<CheckboxProps, "checked" | "onC
    * This is useful for styling the list of checkboxes.
    */
   listClassName?: string
+
+  /**
+   * The default accessible label for the Checkbox Group.
+   * This label is used for screen readers when no label is provided.
+   * It helps users understand the purpose of the Checkbox Group.
+   *
+   * @default "Checkbox Group"
+   */
+  defaultA11yLabel?: string
 }
