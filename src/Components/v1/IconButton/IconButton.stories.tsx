@@ -77,7 +77,7 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-const IconButtonTemplate = (args) => (
+const ICON_BUTTON_TEMPLATE = (args) => (
   <Flex
     gap="gap-4"
     wrap="flex-wrap"
@@ -103,7 +103,7 @@ export const Default: Story = {
     variant: "default",
     color: "primary"
   },
-  render: (args) => <IconButtonTemplate {...args} />
+  render: (args) => <ICON_BUTTON_TEMPLATE {...args} />
 }
 
 export const Filled: Story = {
@@ -111,7 +111,7 @@ export const Filled: Story = {
   args: {
     variant: "filled"
   },
-  render: (args) => <IconButtonTemplate {...args} />
+  render: (args) => <ICON_BUTTON_TEMPLATE {...args} />
 }
 
 export const Outlined: Story = {
@@ -120,5 +120,5 @@ export const Outlined: Story = {
     variant: "outlined",
     color: "primary"
   },
-  render: (args) => <IconButtonTemplate {...args} />
+  render: (args) => <ICON_BUTTON_TEMPLATE {...args} />
 }
