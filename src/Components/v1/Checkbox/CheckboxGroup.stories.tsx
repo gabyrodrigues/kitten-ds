@@ -66,12 +66,11 @@ const meta = {
     },
     labelClassName: {
       control: { type: "text" },
-      description: "Opção para adicionar classes CSS ao rótulo do Checkbox."
+      description: "Opção para adicionar classes CSS ao rótulo do CheckboxGroup."
     },
     listClassName: {
       control: { type: "text" },
-      description:
-        "Opção para adicionar classes CSS ao contêiner da lista de checkboxes. Isso é útil para estilizar a lista de checkboxes dentro do CheckboxGroup."
+      description: "Classes CSS para o contêiner da lista de checkboxes dentro do CheckboxGroup."
     },
     successText: {
       control: { type: "text" },

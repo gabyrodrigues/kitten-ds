@@ -49,6 +49,7 @@ export default function RadioGroup({
 
   return (
     <Flex
+      id={baseId}
       component="fieldset"
       className={mergedClasses}
       aria-describedby={describedByIds}

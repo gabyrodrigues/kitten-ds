@@ -10,6 +10,7 @@ export default function CheckboxGroup({
   color = "primary",
   defaultA11yLabel = "Checkbox Group",
   disabled = false,
+  id,
   label,
   labelClassName,
   helperText,
@@ -28,7 +29,7 @@ export default function CheckboxGroup({
 
   const mergedClasses = cn("flex flex-col", className)
 
-  const baseId = generateRandomId("checkboxgroup")
+  const baseId = id ?? generateRandomId("checkboxgroup")
 
   const describedByIds =
     [
@@ -41,6 +42,7 @@ export default function CheckboxGroup({
 
   return (
     <Flex
+      id={baseId}
       component="fieldset"
       className={mergedClasses}
       aria-describedby={describedByIds}
