@@ -11,6 +11,7 @@ export default function CheckboxGroup({
   defaultA11yLabel = "Checkbox Group",
   disabled = false,
   label,
+  labelClassName,
   helperText,
   errorText,
   successText,
@@ -44,12 +45,13 @@ export default function CheckboxGroup({
       className={mergedClasses}
       aria-describedby={describedByIds}
       aria-invalid={!!errorText}
+      {...props}
     >
       <Text
         component="legend"
         variant="body2"
         color={disabled ? "text-typography-disabled" : "text-typography-primary"}
-        className={label ? "mb-2" : "sr-only"}
+        className={cn(labelClassName, label ? "mb-2" : "sr-only")}
       >
         {label || defaultA11yLabel}
       </Text>
@@ -70,7 +72,6 @@ export default function CheckboxGroup({
             return (
               <Checkbox
                 key={childProps?.name ?? `checkbox-${index}`}
-                {...props}
                 {...childProps}
                 color={color}
                 disabled={isDisabled}

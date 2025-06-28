@@ -10,10 +10,7 @@ import CheckboxGroup from "./CheckboxGroup"
 describe("CheckboxGroup", () => {
   it("renders correctly with legend and checkboxes", async () => {
     const { container } = render(
-      <CheckboxGroup
-        label="Select foods"
-        name="food"
-      >
+      <CheckboxGroup label="Select foods">
         <Checkbox
           value="cupcake"
           label="Cupcake"

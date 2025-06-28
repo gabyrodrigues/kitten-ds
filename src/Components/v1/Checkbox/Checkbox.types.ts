@@ -1,4 +1,5 @@
 import type { ChangeEvent, InputHTMLAttributes, MouseEvent, ReactNode } from "react"
+import type { FlexProps } from "../Flex/Flex.types"
 
 export type CheckboxColor = "primary" | "secondary" | "gray"
 
@@ -14,7 +15,7 @@ export type CheckboxColor = "primary" | "secondary" | "gray"
 export interface CheckboxProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "onChange" | "checked"> {
   /**
-   * The id of the Checkbox element.
+   * The id of the element.
    */
   id?: string
 
@@ -76,8 +77,7 @@ export interface CheckboxProps
   contentClassName?: string
 
   /**
-   * The CSS class name to be applied to the Checkbox component Label.
-   * This is the text label that appears next to the Checkbox component.
+   * The CSS class name to be applied to the component Label.
    */
   labelClassName?: string
 
@@ -103,7 +103,18 @@ export interface CheckboxProps
   successText?: string
 }
 
-export interface CheckboxGroupProps extends Omit<CheckboxProps, "checked" | "onChange" | "value"> {
+export interface CheckboxGroupProps
+  extends Pick<
+      CheckboxProps,
+      "color" | "disabled" | "errorText" | "helperText" | "id" | "labelClassName" | "successText"
+    >,
+    Omit<FlexProps, "color"> {
+  /**
+   * The label text to be displayed above the list of checkboxes.
+   * If not provided, the default accessible label will be used.
+   */
+  label?: string
+
   /**
    * The CSS class name to be applied to the CheckboxGroup root.
    */

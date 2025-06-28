@@ -5,7 +5,6 @@ import { Button } from "../Button"
 import { Flex } from "../Flex"
 import Checkbox from "./Checkbox"
 import type { CheckboxProps } from "./Checkbox.types"
-import CheckboxGroup from "./CheckboxGroup"
 
 const meta = {
   component: Checkbox,
@@ -180,88 +179,4 @@ export const WithSuccessText: Story = {
     successText: "Texto de sucesso"
   },
   render: (args) => <CHECKBOX_WITH_STATE {...args} />
-}
-
-export const CheckboxGroupItems: Story = {
-  name: "Versão de lista com CheckboxGroup",
-  render: () => {
-    const [state, setState] = useState({ cupcake: true, pizza: false, sushi: false })
-
-    function handleChange(checked: boolean, event: ChangeEvent<HTMLInputElement>) {
-      if (!event?.target?.name) return
-      setState({ ...state, [event.target.name]: checked })
-    }
-
-    return (
-      <CheckboxGroup label="Selecione seus alimentos favoritos">
-        <Checkbox
-          checked={state.cupcake}
-          onChange={handleChange}
-          name="cupcake"
-          label="Cupcake"
-        />
-        <Checkbox
-          name="pizza"
-          label="Pizza"
-          checked={state.pizza}
-          onChange={handleChange}
-        />
-        <Checkbox
-          name="sushi"
-          label="Sushi"
-          checked={state.sushi}
-          onChange={handleChange}
-        />
-      </CheckboxGroup>
-    )
-  }
-}
-
-export const IndeterminateGroup: Story = {
-  name: "Versão de lista com indeterminado",
-  render: () => {
-    const [checked, setChecked] = useState([true, false])
-
-    const handleParentChange = (checked: boolean) => {
-      setChecked([checked, checked])
-    }
-
-    const handleChild1Change = (checked1: boolean) => {
-      setChecked([checked1, checked[1]])
-    }
-
-    const handleChild2Change = (checked2: boolean) => {
-      setChecked([checked[0], checked2])
-    }
-
-    return (
-      <CheckboxGroup label="Cardápio">
-        <Checkbox
-          checked={checked[0] && checked[1]}
-          indeterminate={checked[0] !== checked[1]}
-          onChange={handleParentChange}
-          label="Sobremesa"
-          name="parent"
-        />
-        <Flex
-          direction="flex-col"
-          rowGap="gap-y-3"
-          className="ml-8"
-        >
-          <Checkbox
-            checked={checked[0]}
-            onChange={handleChild1Change}
-            label="Brigadeiro"
-            name="child1"
-          />
-          <Checkbox
-            checked={checked[1]}
-            onChange={handleChild2Change}
-            label="Mousse"
-            name="child2"
-          />
-        </Flex>
-      </CheckboxGroup>
-    )
-  }
 }
