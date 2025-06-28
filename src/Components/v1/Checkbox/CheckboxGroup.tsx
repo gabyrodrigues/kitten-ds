@@ -49,7 +49,6 @@ export default function CheckboxGroup({
       className={mergedClasses}
       aria-describedby={describedByIds}
       aria-invalid={!!errorText}
-      aria-required={required}
       {...props}
     >
       <Text
@@ -92,7 +91,7 @@ export default function CheckboxGroup({
                 {...childProps}
                 color={color}
                 disabled={isDisabled}
-                required={typeof childProps.required === "boolean" ? childProps.required : required}
+                required={required}
               />
             )
           }

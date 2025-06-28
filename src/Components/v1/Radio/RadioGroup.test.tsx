@@ -400,27 +400,6 @@ describe("RadioGroup", () => {
     expect(legend).toHaveClass("sr-only")
   })
 
-  it("adds aria-required to fieldset when required is true", () => {
-    render(
-      <RadioGroup
-        name="food"
-        value="pizza"
-        required
-      >
-        <Radio
-          value="pizza"
-          label="Pizza"
-        />
-        <Radio
-          value="sushi"
-          label="Sushi"
-        />
-      </RadioGroup>
-    )
-    const fieldset = screen.getByRole("group")
-    expect(fieldset).toHaveAttribute("aria-required", "true")
-  })
-
   it("shows asterisk only when withAsterisk and required are true", () => {
     const { rerender } = render(
       <RadioGroup
@@ -460,7 +439,7 @@ describe("RadioGroup", () => {
     expect(screen.queryByText("*")).not.toBeInTheDocument()
   })
 
-  it("passes required to Checkbox children if not overridden", () => {
+  it("ignores children required props if RadioGroup required is true", () => {
     render(
       <RadioGroup
         name="food"
@@ -480,6 +459,6 @@ describe("RadioGroup", () => {
     )
     const radios = screen.getAllByRole("radio")
     expect(radios[0]).toBeRequired()
-    expect(radios[1]).not.toBeRequired()
+    expect(radios[1]).toBeRequired()
   })
 })

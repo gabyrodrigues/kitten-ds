@@ -56,7 +56,6 @@ export default function RadioGroup({
       className={mergedClasses}
       aria-describedby={describedByIds}
       aria-invalid={!!errorText}
-      aria-required={required}
       {...props}
     >
       <Text
@@ -103,7 +102,7 @@ export default function RadioGroup({
               onChange={handleRadioChange}
               color={color}
               disabled={isDisabled}
-              required={typeof childProps.required === "boolean" ? childProps.required : required}
+              required={required}
             />
           )
         })}
