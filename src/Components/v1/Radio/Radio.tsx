@@ -81,7 +81,6 @@ export default function Radio({
             component="label"
             color={disabled ? "text-typography-disabled" : "text-typography-primary"}
             className={mergedLabelClasses}
-            aria-live="polite"
           >
             {label}
           </Text>

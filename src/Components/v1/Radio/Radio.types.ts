@@ -1,4 +1,5 @@
 import type { ChangeEvent, InputHTMLAttributes, ReactNode } from "react"
+import type { FlexProps } from "../Flex/Flex.types"
 
 export type RadioColor = "primary" | "secondary" | "gray"
 
@@ -99,17 +100,20 @@ export interface RadioProps
 
 export interface RadioGroupProps
   extends Pick<
-    RadioProps,
-    | "color"
-    | "disabled"
-    | "name"
-    | "value"
-    | "onChange"
-    | "label"
-    | "helperText"
-    | "errorText"
-    | "successText"
-  > {
+      RadioProps,
+      | "color"
+      | "disabled"
+      | "helperText"
+      | "errorText"
+      | "id"
+      | "label"
+      | "labelClassName"
+      | "name"
+      | "onChange"
+      | "successText"
+      | "value"
+    >,
+    Omit<FlexProps, "color" | "onChange" | "value"> {
   /**
    * The CSS class name to be applied to the RadioGroup root.
    */

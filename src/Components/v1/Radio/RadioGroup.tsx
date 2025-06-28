@@ -13,6 +13,7 @@ export default function RadioGroup({
   color = "primary",
   defaultA11yLabel = "Radio Group",
   disabled = false,
+  id,
   label,
   helperText,
   errorText,
@@ -36,7 +37,7 @@ export default function RadioGroup({
     }
   }
 
-  const baseId = generateRandomId("radiogroup")
+  const baseId = id ?? generateRandomId("radiogroup")
   const describedByIds =
     [
       errorText ? `${baseId}_error` : null,
@@ -80,7 +81,6 @@ export default function RadioGroup({
           return (
             <Radio
               key={childProps.value ?? `radio-${index}`}
-              {...props}
               {...childProps}
               name={name}
               checked={childProps.value === value}
