@@ -60,3 +60,8 @@ export function sanitizeHtml(input: string): string {
 
   return container.innerHTML
 }
+
+export function generateRandomId(prefix?: string) {
+  const id = Math.random().toString(36).slice(2, 10)
+  return prefix ? `${prefix}-${id}` : id
+}

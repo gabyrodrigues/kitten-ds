@@ -1,4 +1,4 @@
-import { cn } from "@utils"
+import { cn, generateRandomId } from "@utils"
 import { Flex } from "../Flex"
 import { Text } from "../Text"
 import type { RadioProps } from "./Radio.types"
@@ -35,7 +35,7 @@ export default function Radio({
   const mergedLabelClasses = cn("cursor-pointer", disabled && "cursor-default", labelClassName)
   const mergedCheckedClasses = cn(radioSpanClasses, checkedClassName)
 
-  const baseId = id ?? `radio-${value}`
+  const baseId = id ?? generateRandomId("radio")
   const describedByIds =
     [
       errorText ? `${baseId}_error` : null,

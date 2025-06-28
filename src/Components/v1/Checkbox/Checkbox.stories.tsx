@@ -153,7 +153,7 @@ export const Default: Story = {
 export const Indeterminate: Story = {
   name: "Versão estado indeterminado",
   args: {
-    indeterminate: false
+    indeterminate: true
   },
   render: (args) => <CHECKBOX_WITH_INDETERMINATE_STATE {...args} />
 }
