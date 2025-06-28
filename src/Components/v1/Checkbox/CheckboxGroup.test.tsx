@@ -418,4 +418,71 @@ describe("CheckboxGroup", () => {
     expect(legend).toBeInTheDocument()
     expect(legend).toHaveClass("sr-only")
   })
+
+  it("adds aria-required to fieldset when required is true", () => {
+    render(
+      <CheckboxGroup
+        required
+        label="Obrigatório"
+      >
+        <Checkbox
+          label="Pizza"
+          value="pizza"
+        />
+      </CheckboxGroup>
+    )
+    const fieldset = screen.getByRole("group")
+    expect(fieldset).toHaveAttribute("aria-required", "true")
+  })
+
+  it("shows asterisk only when withAsterisk and required are true", () => {
+    const { rerender } = render(
+      <CheckboxGroup
+        required
+        withAsterisk
+        label="Label"
+      >
+        <Checkbox
+          label="Pizza"
+          value="pizza"
+        />
+      </CheckboxGroup>
+    )
+    expect(screen.getByText("*")).toBeInTheDocument()
+
+    rerender(
+      <CheckboxGroup
+        required
+        label="Label"
+      >
+        <Checkbox
+          label="Pizza"
+          value="pizza"
+        />
+      </CheckboxGroup>
+    )
+    expect(screen.queryByText("*")).not.toBeInTheDocument()
+  })
+
+  it("passes required to Checkbox children if not overridden", () => {
+    render(
+      <CheckboxGroup
+        required
+        label="Label"
+      >
+        <Checkbox
+          label="Pizza"
+          value="pizza"
+        />
+        <Checkbox
+          label="Sushi"
+          value="sushi"
+          required={false}
+        />
+      </CheckboxGroup>
+    )
+    const checkboxes = screen.getAllByRole("checkbox")
+    expect(checkboxes[0]).toBeRequired()
+    expect(checkboxes[1]).not.toBeRequired()
+  })
 })

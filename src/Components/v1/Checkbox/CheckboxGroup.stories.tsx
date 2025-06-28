@@ -72,10 +72,20 @@ const meta = {
       control: { type: "text" },
       description: "Classes CSS para o contêiner da lista de checkboxes dentro do CheckboxGroup."
     },
+    required: {
+      control: { type: "boolean" },
+      description:
+        "Indica se o CheckboxGroup é obrigatório. Isso pode ser usado para validação de formulários, onde o usuário deve selecionar pelo menos uma opção."
+    },
     successText: {
       control: { type: "text" },
       description:
         "Texto de sucesso para o checkbox. Este texto é exibido para indicar sucesso ao selecionar uma ou mais opçoes dentro do grupo, indicando que a seleção foi bem-sucedida."
+    },
+    withAsterisk: {
+      control: { type: "boolean" },
+      description:
+        "Determina se o asterisco obrigatório deve ser exibido. Isso é útil para indicar que o CheckboxGroup é obrigatório em um formulário. O asterisco só será exibido se o CheckboxGroup for marcado como obrigatório."
     }
   },
   args: {
@@ -146,6 +156,16 @@ export const WithSuccessText: Story = {
   name: "Versão com texto de sucesso",
   args: {
     successText: "Texto de sucesso"
+  },
+  render: (args) => <CHECKBOX_GROUP_WITH_STATE {...args} />
+}
+
+export const WithAsterisk: Story = {
+  name: "Versão de lista obrigatória",
+  args: {
+    errorText: "Campo obrigatório",
+    required: true,
+    withAsterisk: true
   },
   render: (args) => <CHECKBOX_GROUP_WITH_STATE {...args} />
 }

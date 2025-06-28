@@ -140,4 +140,20 @@ export interface CheckboxGroupProps
    * @default "Checkbox Group"
    */
   defaultA11yLabel?: string
+
+  /**
+   * Determines whether the required asterisk should be displayed.
+   * This is useful for indicating that the Checkbox is required in a form.
+   * It also depends on required property to be displayed.
+   *
+   * @default false
+   */
+  withAsterisk?: boolean
+
+  /**
+   * Indicates whether the CheckboxGroup is required.
+   * This is useful for form validation to indicate that at least one checkbox must be selected.
+   * If true, the asterisk will be displayed next to the label if withAsterisk is also true.
+   */
+  required?: boolean
 }
