@@ -172,7 +172,7 @@ export const WithAsterisk: Story = {
 
 export const IndeterminateGroup: Story = {
   name: "Versão de lista com indeterminado",
-  render: () => {
+  render: (args) => {
     const [checked, setChecked] = useState([true, false])
 
     const handleParentChange = (checked: boolean) => {
@@ -188,7 +188,10 @@ export const IndeterminateGroup: Story = {
     }
 
     return (
-      <CheckboxGroup label="Cardápio">
+      <CheckboxGroup
+        label="Cardápio"
+        {...args}
+      >
         <Checkbox
           checked={checked[0] && checked[1]}
           indeterminate={checked[0] !== checked[1]}
@@ -196,24 +199,21 @@ export const IndeterminateGroup: Story = {
           label="Sobremesa"
           name="parent"
         />
-        <Flex
-          direction="flex-col"
-          rowGap="gap-y-3"
-          className="ml-8"
-        >
-          <Checkbox
-            checked={checked[0]}
-            onChange={handleChild1Change}
-            label="Brigadeiro"
-            name="child1"
-          />
-          <Checkbox
-            checked={checked[1]}
-            onChange={handleChild2Change}
-            label="Mousse"
-            name="child2"
-          />
-        </Flex>
+
+        <Checkbox
+          checked={checked[0]}
+          onChange={handleChild1Change}
+          label="Brigadeiro"
+          name="child1"
+          className="ml-9"
+        />
+        <Checkbox
+          checked={checked[1]}
+          onChange={handleChild2Change}
+          label="Mousse"
+          name="child2"
+          className="ml-9"
+        />
       </CheckboxGroup>
     )
   }

@@ -78,8 +78,8 @@ export default function CheckboxGroup({
         className={cn(listClassName)}
       >
         {flattenedChildren.map((child, index) => {
-          if (!React.isValidElement(child)) {
-            console.warn("CheckboxGroup only accepts Checkbox, Flex, or div elements as children.")
+          if (!React.isValidElement(child) || child.type !== Checkbox) {
+            console.warn("CheckboxGroup only accepts Checkbox components as children.")
             return null
           }
           if (child.type === Checkbox) {
@@ -95,14 +95,6 @@ export default function CheckboxGroup({
               />
             )
           }
-          // Allow for indentation/nesting
-          if (child.type === Flex || child.type === "div") {
-            return child
-          }
-
-          // If it's a valid element but not an allowed type
-          console.warn("CheckboxGroup only accepts Checkbox, Flex, or div elements as children.")
-          return null
         })}
       </Flex>
 
@@ -115,6 +107,7 @@ export default function CheckboxGroup({
           {helperText && (
             <Text
               variant="body3"
+              color={disabled ? "text-disabled" : "text-typography-secondary"}
               id={`${baseId}_help`}
             >
               {helperText}

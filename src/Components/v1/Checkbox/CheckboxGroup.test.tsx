@@ -3,7 +3,6 @@ import { describe, expect, it } from "vitest"
 import { axe } from "vitest-axe"
 
 import userEvent from "@testing-library/user-event"
-import { Flex } from "../Flex"
 import Checkbox from "./Checkbox"
 import CheckboxGroup from "./CheckboxGroup"
 
@@ -195,32 +194,10 @@ describe("CheckboxGroup", () => {
     )
 
     expect(consoleWarnSpy).toHaveBeenCalledWith(
-      "CheckboxGroup only accepts Checkbox, Flex, or div elements as children."
+      "CheckboxGroup only accepts Checkbox components as children."
     )
     expect(screen.getByRole("checkbox", { name: "Pizza" })).toBeInTheDocument()
     expect(screen.queryByText("Invalid child")).toBeNull()
-
-    consoleWarnSpy.mockRestore()
-  })
-
-  it("renders div and Flex children without warning", () => {
-    const consoleWarnSpy = vi.spyOn(console, "warn").mockImplementation(() => null)
-
-    render(
-      <CheckboxGroup label="Test">
-        <Checkbox
-          value="pizza"
-          label="Pizza"
-        />
-        <div data-testid="div-child">Div Child</div>
-        <Flex data-testid="flex-child">Flex Child</Flex>
-      </CheckboxGroup>
-    )
-
-    expect(screen.getByRole("checkbox", { name: "Pizza" })).toBeInTheDocument()
-    expect(screen.getByTestId("div-child")).toBeInTheDocument()
-    expect(screen.getByTestId("flex-child")).toBeInTheDocument()
-    expect(consoleWarnSpy).not.toHaveBeenCalled()
 
     consoleWarnSpy.mockRestore()
   })
@@ -251,27 +228,6 @@ describe("CheckboxGroup", () => {
     expect(screen.queryByText("42")).toBeNull()
     expect(screen.queryByText("null")).toBeNull()
     expect(screen.queryByText("false")).toBeNull()
-
-    consoleWarnSpy.mockRestore()
-  })
-
-  it("renders valid nested children and ignores invalid nested children", () => {
-    const consoleWarnSpy = vi.spyOn(console, "warn").mockImplementation(() => null)
-
-    render(
-      <CheckboxGroup label="Nested">
-        <Flex>
-          <Checkbox
-            value="pizza"
-            label="Pizza"
-          />
-          <span>Invalid Nested</span>
-        </Flex>
-      </CheckboxGroup>
-    )
-
-    expect(screen.getByRole("checkbox", { name: "Pizza" })).toBeInTheDocument()
-    expect(consoleWarnSpy).not.toHaveBeenCalled()
 
     consoleWarnSpy.mockRestore()
   })
@@ -363,6 +319,24 @@ describe("CheckboxGroup", () => {
     expect(screen.getByText("Helpful")).toBeInTheDocument()
     expect(screen.getByText("Error")).toBeInTheDocument()
     expect(screen.getByText("Success")).toBeInTheDocument()
+  })
+
+  it("renders helperText with disabled color when group is disabled", () => {
+    render(
+      <CheckboxGroup
+        label="Test"
+        helperText="Helper info"
+        disabled
+      >
+        <Checkbox
+          value="pizza"
+          label="Pizza"
+        />
+      </CheckboxGroup>
+    )
+    const helper = screen.getByText("Helper info")
+    expect(helper).toBeInTheDocument()
+    expect(helper).toHaveClass("text-disabled")
   })
 
   it("disables only the disabled checkbox when group is enabled", () => {
