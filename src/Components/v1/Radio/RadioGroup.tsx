@@ -117,6 +117,7 @@ export default function RadioGroup({
           {helperText && (
             <Text
               variant="body3"
+              color={disabled ? "text-disabled" : "text-typography-secondary"}
               id={`${baseId}_help`}
             >
               {helperText}
