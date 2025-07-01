@@ -48,6 +48,7 @@
   --color-highlight: var(--color-neutral-gray-200);
 
   --color-background: var(--color-neutral-gray-200);
+  --color-background-inverted: var(--color-default-black);
   --color-surface: var(--color-neutral-gray-100);
 
   --color-transparent: transparent;
