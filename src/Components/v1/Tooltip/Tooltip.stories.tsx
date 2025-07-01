@@ -20,12 +20,42 @@ const meta = {
   },
   tags: ["autodocs"],
   argTypes: {
-    children: {
-      description: "The content of the tooltip"
+    arrowClassName: {
+      control: { type: "text" },
+      description:
+        "Classe CSS adicional aplicada ao elemento da seta do tooltip (visível apenas se 'hasArrow' for verdadeiro)."
     },
     body: {
       control: { type: "text" },
-      description: "The body of the tooltip"
+      description:
+        "O conteúdo principal exibido dentro do tooltip. Pode ser um texto simples ou qualquer elemento React."
+    },
+    bodyClassName: {
+      control: { type: "text" },
+      description:
+        "Classe CSS adicional aplicada à área interna de conteúdo do tooltip (envolve o conteúdo passado em 'body')."
+    },
+    children: {
+      description:
+        "O elemento alvo do Tooltip. O tooltip será exibido ao passar o mouse ou focar neste elemento."
+    },
+    className: {
+      control: { type: "text" },
+      description:
+        "Classe CSS adicional aplicada ao wrapper externo do Tooltip (envolve o elemento alvo)."
+    },
+    containerClassName: {
+      control: { type: "text" },
+      description:
+        "Classe CSS adicional aplicada à caixa do tooltip (elemento flutuante que aparece ao passar o mouse/focar, contendo o conteúdo e a seta)."
+    },
+    disabled: {
+      control: { type: "boolean" },
+      description: "Se verdadeiro, o tooltip não será exibido ao passar o mouse ou focar."
+    },
+    hasArrow: {
+      control: { type: "boolean" },
+      description: "Controla se o tooltip exibe uma seta apontando para o elemento alvo."
     },
     position: {
       control: {
@@ -41,32 +71,11 @@ const meta = {
           "top-right"
         ]
       },
-      description: "The position of the tooltip"
-    },
-    hasArrow: {
-      control: { type: "boolean" },
-      description: "Option to control the optional arrow on tooltip"
-    },
-    className: {
-      control: { type: "text" },
-      description: "The CSS class name to be applied to the Tooltip component root."
-    },
-    bodyClassName: {
-      control: { type: "text" },
-      description: "The CSS class name to be applied to the Tooltip component content container."
-    },
-    arrowClassName: {
-      control: { type: "text" },
-      description:
-        "The CSS class name to be applied to the Tooltip component arrow when it is visible."
-    },
-    disabled: {
-      control: { type: "boolean" },
-      description: "Specifies whether the Tooltip hover content displays or not."
+      description: "A posição do tooltip em relação ao elemento alvo."
     }
   },
   args: {
-    body: "Tooltip content",
+    body: "Texto descritivo do tooltip",
     position: "bottom",
     hasArrow: false,
     disabled: false,

@@ -1,4 +1,4 @@
-import type { ReactNode } from "react"
+import type { HTMLAttributes, ReactNode } from "react"
 
 export type TooltipPosition =
   | "bottom"
@@ -16,7 +16,7 @@ export type TooltipPosition =
  * The Tooltip component is used to display contextual help or additional information about an element on the screen.
  * The Tooltip can be positioned relative to its target element and can include an optional arrow for better visibility.
  */
-export interface TooltipProps {
+export interface TooltipProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * The element(s) that the tooltip will be attached to.
    * The tooltip will appear when the user hovers over this element.
@@ -24,9 +24,9 @@ export interface TooltipProps {
   children?: ReactNode
 
   /**
-   * The body content of the tooltip.
-   * If a string is provided, it will be rendered as plain text.
-   * If a ReactNode is provided, it can include any valid React element.
+   * The main content displayed inside the tooltip container.
+   * If a string is provided, it will be rendered as styled text.
+   * If a ReactNode is provided, it will be rendered as-is inside the tooltip.
    */
   body?: string | ReactNode
 
@@ -43,31 +43,27 @@ export interface TooltipProps {
   hasArrow?: boolean
 
   /**
-   * Additional CSS class name to be applied to the Tooltip component root.
+   * Additional CSS class name for the outermost wrapper of the Tooltip component (the element that wraps the trigger/children).
    */
   className?: string
 
   /**
-   * Additional CSS class name to be applied to the Tooltip component container.
-   * This is the wrapper of the Tooltip body.
+   * Additional CSS class name for the tooltip box (the floating element that appears on hover/focus and contains the body and arrow).
    */
   containerClassName?: string
 
   /**
-   * Additional CSS class name to be applied to the Tooltip content body.
-   * This is useful for styling the text or content inside the tooltip.
-   * It can include typography styles, colors, or any other custom styles.
+   * Additional CSS class name for the inner content area of the tooltip box (the element wrapping the body content).
    */
   bodyClassName?: string
 
   /**
-   * Additional CSS class name to be applied to the Tooltip component arrow when it is visible.
-   * It depends on the `hasArrow` prop being set to true.
+   * Additional CSS class name for the tooltip arrow element (only rendered if hasArrow is true).
    */
   arrowClassName?: string
 
   /**
-   * Specifies whether the Tooltip hover content displays or not.
+   * If true, the tooltip will not display on hover or focus.
    */
   disabled?: boolean
 }

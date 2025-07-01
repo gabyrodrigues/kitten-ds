@@ -12,7 +12,8 @@ export default function Tooltip({
   arrowClassName,
   containerClassName,
   disabled = false,
-  hasArrow = false
+  hasArrow = false,
+  ...props
 }: TooltipProps) {
   const tooltipContainerClasses = tooltipContainerVariants({
     position,
@@ -39,6 +40,7 @@ export default function Tooltip({
         <div
           id="tooltip"
           role="tooltip"
+          {...props}
           className={containerClasses}
         >
           {typeof body === "string" ? (
