@@ -1,43 +1,60 @@
 import { cn } from "@utils"
-import { TOOLTIP_BASE, TOOLTIP_POSITION, TRIANGLE_BASE, getTrianglePosition } from "./Styles"
+import { Text } from "../Text"
+import { tooltipArrowVariants, tooltipContainerVariants } from "./Styles"
 import type { TooltipProps } from "./Tooltip.types"
 
 export default function Tooltip({
   children,
   content,
   position = "bottom",
+  bgColor = "bg-background-inverted",
   className,
   contentClassName,
   arrowClassName,
+  containerClassName,
   disabled = false,
   hasArrow = false
 }: TooltipProps) {
-  const positionClasses = TOOLTIP_POSITION[position]
-  const triangleClasses = getTrianglePosition(position, hasArrow)
-  const contentClasses = cn(
-    TOOLTIP_BASE,
-    positionClasses,
+  const tooltipContainerClasses = tooltipContainerVariants({
+    position,
+    hasArrow
+  })
+  const tooltipArrowClasses = tooltipArrowVariants({
+    position,
+    hasArrow
+  })
+
+  const containerClasses = cn(
+    tooltipContainerClasses,
+    bgColor,
     disabled && "group-hover:opacity-0",
     disabled ? "cursor-default" : "cursor-text",
-    contentClassName
+    containerClassName
   )
-  const arrowClasses = cn(
-    TRIANGLE_BASE,
-    triangleClasses,
-    disabled && "group-hover:opacity-0",
-    arrowClassName
-  )
+  const contentClasses = cn(contentClassName)
+  const arrowClasses = cn(tooltipArrowClasses, disabled && "group-hover:opacity-0", arrowClassName)
 
   return (
     <div className={cn("relative flex items-center group", className)}>
-      {children && children}
+      {children}
       {content && (
         <div
           id="tooltip"
           role="tooltip"
-          className={contentClasses}
+          className={containerClasses}
         >
-          {content}
+          {typeof content === "string" ? (
+            <Text
+              variant="body3"
+              color="text-typography-inverted"
+              align="text-center"
+              className={contentClasses}
+            >
+              {content}
+            </Text>
+          ) : (
+            content
+          )}
           {hasArrow && <div className={arrowClasses} />}
         </div>
       )}

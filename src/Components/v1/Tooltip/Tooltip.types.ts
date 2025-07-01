@@ -60,6 +60,11 @@ export interface TooltipProps {
   contentClassName?: string
 
   /**
+   * The CSS class name to be applied to the Tooltip component container.
+   */
+  containerClassName?: string
+
+  /**
    * The CSS class name to be applied to the Tooltip component arrow when it is visible.
    */
   arrowClassName?: string

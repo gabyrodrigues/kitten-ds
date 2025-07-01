@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
 import { Tooltip } from "."
+import { Button } from "../Button"
 import { Flex } from "../Flex"
-import { Icon } from "../Icon"
 import { Text } from "../Text"
+import { Title } from "../Title"
 
 const meta = {
   component: Tooltip,
@@ -69,13 +70,7 @@ const meta = {
     position: "bottom",
     hasArrow: false,
     disabled: false,
-    children: (
-      <Icon
-        color="text-primary"
-        type="info"
-        className="cursor-default"
-      />
-    )
+    children: <Button>Botão com tooltip</Button>
   }
 } satisfies Meta<typeof Tooltip>
 
@@ -90,48 +85,22 @@ export const ReactNodeText: Story = {
     contentClassName: "p-2 min-w-72",
     content: (
       <Flex direction="flex-col">
-        <Text
-          variant="body3"
+        <Title
+          variant="h5"
+          component="h1"
           align="text-left"
-          color="text-typography-secondary"
+          color="text-typography-inverted"
           marginBottom="mb-3"
         >
-          A tag é um identificador personalizado usado para criar os links exclusivos de admin e
-          autoatendimento:
-        </Text>
+          Tooltip com título
+        </Title>
         <Text
           variant="body3"
           align="text-left"
-          color="text-typography-secondary"
+          color="text-typography-inverted"
           className="inline"
         >
-          <Text
-            variant="body3"
-            component="span"
-            weight="font-bold"
-            color="inherit"
-            className="inline mr-1"
-          >
-            Admin:
-          </Text>
-          sua-tag.admin.economia.sunne.com.br
-        </Text>
-        <Text
-          variant="body3"
-          align="text-left"
-          color="text-typography-secondary"
-          className="inline"
-        >
-          <Text
-            variant="body3"
-            component="span"
-            weight="font-bold"
-            color="inherit"
-            className="inline mr-1"
-          >
-            Autoatendimento:
-          </Text>
-          sua-tag.economia.sunne.com.br
+          Descrição da Tooltip
         </Text>
       </Flex>
     )
