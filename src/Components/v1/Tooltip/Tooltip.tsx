@@ -5,11 +5,10 @@ import type { TooltipProps } from "./Tooltip.types"
 
 export default function Tooltip({
   children,
-  content,
+  body,
   position = "bottom",
-  bgColor = "bg-background-inverted",
   className,
-  contentClassName,
+  bodyClassName,
   arrowClassName,
   containerClassName,
   disabled = false,
@@ -26,34 +25,33 @@ export default function Tooltip({
 
   const containerClasses = cn(
     tooltipContainerClasses,
-    bgColor,
     disabled && "group-hover:opacity-0",
     disabled ? "cursor-default" : "cursor-text",
     containerClassName
   )
-  const contentClasses = cn(contentClassName)
+  const bodyClasses = cn(bodyClassName)
   const arrowClasses = cn(tooltipArrowClasses, disabled && "group-hover:opacity-0", arrowClassName)
 
   return (
     <div className={cn("relative flex items-center group", className)}>
       {children}
-      {content && (
+      {body && (
         <div
           id="tooltip"
           role="tooltip"
           className={containerClasses}
         >
-          {typeof content === "string" ? (
+          {typeof body === "string" ? (
             <Text
               variant="body3"
               color="text-typography-inverted"
               align="text-center"
-              className={contentClasses}
+              className={bodyClasses}
             >
-              {content}
+              {body}
             </Text>
           ) : (
-            content
+            body
           )}
           {hasArrow && <div className={arrowClasses} />}
         </div>

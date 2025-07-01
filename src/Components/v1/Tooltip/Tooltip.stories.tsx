@@ -14,7 +14,7 @@ const meta = {
     docs: {
       description: {
         component:
-          "The tooltip component is used to display contextual help or additional information about an element on the screen."
+          "O componente Tooltip fornece informações ou contexto adicional sobre um elemento da interface, apresentando dicas ou instruções sem sobrecarregar a tela."
       }
     }
   },
@@ -23,22 +23,22 @@ const meta = {
     children: {
       description: "The content of the tooltip"
     },
-    content: {
+    body: {
       control: { type: "text" },
-      description: "The content of the tooltip"
+      description: "The body of the tooltip"
     },
     position: {
       control: {
         type: "select",
         options: [
+          "bottom",
+          "bottom-left",
+          "bottom-right",
+          "left",
+          "right",
           "top",
           "top-left",
-          "top-right",
-          "bottom",
-          "bottom-right",
-          "bottom-left",
-          "left",
-          "right"
+          "top-right"
         ]
       },
       description: "The position of the tooltip"
@@ -51,7 +51,7 @@ const meta = {
       control: { type: "text" },
       description: "The CSS class name to be applied to the Tooltip component root."
     },
-    contentClassName: {
+    bodyClassName: {
       control: { type: "text" },
       description: "The CSS class name to be applied to the Tooltip component content container."
     },
@@ -66,7 +66,7 @@ const meta = {
     }
   },
   args: {
-    content: "Tooltip content",
+    body: "Tooltip content",
     position: "bottom",
     hasArrow: false,
     disabled: false,
@@ -78,12 +78,13 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Primary: Story = {}
-export const ReactNodeText: Story = {
+export const Default: Story = { name: "Versão padrão" }
+export const WithHtmlContent: Story = {
+  name: "Versão com conteúdo HTML",
   args: {
     hasArrow: true,
-    contentClassName: "p-2 min-w-72",
-    content: (
+    bodyClassName: "p-2 min-w-72",
+    body: (
       <Flex direction="flex-col">
         <Title
           variant="h5"
@@ -104,11 +105,5 @@ export const ReactNodeText: Story = {
         </Text>
       </Flex>
     )
-  }
-}
-export const Disabled: Story = {
-  args: {
-    hasArrow: true,
-    disabled: true
   }
 }

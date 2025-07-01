@@ -2,7 +2,7 @@ import { tv } from "tailwind-variants"
 
 export const tooltipContainerVariants = tv({
   base: [
-    "absolute z-50 px-2 py-2 w-max rounded-lg shadow-variant1 opacity-0 group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity duration-300 pointer-events-none"
+    "absolute z-50 px-2 py-2 w-max rounded-lg bg-background-inverted shadow-variant1 opacity-0 group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity duration-300 pointer-events-none"
   ],
   variants: {
     position: {
@@ -27,9 +27,7 @@ export const tooltipContainerVariants = tv({
 })
 
 export const tooltipArrowVariants = tv({
-  base: [
-    "w-0 h-0 border-solid border-transparent absolute opacity-0 hidden group-hover:opacity-100 group-hover:block transition-opacity duration-300"
-  ],
+  base: ["w-0 h-0 border-solid border-transparent absolute"],
   variants: {
     position: {
       top: "-bottom-2 left-1/2 -translate-x-1/2",
@@ -43,7 +41,7 @@ export const tooltipArrowVariants = tv({
     },
     hasArrow: {
       true: "",
-      false: ""
+      false: "hidden"
     }
   },
   compoundVariants: [
