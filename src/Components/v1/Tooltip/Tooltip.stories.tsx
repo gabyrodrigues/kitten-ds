@@ -75,7 +75,7 @@ const meta = {
     }
   },
   args: {
-    body: "Texto descritivo do tooltip",
+    body: "Texto informativo",
     position: "bottom",
     hasArrow: false,
     disabled: false,

@@ -10,14 +10,14 @@ export const tooltipContainerVariants = tv({
   ],
   variants: {
     position: {
-      top: "bottom-full left-1/2 -translate-x-1/2 mb-1",
-      "top-left": "bottom-full -left-1 mb-1",
-      "top-right": "bottom-full -right-2 mb-1",
-      bottom: "top-full left-1/2 -translate-x-1/2 mt-1",
-      "bottom-left": "top-full -left-1 mt-1",
-      "bottom-right": "top-full -right-1 mt-1",
-      left: "right-full top-1/2 -translate-y-1/2 mr-1",
-      right: "left-full top-1/2 -translate-y-1/2 ml-1"
+      bottom: "top-full mt-1 left-1/2 -translate-x-1/2",
+      "bottom-left": "top-full mt-1 left-0",
+      "bottom-right": "top-full mt-1 right-0",
+      left: "right-full mr-1 top-1/2 -translate-y-1/2",
+      right: "left-full ml-1 top-1/2 -translate-y-1/2",
+      top: "bottom-full mb-1 left-1/2 -translate-x-1/2",
+      "top-left": "bottom-full mb-1 left-0",
+      "top-right": "bottom-full mb-1 right-0"
     },
     hasArrow: {
       true: "",
@@ -25,8 +25,8 @@ export const tooltipContainerVariants = tv({
     }
   },
   defaultVariants: {
-    position: "bottom",
-    hasArrow: false
+    hasArrow: false,
+    position: "bottom"
   }
 })
 
@@ -101,13 +101,13 @@ export const tooltipBufferVariants = tv({
   variants: {
     position: {
       top: "bottom-full left-1/2 -translate-x-1/2 h-2 w-full",
-      "top-left": "bottom-full -left-1 h-2 w-full",
-      "top-right": "bottom-full -right-2 w-full",
+      "top-left": "bottom-full h-2 w-full",
+      "top-right": "bottom-full h-2 w-full",
       bottom: "top-full left-1/2 -translate-x-1/2 h-2 w-full",
-      "bottom-left": "top-full -left-2 h-2 w-full",
-      "bottom-right": "top-full -right-1 h-2 w-full",
-      left: "right-full top-1/2 -translate-y-1/2 w-2",
-      right: "left-full top-1/2 -translate-y-1/2 w-2"
+      "bottom-left": "top-full h-2 w-full",
+      "bottom-right": "top-full h-2 w-full",
+      left: "right-full top-1/2 -translate-y-1/2 w-2 h-full",
+      right: "left-full top-1/2 -translate-y-1/2 w-2 h-full"
     }
   },
   defaultVariants: {
