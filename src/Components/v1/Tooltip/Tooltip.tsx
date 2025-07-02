@@ -1,7 +1,7 @@
 import { cn } from "@utils"
 import React, { useId, type ReactNode } from "react"
 import { Text } from "../Text"
-import { tooltipArrowVariants, tooltipContainerVariants } from "./Styles"
+import { tooltipArrowVariants, tooltipBufferVariants, tooltipContainerVariants } from "./Styles"
 import type { TooltipProps } from "./Tooltip.types"
 
 export default function Tooltip({
@@ -25,17 +25,26 @@ export default function Tooltip({
     position,
     hasArrow
   })
+  const tooltipBufferClasses = tooltipBufferVariants({
+    position
+  })
 
   const containerClasses = cn(
     tooltipContainerClasses,
-    disabled && "peer-hover:opacity-0 peer-focus-visible:opacity-0",
+    disabled && [
+      "group-hover:opacity-0 group-focus-visible:opacity-0",
+      "peer-hover:opacity-0 peer-focus-visible:opacity-0"
+    ],
     disabled ? "cursor-default" : "cursor-text",
     containerClassName
   )
   const bodyClasses = cn(bodyClassName)
   const arrowClasses = cn(
     tooltipArrowClasses,
-    disabled && "peer-hover:opacity-0 peer-focus-visible:opacity-0",
+    disabled && [
+      "group-hover:opacity-0 group-focus-visible:opacity-0",
+      "peer-hover:opacity-0 peer-focus-visible:opacity-0"
+    ],
     arrowClassName
   )
 
@@ -67,30 +76,36 @@ export default function Tooltip({
   }
 
   return (
-    <div className={cn("relative flex items-center", className)}>
+    <div className={cn("relative flex items-center group", className)}>
       {trigger}
       {body && (
-        <div
-          id={baseId}
-          role="tooltip"
-          aria-hidden={disabled}
-          {...props}
-          className={containerClasses}
-        >
-          {typeof body === "string" ? (
-            <Text
-              variant="body3"
-              color="text-typography-inverted"
-              align="text-center"
-              className={bodyClasses}
-            >
-              {body}
-            </Text>
-          ) : (
-            body
-          )}
-          {hasArrow && <div className={arrowClasses} />}
-        </div>
+        <>
+          <div
+            aria-hidden="true"
+            className={tooltipBufferClasses}
+          />
+          <div
+            id={baseId}
+            role="tooltip"
+            aria-hidden={disabled}
+            {...props}
+            className={containerClasses}
+          >
+            {typeof body === "string" ? (
+              <Text
+                variant="body3"
+                color="text-typography-inverted"
+                align="text-center"
+                className={bodyClasses}
+              >
+                {body}
+              </Text>
+            ) : (
+              body
+            )}
+            {hasArrow && <div className={arrowClasses} />}
+          </div>
+        </>
       )}
     </div>
   )
