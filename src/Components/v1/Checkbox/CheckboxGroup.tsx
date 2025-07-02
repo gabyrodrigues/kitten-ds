@@ -1,5 +1,5 @@
-import { cn, generateRandomId } from "@utils"
-import React, { type ReactElement } from "react"
+import { cn } from "@utils"
+import React, { useId, type ReactElement } from "react"
 import { Flex } from "../Flex"
 import { Text } from "../Text"
 import Checkbox from "./Checkbox"
@@ -31,7 +31,8 @@ export default function CheckboxGroup({
 
   const mergedClasses = cn("flex flex-col", className)
 
-  const baseId = id ?? generateRandomId("checkboxgroup")
+  const reactId = useId()
+  const baseId = id ?? `checkboxgroup-${reactId}`
 
   const describedByIds =
     [

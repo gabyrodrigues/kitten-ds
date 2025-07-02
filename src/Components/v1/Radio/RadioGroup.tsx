@@ -1,5 +1,5 @@
-import { cn, generateRandomId } from "@utils"
-import React, { type ChangeEvent, type ReactElement } from "react"
+import { cn } from "@utils"
+import React, { useId, type ChangeEvent, type ReactElement } from "react"
 import { Flex } from "../Flex"
 import { Text } from "../Text"
 import Radio from "./Radio"
@@ -39,7 +39,8 @@ export default function RadioGroup({
     }
   }
 
-  const baseId = id ?? generateRandomId("radiogroup")
+  const reactId = useId()
+  const baseId = id ?? `radiogroup-${reactId}`
   const describedByIds =
     [
       errorText ? `${baseId}_error` : null,

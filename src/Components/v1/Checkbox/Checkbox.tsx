@@ -1,5 +1,5 @@
-import { cn, generateRandomId } from "@utils"
-import { type ChangeEvent, type MouseEvent, useRef } from "react"
+import { cn } from "@utils"
+import { type ChangeEvent, type MouseEvent, useId, useRef } from "react"
 import { Flex } from "../Flex"
 import { Icon } from "../Icon"
 import { Text } from "../Text"
@@ -38,7 +38,8 @@ export default function Checkbox({
   const mergedInputClasses = cn(checkboxInputClasses, inputClassName)
   const mergedLabelClasses = cn("cursor-pointer", disabled && "cursor-default", labelClassName)
 
-  const baseId = id ?? generateRandomId("checkbox")
+  const reactId = useId()
+  const baseId = id ?? `checkbox-${reactId}`
   const describedByIds =
     [
       errorText ? `${baseId}_error` : null,
