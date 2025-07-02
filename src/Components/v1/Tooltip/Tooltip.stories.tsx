@@ -79,7 +79,7 @@ const meta = {
     position: "bottom",
     hasArrow: false,
     disabled: false,
-    children: <Button>Botão com tooltip</Button>
+    children: <Button onClick={() => console.log("clicked")}>Botão com tooltip</Button>
   }
 } satisfies Meta<typeof Tooltip>
 
@@ -88,6 +88,23 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = { name: "Versão padrão" }
+export const WithText: Story = {
+  name: "Versão de Card com Tooltip",
+  args: {
+    hasArrow: true,
+    children: (
+      <Flex className="bg-secondary-highlight px-4 py-8 rounded-lg shadow-variant2">
+        <Text
+          variant="body3"
+          align="text-left"
+          color="text-typography-primary"
+        >
+          Card com tooltip
+        </Text>
+      </Flex>
+    )
+  }
+}
 export const WithHtmlContent: Story = {
   name: "Versão com conteúdo HTML",
   args: {

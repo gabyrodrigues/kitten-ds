@@ -2,7 +2,10 @@ import { tv } from "tailwind-variants"
 
 export const tooltipContainerVariants = tv({
   base: [
-    "absolute z-50 px-2 py-2 w-max rounded-lg bg-background-inverted shadow-variant1 opacity-0 group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity duration-300 pointer-events-none"
+    "absolute z-50 px-2 py-2 w-max rounded-lg bg-background-inverted shadow-variant1 opacity-0",
+    "transition-opacity duration-300 delay-150 pointer-events-none",
+    "peer-hover:opacity-100 peer-hover:pointer-events-auto peer-hover:delay-0",
+    "peer-focus-visible:opacity-100 peer-focus-visible:pointer-events-auto peer-focus-visible:delay-0"
   ],
   variants: {
     position: {
