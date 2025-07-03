@@ -75,6 +75,11 @@ export default function Tooltip({
     })
   }
 
+  if (!children) {
+    console.warn("No children provided in tooltip. Tooltip requires a trigger element.")
+    return null
+  }
+
   return (
     <div className={cn("relative flex items-center group", className)}>
       {trigger}
@@ -103,7 +108,12 @@ export default function Tooltip({
             ) : (
               body
             )}
-            {hasArrow && <div className={arrowClasses} />}
+            {hasArrow && (
+              <div
+                className={arrowClasses}
+                data-testid="tooltip-arrow"
+              />
+            )}
           </div>
         </>
       )}
