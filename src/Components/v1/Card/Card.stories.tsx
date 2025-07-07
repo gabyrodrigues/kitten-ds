@@ -77,6 +77,7 @@ export const Default: Story = {
     children: (
       <Title
         variant="h5"
+        component="h1"
         weight="font-bold"
         color="text-typography-primary"
       >
@@ -101,6 +102,7 @@ export const WithBorder: Story = {
       <Flex direction="flex-col">
         <Title
           variant="h5"
+          component="h1"
           weight="font-bold"
           color="text-typography-primary"
         >
@@ -132,6 +134,7 @@ export const WithText: Story = {
       <Flex direction="flex-col">
         <Title
           variant="h5"
+          component="h1"
           weight="font-bold"
           color="text-typography-primary"
         >
@@ -172,6 +175,7 @@ export const WithHeading: Story = {
       <Flex direction="flex-col">
         <Title
           variant="h5"
+          component="h2"
           weight="font-bold"
           color="text-typography-primary"
         >
@@ -212,6 +216,7 @@ export const WithFooter: Story = {
       <Flex direction="flex-col">
         <Title
           variant="h5"
+          component="h2"
           weight="font-bold"
           color="text-typography-primary"
         >
@@ -258,6 +263,7 @@ export const WithMedia: Story = {
       <Flex direction="flex-col">
         <Title
           variant="h5"
+          component="h1"
           weight="font-bold"
           color="text-typography-primary"
         >
@@ -296,6 +302,7 @@ export const Selectable: Story = {
       <Flex direction="flex-col">
         <Title
           variant="h5"
+          component="h1"
           weight="font-bold"
           color="text-typography-primary"
         >
@@ -340,6 +347,7 @@ export const Disabled: Story = {
       <Flex direction="flex-col">
         <Title
           variant="h5"
+          component="h1"
           weight="font-bold"
           color="text-typography-primary"
         >

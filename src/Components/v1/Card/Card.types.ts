@@ -85,6 +85,7 @@ export interface CardProps extends Omit<FlexProps, "className" | "title"> {
 
   /**
    * Controls Card loading state animation.
+   * If true, shows a loading animation/skeleton instead of content.
    */
   isLoading?: boolean
 }

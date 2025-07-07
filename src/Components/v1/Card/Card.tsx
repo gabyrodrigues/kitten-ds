@@ -1,5 +1,5 @@
 import { cn } from "@utils"
-import type { KeyboardEvent, MouseEvent } from "react"
+import { type KeyboardEvent, type MouseEvent, useId } from "react"
 import { Flex } from "../Flex"
 import type { CardProps } from "./Card.types"
 
@@ -35,13 +35,11 @@ export default function Card({
       "bg-primary-highlight border border-primary hover:border-default-border",
     hasShadow && "shadow-variant1",
     isLoading && "h-full w-full rounded-lg animate-pulse bg-neutral-gray-200 min-h-32",
-    onClick && !isLoading && !disabled
-      ? [
-          "cursor-pointer hover:bg-highlight",
-          "focus-visible:outline-0 focus-visible:ring-3 focus-visible:ring-focus-ring focus-visible:ring-offset-2"
-        ]
-      : "cursor-default",
+    onClick && !isLoading && !disabled ? "cursor-pointer hover:bg-highlight" : "cursor-default",
     disabled && "cursor-default bg-disabled",
+    onClick &&
+      !isLoading &&
+      "focus-visible:outline-0 focus-visible:ring-3 focus-visible:ring-focus-ring focus-visible:ring-offset-2",
     className
   )
 
@@ -73,6 +71,9 @@ export default function Card({
     }
   }
 
+  const reactId = useId()
+  const headingId = heading ? `card-heading-${reactId}` : undefined
+
   return (
     <Flex
       radius={radius}
@@ -83,11 +84,12 @@ export default function Card({
       direction={direction}
       {...props}
       className={mergedClasses}
-      tabIndex={onClick && !disabled ? 0 : undefined}
+      tabIndex={onClick ? 0 : undefined}
       aria-disabled={disabled}
       data-disabled={disabled ? "true" : "false"}
       aria-busy={isLoading}
       data-loading={isLoading ? "true" : "false"}
+      aria-labelledby={heading ? headingId : undefined}
       data-active={active ? "true" : "false"}
       role={onClick && !disabled ? "button" : "region"}
       {...(onClick && !disabled ? { onClick: handleClick } : {})}
@@ -99,6 +101,7 @@ export default function Card({
             <Flex
               width="w-full"
               className={mergedHeadingClasses}
+              id={headingId}
             >
               {heading}
             </Flex>
