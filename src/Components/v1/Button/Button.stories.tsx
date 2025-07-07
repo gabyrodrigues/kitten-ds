@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react"
 import Flex from "../Flex/Flex"
 import Button from "./Button"
 
-const meta: Meta<typeof Button> = {
+const meta = {
   component: Button,
   title: "Componentes/Button",
   parameters: {
@@ -181,13 +181,13 @@ const meta: Meta<typeof Button> = {
       console.info("clicked")
     }
   }
-}
+} satisfies Meta<typeof Button>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
-const ButtonTemplate = (args) => (
+const BUTTON_TEMPLATE = (args) => (
   <Flex
     gap="gap-4"
     wrap="flex-wrap"
@@ -221,7 +221,7 @@ export const Filled: Story = {
     variant: "filled",
     children: "Button"
   },
-  render: (args) => <ButtonTemplate {...args} />
+  render: (args) => <BUTTON_TEMPLATE {...args} />
 }
 
 export const Outlined: Story = {
@@ -231,7 +231,7 @@ export const Outlined: Story = {
     color: "primary",
     children: "Button"
   },
-  render: (args) => <ButtonTemplate {...args} />
+  render: (args) => <BUTTON_TEMPLATE {...args} />
 }
 
 export const Text: Story = {
@@ -241,5 +241,5 @@ export const Text: Story = {
     color: "primary",
     children: "Button"
   },
-  render: (args) => <ButtonTemplate {...args} />
+  render: (args) => <BUTTON_TEMPLATE {...args} />
 }

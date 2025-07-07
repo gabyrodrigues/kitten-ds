@@ -87,6 +87,11 @@ export interface TextProps {
   htmlFor?: string
 
   /**
+   * The id of the component.
+   */
+  id?: string
+
+  /**
    * Controls extra CSS class names in the Text component.
    */
   className?: string

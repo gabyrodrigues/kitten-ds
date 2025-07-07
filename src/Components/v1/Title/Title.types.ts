@@ -74,6 +74,11 @@ export interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
   component?: TitleComponent
 
   /**
+   * The id of the component.
+   */
+  id?: string
+
+  /**
    * Controls extra CSS class names in the Title component.
    */
   className?: string

@@ -92,6 +92,6 @@ describe("IconButton", () => {
     button.focus()
     expect(button).toHaveFocus()
 
-    expect(button).toHaveClass("focus:ring-focus-ring")
+    expect(button).toHaveClass("focus-visible:ring-focus-ring")
   })
 })

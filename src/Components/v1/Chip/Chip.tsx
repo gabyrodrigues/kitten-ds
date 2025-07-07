@@ -33,8 +33,8 @@ export default function Chip({
   const mergedClasses = cn(
     variantClasses,
     "text-chip",
-    (onClick || onDelete) &&
-      "focus:outline-0 focus:ring-3 focus:ring-focus-ring focus:ring-offset-2",
+    onClick &&
+      "focus-visible:outline-0 focus-visible:ring-3 focus-visible:ring-focus-ring focus-visible:ring-offset-2",
     align,
     bgColor,
     borderColor,

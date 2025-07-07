@@ -100,6 +100,10 @@ const meta: Meta<typeof Text> = {
       options: ["italic", "not-italic"],
       description: "Classe Tailwind para controlar o estilo da fonte do componente Text."
     },
+    id: {
+      control: { type: "text" },
+      description: "ID do componente Text, usado para identificação única no DOM."
+    },
     letterSpacing: {
       control: { type: "select" },
       options: [
@@ -111,14 +115,6 @@ const meta: Meta<typeof Text> = {
         "tracking-widest"
       ],
       description: "Classe Tailwind para controlar o espaçamento entre letras do componente Text."
-    },
-    marginBottom: {
-      control: { type: "text" },
-      description: "Margem aplicada na parte inferior do componente Text."
-    },
-    marginTop: {
-      control: { type: "text" },
-      description: "Margem aplicada na parte superior do componente Text."
     },
     lineClamp: {
       control: { type: "text" },
@@ -135,6 +131,14 @@ const meta: Meta<typeof Text> = {
         "leading-loose"
       ],
       description: "Classe Tailwind para controlar a altura da linha do componente Text."
+    },
+    marginBottom: {
+      control: { type: "text" },
+      description: "Margem aplicada na parte inferior do componente Text."
+    },
+    marginTop: {
+      control: { type: "text" },
+      description: "Margem aplicada na parte superior do componente Text."
     },
     transform: {
       control: { type: "select" },

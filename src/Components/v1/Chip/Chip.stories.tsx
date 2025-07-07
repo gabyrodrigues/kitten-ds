@@ -184,7 +184,7 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-const ChipTemplate = (args) => (
+const CHIP_TEMPLATE = (args) => (
   <Flex
     gap="gap-4"
     wrap="flex-wrap"
@@ -221,7 +221,7 @@ export const Filled: Story = {
   args: {
     variant: "filled"
   },
-  render: (args) => <ChipTemplate {...args} />
+  render: (args) => <CHIP_TEMPLATE {...args} />
 }
 
 export const Outlined: Story = {
@@ -230,7 +230,7 @@ export const Outlined: Story = {
     variant: "outlined",
     color: "primary"
   },
-  render: (args) => <ChipTemplate {...args} />
+  render: (args) => <CHIP_TEMPLATE {...args} />
 }
 
 export const Clickable: Story = {
@@ -241,7 +241,7 @@ export const Clickable: Story = {
       console.info("clicked")
     }
   },
-  render: (args) => <ChipTemplate {...args} />
+  render: (args) => <CHIP_TEMPLATE {...args} />
 }
 
 export const Deletable: Story = {
@@ -252,5 +252,5 @@ export const Deletable: Story = {
       console.info("clicked delete")
     }
   },
-  render: (args) => <ChipTemplate {...args} />
+  render: (args) => <CHIP_TEMPLATE {...args} />
 }

@@ -30,7 +30,6 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>(
       "hover:text-link-hover hover:border-b-link-hover",
       "visited:text-link-visited visited:border-b-link-visited",
       "active:text-link-active active:border-b-link-active",
-      "focus:ring-3 focus:ring-focus-ring focus:ring-offset-0",
       "focus-visible:outline-0 focus-visible:ring-3 focus-visible:ring-focus-ring focus-visible:ring-offset-0"
     )
     const mergedClasses = cn(

@@ -96,6 +96,10 @@ const meta: Meta<typeof Title> = {
       ],
       description: "Classe do Tailwind para controlar a altura da linha."
     },
+    id: {
+      control: { type: "text" },
+      description: "ID do componente Title, usado para identificação única no DOM."
+    },
     marginBottom: {
       control: { type: "text" },
       description: "Margem aplicada na parte inferior do componente Title."
