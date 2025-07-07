@@ -23,39 +23,41 @@ const meta = {
   argTypes: {
     active: {
       control: { type: "boolean" },
-      description: "Controls if Card has active styles on click."
+      description: "Opção para definir o Card como ativo, alterando seu estilo visual."
     },
     className: {
       control: { type: "text" },
-      description: "The CSS class name to be applied to the Card component."
+      description:
+        "Opção para adicionar classes CSS à raíz do Card. Útil para personalizar o estilo da parte externa do componente."
     },
     contentClassName: {
       control: { type: "text" },
-      description: "The CSS class name to be applied to the Card component content wrapper."
+      description:
+        "Opção para adicionar classes CSS ao conteúdo do Card. Útil para personalizar o estilo da parte interna do componente."
     },
     footer: {
       control: { type: "text" },
-      description: "The CSS class name to be applied to the Card component title."
+      description: "Adiciona um rodapé ao Card. Pode ser uma string ou um componente React."
     },
     hasBorder: {
       control: { type: "boolean" },
-      description: "Controls if Card has border styles."
+      description: "Controla se o Card exibe borda."
+    },
+    hasShadow: {
+      control: { type: "boolean" },
+      description: "Controla se o Card exibe sombra."
     },
     heading: {
       control: { type: "text" },
-      description: "The main title of the Card component."
+      description: "Adiciona um cabeçalho ao Card. Pode ser uma string ou um componente React."
     },
     isLoading: {
       control: { type: "boolean" },
-      description: "Controls Card loading state animation."
+      description: "Exibe o Card em um estado de carregamento, com animação de pulsação."
     },
-    paddingX: {
+    radius: {
       control: { type: "text" },
-      description: "The horizontal padding of the component."
-    },
-    paddingY: {
-      control: { type: "text" },
-      description: "The vertical padding of the component."
+      description: "Controla o arredondamento das bordas do Card."
     }
   },
   args: {

@@ -1,6 +1,6 @@
 import type { ReactNode } from "react"
 import type { FlexProps } from "../Flex/Flex.types"
-import type { PaddingX, PaddingY } from "../types"
+
 /**
  * Props for the accessible Card component.
  *
@@ -26,18 +26,6 @@ export interface CardProps extends Omit<FlexProps, "className" | "title"> {
    * @default true
    */
   hasShadow?: boolean
-
-  /**
-   * The horizontal padding of the component.
-   * This corresponds to Tailwind's `px-*` classes.
-   */
-  paddingX?: PaddingX
-
-  /**
-   * The vertical padding of the component.
-   * This corresponds to Tailwind's `py-*` classes.
-   */
-  paddingY?: PaddingY
 
   /**
    * The CSS class name to be applied to the Card component.

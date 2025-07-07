@@ -19,8 +19,6 @@ export default function Card({
   justify = "justify-start",
   footer,
   footerClassName,
-  paddingX,
-  paddingY,
   radius = "rounded-lg",
   onClick,
   ...props
@@ -77,8 +75,6 @@ export default function Card({
   return (
     <Flex
       radius={radius}
-      paddingX={paddingX}
-      paddingY={paddingY}
       align={align}
       justify={justify}
       direction={direction}
