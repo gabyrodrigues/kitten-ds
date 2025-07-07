@@ -1,6 +1,6 @@
 import type { ReactNode } from "react"
 import type { FlexProps } from "../Flex/Flex.types"
-import type { BgColor, BorderColor, PaddingX, PaddingY } from "../types"
+import type { PaddingX, PaddingY } from "../types"
 /**
  * Props for the accessible Card component.
  *
@@ -16,27 +16,14 @@ export interface CardProps extends Omit<FlexProps, "className" | "title"> {
   children?: ReactNode
 
   /**
-   * The background color of the Card.
-   * This corresponds to Tailwind's `bg-*` classes.
-   * @default "bg-neutral-white"
-   */
-  bgColor?: BgColor
-
-  /**
    * Controls if Card has bordered styles.
    * @default false
    */
   hasBorder?: boolean
 
   /**
-   * The border color of the Card.
-   * This corresponds to Tailwind's `border-*` classes.
-   */
-  borderColor?: BorderColor
-
-  /**
    * Controls if Card has box-shadow styles.
-   * @default false
+   * @default true
    */
   hasShadow?: boolean
 
@@ -63,19 +50,38 @@ export interface CardProps extends Omit<FlexProps, "className" | "title"> {
   contentClassName?: string
 
   /**
-   * The CSS class name to be applied to the Card component heading container.
+   * The heading of the Card component.
+   */
+  heading?: ReactNode
+
+  /**
+   * The CSS class name to be applied to the Card component heading.
    */
   headingClassName?: string
 
   /**
-   * The CSS class name to be applied to the Card component title.
+   * The footer of the Card component.
    */
-  titleClassName?: string
+  footer?: string | ReactNode
 
   /**
-   * The main title of the Card component.
+   * The CSS class name to be applied to the Card component footer.
    */
-  title?: string | ReactNode
+  footerClassName?: string
+
+  /**
+   * Controls card active state.
+   * If true, the card will have active styles applied.
+   * @default false
+   */
+  active?: boolean
+
+  /**
+   * Controls if Card is disabled;
+   * If true, the card will not respond to click events and will have a disabled appearance.
+   * @default false
+   */
+  disabled?: boolean
 
   /**
    * Controls Card loading state animation.
