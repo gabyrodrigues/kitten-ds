@@ -80,7 +80,6 @@ export const Default: Story = {
       <Title
         variant="h5"
         component="h1"
-        weight="font-bold"
         color="text-typography-primary"
       >
         Título do Card
@@ -105,7 +104,6 @@ export const WithBorder: Story = {
         <Title
           variant="h5"
           component="h1"
-          weight="font-bold"
           color="text-typography-primary"
         >
           Título do Card
@@ -137,7 +135,6 @@ export const WithText: Story = {
         <Title
           variant="h5"
           component="h1"
-          weight="font-bold"
           color="text-typography-primary"
         >
           Título do Card
@@ -168,7 +165,6 @@ export const WithHeading: Story = {
       <Title
         variant="h5"
         component="h1"
-        weight="font-bold"
       >
         Cabeçalho do Card
       </Title>
@@ -178,7 +174,6 @@ export const WithHeading: Story = {
         <Title
           variant="h5"
           component="h2"
-          weight="font-bold"
           color="text-typography-primary"
         >
           Título do Card
@@ -209,7 +204,6 @@ export const WithFooter: Story = {
       <Title
         variant="h5"
         component="h1"
-        weight="font-bold"
       >
         Cabeçalho do Card
       </Title>
@@ -219,7 +213,6 @@ export const WithFooter: Story = {
         <Title
           variant="h5"
           component="h2"
-          weight="font-bold"
           color="text-typography-primary"
         >
           Título do Card
@@ -266,7 +259,6 @@ export const WithMedia: Story = {
         <Title
           variant="h5"
           component="h1"
-          weight="font-bold"
           color="text-typography-primary"
         >
           Título do Card
@@ -305,7 +297,6 @@ export const Selectable: Story = {
         <Title
           variant="h5"
           component="h1"
-          weight="font-bold"
           color="text-typography-primary"
         >
           Título do Card
@@ -333,7 +324,10 @@ export const Selectable: Story = {
       <Card
         {...args}
         active={active}
-        onClick={() => setActive(!active)}
+        onClick={() => {
+          console.info("Card clicked")
+          setActive(!active)
+        }}
       >
         {args.children}
       </Card>
@@ -350,7 +344,6 @@ export const Disabled: Story = {
         <Title
           variant="h5"
           component="h1"
-          weight="font-bold"
           color="text-typography-primary"
         >
           Título do Card
@@ -378,7 +371,10 @@ export const Disabled: Story = {
       <Card
         {...args}
         active={active}
-        onClick={() => setActive(!active)}
+        onClick={() => {
+          console.info("Card clicked")
+          setActive(!active)
+        }}
       >
         {args.children}
       </Card>

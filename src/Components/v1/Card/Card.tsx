@@ -1,6 +1,8 @@
 import { cn } from "@utils"
 import { type KeyboardEvent, type MouseEvent, useId } from "react"
 import { Flex } from "../Flex"
+import { Text } from "../Text"
+import { Title } from "../Title"
 import type { CardProps } from "./Card.types"
 
 export default function Card({
@@ -30,6 +32,7 @@ export default function Card({
     "bg-surface",
     active &&
       !isLoading &&
+      !disabled &&
       "bg-primary-highlight border border-primary hover:border-default-border",
     hasShadow && "shadow-variant1",
     isLoading && "h-full w-full rounded-lg animate-pulse bg-neutral-gray-200 min-h-32",
@@ -54,11 +57,6 @@ export default function Card({
   )
 
   function handleClick(event: MouseEvent<HTMLElement>) {
-    if (disabled) {
-      event.preventDefault()
-      event.stopPropagation()
-      return
-    }
     onClick?.(event)
   }
 
@@ -97,9 +95,20 @@ export default function Card({
             <Flex
               width="w-full"
               className={mergedHeadingClasses}
-              id={headingId}
+              id={typeof heading !== "string" ? headingId : undefined}
             >
-              {heading}
+              {typeof heading === "string" ? (
+                <Title
+                  variant="h5"
+                  component="h1"
+                  color="text-typography-primary"
+                  id={headingId}
+                >
+                  {heading}
+                </Title>
+              ) : (
+                heading
+              )}
             </Flex>
           )}
 
@@ -116,7 +125,16 @@ export default function Card({
               width="w-full"
               className={mergedFooterClasses}
             >
-              {footer}
+              {typeof footer === "string" ? (
+                <Text
+                  variant="body2"
+                  color="text-typography-primary"
+                >
+                  {footer}
+                </Text>
+              ) : (
+                footer
+              )}
             </Flex>
           )}
         </>
