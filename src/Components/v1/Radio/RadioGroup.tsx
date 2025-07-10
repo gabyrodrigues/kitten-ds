@@ -71,7 +71,7 @@ export default function RadioGroup({
           <Text
             component="span"
             variant="body2"
-            color="text-error"
+            color={disabled ? "text-typography-disabled" : "text-error"}
             className="ml-1 inline"
             aria-hidden="true"
           >
