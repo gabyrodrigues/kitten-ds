@@ -1,4 +1,10 @@
-import type { ChangeEvent, HTMLInputTypeAttribute, InputHTMLAttributes, ReactNode } from "react"
+import type {
+  ChangeEvent,
+  HTMLInputAutoCompleteAttribute,
+  HTMLInputTypeAttribute,
+  InputHTMLAttributes,
+  ReactNode
+} from "react"
 import type { FlexProps } from "../Flex/Flex.types"
 import type { TextProps, TextSize } from "../Text/Text.types"
 import type {
@@ -191,6 +197,32 @@ export interface InputProps
    * The CSS class name to be applied to the input of the component.
    */
   inputClassName?: string
+
+  /**
+   * If true, the input will be resizable.
+   * This is applicable only when the input is multiline.
+   * @default false
+   */
+  resize?: boolean
+
+  /**
+   * The name attribute of the input element.
+   * This is used to identify the input when submitting a form.
+   * It is also used for accessibility purposes.
+   */
+  name?: string
+
+  /**
+   * Defines the attribute autoComplete of the input, suggesting automatic filling by the browser.
+   */
+  autoComplete?: HTMLInputAutoCompleteAttribute
+
+  /**
+   * If true, the input will receive focus automatically when rendered.
+   * This is useful for forms where the input should be focused by default.
+   * @default false
+   */
+  autoFocus?: boolean
 
   /**
    * The callback function to be called when the value of the input changes.

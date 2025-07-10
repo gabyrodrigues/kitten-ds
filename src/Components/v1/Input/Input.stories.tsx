@@ -7,6 +7,7 @@ import Input from "./Input"
 
 const meta = {
   component: Input,
+  title: "Componentes/Input",
   parameters: {
     layout: "padded",
     docs: {
@@ -18,6 +19,15 @@ const meta = {
   },
   tags: ["autodocs"],
   argTypes: {
+    autoComplete: {
+      control: { type: "text" },
+      description:
+        "Define o atributo autoComplete do input, sugerindo preenchimento automático pelo navegador."
+    },
+    autoFocus: {
+      control: { type: "boolean" },
+      description: "Se verdadeiro, o input recebe foco automaticamente ao ser renderizado."
+    },
     bgColor: {
       control: { type: "text" },
       description: "Controla a cor de fundo do Input."
@@ -73,6 +83,11 @@ const meta = {
       description:
         "Controla se o Input deve ser renderizado como um campo de várias linhas (textarea)."
     },
+    name: {
+      control: { type: "text" },
+      description: "Define o atributo name do input, útil para integração com formulários."
+    },
+
     onChange: {
       action: "changed",
       description: "Função chamada ao alterar o valor do Input. Recebe o novo valor e o evento."
@@ -107,6 +122,11 @@ const meta = {
       description:
         "Define o campo como obrigatório (`required`). Isso indica que o campo deve ser preenchido antes do envio do formulário."
     },
+    resize: {
+      control: { type: "boolean" },
+      description:
+        "Se verdadeiro, o Input será redimensionável. Isso é aplicável apenas quando o Input é multilinha."
+    },
     rightSection: {
       control: { type: "text" },
       description: "Conteúdo exibido à direita do Input."
@@ -136,10 +156,9 @@ const meta = {
     }
   },
   args: {
-    id: "input",
     type: "text",
-    label: "Rótulo do Input",
-    placeholder: "Placeholder text",
+    // label: "Rótulo do Input",
+    placeholder: "Placeholder",
     value: ""
   }
 } satisfies Meta<typeof Input>
@@ -185,8 +204,8 @@ export const WithLeftSection: Story = {
 export const WithRightSection: Story = {
   name: "Versão com seção à direita",
   args: {
-    rightSection: <Icon type="person" />,
-    value: ""
+    value: "",
+    rightSection: <Icon type="person" />
   },
   render: (args) => <INPUT_WITH_STATE {...args} />
 }
@@ -210,7 +229,7 @@ export const WithHelperText: Story = {
   name: "Versão com texto de ajuda",
   args: {
     value: "",
-    helperText: "This is some help text"
+    helperText: "Texto de ajuda"
   },
   render: (args) => <INPUT_WITH_STATE {...args} />
 }
@@ -219,7 +238,7 @@ export const WithErrorText: Story = {
   name: "Versão com texto de erro",
   args: {
     value: "",
-    errorText: "This is an error"
+    errorText: "Texto de erro"
   },
   render: (args) => <INPUT_WITH_STATE {...args} />
 }
@@ -228,7 +247,7 @@ export const WithSuccessText: Story = {
   name: "Versão com texto de sucesso",
   args: {
     value: "",
-    successText: "This is a success message"
+    successText: "Texto de sucesso"
   },
   render: (args) => <INPUT_WITH_STATE {...args} />
 }
@@ -238,7 +257,7 @@ export const Multiline: Story = {
   args: {
     multiline: true,
     rows: 4,
-    placeholder: "Multiline input",
+    placeholder: "Input multilinha",
     value: ""
   },
   render: (args) => <INPUT_WITH_STATE {...args} />

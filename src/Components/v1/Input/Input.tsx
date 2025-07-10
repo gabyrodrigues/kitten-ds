@@ -1,5 +1,9 @@
-import clsx from "clsx"
-import type { ChangeEvent, InputHTMLAttributes, TextareaHTMLAttributes } from "react"
+import {
+  type ChangeEvent,
+  type InputHTMLAttributes,
+  type TextareaHTMLAttributes,
+  useId
+} from "react"
 
 import { cn } from "@utils"
 import { Flex } from "../Flex"
@@ -8,34 +12,35 @@ import type { InputProps } from "./Input.types"
 import { INPUT_CONTAINER_STYLE, INPUT_STYLE, handleBgColor, handleBorderColor } from "./Styles"
 
 export default function Input({
+  bgColor = "bg-surface",
+  borderColor = "border-input-border",
+  className,
+  componentProps,
+  contentClassName,
+  disabled = false,
+  errorText,
+  helperText,
+  id,
+  inputClassName,
   label,
   labelProps,
-  componentProps,
   type = "text",
-  id = "input",
-  value,
-  required = false,
-  readOnly = false,
-  disabled = false,
   fontSize = "text-body2",
-  radius = "rounded-lg",
+  full = false,
   leftSection,
+  multiline = false,
+  radius = "rounded-lg",
+  readOnly = false,
+  required = false,
+  resize = false,
   rightSection,
   paddingL = "pl-3",
   paddingR = rightSection ? "pr-8" : "pr-3",
   paddingY = "py-2",
-  helperText,
-  errorText,
-  successText,
-  className,
-  inputClassName,
-  contentClassName,
-  multiline = false,
   rows = 4,
-  borderColor = "border-input-border",
-  bgColor = "bg-surface",
+  successText,
+  value,
   withAsterisk = false,
-  full = false,
   onChange,
   ...props
 }: InputProps) {
@@ -46,12 +51,12 @@ export default function Input({
     paddingR,
     paddingY,
     borderColor && [borderColor, "border"],
-    handleBorderColor(disabled, borderColor, !!errorText, !!successText),
+    handleBorderColor(borderColor, !!errorText, !!successText),
     handleBgColor(disabled, bgColor),
     full && "w-full",
-    {
-      "hover:shadow-variant1 focus-within:shadow-variant1": !disabled && !readOnly
-    },
+    !disabled &&
+      !readOnly &&
+      "focus-within:outline-0 focus-within:ring-2 focus-within:ring-focus-ring focus-within:border-transparent",
     contentClassName
   )
 
@@ -60,18 +65,25 @@ export default function Input({
     fontSize,
     readOnly && "cursor-default",
     full && "w-full",
-    multiline ? "resize-none" : "overflow-hidden text-ellipsis line-clamp-1",
+    multiline && "overflow-hidden text-ellipsis line-clamp-1",
+    multiline && !resize && "resize-none",
     !disabled && "cursor-pointer",
     inputClassName
   )
 
-  const ariaDescribedby = clsx(
-    helperText && `${id}-help`,
-    successText && `${id}-success`,
-    errorText && `${id}-error`
-  )
+  const reactId = useId()
+  const baseId = id ?? `input-${reactId}`
+  const describedByIds =
+    [
+      errorText ? `${baseId}_error` : null,
+      successText ? `${baseId}_success` : null,
+      helperText ? `${baseId}_help` : null
+    ]
+      .filter(Boolean)
+      .join(" ") || undefined
+
   const commonProps = {
-    id,
+    id: baseId,
     value,
     required,
     disabled,
@@ -80,7 +92,10 @@ export default function Input({
     className: mergedInputClasses,
     "aria-required": required || undefined,
     "aria-invalid": !!errorText || undefined,
-    "aria-describedby": ariaDescribedby || undefined,
+    "aria-describedby": describedByIds || undefined,
+    "aria-disabled": disabled || undefined,
+    "aria-readonly": readOnly || undefined,
+    "data-disabled": disabled || undefined,
     ...props
   }
 
@@ -100,10 +115,10 @@ export default function Input({
         <Text
           component="label"
           variant="body2"
-          marginBottom="mb-1"
+          marginBottom="mb-2"
           color={disabled ? "text-disabled" : "text-typography-primary"}
           {...labelProps}
-          htmlFor={id}
+          htmlFor={baseId}
         >
           {label}{" "}
           {withAsterisk && required && (
@@ -154,36 +169,40 @@ export default function Input({
           </Flex>
         )}
       </Flex>
-      {helperText && (
-        <Text
-          variant="body3"
-          color={disabled ? "text-disabled" : "text-gray"}
-          marginTop="mt-1"
-          id={`${id}_help`}
-        >
-          {helperText}
-        </Text>
-      )}
-      {successText && (
-        <Text
-          variant="body3"
-          color="text-positive"
-          marginTop="mt-1"
-          id={`${id}_success`}
-        >
-          {successText}
-        </Text>
-      )}
-      {errorText && (
-        <Text
-          variant="body3"
-          color="text-negative"
-          marginTop="mt-1"
-          id={`${id}_error`}
-        >
-          {errorText}
-        </Text>
-      )}
+      <Flex
+        direction="flex-col"
+        className="mt-2"
+      >
+        {helperText && (
+          <Text
+            variant="body3"
+            color={disabled ? "text-disabled" : "text-typography-secondary"}
+            id={`${baseId}_help`}
+          >
+            {helperText}
+          </Text>
+        )}
+        {successText && (
+          <Text
+            variant="body3"
+            color="text-success"
+            id={`${baseId}_success`}
+            aria-live="polite"
+          >
+            {successText}
+          </Text>
+        )}
+        {errorText && (
+          <Text
+            variant="body3"
+            color="text-error"
+            id={`${baseId}_error`}
+            aria-live="polite"
+          >
+            {errorText}
+          </Text>
+        )}
+      </Flex>
     </Flex>
   )
 }
