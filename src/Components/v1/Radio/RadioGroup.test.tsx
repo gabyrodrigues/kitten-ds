@@ -354,6 +354,98 @@ describe("RadioGroup", () => {
     expect(sushi).not.toBeDisabled()
   })
 
+  it("renders withAsterik color in legend with disabled color when disabled is true", () => {
+    render(
+      <RadioGroup
+        name="food"
+        value="pizza"
+        label="Label"
+        withAsterisk
+        required
+        disabled
+      >
+        <Radio
+          value="pizza"
+          label="Pizza"
+        />
+        <Radio
+          value="sushi"
+          label="Sushi"
+        />
+      </RadioGroup>
+    )
+    const asterisk = screen.getByText("*")
+    expect(asterisk).toHaveClass("text-typography-disabled")
+  })
+
+  it("renders withAsterisk color in legend with error color when disabled is false", () => {
+    render(
+      <RadioGroup
+        name="food"
+        value="pizza"
+        label="Label"
+        withAsterisk
+        required
+      >
+        <Radio
+          value="pizza"
+          label="Pizza"
+        />
+        <Radio
+          value="sushi"
+          label="Sushi"
+        />
+      </RadioGroup>
+    )
+    const asterisk = screen.getByText("*")
+    expect(asterisk).toHaveClass("text-error")
+  })
+
+  it("renders helperText with disabled color when group is disabled", () => {
+    render(
+      <RadioGroup
+        name="food"
+        value="pizza"
+        label="Label"
+        disabled
+        helperText="Help me"
+      >
+        <Radio
+          value="pizza"
+          label="Pizza"
+        />
+        <Radio
+          value="sushi"
+          label="Sushi"
+        />
+      </RadioGroup>
+    )
+    const helper = screen.getByText("Help me")
+    expect(helper).toHaveClass("text-disabled")
+  })
+
+  it("renders helperText with secondary color when group is enabled", () => {
+    render(
+      <RadioGroup
+        name="food"
+        value="pizza"
+        label="Label"
+        helperText="Help me"
+      >
+        <Radio
+          value="pizza"
+          label="Pizza"
+        />
+        <Radio
+          value="sushi"
+          label="Sushi"
+        />
+      </RadioGroup>
+    )
+    const helper = screen.getByText("Help me")
+    expect(helper).toHaveClass("text-typography-secondary")
+  })
+
   it("renders defaultA11yLabel in a visually hidden legend when label is missing", () => {
     render(
       <RadioGroup
