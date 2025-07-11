@@ -1,7 +1,9 @@
 import {
   type ChangeEvent,
   type InputHTMLAttributes,
+  type Ref,
   type TextareaHTMLAttributes,
+  forwardRef,
   useId
 } from "react"
 
@@ -11,39 +13,43 @@ import { Text } from "../Text"
 import type { InputProps } from "./Input.types"
 import { INPUT_CONTAINER_STYLE, INPUT_STYLE, handleBgColor, handleBorderColor } from "./Styles"
 
-export default function Input({
-  bgColor = "bg-surface",
-  borderColor = "border-input-border",
-  className,
-  componentProps,
-  contentClassName,
-  disabled = false,
-  errorText,
-  helperText,
-  id,
-  inputClassName,
-  label,
-  labelProps,
-  type = "text",
-  fontSize = "text-body3",
-  full = false,
-  leftSection,
-  multiline = false,
-  radius = "rounded-lg",
-  readOnly = false,
-  required = false,
-  resize = false,
-  rightSection,
-  paddingL = "pl-3",
-  paddingR = rightSection ? "pr-8" : "pr-3",
-  paddingY = "py-2",
-  rows = 4,
-  successText,
-  value,
-  withAsterisk = false,
-  onChange,
-  ...props
-}: InputProps) {
+// biome-ignore lint/style/useNamingConvention: component name is Input
+const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(function Input(
+  {
+    bgColor = "bg-surface",
+    borderColor = "border-input-border",
+    className,
+    componentProps,
+    contentClassName,
+    disabled = false,
+    errorText,
+    helperText,
+    id,
+    inputClassName,
+    label,
+    labelProps,
+    type = "text",
+    fontSize = "text-body3",
+    full = false,
+    leftSection,
+    multiline = false,
+    radius = "rounded-lg",
+    readOnly = false,
+    required = false,
+    resize = false,
+    rightSection,
+    paddingL = "pl-3",
+    paddingR = rightSection ? "pr-8" : "pr-3",
+    paddingY = "py-2",
+    rows = 4,
+    successText,
+    value,
+    withAsterisk = false,
+    onChange,
+    ...props
+  }: InputProps,
+  ref: Ref<HTMLInputElement | HTMLTextAreaElement>
+) {
   const mergedContentClasses = cn(
     INPUT_CONTAINER_STYLE,
     radius,
@@ -150,11 +156,13 @@ export default function Input({
 
         {multiline ? (
           <textarea
+            ref={ref as Ref<HTMLTextAreaElement>}
             {...(commonProps as TextareaHTMLAttributes<HTMLTextAreaElement>)}
             rows={rows}
           />
         ) : (
           <input
+            ref={ref as Ref<HTMLInputElement>}
             {...(commonProps as InputHTMLAttributes<HTMLInputElement>)}
             type={type}
           />
@@ -205,4 +213,8 @@ export default function Input({
       </Flex>
     </Flex>
   )
-}
+})
+
+Input.displayName = "Input"
+
+export default Input
