@@ -6,7 +6,7 @@ import type {
   ReactNode
 } from "react"
 import type { FlexProps } from "../Flex/Flex.types"
-import type { TextProps, TextSize } from "../Text/Text.types"
+import type { TextSize } from "../Text/Text.types"
 import type {
   BgColor,
   BorderColor,
@@ -94,10 +94,9 @@ export interface InputProps
   label?: string | ReactNode
 
   /**
-   * Props passed down to the input label.
-   * This can include text styles, colors, and other properties.
+   * The CSS class name to be applied to the component Label.
    */
-  labelProps?: TextProps
+  labelClassName?: string
 
   /**
    * It spreads the properties to the root element of the Input component.

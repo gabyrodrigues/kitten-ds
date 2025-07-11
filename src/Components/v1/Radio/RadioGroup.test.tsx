@@ -552,5 +552,6 @@ describe("RadioGroup", () => {
     const radios = screen.getAllByRole("radio")
     expect(radios[0]).toBeRequired()
     expect(radios[1]).toBeRequired()
+    expect(radios[1]).not.toBeDisabled()
   })
 })

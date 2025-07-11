@@ -74,6 +74,10 @@ const meta = {
       description:
         "Rótulo do input. A partir do ID definido, o rótulo é associado via atributo `htmlFor`."
     },
+    labelClassName: {
+      control: { type: "text" },
+      description: "Opção para adicionar classes CSS ao rótulo do Input."
+    },
     leftSection: {
       control: { type: "text" },
       description: "Conteúdo exibido à esquerda do Input."
@@ -87,7 +91,6 @@ const meta = {
       control: { type: "text" },
       description: "Define o atributo name do input, útil para integração com formulários."
     },
-
     onChange: {
       action: "changed",
       description: "Função chamada ao alterar o valor do Input. Recebe o novo valor e o evento."

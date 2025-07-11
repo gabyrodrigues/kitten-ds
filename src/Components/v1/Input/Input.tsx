@@ -27,7 +27,7 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(fun
     id,
     inputClassName,
     label,
-    labelProps,
+    labelClassName,
     type = "text",
     fontSize = "text-body3",
     full = false,
@@ -124,7 +124,7 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(fun
           variant="label"
           marginBottom="mb-2"
           color={disabled ? "text-disabled" : "text-typography-primary"}
-          {...labelProps}
+          className={cn(labelClassName)}
           htmlFor={baseId}
         >
           {label}{" "}

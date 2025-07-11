@@ -15,6 +15,7 @@ export default function RadioGroup({
   disabled = false,
   id,
   label,
+  labelClassName,
   helperText,
   errorText,
   successText,
@@ -63,7 +64,7 @@ export default function RadioGroup({
         component="legend"
         variant="label"
         color={disabled ? "text-typography-disabled" : "text-typography-primary"}
-        className={label ? "mb-2" : "sr-only"}
+        className={cn(labelClassName, label ? "mb-2" : "sr-only")}
       >
         {label || defaultA11yLabel}
 
