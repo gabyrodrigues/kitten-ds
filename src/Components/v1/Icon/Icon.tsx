@@ -1,5 +1,6 @@
 import { cn } from "@utils"
 import type { IconProps } from "./Icon.types"
+import { getWeightClass } from "./Styles"
 
 export default function Icon({
   type,
@@ -15,25 +16,9 @@ export default function Icon({
     "leading-none",
     color,
     fontSize,
-    getWeightClass(),
+    getWeightClass(variant, weight),
     className
   )
-
-  function getWeightClass() {
-    const weightClass = {
-      outlined: {
-        400: "icon-outlined-weight-400",
-        500: "icon-outlined-weight-500",
-        700: "icon-outlined-weight-700"
-      },
-      filled: {
-        400: "icon-filled-weight-400",
-        500: "icon-filled-weight-500",
-        700: "icon-filled-weight-700"
-      }
-    }
-    return weightClass[variant]?.[weight] ?? "icon-outlined-weight-400"
-  }
 
   return (
     <span

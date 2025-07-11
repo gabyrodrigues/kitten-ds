@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react"
 import { describe, expect, it } from "vitest"
 import { axe } from "vitest-axe"
 import Icon from "./Icon"
+import { getWeightClass } from "./Styles"
 
 describe("Icon", () => {
   it("renders with minimal props", () => {
@@ -67,5 +68,39 @@ describe("Icon", () => {
     render(<Icon type="home" />)
     const icon = screen.getByText("home")
     expect(icon).toHaveAttribute("aria-hidden", "true")
+  })
+
+  it("applies the correct weight class for outlined 400", () => {
+    render(
+      <Icon
+        type="star"
+        variant="outlined"
+        weight={400}
+      />
+    )
+    const icon = screen.getByText("star")
+    expect(icon).toHaveClass("icon-outlined-weight-400")
+  })
+
+  it("applies the correct weight class for filled 700", () => {
+    render(
+      <Icon
+        type="star"
+        variant="filled"
+        weight={700}
+      />
+    )
+    const icon = screen.getByText("star")
+    expect(icon).toHaveClass("icon-filled-weight-700")
+  })
+
+  it("returns fallback for invalid variant", () => {
+    // @ts-expect-error: testing fallback
+    expect(getWeightClass("invalid", 400)).toBe("icon-outlined-weight-400")
+  })
+
+  it("returns fallback for invalid weight", () => {
+    // @ts-expect-error: testing fallback
+    expect(getWeightClass("outlined", 999)).toBe("icon-outlined-weight-400")
   })
 })
