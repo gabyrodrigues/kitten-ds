@@ -43,12 +43,12 @@ const meta = {
     errorText: {
       control: { type: "text" },
       description:
-        "Texto de erro para o checkbox. Este texto é exibido quando o Checkbox está em um estado de erro, indicando que algo está errado com a seleção."
+        "Mensagem de erro para o checkbox. Esta mensagem é exibida quando o Checkbox está em um estado de erro, indicando que algo está errado com a seleção."
     },
     helperText: {
       control: { type: "text" },
       description:
-        "Texto de ajuda para o checkbox. Este texto é exibido abaixo do Checkbox para fornecer informações adicionais ou orientações ao usuário."
+        "Mensagem de ajuda para o checkbox. Esta mensagem é exibida abaixo do Checkbox para fornecer informações adicionais ou orientações ao usuário."
     },
     id: {
       control: { type: "text" },
@@ -58,7 +58,7 @@ const meta = {
     label: {
       control: { type: "text" },
       description:
-        "O texto do rótulo associado ao Checkbox. Este texto é exibido ao lado do botão de opção e é usado para descrever a opção selecionável."
+        "O texto do rótulo associado ao Checkbox. Este rótulo é exibido ao lado do botão de opção e é usado para descrever a opção selecionável."
     },
     labelClassName: {
       control: { type: "text" },
@@ -78,7 +78,7 @@ const meta = {
     successText: {
       control: { type: "text" },
       description:
-        "Texto de sucesso para o checkbox. Este texto é exibido quando o Checkbox está em um estado de sucesso, indicando que a seleção foi bem-sucedida."
+        "Mensagem de sucesso para o checkbox. Esta mensagem é exibida quando o Checkbox está em um estado de sucesso, indicando que a seleção foi bem-sucedida."
     }
   },
   args: {
@@ -158,25 +158,25 @@ export const Indeterminate: Story = {
 }
 
 export const WithErrorText: Story = {
-  name: "Versão com texto de erro",
+  name: "Versão com mensagem de erro",
   args: {
-    errorText: "Texto de erro"
+    errorText: "Mensagem de erro"
   },
   render: (args) => <CHECKBOX_WITH_STATE {...args} />
 }
 
 export const WithHelperText: Story = {
-  name: "Versão com texto de ajuda",
+  name: "Versão com mensagem de ajuda",
   args: {
-    helperText: "Texto de ajuda"
+    helperText: "Mensagem de ajuda"
   },
   render: (args) => <CHECKBOX_WITH_STATE {...args} />
 }
 
 export const WithSuccessText: Story = {
-  name: "Versão com texto de sucesso",
+  name: "Versão com mensagem de sucesso",
   args: {
-    successText: "Texto de sucesso"
+    successText: "Mensagem de sucesso"
   },
   render: (args) => <CHECKBOX_WITH_STATE {...args} />
 }

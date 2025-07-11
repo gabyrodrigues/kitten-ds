@@ -38,7 +38,7 @@ const meta = {
     defaultA11yLabel: {
       control: { type: "text" },
       description:
-        "Texto de acessibilidade usado como rótulo do grupo quando label não é fornecido."
+        "Mensagem de acessibilidade usado como rótulo do grupo quando label não é fornecido."
     },
     disabled: {
       control: { type: "boolean" },
@@ -47,12 +47,12 @@ const meta = {
     errorText: {
       control: { type: "text" },
       description:
-        "Texto de erro geral para o CheckboxGroup. Esse texto é exibido para indicar que houve um erro na seleção de uma ou mais opções dentro do grupo."
+        "Mensagem de erro geral para o CheckboxGroup. Esse texto é exibido para indicar que houve um erro na seleção de uma ou mais opções dentro do grupo."
     },
     helperText: {
       control: { type: "text" },
       description:
-        "Texto de ajuda geral para o CheckboxGroup. Este texto é exibido abaixo do grupo de checkboxes para fornecer informações adicionais ou orientações ao usuário."
+        "Mensagem de ajuda geral para o CheckboxGroup. Esta mensagem é exibida abaixo do grupo de checkboxes para fornecer informações adicionais ou orientações ao usuário."
     },
     id: {
       control: { type: "text" },
@@ -62,7 +62,7 @@ const meta = {
     label: {
       control: { type: "text" },
       description:
-        "O texto do rótulo a ser exibido acima da lista de checkboxes. Se não for fornecido, o rótulo acessível padrão será usado para a acessibilidade do componente."
+        "O texto de rótulo a ser exibido acima da lista de checkboxes. Se não for fornecido, o rótulo acessível padrão será usado para a acessibilidade do componente."
     },
     labelClassName: {
       control: { type: "text" },
@@ -80,7 +80,7 @@ const meta = {
     successText: {
       control: { type: "text" },
       description:
-        "Texto de sucesso para o checkbox. Este texto é exibido para indicar sucesso ao selecionar uma ou mais opçoes dentro do grupo, indicando que a seleção foi bem-sucedida."
+        "Mensagem de sucesso para o checkbox. Esta mensagem é exibida para indicar sucesso ao selecionar uma ou mais opções dentro do grupo, indicando que a seleção foi bem-sucedida."
     },
     withAsterisk: {
       control: { type: "boolean" },
@@ -137,25 +137,25 @@ export const Default: Story = {
 }
 
 export const WithErrorText: Story = {
-  name: "Versão com texto de erro",
+  name: "Versão com mensagem de erro",
   args: {
-    errorText: "Texto de erro"
+    errorText: "Mensagem de erro"
   },
   render: (args) => <CHECKBOX_GROUP_WITH_STATE {...args} />
 }
 
 export const WithHelperText: Story = {
-  name: "Versão com texto de ajuda",
+  name: "Versão com mensagem de ajuda",
   args: {
-    helperText: "Texto de ajuda"
+    helperText: "Mensagem de ajuda"
   },
   render: (args) => <CHECKBOX_GROUP_WITH_STATE {...args} />
 }
 
 export const WithSuccessText: Story = {
-  name: "Versão com texto de sucesso",
+  name: "Versão com mensagem de sucesso",
   args: {
-    successText: "Texto de sucesso"
+    successText: "Mensagem de sucesso"
   },
   render: (args) => <CHECKBOX_GROUP_WITH_STATE {...args} />
 }

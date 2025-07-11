@@ -36,7 +36,7 @@ const meta = {
     defaultA11yLabel: {
       control: { type: "text" },
       description:
-        "Texto de acessibilidade usado como rótulo do grupo quando label não é fornecido."
+        "Mensagem de acessibilidade usado como rótulo do grupo quando label não é fornecido."
     },
     disabled: {
       control: { type: "boolean" },
@@ -45,12 +45,12 @@ const meta = {
     errorText: {
       control: { type: "text" },
       description:
-        "Texto de erro geral para o RadioGroup. Esse texto é exibido para indicar que houve um erro ao selecionar uma opção dentro do grupo."
+        "Mensagem de erro geral para o RadioGroup. Esse texto é exibido para indicar que houve um erro ao selecionar uma opção dentro do grupo."
     },
     helperText: {
       control: { type: "text" },
       description:
-        "Texto de ajuda geral para o radioGroup. Este texto é exibido abaixo do grupo de radios para fornecer informações adicionais ou orientações ao usuário."
+        "Mensagem de ajuda geral para o radioGroup. Esta mensagem é exibida abaixo do grupo de radios para fornecer informações adicionais ou orientações ao usuário."
     },
     id: {
       control: { type: "text" },
@@ -78,7 +78,7 @@ const meta = {
     successText: {
       control: { type: "text" },
       description:
-        "Texto de sucesso para o radio. Este texto é exibido para indicar sucesso ao selecionar alguma opção dentro do grupo, indicando que a seleção foi bem-sucedida."
+        "Mensagem de sucesso para o radio. Esta mensagem é exibida para indicar sucesso ao selecionar alguma opção dentro do grupo, indicando que a seleção foi bem-sucedida."
     },
     value: {
       control: { type: "text" },
@@ -144,27 +144,27 @@ export const Default: Story = {
 }
 
 export const WithErrorText: Story = {
-  name: "Versão com texto de erro",
+  name: "Versão com mensagem de erro",
   args: {
-    errorText: "Texto de erro",
+    errorText: "Mensagem de erro",
     value: "sushi"
   },
   render: (args) => <RADIO_GROUP_WITH_STATE {...args} />
 }
 
 export const WithHelperText: Story = {
-  name: "Versão com texto de ajuda",
+  name: "Versão com mensagem de ajuda",
   args: {
-    helperText: "Texto de ajuda",
+    helperText: "Mensagem de ajuda",
     value: "pizza"
   },
   render: (args) => <RADIO_GROUP_WITH_STATE {...args} />
 }
 
 export const WithSuccessText: Story = {
-  name: "Versão com texto de sucesso",
+  name: "Versão com mensagem de sucesso",
   args: {
-    successText: "Texto de sucesso",
+    successText: "Mensagem de sucesso",
     value: "cupcake"
   },
   render: (args) => <RADIO_GROUP_WITH_STATE {...args} />
