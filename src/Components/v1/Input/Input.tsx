@@ -114,6 +114,7 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(fun
       direction="flex-col"
       justify="justify-start"
       width={full ? "w-full" : "w-auto"}
+      data-testid="input-root"
       className={cn(className)}
       {...componentProps}
     >

@@ -49,7 +49,7 @@ const meta = {
     errorText: {
       control: { type: "text" },
       description:
-        "Texto de erro para o input. Este texto é exibido quando o Input está em um estado de erro, indicando que algo está errado com a seleção."
+        "Mensagem de erro para o input. Este texto é exibido quando o Input está em um estado de erro, indicando que algo está errado com a seleção."
     },
     fontSize: {
       control: { type: "text" },
@@ -62,7 +62,7 @@ const meta = {
     helperText: {
       control: { type: "text" },
       description:
-        "Texto de ajuda para o radio. Este texto é exibido abaixo do Input para fornecer informações adicionais ou orientações ao usuário."
+        "Mensagem de ajuda para o radio. Este texto é exibido abaixo do Input para fornecer informações adicionais ou orientações ao usuário."
     },
     id: {
       control: { type: "text" },
@@ -138,7 +138,7 @@ const meta = {
     successText: {
       control: { type: "text" },
       description:
-        "Texto de sucesso para o input. Este texto é exibido quando o Input está em um estado de sucesso, indicando que a informação foi inserida corretamente."
+        "Mensagem de sucesso para o input. Este texto é exibido quando o Input está em um estado de sucesso, indicando que a informação foi inserida corretamente."
     },
     type: {
       control: { type: "text" },
@@ -226,28 +226,28 @@ export const Disabled: Story = {
 }
 
 export const WithHelperText: Story = {
-  name: "Versão com texto de ajuda",
+  name: "Versão com mensagem de ajuda",
   args: {
     value: "",
-    helperText: "Texto de ajuda"
+    helperText: "Mensagem de ajuda"
   },
   render: (args) => <INPUT_WITH_STATE {...args} />
 }
 
 export const WithErrorText: Story = {
-  name: "Versão com texto de erro",
+  name: "Versão com mensagem de erro",
   args: {
     value: "",
-    errorText: "Texto de erro"
+    errorText: "Mensagem de erro"
   },
   render: (args) => <INPUT_WITH_STATE {...args} />
 }
 
 export const WithSuccessText: Story = {
-  name: "Versão com texto de sucesso",
+  name: "Versão com mensagem de sucesso",
   args: {
     value: "",
-    successText: "Texto de sucesso"
+    successText: "Mensagem de sucesso"
   },
   render: (args) => <INPUT_WITH_STATE {...args} />
 }
