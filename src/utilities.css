@@ -118,3 +118,9 @@
   font-weight: 400;
   line-height: 1.15;
 }
+
+@utility text-label {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+}

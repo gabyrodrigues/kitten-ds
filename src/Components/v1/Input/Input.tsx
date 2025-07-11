@@ -25,7 +25,7 @@ export default function Input({
   label,
   labelProps,
   type = "text",
-  fontSize = "text-body2",
+  fontSize = "text-body3",
   full = false,
   leftSection,
   multiline = false,
@@ -114,7 +114,7 @@ export default function Input({
       {label && (
         <Text
           component="label"
-          variant="body2"
+          variant="label"
           marginBottom="mb-2"
           color={disabled ? "text-disabled" : "text-typography-primary"}
           {...labelProps}
@@ -124,7 +124,7 @@ export default function Input({
           {withAsterisk && required && (
             <Text
               component="span"
-              variant="body2"
+              variant="label"
               color={disabled ? "text-typography-disabled" : "text-error"}
               className="inline"
             >

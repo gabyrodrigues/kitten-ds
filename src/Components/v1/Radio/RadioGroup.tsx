@@ -61,7 +61,7 @@ export default function RadioGroup({
     >
       <Text
         component="legend"
-        variant="body2"
+        variant="label"
         color={disabled ? "text-typography-disabled" : "text-typography-primary"}
         className={label ? "mb-2" : "sr-only"}
       >

@@ -8,7 +8,7 @@ export const INPUT_STYLE = cn(
   "bg-transparent",
   "text-typography-primary"
 )
-export const INPUT_CONTAINER_STYLE = cn("flex", "gap-2", "min-h-12", "relative")
+export const INPUT_CONTAINER_STYLE = cn("flex", "gap-2", "min-h-11", "relative")
 
 export function handleBorderColor(
   borderColor: BorderColor,

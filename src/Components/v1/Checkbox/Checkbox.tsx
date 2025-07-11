@@ -114,7 +114,7 @@ export default function Checkbox({
         {label && (
           <Text
             htmlFor={baseId}
-            variant="body2"
+            variant="label"
             component="label"
             color={disabled ? "text-typography-disabled" : "text-typography-primary"}
             className={mergedLabelClasses}

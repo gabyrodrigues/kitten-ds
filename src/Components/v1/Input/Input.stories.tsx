@@ -157,7 +157,7 @@ const meta = {
   },
   args: {
     type: "text",
-    // label: "Rótulo do Input",
+    label: "Rótulo do Input",
     placeholder: "Placeholder",
     value: ""
   }
