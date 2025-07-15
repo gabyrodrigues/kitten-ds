@@ -6,7 +6,7 @@ import { Flex } from "../Flex"
 import { Text } from "../Text"
 import { Title } from "../Title"
 
-const meta = {
+const meta: Meta<typeof Tooltip> = {
   component: Tooltip,
   title: "Componentes/Tooltip",
   parameters: {
@@ -81,7 +81,7 @@ const meta = {
     disabled: false,
     children: <Button onClick={() => console.log("clicked")}>Botão com tooltip</Button>
   }
-} satisfies Meta<typeof Tooltip>
+}
 
 export default meta
 

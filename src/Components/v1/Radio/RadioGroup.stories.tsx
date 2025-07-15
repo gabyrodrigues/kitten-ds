@@ -4,7 +4,7 @@ import { type ChangeEvent, useState } from "react"
 import Radio from "./Radio"
 import RadioGroup from "./RadioGroup"
 
-const meta = {
+const meta: Meta<typeof RadioGroup> = {
   component: RadioGroup,
   title: "Componentes/RadioGroup",
   parameters: {
@@ -97,7 +97,7 @@ const meta = {
     label: "Label Text",
     children: ""
   }
-} satisfies Meta<typeof RadioGroup>
+}
 
 export default meta
 type Story = StoryObj<typeof meta>

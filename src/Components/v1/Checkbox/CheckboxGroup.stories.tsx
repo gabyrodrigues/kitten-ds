@@ -3,9 +3,10 @@ import type { Meta, StoryObj } from "@storybook/react"
 import { type ChangeEvent, useState } from "react"
 import { Flex } from "../Flex"
 import Checkbox from "./Checkbox"
+import type { CheckboxGroupProps } from "./Checkbox.types"
 import CheckboxGroup from "./CheckboxGroup"
 
-const meta = {
+const meta: Meta<typeof CheckboxGroup> = {
   component: CheckboxGroup,
   title: "Componentes/CheckboxGroup",
   parameters: {
@@ -91,12 +92,12 @@ const meta = {
   args: {
     children: ""
   }
-} satisfies Meta<typeof CheckboxGroup>
+}
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-const CHECKBOX_GROUP_WITH_STATE = (args) => {
+const CHECKBOX_GROUP_WITH_STATE = (args: CheckboxGroupProps) => {
   const [state, setState] = useState({ cupcake: true, pizza: false, sushi: false })
 
   function handleChange(checked: boolean, event: ChangeEvent<HTMLInputElement>) {
@@ -107,7 +108,7 @@ const CHECKBOX_GROUP_WITH_STATE = (args) => {
   return (
     <CheckboxGroup
       label="Selecione seus alimentos favoritos"
-      {...args}
+      {...(args as CheckboxGroupProps)}
     >
       <Checkbox
         checked={state.cupcake}
@@ -133,7 +134,7 @@ const CHECKBOX_GROUP_WITH_STATE = (args) => {
 
 export const Default: Story = {
   name: "Versão de lista padrão",
-  render: (args) => <CHECKBOX_GROUP_WITH_STATE {...args} />
+  render: (args) => <CHECKBOX_GROUP_WITH_STATE {...(args as CheckboxGroupProps)} />
 }
 
 export const WithErrorText: Story = {
@@ -141,7 +142,7 @@ export const WithErrorText: Story = {
   args: {
     errorText: "Mensagem de erro"
   },
-  render: (args) => <CHECKBOX_GROUP_WITH_STATE {...args} />
+  render: (args) => <CHECKBOX_GROUP_WITH_STATE {...(args as CheckboxGroupProps)} />
 }
 
 export const WithHelperText: Story = {
@@ -149,7 +150,7 @@ export const WithHelperText: Story = {
   args: {
     helperText: "Mensagem de ajuda"
   },
-  render: (args) => <CHECKBOX_GROUP_WITH_STATE {...args} />
+  render: (args) => <CHECKBOX_GROUP_WITH_STATE {...(args as CheckboxGroupProps)} />
 }
 
 export const WithSuccessText: Story = {
@@ -157,7 +158,7 @@ export const WithSuccessText: Story = {
   args: {
     successText: "Mensagem de sucesso"
   },
-  render: (args) => <CHECKBOX_GROUP_WITH_STATE {...args} />
+  render: (args) => <CHECKBOX_GROUP_WITH_STATE {...(args as CheckboxGroupProps)} />
 }
 
 export const WithAsterisk: Story = {
@@ -167,7 +168,7 @@ export const WithAsterisk: Story = {
     required: true,
     withAsterisk: true
   },
-  render: (args) => <CHECKBOX_GROUP_WITH_STATE {...args} />
+  render: (args) => <CHECKBOX_GROUP_WITH_STATE {...(args as CheckboxGroupProps)} />
 }
 
 export const IndeterminateGroup: Story = {
@@ -190,7 +191,7 @@ export const IndeterminateGroup: Story = {
     return (
       <CheckboxGroup
         label="Cardápio"
-        {...args}
+        {...(args as CheckboxGroupProps)}
       >
         <Checkbox
           checked={checked[0] && checked[1]}

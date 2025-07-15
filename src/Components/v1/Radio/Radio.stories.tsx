@@ -1,10 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
-
-import { type ChangeEvent, useEffect, useState } from "react"
 import Radio from "./Radio"
-import RadioGroup from "./RadioGroup"
 
-const meta = {
+const meta: Meta<typeof Radio> = {
   component: Radio,
   title: "Componentes/Radio",
   parameters: {
@@ -94,7 +91,7 @@ const meta = {
     color: "primary",
     label: "Label Text"
   }
-} satisfies Meta<typeof Radio>
+}
 
 export default meta
 type Story = StoryObj<typeof meta>

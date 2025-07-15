@@ -2,8 +2,9 @@ import type { Meta, StoryObj } from "@storybook/react"
 
 import Flex from "../Flex/Flex"
 import Button from "./Button"
+import type { ButtonProps } from "./Button.types"
 
-const meta = {
+const meta: Meta<typeof Button> = {
   component: Button,
   title: "Componentes/Button",
   parameters: {
@@ -181,13 +182,13 @@ const meta = {
       console.info("clicked")
     }
   }
-} satisfies Meta<typeof Button>
+}
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
-const BUTTON_TEMPLATE = (args) => (
+const BUTTON_TEMPLATE = (args: ButtonProps) => (
   <Flex
     gap="gap-4"
     wrap="flex-wrap"

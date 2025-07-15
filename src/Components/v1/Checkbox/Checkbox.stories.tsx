@@ -6,7 +6,7 @@ import { Flex } from "../Flex"
 import Checkbox from "./Checkbox"
 import type { CheckboxProps } from "./Checkbox.types"
 
-const meta = {
+const meta: Meta<typeof Checkbox> = {
   component: Checkbox,
   title: "Componentes/Checkbox",
   parameters: {
@@ -87,7 +87,7 @@ const meta = {
     color: "primary",
     label: "Label Text"
   }
-} satisfies Meta<typeof Checkbox>
+}
 
 export default meta
 type Story = StoryObj<typeof meta>

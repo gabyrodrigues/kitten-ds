@@ -5,7 +5,7 @@ import type { InputProps } from "./Input.types"
 import { Icon } from "../Icon"
 import Input from "./Input"
 
-const meta = {
+const meta: Meta<typeof Input> = {
   component: Input,
   title: "Componentes/Input",
   parameters: {
@@ -38,8 +38,11 @@ const meta = {
     },
     className: {
       control: { type: "text" },
-      description:
-        "Opção para adicionar classes CSS ao input do Input. Útil para personalizar o estilo do elemento que envolve o componente."
+      description: "Opção para adicionar classes CSS à raiz do componente."
+    },
+    contentClassName: {
+      control: { type: "text" },
+      description: "Opção para adicionar classes CSS ao container que envolve o input."
     },
     disabled: {
       control: { type: "boolean" },
@@ -62,12 +65,16 @@ const meta = {
     helperText: {
       control: { type: "text" },
       description:
-        "Mensagem de ajuda para o radio. Este texto é exibido abaixo do Input para fornecer informações adicionais ou orientações ao usuário."
+        "Mensagem de ajuda para o input. Este texto é exibido abaixo do Input para fornecer informações adicionais ou orientações ao usuário."
     },
     id: {
       control: { type: "text" },
       description:
         "Opção para definir um ID exclusivo para o Input. Em conjunto com o atributo `htmlFor` aplicado no rótulo a partir do ID definido, melhora a acessibilidade ao associar o rótulo ao campo de entrada."
+    },
+    inputClassName: {
+      control: { type: "text" },
+      description: "Classe CSS para o input do componente."
     },
     label: {
       control: { type: "text" },
@@ -155,7 +162,7 @@ const meta = {
     withAsterisk: {
       control: { type: "boolean" },
       description:
-        "Determina se o asterisco obrigatório deve ser exibido. Isso é útil para indicar que o Input é obrigatório em um formulário. O asterisco só será exibido se o RadioGroup for marcado como obrigatório."
+        "Determina se o asterisco obrigatório deve ser exibido. Isso é útil para indicar que o Input é obrigatório em um formulário. O asterisco só será exibido se o Select for marcado como obrigatório."
     }
   },
   args: {
@@ -164,7 +171,7 @@ const meta = {
     placeholder: "Placeholder",
     value: ""
   }
-} satisfies Meta<typeof Input>
+}
 
 export default meta
 
@@ -180,7 +187,7 @@ const INPUT_WITH_STATE = (args: InputProps) => {
 
   return (
     <Input
-      {...args}
+      {...(args as InputProps)}
       value={value}
       onChange={handle_change}
     />
@@ -192,7 +199,7 @@ export const Default: Story = {
   args: {
     value: ""
   },
-  render: (args) => <INPUT_WITH_STATE {...args} />
+  render: (args) => <INPUT_WITH_STATE {...(args as InputProps)} />
 }
 
 export const WithLeftSection: Story = {
@@ -201,7 +208,7 @@ export const WithLeftSection: Story = {
     leftSection: <Icon type="person" />,
     value: ""
   },
-  render: (args) => <INPUT_WITH_STATE {...args} />
+  render: (args) => <INPUT_WITH_STATE {...(args as InputProps)} />
 }
 
 export const WithRightSection: Story = {
@@ -210,7 +217,7 @@ export const WithRightSection: Story = {
     value: "",
     rightSection: <Icon type="person" />
   },
-  render: (args) => <INPUT_WITH_STATE {...args} />
+  render: (args) => <INPUT_WITH_STATE {...(args as InputProps)} />
 }
 
 export const Disabled: Story = {
@@ -225,7 +232,7 @@ export const Disabled: Story = {
       />
     )
   },
-  render: (args) => <INPUT_WITH_STATE {...args} />
+  render: (args) => <INPUT_WITH_STATE {...(args as InputProps)} />
 }
 
 export const WithHelperText: Story = {
@@ -234,7 +241,7 @@ export const WithHelperText: Story = {
     value: "",
     helperText: "Mensagem de ajuda"
   },
-  render: (args) => <INPUT_WITH_STATE {...args} />
+  render: (args) => <INPUT_WITH_STATE {...(args as InputProps)} />
 }
 
 export const WithErrorText: Story = {
@@ -243,7 +250,7 @@ export const WithErrorText: Story = {
     value: "",
     errorText: "Mensagem de erro"
   },
-  render: (args) => <INPUT_WITH_STATE {...args} />
+  render: (args) => <INPUT_WITH_STATE {...(args as InputProps)} />
 }
 
 export const WithSuccessText: Story = {
@@ -252,7 +259,7 @@ export const WithSuccessText: Story = {
     value: "",
     successText: "Mensagem de sucesso"
   },
-  render: (args) => <INPUT_WITH_STATE {...args} />
+  render: (args) => <INPUT_WITH_STATE {...(args as InputProps)} />
 }
 
 export const Multiline: Story = {
@@ -263,5 +270,5 @@ export const Multiline: Story = {
     placeholder: "Input multilinha",
     value: ""
   },
-  render: (args) => <INPUT_WITH_STATE {...args} />
+  render: (args) => <INPUT_WITH_STATE {...(args as InputProps)} />
 }

@@ -51,7 +51,9 @@ export interface InputProps
   rows?: number
 
   /**
-   * The id of the input element.
+   * The id of the element.
+   * This is used to associate the component with a label and for accessibility purposes.
+   * It is also used to identify the component in forms and when submitting data.
    */
   id?: string
 
@@ -140,7 +142,7 @@ export interface InputProps
   /**
    * Controls the Input border radius.
    * This corresponds to Tailwind's `rounded-*` classes.
-   * @default "lg"
+   * @default "rounded-lg"
    */
   radius?: BorderRadius
 

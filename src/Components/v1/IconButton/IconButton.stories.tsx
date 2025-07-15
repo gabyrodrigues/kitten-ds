@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react"
 import { IconButton } from "."
 import Flex from "../Flex/Flex"
 
-const meta = {
+const meta: Meta<typeof IconButton> = {
   component: IconButton,
   title: "Componentes/IconButton",
   parameters: {
@@ -71,7 +71,7 @@ const meta = {
       console.info("clicked")
     }
   }
-} satisfies Meta<typeof IconButton>
+}
 
 export default meta
 
