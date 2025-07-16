@@ -143,10 +143,10 @@ export interface SelectProps extends Omit<InputProps, "value" | "onChange" | "au
   borderColor?: BorderColor
 
   /**
-   * Controls the select option background color when is selected or hovered.
+   * Controls the selected item background color.
    * This corresponds to Tailwind's `bg-*` classes.
    */
-  selectedColor?: BgColor
+  selectedItemColor?: BgColor
 
   /**
    * The CSS class name to be applied to the root of Select component.

@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
+import { useState } from "react"
 import Select from "./Select"
+import type { OptionType, SelectProps } from "./Select.types"
 
 const meta: Meta<typeof Select> = {
   component: Select,
@@ -156,8 +158,8 @@ const meta: Meta<typeof Select> = {
       description:
         "Define o campo como obrigatório (`required`). Isso indica que o campo deve ser preenchido antes do envio do formulário."
     },
-    selectedColor: {
-      description: "Cor de fundo da opção selecionada/hover."
+    selectedItemColor: {
+      description: "Cor de fundo da opção selecionada."
     },
     successText: {
       control: { type: "text" },
@@ -177,7 +179,18 @@ const meta: Meta<typeof Select> = {
     type: "text",
     label: "Rótulo do Select",
     placeholder: "Placeholder",
-    value: ""
+    clearable: false,
+    id: "select",
+    value: "cupcake",
+    multiple: false,
+    readOnly: false,
+    options: [
+      { value: "banana", label: "Banana" },
+      { value: "cupcake", label: "Cupcake" },
+      { value: "mousse", label: "Mousse" },
+      { value: "pizza", label: "Pizza" },
+      { value: "sushi", label: "Sushi" }
+    ] as { value: string | number; label: string }[]
   }
 }
 
@@ -185,6 +198,19 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
+const SELECT_WITH_STATE = (args: SelectProps) => {
+  const [value, set_value] = useState<OptionType | Array<OptionType> | undefined>(args.value)
+
+  return (
+    <Select
+      {...args}
+      value={value}
+      onChange={(new_value) => set_value(new_value)}
+    />
+  )
+}
+
 export const Default: Story = {
-  name: "Versão padrão"
+  name: "Versão padrão",
+  render: (args) => <SELECT_WITH_STATE {...(args as SelectProps)} />
 }
