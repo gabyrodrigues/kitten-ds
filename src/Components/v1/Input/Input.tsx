@@ -178,44 +178,42 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(fun
           </Flex>
         )}
       </Flex>
-      {helperText ||
-        successText ||
-        (errorText && (
-          <Flex
-            direction="flex-col"
-            className="mt-2"
-          >
-            {helperText && (
-              <Text
-                variant="body3"
-                color={disabled ? "text-disabled" : "text-typography-secondary"}
-                id={`${baseId}_help`}
-              >
-                {helperText}
-              </Text>
-            )}
-            {successText && (
-              <Text
-                variant="body3"
-                color="text-success"
-                id={`${baseId}_success`}
-                aria-live="polite"
-              >
-                {successText}
-              </Text>
-            )}
-            {errorText && (
-              <Text
-                variant="body3"
-                color="text-error"
-                id={`${baseId}_error`}
-                aria-live="polite"
-              >
-                {errorText}
-              </Text>
-            )}
-          </Flex>
-        ))}
+      {(helperText || successText || errorText) && (
+        <Flex
+          direction="flex-col"
+          className="mt-2"
+        >
+          {helperText && (
+            <Text
+              variant="body3"
+              color={disabled ? "text-disabled" : "text-typography-secondary"}
+              id={`${baseId}_help`}
+            >
+              {helperText}
+            </Text>
+          )}
+          {successText && (
+            <Text
+              variant="body3"
+              color="text-success"
+              id={`${baseId}_success`}
+              aria-live="polite"
+            >
+              {successText}
+            </Text>
+          )}
+          {errorText && (
+            <Text
+              variant="body3"
+              color="text-error"
+              id={`${baseId}_error`}
+              aria-live="polite"
+            >
+              {errorText}
+            </Text>
+          )}
+        </Flex>
+      )}
     </Flex>
   )
 })
