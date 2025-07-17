@@ -57,7 +57,7 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(fun
     paddingR,
     paddingY,
     borderColor && [borderColor, "border"],
-    handleBorderColor(borderColor, !!errorText, !!successText),
+    handleBorderColor(borderColor, disabled, !!errorText, !!successText),
     handleBgColor(disabled, bgColor),
     full && "w-full",
     !disabled &&
@@ -73,7 +73,7 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(fun
     full && "w-full",
     multiline && "overflow-hidden text-ellipsis line-clamp-1",
     multiline && !resize && "resize-none",
-    !disabled && "cursor-pointer",
+    !disabled && !readOnly && "cursor-pointer",
     inputClassName
   )
 

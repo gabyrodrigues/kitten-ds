@@ -126,6 +126,11 @@ const meta: Meta<typeof Chip> = {
       control: { type: "text" },
       description: "Raio de borda (arredondamento) do chip."
     },
+    readOnly: {
+      control: { type: "boolean" },
+      description:
+        "Define a opção de deletar do chip como somente leitura, exibindo apenas o ícone de exclusão sem permitir a interação. Isso é útil quando o chip não deve ser removido, mas ainda deve exibir o ícone de exclusão."
+    },
     textColor: {
       control: { type: "text" },
       description: "Cor do texto do chip."

@@ -12,9 +12,11 @@ export const INPUT_CONTAINER_STYLE = cn("flex", "gap-2", "min-h-11", "relative")
 
 export function handleBorderColor(
   borderColor: BorderColor,
+  disabled: boolean,
   errorText: boolean,
   successText: boolean
 ) {
+  if (disabled) return "border-input-border"
   if (errorText) return "border-error"
   if (successText) return "border-success"
   return borderColor

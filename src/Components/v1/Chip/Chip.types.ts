@@ -81,6 +81,13 @@ export interface ChipProps extends HTMLAttributes<HTMLElement> {
   disabled?: boolean
 
   /**
+   * Whether the chip is read-only.
+   * It applies styles to indicate the chip delete button is not interactive.
+   * It depends on the `onDelete` prop to be effective.
+   */
+  readOnly?: boolean
+
+  /**
    * Adding the onClick prop will make the chip clickable.
    *
    * Will not be called if the disabled prop is true.

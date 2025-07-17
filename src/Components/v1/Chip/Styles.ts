@@ -191,10 +191,14 @@ export const chipDeleteVariants = tv({
   ],
   variants: {
     variant: {
-      filled:
+      filled: [
         "data-[disabled=true]:bg-typography-disabled data-[disabled=true]:text-disabled data-[disabled=true]:hover:bg-typography-disabled",
-      outlined:
-        "bg-transparent data-[disabled=true]:bg-typography-disabled data-[disabled=true]:hover:bg-typography-disabled data-[disabled=true]:hover:text-typography-inverted data-[disabled=true]:text-typography-inverted"
+        "data-[readOnly=true]:cursor-default data-[readOnly=true]:hover:bg-transparent"
+      ],
+      outlined: [
+        "bg-transparent data-[disabled=true]:bg-typography-disabled data-[disabled=true]:hover:bg-typography-disabled data-[disabled=true]:hover:text-typography-inverted data-[disabled=true]:text-typography-inverted",
+        "data-[readOnly=true]:cursor-default data-[readOnly=true]:hover:bg-transparent"
+      ]
     },
     color: {
       primary: "",
@@ -209,63 +213,74 @@ export const chipDeleteVariants = tv({
     {
       variant: "filled",
       color: "primary",
-      class: "text-typography-inverted hover:text-primary hover:bg-typography-inverted"
+      class:
+        "text-typography-inverted hover:text-primary hover:bg-typography-inverted data-[readOnly=true]:hover:text-typography-inverted"
     },
     {
       variant: "filled",
       color: "secondary",
-      class: "text-typography-inverted hover:text-secondary hover:bg-typography-inverted"
+      class:
+        "text-typography-inverted hover:text-secondary hover:bg-typography-inverted data-[readOnly=true]:hover:text-typography-inverted"
     },
     {
       variant: "filled",
       color: "error",
-      class: "text-typography-inverted hover:text-error hover:bg-typography-inverted"
+      class:
+        "text-typography-inverted hover:text-error hover:bg-typography-inverted data-[readOnly=true]:hover:text-typography-inverted"
     },
     {
       variant: "filled",
       color: "success",
-      class: "text-typography-inverted hover:text-success hover:bg-typography-inverted"
+      class:
+        "text-typography-inverted hover:text-success hover:bg-typography-inverted data-[readOnly=true]:hover:text-typography-inverted"
     },
     {
       variant: "filled",
       color: "warning",
-      class: "text-typography-primary hover:text-warning hover:bg-typography-primary"
+      class:
+        "text-typography-primary hover:text-warning hover:bg-typography-primary data-[readOnly=true]:hover:text-typography-primary"
     },
     {
       variant: "filled",
       color: "gray",
-      class: "text-typography-inverted hover:text-gray hover:bg-typography-inverted"
+      class:
+        "text-typography-inverted hover:text-gray hover:bg-typography-inverted data-[readOnly=true]:hover:text-typography-inverted"
     },
 
     {
       variant: "outlined",
       color: "primary",
-      class: "text-primary hover:text-primary-highlight hover:bg-primary"
+      class:
+        "text-primary hover:text-primary-highlight hover:bg-primary data-[readOnly=true]:hover:text-primary"
     },
     {
       variant: "outlined",
       color: "secondary",
-      class: "text-secondary hover:text-secondary-highlight hover:bg-secondary"
+      class:
+        "text-secondary hover:text-secondary-highlight hover:bg-secondary data-[readOnly=true]:hover:text-secondary"
     },
     {
       variant: "outlined",
       color: "error",
-      class: "text-error hover:text-error-highlight hover:bg-error"
+      class:
+        "text-error hover:text-error-highlight hover:bg-error data-[readOnly=true]:hover:text-error"
     },
     {
       variant: "outlined",
       color: "success",
-      class: "text-success hover:text-success-highlight hover:bg-success"
+      class:
+        "text-success hover:text-success-highlight hover:bg-success data-[readOnly=true]:hover:text-success"
     },
     {
       variant: "outlined",
       color: "warning",
-      class: "text-typography-primary hover:text-warning-highlight hover:bg-typography-primary"
+      class:
+        "text-typography-primary hover:text-warning-highlight hover:bg-typography-primary data-[readOnly=true]:hover:text-typography-primary"
     },
     {
       variant: "outlined",
       color: "gray",
-      class: "text-gray hover:text-highlight hover:bg-gray"
+      class: "text-gray hover:text-highlight hover:bg-gray data-[readOnly=true]:hover:text-gray"
     }
   ]
 })
