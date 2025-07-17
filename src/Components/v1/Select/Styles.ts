@@ -1,9 +1,17 @@
 import { cn } from "@utils"
 import type { BgColor } from "../types"
 
-export function getListPositionStyles(hasTextMessage?: string) {
-  if (hasTextMessage) {
-    return cn("top-[calc(100%-0.875rem)] bottom-[unset]")
+export function getOptionsListStyles() {
+  return cn(
+    "bg-surface",
+    "absolute z-20 shadow-variant3 overflow-hidden",
+    "max-h-40 overflow-y-auto scrollbar"
+  )
+}
+
+export function getOptionsListPositionStyles(hasHelperMessages?: string) {
+  if (hasHelperMessages) {
+    return cn("top-[calc(100%-1.875rem)] bottom-[unset]")
   }
 
   return cn("top-full")

@@ -4,7 +4,7 @@ import { Flex } from "../Flex"
 import { Icon } from "../Icon"
 import { Text } from "../Text"
 import type { OptionType, SelectProps } from "./Select.types"
-import { getListPositionStyles, getOptionStyles } from "./Styles"
+import { getOptionStyles, getOptionsListPositionStyles, getOptionsListStyles } from "./Styles"
 
 interface OptionsListProps
   extends Pick<
@@ -12,6 +12,7 @@ interface OptionsListProps
     | "disabled"
     | "errorText"
     | "helperText"
+    | "label"
     | "optionClassName"
     | "optionsListClassName"
     | "successText"
@@ -28,6 +29,7 @@ export function OptionsList({
   errorText,
   filteredOptionsList,
   helperText,
+  label,
   optionClassName,
   optionsListClassName,
   selectedOptionColor = "bg-primary-highlight",
@@ -42,8 +44,9 @@ export function OptionsList({
       radius="rounded-lg"
       width="w-full"
       className={cn(
-        "absolute z-20 shadow-variant3 overflow-hidden",
-        getListPositionStyles(helperText || errorText || successText),
+        label && "mt-0.5",
+        getOptionsListStyles(),
+        getOptionsListPositionStyles(helperText || errorText || successText),
         optionsListClassName
       )}
       role="menu"

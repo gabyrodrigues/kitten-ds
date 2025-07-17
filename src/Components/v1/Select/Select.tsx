@@ -137,9 +137,9 @@ export default function Select({
     options: OptionType[],
     searchQuery: string | number,
     autoComplete: boolean,
-    isSearch: boolean
+    isSearching: boolean
   ): OptionType[] {
-    if (!autoComplete || !isSearch) {
+    if (!autoComplete || !isSearching) {
       return options
     }
 
@@ -354,12 +354,13 @@ export default function Select({
           />
         </Flex>
 
-        {isListOpen && (
+        {isListOpen && !disabled && !readOnly && (
           <OptionsList
             disabled={disabled}
             errorText={errorText}
             filteredOptionsList={filteredOptionsList}
             helperText={helperText}
+            label={label}
             optionClassName={optionClassName}
             optionsListClassName={optionsListClassName}
             selectedOptionColor={selectedOptionColor}

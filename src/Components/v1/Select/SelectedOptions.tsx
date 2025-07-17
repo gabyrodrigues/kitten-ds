@@ -31,6 +31,7 @@ export function SelectedOptions({
               color="gray"
               variant="outlined"
               disabled={disabled}
+              readOnly={readOnly}
               className="cursor-default font-normal shrink-0 py-0.5 pl-2 pr-0.5"
               onDelete={(event) => {
                 event.stopPropagation()
