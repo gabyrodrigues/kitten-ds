@@ -63,7 +63,7 @@ export default function Select({
   const selectedLabel = filterSelectedLabel()
   const initialSelectedOptions = filterInitialSelectedOptions(selectedOption)
 
-  const [, setIsSearching] = useState(false)
+  const [isSearching, setIsSearching] = useState(false)
   const [isListOpen, setIsListOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState<string | number>("")
   const [selectedOptions, setSelectedOptions] = useState<OptionType[]>(initialSelectedOptions)
@@ -78,6 +78,8 @@ export default function Select({
 
   const reactId = useId()
   const baseId = id ?? `select-${reactId}`
+
+  const filteredOptionsList = filterOptionsList(options, searchQuery, autoComplete, isSearching)
 
   function filterSelectedOption(): OptionType | OptionType[] | undefined {
     if (Array.isArray(value)) {
@@ -129,6 +131,27 @@ export default function Select({
     }
 
     return []
+  }
+
+  function filterOptionsList(
+    options: OptionType[],
+    searchQuery: string | number,
+    autoComplete: boolean,
+    isSearch: boolean
+  ): OptionType[] {
+    if (!autoComplete || !isSearch) {
+      return options
+    }
+
+    return options.filter((option) => {
+      const label = typeof option === "object" ? option.label : option
+
+      if (typeof label === "string" && typeof searchQuery === "string") {
+        return label.toLowerCase().includes(searchQuery.toLowerCase())
+      }
+
+      return label === searchQuery
+    })
   }
 
   function isOptionsListItemSelected(option: OptionType) {
@@ -335,8 +358,8 @@ export default function Select({
           <OptionsList
             disabled={disabled}
             errorText={errorText}
+            filteredOptionsList={filteredOptionsList}
             helperText={helperText}
-            options={options}
             optionClassName={optionClassName}
             optionsListClassName={optionsListClassName}
             selectedOptionColor={selectedOptionColor}

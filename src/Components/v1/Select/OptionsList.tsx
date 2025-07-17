@@ -12,12 +12,12 @@ interface OptionsListProps
     | "disabled"
     | "errorText"
     | "helperText"
-    | "options"
     | "optionClassName"
     | "optionsListClassName"
     | "successText"
     | "selectedOptionColor"
   > {
+  filteredOptionsList: OptionType[]
   isOptionsListItemSelected: (option: OptionType) => boolean
   handleClickOption(event: MouseEvent<HTMLElement>, option: OptionType): void
   handleKeyDownOption(event: KeyboardEvent<HTMLElement>): void
@@ -26,15 +26,15 @@ interface OptionsListProps
 export function OptionsList({
   disabled,
   errorText,
-  handleClickOption,
-  handleKeyDownOption,
+  filteredOptionsList,
   helperText,
-  isOptionsListItemSelected,
-  options,
   optionClassName,
   optionsListClassName,
   selectedOptionColor = "bg-primary-highlight",
-  successText
+  successText,
+  handleClickOption,
+  handleKeyDownOption,
+  isOptionsListItemSelected
 }: OptionsListProps) {
   return (
     <Flex
@@ -48,7 +48,7 @@ export function OptionsList({
       )}
       role="menu"
     >
-      {options.map((option) => (
+      {filteredOptionsList.map((option) => (
         <Flex
           key={typeof option === "object" ? option.label : option}
           tabIndex={0}
