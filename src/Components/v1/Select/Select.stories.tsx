@@ -158,7 +158,7 @@ const meta: Meta<typeof Select> = {
       description:
         "Define o campo como obrigatório (`required`). Isso indica que o campo deve ser preenchido antes do envio do formulário."
     },
-    selectedItemColor: {
+    selectedOptionColor: {
       description: "Cor de fundo da opção selecionada."
     },
     successText: {
@@ -212,5 +212,21 @@ const SELECT_WITH_STATE = (args: SelectProps) => {
 
 export const Default: Story = {
   name: "Versão padrão",
+  args: {
+    label: "Selecione um alimento"
+  },
+  render: (args) => <SELECT_WITH_STATE {...(args as SelectProps)} />
+}
+
+export const Multiple: Story = {
+  name: "Versão de seleção múltipla",
+  args: {
+    label: "Selecione seus alimentos favoritos",
+    id: "multiple",
+    value: "",
+    autoComplete: true,
+    multiple: true,
+    content_class_name: "w-full max-w-80"
+  },
   render: (args) => <SELECT_WITH_STATE {...(args as SelectProps)} />
 }

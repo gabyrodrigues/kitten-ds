@@ -12,9 +12,9 @@ import { Flex } from "../Flex"
 import { Icon } from "../Icon"
 import { IconButton } from "../IconButton"
 import { Input } from "../Input"
-import { Text } from "../Text"
+import { OptionsList } from "./OptionsList"
 import type { OptionObject, OptionType, SelectProps } from "./Select.types"
-import { getListPositionStyles } from "./Styles"
+import { SelectedOptions } from "./SelectedOptions"
 
 export default function Select({
   autoComplete = false,
@@ -34,17 +34,17 @@ export default function Select({
   inputClassName,
   label,
   labelClassName,
-  // leftSection,
+  leftSection,
   multiple = false,
   // notFoundLabel = "",
-  // optionClassName,
+  optionClassName,
   paddingL = "pl-3",
   paddingR = "pr-8",
-  paddingY = "py-2",
+  paddingY = "py-1",
   placeholder = "Selecione uma opção",
   readOnly = false,
   required = false,
-  selectedItemColor = "bg-primary-highlight",
+  selectedOptionColor = "bg-primary-highlight",
   successText,
   options,
   optionsListClassName,
@@ -55,18 +55,18 @@ export default function Select({
   withAsterisk = false,
   ...props
 }: SelectProps) {
-  const getItemValue = useCallback((option: OptionType): string | number => {
+  const getOptionValue = useCallback((option: OptionType): string | number => {
     return typeof option === "object" ? option.value : option
   }, [])
 
-  const selectedItem = filterSelectedItem()
+  const selectedOption = filterSelectedOption()
   const selectedLabel = filterSelectedLabel()
-  const initialSelectedItems = filterInitialSelectedItems(selectedItem)
+  const initialSelectedOptions = filterInitialSelectedOptions(selectedOption)
 
   const [, setIsSearching] = useState(false)
   const [isListOpen, setIsListOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState<string | number>("")
-  const [selectedItems, setSelectedItems] = useState<OptionType[]>(initialSelectedItems)
+  const [selectedOptions, setSelectedOptions] = useState<OptionType[]>(initialSelectedOptions)
 
   const selectRef = useRef<HTMLDivElement>(null)
   const rootClasses = cn(full ? "w-full" : "w-fit", className)
@@ -79,30 +79,30 @@ export default function Select({
   const reactId = useId()
   const baseId = id ?? `select-${reactId}`
 
-  function filterSelectedItem(): OptionType | OptionType[] | undefined {
+  function filterSelectedOption(): OptionType | OptionType[] | undefined {
     if (Array.isArray(value)) {
       return options.filter((option) => {
-        const optionValue = getItemValue(option)
-        return value.some((item) => {
-          if (typeof item === "object" && item.value) {
-            return item.value === optionValue
+        const optionValue = getOptionValue(option)
+        return value.some((option) => {
+          if (typeof option === "object" && option.value) {
+            return option.value === optionValue
           }
-          return item === optionValue
+          return option === optionValue
         })
       })
     }
 
-    return options.find((option) => getItemValue(option) === value)
+    return options.find((option) => getOptionValue(option) === value)
   }
 
   function filterSelectedLabel() {
-    if (multiple || Array.isArray(selectedItem)) {
-      const selectedMultiple = (selectedItem as OptionType[]) || []
-      if (selectedMultiple.length > 1 || Array.isArray(selectedItem)) {
+    if (multiple || Array.isArray(selectedOption)) {
+      const selectedMultiple = (selectedOption as OptionType[]) || []
+      if (selectedMultiple.length > 1 || Array.isArray(selectedOption)) {
         return ""
       }
 
-      if (selectedMultiple.length === 1 || Array.isArray(selectedItem)) {
+      if (selectedMultiple.length === 1 || Array.isArray(selectedOption)) {
         const optionLabel =
           typeof selectedMultiple[0] === "object" ? selectedMultiple[0].label : selectedMultiple
 
@@ -112,12 +112,12 @@ export default function Select({
       return ""
     }
 
-    return typeof selectedItem === "object" && selectedItem !== null
-      ? (selectedItem.label ?? "")
-      : selectedItem || ""
+    return typeof selectedOption === "object" && selectedOption !== null
+      ? (selectedOption.label ?? "")
+      : selectedOption || ""
   }
 
-  function filterInitialSelectedItems(
+  function filterInitialSelectedOptions(
     selectedOption: OptionType | OptionType[] | undefined
   ): OptionType[] {
     if (Array.isArray(selectedOption)) {
@@ -131,6 +131,18 @@ export default function Select({
     return []
   }
 
+  function isOptionsListItemSelected(option: OptionType) {
+    const currentValue = getOptionValue(option)
+    const selectedValue = Array.isArray(selectedOption)
+      ? selectedOption.map(getOptionValue)
+      : getOptionValue(selectedOption as OptionType)
+    const isSelected = multiple
+      ? selectedOptions.some((selectedItem) => getOptionValue(selectedItem) === currentValue)
+      : selectedValue === currentValue
+
+    return isSelected
+  }
+
   function handleInputClick() {
     setIsSearching(false)
     if (!disabled && !readOnly) {
@@ -140,7 +152,7 @@ export default function Select({
 
   function handleClear() {
     setSearchQuery("")
-    setSelectedItems([])
+    setSelectedOptions([])
     setIsListOpen(false)
     if (onChange) onChange("")
     if (onClear) onClear()
@@ -156,33 +168,76 @@ export default function Select({
     }
   }
 
-  function handleSelectItem(option: OptionType) {
-    const newSelectedItem =
+  function handleSelectOption(option: OptionType) {
+    const newSelectedOption =
       typeof option === "object" && option !== null
         ? (option as OptionObject)
         : ({ value: option, label: String(option) } as OptionObject)
 
-    // if (multiple) {
-    //   return handleMultipleSelect(newSelectedItem)
-    // }
+    if (multiple) {
+      return handleMultipleSelect(newSelectedOption)
+    }
 
     setIsSearching(false)
-    setSearchQuery(newSelectedItem.label)
-    onChange?.(newSelectedItem.value)
+    setSearchQuery(newSelectedOption.label)
+    onChange?.(newSelectedOption.value)
     setIsListOpen(false)
   }
 
-  function handleClick(event: MouseEvent<HTMLElement>, item: OptionType) {
+  function handleMultipleSelect(newOption: OptionObject) {
+    const isSelected = isOptionSelected(newOption)
+    const updatedOptions = isSelected ? handleRemoveOption(newOption) : handleAddOption(newOption)
+
+    onChange?.(updatedOptions)
+    setSelectedOptions(updatedOptions)
+  }
+
+  function isOptionSelected(option: OptionType): boolean {
+    const optionValue = typeof option === "object" ? option.value : option
+    return selectedOptions.some((selectedOption) =>
+      typeof selectedOption === "object"
+        ? selectedOption.value === optionValue
+        : selectedOption === optionValue
+    )
+  }
+
+  function handleAddOption(option: OptionType): OptionType[] {
+    return [...selectedOptions, option]
+  }
+
+  function handleRemoveOption(option: OptionType): OptionType[] {
+    const optionValue = typeof option === "object" ? option.value : option
+    const updatedSelectedOptions = selectedOptions.filter((selectedOption) =>
+      typeof selectedOption === "object"
+        ? selectedOption.value !== optionValue
+        : selectedOption !== optionValue
+    )
+
+    return updatedSelectedOptions
+  }
+
+  function handleRemoveChipOption(option: OptionType) {
+    const updatedSelectedOptions = handleRemoveOption(option)
+
+    setSelectedOptions(updatedSelectedOptions)
+    onChange?.(
+      updatedSelectedOptions.map((selected) =>
+        typeof selected === "object" ? selected.value : selected
+      )
+    )
+  }
+
+  function handleClickOption(event: MouseEvent<HTMLElement>, option: OptionType) {
     if (disabled || readOnly) {
       event.preventDefault()
       event.stopPropagation()
       return
     }
 
-    handleSelectItem(item)
+    handleSelectOption(option)
   }
 
-  function handleKeyDown(event: KeyboardEvent<HTMLElement>) {
+  function handleKeyDownOption(event: KeyboardEvent<HTMLElement>) {
     if (!disabled && (event.key === " " || event.key === "Enter")) {
       event.preventDefault()
       event.currentTarget.click()
@@ -212,7 +267,7 @@ export default function Select({
             onChange={autoComplete ? handleInputChange : undefined}
             required={required}
             disabled={disabled}
-            placeholder={selectedItems.length === 0 ? placeholder : ""}
+            placeholder={selectedOptions.length === 0 ? placeholder : ""}
             withAsterisk={withAsterisk}
             helperText={helperText}
             errorText={errorText}
@@ -227,22 +282,18 @@ export default function Select({
             contentClassName={mergedClasses}
             onClick={handleInputClick}
             autoComplete="off"
-            // leftSection={
-            //   <SelectedOptions
-            //     readOnly={readOnly}
-            //     disabled={disabled}
-            //     selected_items={selected_items}
-            //     selected_style_count_label={selected_style_count_label}
-            //     multiple_selected_empty_label={multiple_selected_empty_label}
-            //     selected_label={selected_label}
-            //     input_class_name={input_class_name}
-            //     left_section={left_section}
-            //     multiple={multiple}
-            //     selected_style={selected_style}
-            //     handleClear={handleClear}
-            //     handleRemoveTag={handleRemoveTag}
-            //   />
-            // }
+            leftSection={
+              ((multiple && selectedOptions.length) || leftSection) && (
+                <SelectedOptions
+                  readOnly={readOnly}
+                  disabled={disabled}
+                  selectedOptions={selectedOptions}
+                  leftSection={leftSection}
+                  multiple={multiple}
+                  handleRemoveChipOption={handleRemoveChipOption}
+                />
+              )
+            }
             rightSection={
               <Flex
                 align="items-center"
@@ -251,6 +302,7 @@ export default function Select({
                 {clearable && value && !readOnly && !disabled && (
                   <IconButton
                     icon="close"
+                    size="medium"
                     ariaLabel="Clear selection"
                     iconClassName={cn(
                       "text-base text-typography-primary",
@@ -280,51 +332,19 @@ export default function Select({
         </Flex>
 
         {isListOpen && (
-          <Flex
-            direction="flex-col"
-            radius="rounded-lg"
-            width="w-full"
-            className={cn(
-              "absolute z-20 shadow-variant3 overflow-hidden",
-              getListPositionStyles(helperText || errorText || successText),
-              optionsListClassName
-            )}
-            role="menu"
-          >
-            {options.map((item) => (
-              <Flex
-                key={typeof item === "object" ? item.label : item}
-                tabIndex={0}
-                role="menuitem"
-                width="w-full"
-                paddingX="px-2"
-                paddingY="py-2"
-                justify="justify-between"
-                className={cn(
-                  "cursor-pointer [&+&]:border-t [&+&]:border-t-default-border hover:bg-highlight",
-                  "focus-visible:outline-0 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus-ring focus-visible:rounded-lg",
-                  item === selectedItem && selectedItemColor
-                )}
-                onClick={(event) => handleClick(event, item)}
-                onKeyDown={(event) => handleKeyDown(event)}
-              >
-                <Text
-                  variant="body3"
-                  color="text-typography-primary"
-                >
-                  {typeof item === "object" ? item.label : item}
-                </Text>
-
-                {item === selectedItem && (
-                  <Icon
-                    color={disabled ? "text-typography-disabled" : "text-primary"}
-                    type="check"
-                    aria-hidden="true"
-                  />
-                )}
-              </Flex>
-            ))}
-          </Flex>
+          <OptionsList
+            disabled={disabled}
+            errorText={errorText}
+            helperText={helperText}
+            options={options}
+            optionClassName={optionClassName}
+            optionsListClassName={optionsListClassName}
+            selectedOptionColor={selectedOptionColor}
+            successText={successText}
+            isOptionsListItemSelected={isOptionsListItemSelected}
+            handleClickOption={handleClickOption}
+            handleKeyDownOption={handleKeyDownOption}
+          />
         )}
       </Flex>
     </div>
