@@ -76,6 +76,11 @@ const meta: Meta<typeof Input> = {
       control: { type: "text" },
       description: "Classe CSS para o input do componente."
     },
+    inputContentProps: {
+      control: { type: "object" },
+      description:
+        "Propriedades adicionais para o conteúdo do input. Permite passar propriedades extras que serão aplicadas ao elemento HTML do Input, como atributos ARIA, classes CSS adicionais, etc."
+    },
     label: {
       control: { type: "text" },
       description:

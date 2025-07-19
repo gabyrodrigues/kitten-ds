@@ -31,6 +31,7 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(fun
     type = "text",
     fontSize = "text-body3",
     full = false,
+    inputContentProps,
     leftSection,
     multiline = false,
     radius = "rounded-lg",
@@ -140,10 +141,13 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(fun
           )}
         </Text>
       )}
+
       <Flex
         align="items-center"
         width="w-full"
         className={mergedContentClasses}
+        tabIndex={-1}
+        {...inputContentProps}
       >
         {leftSection && (
           <Flex

@@ -108,6 +108,14 @@ export interface InputProps
    */
   componentProps?: FlexProps
 
+  /*
+   * It spreads the properties to the input content container element.
+   * The props are the same as the Flex component props.
+   * It is applied to the container that holds the input element.
+   * This can be used to control layout, spacing, and other visual aspects of the input container.
+   */
+  inputContentProps?: FlexProps
+
   /**
    * The placeholder text for the input.
    * This text is displayed when the input is empty and not focused.
