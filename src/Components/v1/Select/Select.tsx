@@ -25,6 +25,7 @@ export default function Select({
   clearable = false,
   clearButtonProps,
   contentClassName,
+  componentProps,
   disabled = false,
   errorText,
   fontSize,
@@ -70,6 +71,7 @@ export default function Select({
 
   const selectRef = useRef<HTMLDivElement>(null)
   const rootClasses = cn(full ? "w-full" : "w-fit", className)
+  const optionsListItemRef = useRef<(HTMLDivElement | null)[]>([])
 
   const mergedClasses = cn(
     !readOnly && !disabled ? "cursor-pointer" : "cursor-disabled",
@@ -77,7 +79,9 @@ export default function Select({
   )
 
   const reactId = useId()
+  const reactListId = useId()
   const baseId = id ?? `select-${reactId}`
+  const optionsListId = `select-list-${reactListId}`
 
   const filteredOptionsList = filterOptionsList(options, searchQuery, autoComplete, isSearching)
 
@@ -260,10 +264,35 @@ export default function Select({
     handleSelectOption(option)
   }
 
-  function handleKeyDownOption(event: KeyboardEvent<HTMLElement>) {
-    if (!disabled && (event.key === " " || event.key === "Enter")) {
-      event.preventDefault()
-      event.currentTarget.click()
+  function handleKeyDownOption(event: KeyboardEvent<HTMLElement>, index: number) {
+    if (!disabled) {
+      event.stopPropagation()
+      if (event.key === " " || event.key === "Enter") {
+        event.preventDefault()
+        event.currentTarget.click()
+      }
+
+      if (event.key === "ArrowDown") {
+        event.preventDefault()
+        const next = optionsListItemRef.current[index + 1]
+        if (next) next.focus()
+      }
+
+      if (event.key === "ArrowUp") {
+        event.preventDefault()
+        const prev = optionsListItemRef.current[index - 1]
+        if (prev) prev.focus()
+      }
+    }
+  }
+
+  function handleKeyDownSelectContainer(event: KeyboardEvent<HTMLElement>) {
+    if (!disabled && (event.key === " " || event.key === "Enter" || event.key === "ArrowDown")) {
+      setIsListOpen(true)
+      // Optionally, focus first item after opening
+      setTimeout(() => {
+        optionsListItemRef.current[0]?.focus()
+      }, 0)
     }
   }
 
@@ -280,11 +309,20 @@ export default function Select({
         <Flex
           onClick={handleInputClick}
           width="w-full"
+          // biome-ignore lint/a11y/useSemanticElements: this is a custom select input
+          role="combobox"
+          aria-controls={optionsListId}
+          aria-labelledby={props["aria-labelledby"]}
+          aria-expanded={isListOpen}
+          {...componentProps}
         >
           <Input
             id={baseId}
             readOnly={!autoComplete || readOnly}
             label={label}
+            inputContentProps={{
+              onKeyDown: handleKeyDownSelectContainer
+            }}
             labelClassName={labelClassName}
             value={autoComplete ? searchQuery : selectedLabel}
             onChange={autoComplete ? handleInputChange : undefined}
@@ -354,22 +392,24 @@ export default function Select({
           />
         </Flex>
 
-        {isListOpen && !disabled && !readOnly && (
-          <OptionsList
-            disabled={disabled}
-            errorText={errorText}
-            filteredOptionsList={filteredOptionsList}
-            helperText={helperText}
-            label={label}
-            optionClassName={optionClassName}
-            optionsListClassName={optionsListClassName}
-            selectedOptionColor={selectedOptionColor}
-            successText={successText}
-            isOptionsListItemSelected={isOptionsListItemSelected}
-            handleClickOption={handleClickOption}
-            handleKeyDownOption={handleKeyDownOption}
-          />
-        )}
+        <OptionsList
+          disabled={disabled}
+          errorText={errorText}
+          filteredOptionsList={filteredOptionsList}
+          helperText={helperText}
+          optionsListId={optionsListId}
+          isListOpen={isListOpen}
+          label={label}
+          multiple={multiple}
+          optionClassName={optionClassName}
+          optionsListClassName={optionsListClassName}
+          optionsListItemRef={optionsListItemRef}
+          selectedOptionColor={selectedOptionColor}
+          successText={successText}
+          isOptionsListItemSelected={isOptionsListItemSelected}
+          handleClickOption={handleClickOption}
+          handleKeyDownOption={handleKeyDownOption}
+        />
       </Flex>
     </div>
   )

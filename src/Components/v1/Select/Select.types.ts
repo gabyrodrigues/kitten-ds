@@ -1,4 +1,5 @@
 import type { ChangeEvent, FocusEvent, ReactNode } from "react"
+import type { FlexProps } from "../Flex/Flex.types"
 import type { IconButtonProps } from "../IconButton/IconButton.types"
 import type { InputProps } from "../Input/Input.types"
 import type { TextSize } from "../Text/Text.types"
@@ -41,6 +42,14 @@ export interface SelectProps extends Omit<InputProps, "value" | "onChange" | "au
    * The placeholder for the Select.
    */
   placeholder?: string
+
+  /**
+   * It spreads the properties to the root element of the Select component.
+   * The props are the same as the Flex component props.
+   * It is applied to the root element of the Select component.
+   * This can be used to control layout, spacing, and other visual aspects.
+   */
+  componentProps?: FlexProps
 
   /**
    * The id of the select element.

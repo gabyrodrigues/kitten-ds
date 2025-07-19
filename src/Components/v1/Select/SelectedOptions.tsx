@@ -34,6 +34,7 @@ export function SelectedOptions({
               readOnly={readOnly}
               className="cursor-default font-normal shrink-0 py-0.5 pl-2 pr-0.5"
               onDelete={(event) => {
+                event.preventDefault()
                 event.stopPropagation()
                 !readOnly && !disabled && handleRemoveChipOption(option)
               }}

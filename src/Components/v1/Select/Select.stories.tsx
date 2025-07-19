@@ -50,6 +50,11 @@ const meta: Meta<typeof Select> = {
       control: { type: "text" },
       description: "Opção para adicionar classes CSS ao container que envolve o select."
     },
+    componentProps: {
+      control: { type: "object" },
+      description:
+        "Propriedades adicionais para o componente Select. Permite passar propriedades extras que serão aplicadas ao elemento HTML do Select, como atributos ARIA, classes CSS adicionais, etc."
+    },
     disabled: {
       control: { type: "boolean" },
       description:
@@ -180,7 +185,6 @@ const meta: Meta<typeof Select> = {
     label: "Rótulo do Select",
     placeholder: "Placeholder",
     clearable: false,
-    id: "select",
     value: "cupcake",
     multiple: false,
     readOnly: false,
@@ -222,7 +226,6 @@ export const Multiple: Story = {
   name: "Versão de seleção múltipla",
   args: {
     label: "Selecione seus alimentos favoritos",
-    id: "multiple",
     value: "",
     autoComplete: true,
     multiple: true,
