@@ -70,7 +70,8 @@ export default function Select({
   const [selectedOptions, setSelectedOptions] = useState<OptionType[]>(initialSelectedOptions)
 
   const selectRef = useRef<HTMLDivElement>(null)
-  const rootClasses = cn(full ? "w-full" : "w-fit", className)
+  const mergedRootClasses = cn(full ? "w-full" : "w-fit", className)
+  const mergedInputClasses = cn(!autoComplete && multiple && "w-0 h-0", inputClassName)
   const optionsListItemRef = useRef<(HTMLDivElement | null)[]>([])
 
   const mergedClasses = cn(
@@ -299,7 +300,7 @@ export default function Select({
   return (
     <div
       ref={selectRef}
-      className={rootClasses}
+      className={mergedRootClasses}
     >
       <Flex
         align="items-center"
@@ -387,7 +388,7 @@ export default function Select({
                 />
               </Flex>
             }
-            inputClassName={cn(inputClassName)}
+            inputClassName={mergedInputClasses}
             {...props}
           />
         </Flex>

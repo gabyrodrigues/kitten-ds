@@ -229,7 +229,7 @@ export const Multiple: Story = {
     value: "",
     autoComplete: true,
     multiple: true,
-    content_class_name: "w-full max-w-80"
+    contentClassName: "w-full max-w-80"
   },
   render: (args) => <SELECT_WITH_STATE {...(args as SelectProps)} />
 }
