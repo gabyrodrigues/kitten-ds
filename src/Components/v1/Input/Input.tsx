@@ -153,6 +153,7 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(fun
           <Flex
             align="items-center"
             gap="gap-1"
+            wrap="flex-wrap"
             className="shrink-0 max-w-fit"
           >
             {leftSection}
