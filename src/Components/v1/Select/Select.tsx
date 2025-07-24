@@ -52,13 +52,13 @@ export default function Select({
     return typeof option === "object" ? option.value : option
   }, [])
 
-  const selectedOption = filterSelectedOption()
-  const selectedLabel = filterSelectedLabel()
+  const selectedOption = getSelectedOption()
+  const selectedLabel = getSelectedLabel(selectedOption)
   const initialSelectedOptions = filterInitialSelectedOptions(selectedOption)
 
   const [isSearching, setIsSearching] = useState(false)
   const [isListOpen, setIsListOpen] = useState(false)
-  const [searchQuery, setSearchQuery] = useState<string | number>("")
+  const [searchQuery, setSearchQuery] = useState<string | number>(selectedLabel)
   const [selectedOptions, setSelectedOptions] = useState<OptionType[]>(initialSelectedOptions)
 
   const selectRef = useRef<HTMLDivElement>(null)
@@ -79,42 +79,20 @@ export default function Select({
 
   const filteredOptionsList = filterOptionsList(options, searchQuery, autoComplete, isSearching)
 
-  function filterSelectedOption(): OptionType | OptionType[] | undefined {
-    if (Array.isArray(value)) {
-      return options.filter((option) => {
-        const optionValue = getOptionValue(option)
-        return value.some((option) => {
-          if (typeof option === "object" && option.value) {
-            return option.value === optionValue
-          }
-          return option === optionValue
-        })
-      })
+  function getSelectedOption(): OptionType | OptionType[] | undefined {
+    if (multiple && Array.isArray(value)) {
+      return options.filter((option) => value.includes(getOptionValue(option)))
     }
-
     return options.find((option) => getOptionValue(option) === value)
   }
 
-  function filterSelectedLabel() {
-    if (multiple || Array.isArray(selectedOption)) {
-      const selectedMultiple = (selectedOption as OptionType[]) || []
-      if (selectedMultiple.length > 1 || Array.isArray(selectedOption)) {
-        return ""
-      }
-
-      if (selectedMultiple.length === 1 || Array.isArray(selectedOption)) {
-        const optionLabel =
-          typeof selectedMultiple[0] === "object" ? selectedMultiple[0].label : selectedMultiple
-
-        return String(optionLabel)
-      }
-
-      return ""
+  function getSelectedLabel(selectedOption: OptionType | OptionType[] | undefined): string {
+    if (multiple) return ""
+    if (!selectedOption) return ""
+    if (typeof selectedOption === "object" && "label" in selectedOption) {
+      return selectedOption.label ?? ""
     }
-
-    return typeof selectedOption === "object" && selectedOption !== null
-      ? (selectedOption.label ?? "")
-      : selectedOption || ""
+    return String(selectedOption)
   }
 
   function filterInitialSelectedOptions(
@@ -330,6 +308,25 @@ export default function Select({
       if (node) node.removeEventListener("focusout", handleFocusOut)
     }
   }, [isListOpen])
+
+  useEffect(() => {
+    if (multiple && Array.isArray(value)) {
+      const selectedValues = value.map(getOptionValue)
+
+      const updatedOptions = options.filter((option) =>
+        selectedValues.includes(getOptionValue(option))
+      )
+
+      setSelectedOptions(updatedOptions)
+      return
+    }
+  }, [value, options, multiple, getOptionValue])
+
+  useEffect(() => {
+    if (!multiple && autoComplete) {
+      setSearchQuery(selectedLabel)
+    }
+  }, [selectedLabel, multiple, autoComplete])
 
   return (
     <div

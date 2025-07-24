@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Select from "./Select"
 import type { OptionType, SelectProps } from "./Select.types"
 
@@ -203,13 +203,89 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const SELECT_WITH_STATE = (args: SelectProps) => {
-  const [value, set_value] = useState<OptionType | Array<OptionType> | undefined>(args.value)
+  const [value, setValue] = useState<OptionType | Array<OptionType> | undefined>(args.value)
 
   return (
     <Select
       {...args}
       value={value}
-      onChange={(new_value) => set_value(new_value)}
+      onChange={(newValue) => setValue(newValue)}
+    />
+  )
+}
+
+const ASYNC_UPDATE_STATE_SELECT = (args: SelectProps) => {
+  const [value, setValue] = useState<OptionType | Array<OptionType> | undefined>("")
+
+  useEffect(() => {
+    // Simulate an async update
+    setTimeout(() => {
+      setValue("banana")
+    }, 2000)
+  }, [])
+
+  return (
+    <Select
+      {...args}
+      value={value}
+      onChange={(newValue) => setValue(newValue)}
+    />
+  )
+}
+
+const ASYNC_UPDATE_STATE_SELECT_EMPTY = (args: SelectProps) => {
+  const [value, setValue] = useState<OptionType | Array<OptionType> | undefined>("banana")
+
+  useEffect(() => {
+    // Simulate an async update
+    setTimeout(() => {
+      setValue("")
+    }, 2000)
+  }, [])
+
+  return (
+    <Select
+      {...args}
+      value={value}
+      onChange={(newValue) => setValue(newValue)}
+    />
+  )
+}
+
+const ASYNC_UPDATE_STATE_MULTIPLE_SELECT = (args: SelectProps) => {
+  const [value, setValue] = useState<OptionType | Array<OptionType> | undefined>([])
+
+  useEffect(() => {
+    // Simulate an async update
+    setTimeout(() => {
+      setValue(["banana"])
+    }, 2000)
+  }, [])
+
+  return (
+    <Select
+      {...args}
+      value={value}
+      onChange={(newValue) => setValue(newValue)}
+    />
+  )
+}
+
+const ASYNC_UPDATE_STATE_MULTIPLE_SELECT_EMPTY = (args: SelectProps) => {
+  const [value, setValue] = useState<OptionType | Array<OptionType> | undefined>(["banana"])
+
+  useEffect(() => {
+    // Simulate an async update
+    setTimeout(() => {
+      setValue([])
+    }, 2000)
+  }, [])
+
+  return (
+    <Select
+      {...args}
+      value={value}
+      onChange={(newValue) => setValue(newValue)}
     />
   )
 }
@@ -232,4 +308,46 @@ export const Multiple: Story = {
     contentClassName: "w-full max-w-80"
   },
   render: (args) => <SELECT_WITH_STATE {...(args as SelectProps)} />
+}
+
+export const AsyncMultipleObject: Story = {
+  name: "Versão de seleção múltipla com atualização assíncrona",
+  args: {
+    autoComplete: true,
+    multiple: true,
+    label: "Selecione seus alimentos favoritos",
+    contentClassName: "w-full max-w-80"
+  },
+  render: (args) => <ASYNC_UPDATE_STATE_MULTIPLE_SELECT {...(args as SelectProps)} />
+}
+
+export const AsyncSimpleObject: Story = {
+  name: "Versão de seleção simples com atualização assíncrona",
+  args: {
+    autoComplete: true,
+    label: "Selecione um alimento",
+    contentClassName: "w-full max-w-80"
+  },
+  render: (args) => <ASYNC_UPDATE_STATE_SELECT {...(args as SelectProps)} />
+}
+
+export const AsyncMultipleObjectEmpty: Story = {
+  name: "Versão de seleção múltipla com limpeza assíncrona",
+  args: {
+    label: "Selecione seus alimentos favoritos",
+    autoComplete: true,
+    multiple: true,
+    contentClassName: "w-full max-w-80"
+  },
+  render: (args) => <ASYNC_UPDATE_STATE_MULTIPLE_SELECT_EMPTY {...(args as SelectProps)} />
+}
+
+export const AsyncSimpleObjectEmpty: Story = {
+  name: "Versão de seleção simples com limpeza assíncrona",
+  args: {
+    label: "Selecione um alimento",
+    autoComplete: true,
+    contentClassName: "w-full max-w-80"
+  },
+  render: (args) => <ASYNC_UPDATE_STATE_SELECT_EMPTY {...(args as SelectProps)} />
 }
