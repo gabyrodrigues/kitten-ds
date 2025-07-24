@@ -1,13 +1,5 @@
 import { cn } from "@utils"
-import {
-  type ChangeEvent,
-  type KeyboardEvent,
-  type MouseEvent,
-  useCallback,
-  useId,
-  useRef,
-  useState
-} from "react"
+import { type ChangeEvent, useCallback, useEffect, useId, useRef, useState } from "react"
 import { Flex } from "../Flex"
 import { Icon } from "../Icon"
 import { IconButton } from "../IconButton"
@@ -70,6 +62,7 @@ export default function Select({
   const [selectedOptions, setSelectedOptions] = useState<OptionType[]>(initialSelectedOptions)
 
   const selectRef = useRef<HTMLDivElement>(null)
+  const comboboxRef = useRef<HTMLInputElement>(null)
   const mergedRootClasses = cn(full ? "w-full" : "w-fit", className)
   const mergedInputClasses = cn(!autoComplete && multiple && "w-0 h-0", inputClassName)
   const optionsListItemRef = useRef<(HTMLDivElement | null)[]>([])
@@ -255,7 +248,7 @@ export default function Select({
     )
   }
 
-  function handleClickOption(event: MouseEvent<HTMLElement>, option: OptionType) {
+  function handleClickOption(event: React.MouseEvent<HTMLElement>, option: OptionType) {
     if (disabled || readOnly) {
       event.preventDefault()
       event.stopPropagation()
@@ -265,29 +258,35 @@ export default function Select({
     handleSelectOption(option)
   }
 
-  function handleKeyDownOption(event: KeyboardEvent<HTMLElement>, index: number) {
+  function handleKeyDownOption(event: React.KeyboardEvent<HTMLElement>, index: number) {
     if (!disabled) {
       event.stopPropagation()
+      if (event.key === "Escape") {
+        setIsListOpen(false)
+        comboboxRef.current?.parentElement?.focus()
+        return
+      }
       if (event.key === " " || event.key === "Enter") {
         event.preventDefault()
         event.currentTarget.click()
+        return
       }
-
       if (event.key === "ArrowDown") {
         event.preventDefault()
         const next = optionsListItemRef.current[index + 1]
         if (next) next.focus()
+        return
       }
-
       if (event.key === "ArrowUp") {
         event.preventDefault()
         const prev = optionsListItemRef.current[index - 1]
         if (prev) prev.focus()
+        return
       }
     }
   }
 
-  function handleKeyDownSelectContainer(event: KeyboardEvent<HTMLElement>) {
+  function handleKeyDownSelectContainer(event: React.KeyboardEvent) {
     if (!disabled && (event.key === " " || event.key === "Enter" || event.key === "ArrowDown")) {
       setIsListOpen(true)
       // Optionally, focus first item after opening
@@ -296,6 +295,41 @@ export default function Select({
       }, 0)
     }
   }
+
+  useEffect(() => {
+    if (!isListOpen) return
+
+    function handleClickOutside(event: MouseEvent) {
+      if (selectRef.current && !selectRef.current.contains(event.target as Node)) {
+        setIsListOpen(false)
+      }
+    }
+
+    function handleEscapeKey(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setIsListOpen(false)
+        comboboxRef.current?.parentElement?.focus()
+      }
+    }
+
+    function handleFocusOut(event: FocusEvent) {
+      const nextFocused = event.relatedTarget as Node | null
+      if (selectRef.current && !selectRef.current.contains(nextFocused)) {
+        setIsListOpen(false)
+      }
+    }
+
+    const node = selectRef.current
+    if (node) node.addEventListener("focusout", handleFocusOut)
+    document.addEventListener("pointerdown", handleClickOutside)
+    document.addEventListener("keydown", handleEscapeKey)
+
+    return () => {
+      document.removeEventListener("pointerdown", handleClickOutside)
+      document.removeEventListener("keydown", handleEscapeKey)
+      if (node) node.removeEventListener("focusout", handleFocusOut)
+    }
+  }, [isListOpen])
 
   return (
     <div
@@ -307,91 +341,85 @@ export default function Select({
         width="w-full"
         className="relative"
       >
-        <Flex
+        <Input
+          id={baseId}
+          readOnly={!autoComplete || readOnly}
+          label={label}
+          ref={comboboxRef}
+          inputContentProps={{
+            onKeyDown: handleKeyDownSelectContainer,
+            onClick: handleInputClick,
+            width: "w-full",
+            role: "combobox",
+            "aria-controls": optionsListId,
+            "aria-labelledby": props["aria-labelledby"],
+            "aria-expanded": isListOpen,
+            ...componentProps
+          }}
+          labelClassName={labelClassName}
+          value={autoComplete ? searchQuery : selectedLabel}
+          onChange={autoComplete ? handleInputChange : undefined}
+          required={required}
+          disabled={disabled}
+          placeholder={selectedOptions.length === 0 ? placeholder : ""}
+          withAsterisk={withAsterisk}
+          helperText={helperText}
+          errorText={errorText}
+          successText={successText}
+          borderColor={borderColor}
+          bgColor={bgColor}
+          full
+          fontSize={fontSize}
+          paddingL={paddingL}
+          paddingR={paddingR}
+          paddingY={paddingY}
+          contentClassName={mergedClasses}
           onClick={handleInputClick}
-          width="w-full"
-          // biome-ignore lint/a11y/useSemanticElements: this is a custom select input
-          role="combobox"
-          aria-controls={optionsListId}
-          aria-labelledby={props["aria-labelledby"]}
-          aria-expanded={isListOpen}
-          {...componentProps}
-        >
-          <Input
-            id={baseId}
-            readOnly={!autoComplete || readOnly}
-            label={label}
-            inputContentProps={{
-              onKeyDown: handleKeyDownSelectContainer
-            }}
-            labelClassName={labelClassName}
-            value={autoComplete ? searchQuery : selectedLabel}
-            onChange={autoComplete ? handleInputChange : undefined}
-            required={required}
-            disabled={disabled}
-            placeholder={selectedOptions.length === 0 ? placeholder : ""}
-            withAsterisk={withAsterisk}
-            helperText={helperText}
-            errorText={errorText}
-            successText={successText}
-            borderColor={borderColor}
-            bgColor={bgColor}
-            full
-            fontSize={fontSize}
-            paddingL={paddingL}
-            paddingR={paddingR}
-            paddingY={paddingY}
-            contentClassName={mergedClasses}
-            onClick={handleInputClick}
-            autoComplete="off"
-            leftSection={
-              ((multiple && selectedOptions.length) || leftSection) && (
-                <SelectedOptions
-                  readOnly={readOnly}
-                  disabled={disabled}
-                  selectedOptions={selectedOptions}
-                  leftSection={leftSection}
-                  multiple={multiple}
-                  handleRemoveChipOption={handleRemoveChipOption}
-                />
-              )
-            }
-            rightSection={
-              <Flex
-                align="items-center"
-                justify="justify-center"
-              >
-                {clearable && value && !readOnly && !disabled && (
-                  <IconButton
-                    icon="close"
-                    size="medium"
-                    ariaLabel="Clear selection"
-                    iconClassName={cn(
-                      "text-base text-typography-primary",
-                      clearButtonProps?.iconClassName
-                    )}
-                    className={cn("hover:bg-highlight", clearButtonProps?.className)}
-                    {...clearButtonProps}
-                    onClick={(event) => {
-                      event.stopPropagation()
-                      handleClear()
-                    }}
-                  />
-                )}
-                <Icon
-                  color={disabled ? "text-typography-disabled" : "text-typography-secondary"}
-                  type={isListOpen ? "keyboard_arrow_up" : "keyboard_arrow_down"}
-                  className={cn(
-                    "w-4",
-                    !readOnly && !disabled ? "cursor-pointer" : "cursor-default"
+          autoComplete="off"
+          leftSection={
+            ((multiple && selectedOptions.length) || leftSection) && (
+              <SelectedOptions
+                readOnly={readOnly}
+                disabled={disabled}
+                selectedOptions={selectedOptions}
+                leftSection={leftSection}
+                multiple={multiple}
+                handleRemoveChipOption={handleRemoveChipOption}
+              />
+            )
+          }
+          rightSection={
+            <Flex
+              align="items-center"
+              justify="justify-center"
+            >
+              {clearable && value && !readOnly && !disabled && (
+                <IconButton
+                  icon="close"
+                  size="medium"
+                  ariaLabel="Clear selection"
+                  iconClassName={cn(
+                    "text-base text-typography-primary",
+                    clearButtonProps?.iconClassName
                   )}
+                  className={cn("hover:bg-highlight", clearButtonProps?.className)}
+                  {...clearButtonProps}
+                  onClick={(event) => {
+                    event.stopPropagation()
+                    handleClear()
+                  }}
                 />
-              </Flex>
-            }
-            inputClassName={mergedInputClasses}
-            {...props}
-          />
-        </Flex>
+              )}
+              <Icon
+                color={disabled ? "text-typography-disabled" : "text-typography-secondary"}
+                type={isListOpen ? "keyboard_arrow_up" : "keyboard_arrow_down"}
+                className={cn("w-4", !readOnly && !disabled ? "cursor-pointer" : "cursor-default")}
+              />
+            </Flex>
+          }
+          inputClassName={mergedInputClasses}
+          {...props}
+        />
 
         <OptionsList
           disabled={disabled}
