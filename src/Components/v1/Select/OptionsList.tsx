@@ -9,6 +9,7 @@ import { getOptionStyles, getOptionsListPositionStyles, getOptionsListStyles } f
 interface OptionsListProps
   extends Pick<
     SelectProps,
+    | "autoPosition"
     | "disabled"
     | "errorText"
     | "helperText"
@@ -23,27 +24,32 @@ interface OptionsListProps
   filteredOptionsList: OptionType[]
   optionsListId: string
   isListOpen: boolean
+  listboxRef: React.RefObject<HTMLDivElement | null>
   optionsListItemRef: RefObject<(HTMLElement | null)[]>
+  shouldOpenAbove: boolean
   isOptionsListItemSelected: (option: OptionType) => boolean
   handleClickOption(event: MouseEvent<HTMLElement>, option: OptionType): void
   handleKeyDownOption(event: KeyboardEvent<HTMLElement>, index: number): void
 }
 
 export function OptionsList({
-  optionsListId,
+  autoPosition = false,
   disabled,
   errorText,
   filteredOptionsList,
   helperText,
   isListOpen,
   label,
+  listboxRef,
   multiple,
   optionClassName,
   optionsListClassName,
-  selectedOptionColor = "bg-primary-highlight",
-  successText,
+  optionsListId,
   optionsListItemRef,
   readOnly,
+  selectedOptionColor = "bg-primary-highlight",
+  shouldOpenAbove,
+  successText,
   handleClickOption,
   handleKeyDownOption,
   isOptionsListItemSelected
@@ -53,11 +59,17 @@ export function OptionsList({
       direction="flex-col"
       radius="rounded-lg"
       width="w-full"
+      ref={listboxRef}
       className={cn(
         "none",
         label && "mt-0.5",
         getOptionsListStyles(),
-        getOptionsListPositionStyles(helperText || errorText || successText),
+        getOptionsListPositionStyles(
+          autoPosition,
+          shouldOpenAbove,
+          label,
+          helperText || errorText || successText
+        ),
         isListOpen && !disabled && !readOnly ? "flex" : "hidden",
         optionsListClassName
       )}

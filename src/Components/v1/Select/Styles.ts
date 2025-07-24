@@ -9,7 +9,19 @@ export function getOptionsListStyles() {
   )
 }
 
-export function getOptionsListPositionStyles(hasHelperMessages?: string) {
+export function getOptionsListPositionStyles(
+  autoPosition: boolean,
+  shouldOpenAbove: boolean,
+  label?: string,
+  hasHelperMessages?: string
+) {
+  if (autoPosition && shouldOpenAbove) {
+    if (label) {
+      return "top-[unset] bottom-[calc(100%-1.5rem)]"
+    }
+    return "top-[unset] bottom-full"
+  }
+
   if (hasHelperMessages) {
     return cn("top-[calc(100%-1.875rem)] bottom-[unset]")
   }

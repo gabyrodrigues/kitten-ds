@@ -181,6 +181,7 @@ const meta: Meta<typeof Select> = {
     }
   },
   args: {
+    autoPosition: true,
     type: "text",
     label: "Rótulo do Select",
     placeholder: "Placeholder",

@@ -10,7 +10,7 @@ import { SelectedOptions } from "./SelectedOptions"
 
 export default function Select({
   autoComplete = false,
-  // autoPosition = false,
+  autoPosition = false,
   bgColor = "bg-surface",
   borderColor = "border-input-border",
   className,
@@ -60,9 +60,11 @@ export default function Select({
   const [isListOpen, setIsListOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState<string | number>(selectedLabel)
   const [selectedOptions, setSelectedOptions] = useState<OptionType[]>(initialSelectedOptions)
+  const [shouldOpenAbove, setShouldOpenAbove] = useState(false)
 
   const selectRef = useRef<HTMLDivElement>(null)
   const comboboxRef = useRef<HTMLInputElement>(null)
+  const listboxRef = useRef<HTMLDivElement>(null)
   const mergedRootClasses = cn(full ? "w-full" : "w-fit", className)
   const mergedInputClasses = cn(!autoComplete && multiple && "w-0 h-0", inputClassName)
   const optionsListItemRef = useRef<(HTMLDivElement | null)[]>([])
@@ -328,6 +330,22 @@ export default function Select({
     }
   }, [selectedLabel, multiple, autoComplete])
 
+  useEffect(() => {
+    if (isListOpen && autoPosition) {
+      const select = selectRef.current
+      const list = listboxRef.current
+      if (select && list) {
+        const selectRect = select.getBoundingClientRect()
+        const listSize = list.getBoundingClientRect().height
+        const spaceBelow = window.innerHeight - selectRect.bottom
+        const spaceAbove = selectRect.top
+        const shouldOpenAbove = spaceBelow < listSize && spaceAbove > spaceBelow
+        // Toggle styles based on available space
+        setShouldOpenAbove(shouldOpenAbove)
+      }
+    }
+  }, [isListOpen, autoPosition])
+
   return (
     <div
       ref={selectRef}
@@ -419,6 +437,7 @@ export default function Select({
         />
 
         <OptionsList
+          autoPosition={autoPosition}
           disabled={disabled}
           errorText={errorText}
           filteredOptionsList={filteredOptionsList}
@@ -426,11 +445,13 @@ export default function Select({
           optionsListId={optionsListId}
           isListOpen={isListOpen}
           label={label}
+          listboxRef={listboxRef}
           multiple={multiple}
           optionClassName={optionClassName}
           optionsListClassName={optionsListClassName}
           optionsListItemRef={optionsListItemRef}
           selectedOptionColor={selectedOptionColor}
+          shouldOpenAbove={shouldOpenAbove}
           successText={successText}
           isOptionsListItemSelected={isOptionsListItemSelected}
           handleClickOption={handleClickOption}
