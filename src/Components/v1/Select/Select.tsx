@@ -217,7 +217,7 @@ export default function Select({
     return updatedSelectedOptions
   }
 
-  function handleRemoveChipOption(option: OptionType) {
+  function handleRemoveChipOption(option: OptionType, index: number) {
     const updatedSelectedOptions = handleRemoveOption(option)
 
     setSelectedOptions(updatedSelectedOptions)
@@ -226,6 +226,26 @@ export default function Select({
         typeof selected === "object" ? selected.value : selected
       )
     )
+
+    // Focus management: focus next chip (by value), or previous if last, or input if none
+    setTimeout(() => {
+      if (updatedSelectedOptions.length > 0) {
+        // Try to focus the button inside the chip that is now at the same index, or previous if at end
+        let focusIndex = index
+        if (focusIndex >= updatedSelectedOptions.length) {
+          focusIndex = updatedSelectedOptions.length - 1
+        }
+        const focusOption = updatedSelectedOptions[focusIndex]
+        const buttonId = `chip-btn-${baseId}-${getOptionValue(focusOption)}`
+        const buttonEl = document.getElementById(buttonId)
+        if (buttonEl) {
+          ;(buttonEl as HTMLElement).focus()
+        }
+      } else {
+        // No chips left, focus input
+        comboboxRef.current?.focus()
+      }
+    }, 0)
   }
 
   function handleClickOption(event: React.MouseEvent<HTMLElement>, option: OptionType) {
@@ -269,7 +289,6 @@ export default function Select({
   function handleKeyDownSelectContainer(event: React.KeyboardEvent) {
     if (!disabled && (event.key === " " || event.key === "Enter" || event.key === "ArrowDown")) {
       setIsListOpen(true)
-      // Optionally, focus first item after opening
       setTimeout(() => {
         optionsListItemRef.current[0]?.focus()
       }, 0)
@@ -394,11 +413,13 @@ export default function Select({
           leftSection={
             ((multiple && selectedOptions.length) || leftSection) && (
               <SelectedOptions
-                readOnly={readOnly}
+                baseId={baseId}
                 disabled={disabled}
-                selectedOptions={selectedOptions}
                 leftSection={leftSection}
                 multiple={multiple}
+                readOnly={readOnly}
+                selectedOptions={selectedOptions}
+                getOptionValue={getOptionValue}
                 handleRemoveChipOption={handleRemoveChipOption}
               />
             )
