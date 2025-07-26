@@ -37,7 +37,8 @@ export function SelectedOptions({
               readOnly={readOnly}
               className="cursor-default font-normal shrink-0 py-0.5 pl-2 pr-0.5"
               deleteButtonProps={{
-                id: `chip-btn-${baseId}-${getOptionValue(option)}`
+                id: `chip-btn-${baseId}-${getOptionValue(option)}`,
+                "aria-label": `Remove ${typeof option === "object" ? option.label : String(option)}`
               }}
               onDelete={(event) => {
                 event.preventDefault()

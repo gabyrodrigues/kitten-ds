@@ -15,6 +15,7 @@ interface OptionsListProps
     | "helperText"
     | "label"
     | "multiple"
+    | "notFoundLabel"
     | "optionClassName"
     | "optionsListClassName"
     | "successText"
@@ -42,6 +43,7 @@ export function OptionsList({
   label,
   listboxRef,
   multiple,
+  notFoundLabel = "Nenhum resultado encontrado",
   optionClassName,
   optionsListClassName,
   optionsListId,
@@ -80,43 +82,58 @@ export function OptionsList({
       tabIndex={-1}
       id={optionsListId}
     >
-      {filteredOptionsList.map((option, index) => (
-        <Flex
-          key={typeof option === "object" ? option.label : option}
-          ref={(element) => {
-            optionsListItemRef.current[index] = element
-          }}
-          tabIndex={-1}
-          aria-selected={isOptionsListItemSelected(option)}
-          // biome-ignore lint/a11y/useSemanticElements: this is a custom select component list item
-          role="option"
-          component="li"
-          width="w-full"
-          paddingX="px-2"
-          paddingY="py-2"
-          justify="justify-between"
-          className={cn(
-            getOptionStyles(isOptionsListItemSelected(option), selectedOptionColor, optionClassName)
-          )}
-          onClick={(event) => handleClickOption(event, option)}
-          onKeyDown={(event) => handleKeyDownOption(event, index)}
-        >
-          <Text
-            variant="body3"
-            color="text-typography-primary"
+      {filteredOptionsList.length ? (
+        filteredOptionsList.map((option, index) => (
+          <Flex
+            key={typeof option === "object" ? option.label : option}
+            ref={(element) => {
+              optionsListItemRef.current[index] = element
+            }}
+            tabIndex={-1}
+            aria-selected={isOptionsListItemSelected(option)}
+            // biome-ignore lint/a11y/useSemanticElements: this is a custom select component list item
+            role="option"
+            component="li"
+            width="w-full"
+            paddingX="px-2"
+            paddingY="py-2"
+            justify="justify-between"
+            className={cn(
+              getOptionStyles(
+                isOptionsListItemSelected(option),
+                selectedOptionColor,
+                optionClassName
+              )
+            )}
+            onClick={(event) => handleClickOption(event, option)}
+            onKeyDown={(event) => handleKeyDownOption(event, index)}
           >
-            {typeof option === "object" ? option.label : option}
-          </Text>
+            <Text
+              variant="body3"
+              color="text-typography-primary"
+            >
+              {typeof option === "object" ? option.label : option}
+            </Text>
 
-          {isOptionsListItemSelected(option) && (
-            <Icon
-              color={disabled ? "text-typography-disabled" : "text-primary"}
-              type="check"
-              aria-hidden="true"
-            />
-          )}
-        </Flex>
-      ))}
+            {isOptionsListItemSelected(option) && (
+              <Icon
+                color={disabled ? "text-typography-disabled" : "text-primary"}
+                type="check"
+                aria-hidden="true"
+              />
+            )}
+          </Flex>
+        ))
+      ) : (
+        <Text
+          variant="body3"
+          color="text-typography-secondary"
+          fontStyle="italic"
+          className="p-2"
+        >
+          {notFoundLabel}
+        </Text>
+      )}
     </Flex>
   )
 }

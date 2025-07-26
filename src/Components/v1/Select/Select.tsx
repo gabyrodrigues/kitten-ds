@@ -29,15 +29,13 @@ export default function Select({
   labelClassName,
   leftSection,
   multiple = false,
-  // notFoundLabel = "",
   optionClassName,
   paddingL = "pl-3",
-  paddingR = "pr-8",
+  paddingR = clearable ? "pr-16" : "pr-8",
   paddingY = "py-1",
   placeholder = "Selecione uma opção",
   readOnly = false,
   required = false,
-  selectedOptionColor = "bg-primary-highlight",
   successText,
   options,
   optionsListClassName,
@@ -157,6 +155,17 @@ export default function Select({
     setIsListOpen(false)
     if (onChange) onChange("")
     if (onClear) onClear()
+  }
+
+  function handleKeyDownClear(event: React.KeyboardEvent<HTMLElement>) {
+    if (
+      !disabled &&
+      !readOnly &&
+      (event.key === " " || event.key === "Enter" || event.key === "Delete")
+    ) {
+      event.preventDefault()
+      event.currentTarget.click()
+    }
   }
 
   function handleInputChange(value: string, event?: ChangeEvent<HTMLInputElement>) {
@@ -382,6 +391,8 @@ export default function Select({
           readOnly={!autoComplete || readOnly}
           label={label}
           ref={comboboxRef}
+          aria-autocomplete={autoComplete ? "list" : undefined}
+          aria-hidden={!autoComplete}
           inputContentProps={{
             onKeyDown: handleKeyDownSelectContainer,
             onClick: handleInputClick,
@@ -446,6 +457,7 @@ export default function Select({
                     event.stopPropagation()
                     handleClear()
                   }}
+                  onKeyDown={handleKeyDownClear}
                 />
               )}
               <Icon
@@ -473,7 +485,6 @@ export default function Select({
           optionClassName={optionClassName}
           optionsListClassName={optionsListClassName}
           optionsListItemRef={optionsListItemRef}
-          selectedOptionColor={selectedOptionColor}
           shouldOpenAbove={shouldOpenAbove}
           successText={successText}
           isOptionsListItemSelected={isOptionsListItemSelected}
