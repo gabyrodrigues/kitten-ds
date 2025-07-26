@@ -22,6 +22,7 @@ interface OptionsListProps
     | "selectedOptionColor"
     | "readOnly"
   > {
+  activeIndex: number
   filteredOptionsList: OptionType[]
   optionsListId: string
   isListOpen: boolean
@@ -34,6 +35,7 @@ interface OptionsListProps
 }
 
 export function OptionsList({
+  activeIndex,
   autoPosition = false,
   disabled,
   errorText,
@@ -86,10 +88,12 @@ export function OptionsList({
         filteredOptionsList.map((option, index) => (
           <Flex
             key={typeof option === "object" ? option.label : option}
+            id={typeof option === "object" ? option.label : String(option)}
             ref={(element) => {
               optionsListItemRef.current[index] = element
             }}
             tabIndex={-1}
+            data-tabindex={activeIndex === index ? 0 : -1}
             aria-selected={isOptionsListItemSelected(option)}
             // biome-ignore lint/a11y/useSemanticElements: this is a custom select component list item
             role="option"

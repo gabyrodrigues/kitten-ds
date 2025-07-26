@@ -53,7 +53,7 @@ export interface SelectProps extends Omit<InputProps, "value" | "onChange" | "au
   /**
    * The id of the select element.
    */
-  id: string
+  id?: string
 
   /**
    * Sets required attribute on the select element.

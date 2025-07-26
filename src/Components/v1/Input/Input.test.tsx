@@ -102,7 +102,6 @@ describe("Input", () => {
   })
 
   it("renders successText with aria-describedby and correct border color", () => {
-    // Success case
     render(
       <Input
         value=""

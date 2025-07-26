@@ -59,6 +59,7 @@ export default function Select({
   const [searchQuery, setSearchQuery] = useState<string | number>(selectedLabel)
   const [selectedOptions, setSelectedOptions] = useState<OptionType[]>(initialSelectedOptions)
   const [shouldOpenAbove, setShouldOpenAbove] = useState(false)
+  const [activeIndex, setActiveIndex] = useState(-1)
 
   const selectRef = useRef<HTMLDivElement>(null)
   const comboboxRef = useRef<HTMLInputElement>(null)
@@ -69,6 +70,8 @@ export default function Select({
 
   const mergedClasses = cn(
     !readOnly && !disabled ? "cursor-pointer" : "cursor-disabled",
+    !disabled &&
+      "focus-within:outline-0 focus-within:ring-2 focus-within:ring-focus-ring focus-within:border-transparent",
     contentClassName
   )
 
@@ -279,6 +282,7 @@ export default function Select({
           break
         case "ArrowDown":
           event.preventDefault()
+          setActiveIndex((prev) => Math.min(prev + 1, filteredOptionsList.length - 1))
           {
             const next = optionsListItemRef.current[index + 1]
             if (next) next.focus()
@@ -286,9 +290,26 @@ export default function Select({
           break
         case "ArrowUp":
           event.preventDefault()
+          setActiveIndex((prev) => Math.max(prev - 1, 0))
           {
             const prev = optionsListItemRef.current[index - 1]
             if (prev) prev.focus()
+          }
+          break
+        case "Home":
+          event.preventDefault()
+          setActiveIndex(0)
+          {
+            const first = optionsListItemRef.current[0]
+            if (first) first.focus()
+          }
+          break
+        case "End":
+          event.preventDefault()
+          setActiveIndex(filteredOptionsList.length - 1)
+          {
+            const last = optionsListItemRef.current[filteredOptionsList.length - 1]
+            if (last) last.focus()
           }
           break
         default:
@@ -300,6 +321,7 @@ export default function Select({
   function handleKeyDownSelectContainer(event: React.KeyboardEvent) {
     if (!disabled && (event.key === " " || event.key === "Enter" || event.key === "ArrowDown")) {
       setIsListOpen(true)
+      setActiveIndex(0)
       setTimeout(() => {
         optionsListItemRef.current[0]?.focus()
       }, 0)
@@ -471,26 +493,29 @@ export default function Select({
           {...props}
         />
 
-        <OptionsList
-          autoPosition={autoPosition}
-          disabled={disabled}
-          errorText={errorText}
-          filteredOptionsList={filteredOptionsList}
-          helperText={helperText}
-          optionsListId={optionsListId}
-          isListOpen={isListOpen}
-          label={label}
-          listboxRef={listboxRef}
-          multiple={multiple}
-          optionClassName={optionClassName}
-          optionsListClassName={optionsListClassName}
-          optionsListItemRef={optionsListItemRef}
-          shouldOpenAbove={shouldOpenAbove}
-          successText={successText}
-          isOptionsListItemSelected={isOptionsListItemSelected}
-          handleClickOption={handleClickOption}
-          handleKeyDownOption={handleKeyDownOption}
-        />
+        {isListOpen && (
+          <OptionsList
+            activeIndex={activeIndex}
+            autoPosition={autoPosition}
+            disabled={disabled}
+            errorText={errorText}
+            filteredOptionsList={filteredOptionsList}
+            helperText={helperText}
+            optionsListId={optionsListId}
+            isListOpen={isListOpen}
+            label={label}
+            listboxRef={listboxRef}
+            multiple={multiple}
+            optionClassName={optionClassName}
+            optionsListClassName={optionsListClassName}
+            optionsListItemRef={optionsListItemRef}
+            shouldOpenAbove={shouldOpenAbove}
+            successText={successText}
+            isOptionsListItemSelected={isOptionsListItemSelected}
+            handleClickOption={handleClickOption}
+            handleKeyDownOption={handleKeyDownOption}
+          />
+        )}
       </Flex>
     </div>
   )
