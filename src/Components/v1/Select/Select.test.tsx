@@ -229,9 +229,151 @@ describe("Select", () => {
     fireEvent.keyDown(options[0], { key: "Enter" }) // select Banana
     const chipBtn = screen.getByRole("button", { name: "Remove Banana" })
     expect(chipBtn).toBeInTheDocument()
-    // Remove chip with Backspace
+    // Remove chip with Delete
     chipBtn.focus()
     fireEvent.keyDown(chipBtn, { key: "Delete" })
     expect(chipBtn).not.toBeInTheDocument()
+  })
+
+  it("should not open or allow changes when readOnly", () => {
+    render(
+      <Select
+        value=""
+        readOnly
+        {...defaultProps}
+      />
+    )
+    const input = screen.getByLabelText("Selecione um alimento")
+    fireEvent.click(input)
+    expect(screen.queryByRole("listbox")).not.toBeInTheDocument()
+    fireEvent.keyDown(input, { key: "ArrowDown" })
+    expect(screen.queryByRole("listbox")).not.toBeInTheDocument()
+  })
+
+  it("should not render clear button when clearable is false", () => {
+    render(
+      <Select
+        value="banana"
+        clearable={false}
+        {...defaultProps}
+      />
+    )
+    expect(screen.queryByLabelText(/clear/i)).not.toBeInTheDocument()
+  })
+
+  it("should show helper text and set aria-describedby", () => {
+    render(
+      <Select
+        value=""
+        helperText="Ajuda"
+        {...defaultProps}
+      />
+    )
+    expect(screen.getByText("Ajuda")).toBeInTheDocument()
+    const input = screen.getByLabelText("Selecione um alimento")
+    expect(input).toHaveAttribute("aria-describedby")
+  })
+
+  it("should accept custom ARIA props and set them on input", () => {
+    render(
+      <Select
+        value=""
+        aria-label="Custom label"
+        aria-describedby="custom-desc"
+        {...defaultProps}
+      />
+    )
+    const input = screen.getByLabelText("Custom label")
+    expect(input).toHaveAttribute("aria-describedby", "custom-desc")
+  })
+
+  it("should wrap focus with ArrowUp/ArrowDown", () => {
+    render(
+      <Select
+        value=""
+        {...defaultProps}
+      />
+    )
+    const input = screen.getByLabelText("Selecione um alimento")
+    input.focus()
+    fireEvent.keyDown(input, { key: "ArrowDown" })
+    let options = screen.getAllByRole("option")
+    // ArrowUp on first should wrap to last
+    fireEvent.keyDown(options[0], { key: "ArrowUp" })
+    options = screen.getAllByRole("option")
+    expect(options[options.length - 1]).toHaveAttribute("data-tabindex", "0")
+    // ArrowDown on last should wrap to first
+    fireEvent.keyDown(options[options.length - 1], { key: "ArrowDown" })
+    options = screen.getAllByRole("option")
+    expect(options[0]).toHaveAttribute("data-tabindex", "0")
+  })
+
+  it("should keep focus on input when Tab is pressed", () => {
+    render(
+      <Select
+        value=""
+        {...defaultProps}
+      />
+    )
+    const input = screen.getByLabelText("Selecione um alimento")
+    input.focus()
+    fireEvent.keyDown(input, { key: "ArrowDown" })
+    const options = screen.getAllByRole("option")
+    expect(options[0]).toHaveAttribute("data-tabindex", "0")
+    fireEvent.keyDown(input, { key: "Tab" })
+    expect(input).toHaveFocus()
+  })
+
+  it("should update when options prop changes asynchronously", async () => {
+    function WrapperAsync() {
+      const [options, setOptions] = useState(defaultProps.options)
+      return (
+        <>
+          <button
+            type="button"
+            onClick={() => setOptions([{ value: "kiwi", label: "Kiwi" }])}
+          >
+            Change
+          </button>
+          <Select
+            value=""
+            {...defaultProps}
+            options={options}
+          />
+        </>
+      )
+    }
+    render(<WrapperAsync />)
+    const input = screen.getByLabelText("Selecione um alimento")
+    fireEvent.keyDown(input, { key: "ArrowDown" })
+    expect(screen.getAllByRole("option").length).toBe(defaultProps.options.length)
+    fireEvent.click(screen.getByText("Change"))
+    fireEvent.keyDown(input, { key: "ArrowDown" })
+    expect(screen.getAllByRole("option").length).toBe(1)
+    expect(screen.getByText("Kiwi")).toBeInTheDocument()
+  })
+
+  it("should update when value changes asynchronously", async () => {
+    function WrapperAsync() {
+      const [value, setValue] = useState<OptionType>("")
+      return (
+        <>
+          <button
+            type="button"
+            onClick={() => setValue("sushi")}
+          >
+            Change
+          </button>
+          <Select
+            {...defaultProps}
+            value={value}
+          />
+        </>
+      )
+    }
+    render(<WrapperAsync />)
+    const input = screen.getByLabelText("Selecione um alimento")
+    fireEvent.click(screen.getByText("Change"))
+    expect(input).toHaveValue("Sushi")
   })
 })
