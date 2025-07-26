@@ -267,7 +267,7 @@ export default function Select({
     handleSelectOption(option)
   }
 
-  function handleKeyDownOption(event: React.KeyboardEvent<HTMLElement>, index: number) {
+  function handleKeyDownOption(event: React.KeyboardEvent<HTMLElement>) {
     if (!disabled) {
       event.stopPropagation()
       switch (event.key) {
@@ -280,22 +280,42 @@ export default function Select({
           event.preventDefault()
           event.currentTarget.click()
           break
-        case "ArrowDown":
+        case "ArrowDown": {
           event.preventDefault()
-          setActiveIndex((prev) => Math.min(prev + 1, filteredOptionsList.length - 1))
-          {
-            const next = optionsListItemRef.current[index + 1]
-            if (next) next.focus()
-          }
+          setActiveIndex((prev) => {
+            const nextIndex = prev + 1
+            if (nextIndex >= filteredOptionsList.length) {
+              // Wrap to first
+              setTimeout(() => {
+                optionsListItemRef.current[0]?.focus()
+              }, 0)
+              return 0
+            }
+            setTimeout(() => {
+              optionsListItemRef.current[nextIndex]?.focus()
+            }, 0)
+            return nextIndex
+          })
           break
-        case "ArrowUp":
+        }
+        case "ArrowUp": {
           event.preventDefault()
-          setActiveIndex((prev) => Math.max(prev - 1, 0))
-          {
-            const prev = optionsListItemRef.current[index - 1]
-            if (prev) prev.focus()
-          }
+          setActiveIndex((prev) => {
+            const prevIndex = prev - 1
+            if (prevIndex < 0) {
+              // Wrap to last
+              setTimeout(() => {
+                optionsListItemRef.current[filteredOptionsList.length - 1]?.focus()
+              }, 0)
+              return filteredOptionsList.length - 1
+            }
+            setTimeout(() => {
+              optionsListItemRef.current[prevIndex]?.focus()
+            }, 0)
+            return prevIndex
+          })
           break
+        }
         case "Home":
           event.preventDefault()
           setActiveIndex(0)
@@ -468,7 +488,7 @@ export default function Select({
                 <IconButton
                   icon="close"
                   size="medium"
-                  ariaLabel="Clear selection"
+                  ariaLabel="Clear"
                   iconClassName={cn(
                     "text-base text-typography-primary",
                     clearButtonProps?.iconClassName
@@ -493,7 +513,7 @@ export default function Select({
           {...props}
         />
 
-        {isListOpen && (
+        {isListOpen && !disabled && !readOnly && (
           <OptionsList
             activeIndex={activeIndex}
             autoPosition={autoPosition}

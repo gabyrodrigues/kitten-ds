@@ -31,7 +31,7 @@ interface OptionsListProps
   shouldOpenAbove: boolean
   isOptionsListItemSelected: (option: OptionType) => boolean
   handleClickOption(event: MouseEvent<HTMLElement>, option: OptionType): void
-  handleKeyDownOption(event: KeyboardEvent<HTMLElement>, index: number): void
+  handleKeyDownOption(event: KeyboardEvent<HTMLElement>): void
 }
 
 export function OptionsList({
@@ -110,7 +110,7 @@ export function OptionsList({
               )
             )}
             onClick={(event) => handleClickOption(event, option)}
-            onKeyDown={(event) => handleKeyDownOption(event, index)}
+            onKeyDown={(event) => handleKeyDownOption(event)}
           >
             <Text
               variant="body3"
