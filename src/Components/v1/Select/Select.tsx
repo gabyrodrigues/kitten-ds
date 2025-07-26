@@ -228,24 +228,21 @@ export default function Select({
     )
 
     // Focus management: focus next chip (by value), or previous if last, or input if none
-    setTimeout(() => {
-      if (updatedSelectedOptions.length > 0) {
-        // Try to focus the button inside the chip that is now at the same index, or previous if at end
-        let focusIndex = index
-        if (focusIndex >= updatedSelectedOptions.length) {
-          focusIndex = updatedSelectedOptions.length - 1
-        }
-        const focusOption = updatedSelectedOptions[focusIndex]
-        const buttonId = `chip-btn-${baseId}-${getOptionValue(focusOption)}`
-        const buttonEl = document.getElementById(buttonId)
-        if (buttonEl) {
-          ;(buttonEl as HTMLElement).focus()
-        }
-      } else {
-        // No chips left, focus input
-        comboboxRef.current?.focus()
-      }
-    }, 0)
+    setTimeout(() => focusChipOrInput(updatedSelectedOptions, index), 0)
+  }
+
+  function focusChipOrInput(options: OptionType[], index: number) {
+    if (options.length === 0) {
+      // No chips left, focus input
+      comboboxRef.current?.focus()
+      return
+    }
+
+    // Focus the button inside the chip at the same index, or previous if last was removed
+    const clampedIndex = Math.min(index, options.length - 1)
+    const focusOption = options[clampedIndex]
+    const buttonId = `chip-btn-${baseId}-${getOptionValue(focusOption)}`
+    document.getElementById(buttonId)?.focus()
   }
 
   function handleClickOption(event: React.MouseEvent<HTMLElement>, option: OptionType) {

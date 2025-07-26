@@ -14,7 +14,6 @@ import type {
 
 export type OptionObject = { value: string | number; label: string }
 export type OptionType = number | string | OptionObject
-export type OptionItem = OptionType[]
 export type SelectedStyleType = "LIST" | "COUNT"
 /**
  * Defines the props available for the Select component.
@@ -175,7 +174,7 @@ export interface SelectProps extends Omit<InputProps, "value" | "onChange" | "au
   /**
    * The options to be displayed in the Select.
    */
-  options: OptionItem
+  options: OptionType[]
 
   /**
    * Option to control if the Select has an autocomplete.
