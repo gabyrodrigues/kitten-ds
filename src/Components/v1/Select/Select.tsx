@@ -258,27 +258,32 @@ export default function Select({
   function handleKeyDownOption(event: React.KeyboardEvent<HTMLElement>, index: number) {
     if (!disabled) {
       event.stopPropagation()
-      if (event.key === "Escape") {
-        setIsListOpen(false)
-        comboboxRef.current?.parentElement?.focus()
-        return
-      }
-      if (event.key === " " || event.key === "Enter") {
-        event.preventDefault()
-        event.currentTarget.click()
-        return
-      }
-      if (event.key === "ArrowDown") {
-        event.preventDefault()
-        const next = optionsListItemRef.current[index + 1]
-        if (next) next.focus()
-        return
-      }
-      if (event.key === "ArrowUp") {
-        event.preventDefault()
-        const prev = optionsListItemRef.current[index - 1]
-        if (prev) prev.focus()
-        return
+      switch (event.key) {
+        case "Escape":
+          setIsListOpen(false)
+          comboboxRef.current?.parentElement?.focus()
+          break
+        case " ":
+        case "Enter":
+          event.preventDefault()
+          event.currentTarget.click()
+          break
+        case "ArrowDown":
+          event.preventDefault()
+          {
+            const next = optionsListItemRef.current[index + 1]
+            if (next) next.focus()
+          }
+          break
+        case "ArrowUp":
+          event.preventDefault()
+          {
+            const prev = optionsListItemRef.current[index - 1]
+            if (prev) prev.focus()
+          }
+          break
+        default:
+          break
       }
     }
   }
