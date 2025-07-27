@@ -50,6 +50,9 @@ export default function Select({
   const getOptionValue = useCallback((option: OptionType): string | number => {
     return typeof option === "object" ? option.value : option
   }, [])
+  const getOptionLabel = useCallback((option: OptionType): string | number => {
+    return typeof option === "object" ? option.label : String(option)
+  }, [])
 
   const selectedOption = getSelectedOption()
   const selectedLabel = getSelectedLabel(selectedOption)
@@ -470,6 +473,7 @@ export default function Select({
                 readOnly={readOnly}
                 selectedOptions={selectedOptions}
                 getOptionValue={getOptionValue}
+                getOptionLabel={getOptionLabel}
                 handleRemoveChipOption={handleRemoveChipOption}
               />
             )
