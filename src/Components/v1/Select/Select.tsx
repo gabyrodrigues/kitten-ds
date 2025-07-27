@@ -221,11 +221,14 @@ export default function Select({
 
   function handleRemoveOption(option: OptionType): OptionType[] {
     const optionValue = getOptionValue(option)
-    const updatedSelectedOptions = selectedOptions.filter((selectedOption) =>
-      typeof selectedOption === "object"
-        ? selectedOption.value !== optionValue
-        : selectedOption !== optionValue
-    )
+    const updatedSelectedOptions = selectedOptions.filter((selectedOption) => {
+      switch (typeof selectedOption) {
+        case "object":
+          return selectedOption.value !== optionValue
+        default:
+          return selectedOption !== optionValue
+      }
+    })
 
     return updatedSelectedOptions
   }

@@ -852,4 +852,61 @@ describe("Select", () => {
     // The input value should be "banana" (the label)
     expect(input).toHaveValue("banana")
   })
+
+  it("covers primitive comparison in isOptionSelected in a controlled multiple-select", () => {
+    function Wrapper() {
+      const [value, setValue] = useState<OptionType[]>(["Banana"])
+      return (
+        <Select
+          multiple
+          value={value}
+          options={["Banana", "Ovo", "Bolo"]}
+          label="PrimitiveControlled"
+          onChange={(newValue: OptionType[]) => setValue(newValue)}
+        />
+      )
+    }
+    render(<Wrapper />)
+    fireEvent.click(screen.getByLabelText("PrimitiveControlled"))
+    const options = screen.getAllByRole("option")
+    expect(options[0]).toHaveAttribute("aria-selected", "true")
+    expect(options[1]).toHaveAttribute("aria-selected", "false")
+    expect(options[2]).toHaveAttribute("aria-selected", "false")
+
+    // Select another primitive
+    fireEvent.click(options[1])
+    const optionsAfter = screen.getAllByRole("option")
+    expect(optionsAfter[0]).toHaveAttribute("aria-selected", "true")
+    expect(optionsAfter[1]).toHaveAttribute("aria-selected", "true")
+    expect(optionsAfter[2]).toHaveAttribute("aria-selected", "false")
+  })
+
+  it("covers primitive removal in handleRemoveOption for multiple select with array of strings", () => {
+    // This test ensures the primitive branch (selectedOption !== optionValue) is covered
+    function Wrapper() {
+      const [value, setValue] = useState<OptionType[]>(["Banana", "Ovo", "Bolo"])
+      return (
+        <Select
+          multiple
+          value={value}
+          options={["Banana", "Ovo", "Bolo"]}
+          label="PrimitiveRemove"
+          onChange={(newValue: OptionType[]) => setValue(newValue)}
+        />
+      )
+    }
+    render(<Wrapper />)
+    fireEvent.click(screen.getByLabelText("PrimitiveRemove"))
+    const options = screen.getAllByRole("option")
+    // All options should be selected initially
+    expect(options[0]).toHaveAttribute("aria-selected", "true")
+    expect(options[1]).toHaveAttribute("aria-selected", "true")
+    expect(options[2]).toHaveAttribute("aria-selected", "true")
+    // Remove the second option ("Ovo")
+    fireEvent.click(options[1])
+    const optionsAfter = screen.getAllByRole("option")
+    expect(optionsAfter[0]).toHaveAttribute("aria-selected", "true")
+    expect(optionsAfter[1]).toHaveAttribute("aria-selected", "false") // This triggers selectedOption !== optionValue
+    expect(optionsAfter[2]).toHaveAttribute("aria-selected", "true")
+  })
 })
