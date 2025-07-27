@@ -349,7 +349,7 @@ describe("Select", () => {
     expect(input).toHaveValue("Sushi")
   })
 
-  it("should add and remove chips with keyboard in multiple mode", () => {
+  it("should add and remove chips with keyboard and mouse in multiple mode", () => {
     function WrapperMultiple() {
       const [value, setValue] = useState<OptionType[]>([])
       return (
@@ -375,6 +375,34 @@ describe("Select", () => {
     chipBtn.focus()
     fireEvent.keyDown(chipBtn, { key: "Delete" })
     expect(chipBtn).not.toBeInTheDocument()
+
+    // Testing mouse click removal
+    fireEvent.keyDown(input, { key: "ArrowDown" })
+    const options2 = screen.getAllByRole("option")
+    fireEvent.keyDown(options2[0], { key: "Enter" }) // select Banana again
+    const chipBtn2 = screen.getByRole("button", { name: "Remove Banana" })
+    expect(chipBtn2).toBeInTheDocument()
+
+    // Remove chip with mouse click
+    fireEvent.click(chipBtn2)
+    expect(screen.queryByRole("button", { name: "Remove Banana" })).not.toBeInTheDocument()
+  })
+
+  it("renders chip with correct aria-label for object option", () => {
+    function Wrapper() {
+      const [value, setValue] = useState<OptionType[]>([{ value: "banana", label: "Banana" }])
+      return (
+        <Select
+          multiple
+          value={value}
+          onChange={(newValue: OptionType[]) => setValue(newValue)}
+          options={[{ value: "banana", label: "Banana" }]}
+          label="Test"
+        />
+      )
+    }
+    render(<Wrapper />)
+    expect(screen.getByRole("button", { name: "Remove Banana" })).toBeInTheDocument()
   })
 
   it("should select multiple options and render chips", () => {
