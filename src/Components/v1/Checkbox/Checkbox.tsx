@@ -57,7 +57,7 @@ export default function Checkbox({
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     event.stopPropagation()
 
-    if (inputRef.current?.indeterminate) {
+    if (inputRef.current) {
       inputRef.current.indeterminate = false
     }
 
@@ -96,6 +96,7 @@ export default function Checkbox({
           tabIndex={disabled ? 0 : undefined}
           onChange={(event) => !disabled && handleChange?.(event)}
           onClick={(event) => !disabled && handleClick?.(event)}
+          data-testid="checkbox-input"
           {...props}
           className={mergedInputClasses}
         />
@@ -105,6 +106,7 @@ export default function Checkbox({
               color={disabled ? "text-typography-disabled" : "text-typography-inverted"}
               type={iconType}
               aria-hidden="true"
+              data-testid="checkbox-icon"
             />
           </div>
         )}

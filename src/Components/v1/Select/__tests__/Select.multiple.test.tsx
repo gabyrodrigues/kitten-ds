@@ -285,8 +285,6 @@ describe("Select multiple mode", () => {
     fireEvent.click(removeButtons[1])
     // Input should be focused
     const input = screen.getByLabelText("Selecione seus alimentos favoritos")
-    screen.debug(input)
-    screen.debug()
     await waitFor(() => {
       expect(input).toHaveFocus()
     })
