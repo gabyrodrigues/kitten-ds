@@ -66,7 +66,9 @@ export function OptionsList({
           autoPosition,
           shouldOpenAbove,
           label,
-          helperText || errorText || successText
+          errorText,
+          helperText,
+          successText
         ),
         optionsListClassName
       )}

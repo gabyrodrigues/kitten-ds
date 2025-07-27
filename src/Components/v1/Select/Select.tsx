@@ -209,7 +209,7 @@ export default function Select({
   }
 
   function isOptionSelected(option: OptionType): boolean {
-    const optionValue = typeof option === "object" ? option.value : option
+    const optionValue = getOptionValue(option)
     return selectedOptions.some((selectedOption) =>
       typeof selectedOption === "object"
         ? selectedOption.value === optionValue
@@ -222,7 +222,7 @@ export default function Select({
   }
 
   function handleRemoveOption(option: OptionType): OptionType[] {
-    const optionValue = typeof option === "object" ? option.value : option
+    const optionValue = getOptionValue(option)
     const updatedSelectedOptions = selectedOptions.filter((selectedOption) =>
       typeof selectedOption === "object"
         ? selectedOption.value !== optionValue

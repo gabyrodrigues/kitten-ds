@@ -13,7 +13,9 @@ export function getOptionsListPositionStyles(
   autoPosition: boolean,
   shouldOpenAbove: boolean,
   label?: string,
-  hasHelperMessages?: string
+  errorText?: string,
+  helperText?: string,
+  successText?: string
 ) {
   if (autoPosition && shouldOpenAbove) {
     if (label) {
@@ -22,13 +24,22 @@ export function getOptionsListPositionStyles(
     return "top-[unset] bottom-full"
   }
 
-  if (hasHelperMessages) {
-    return cn("top-[calc(100%-1.875rem)] bottom-[unset]")
+  const helperMessagesCount = (helperText ? 1 : 0) + (successText ? 1 : 0) + (errorText ? 1 : 0)
+
+  if (errorText || successText || helperText) {
+    if (helperMessagesCount === 1) {
+      return cn("top-[calc(100%-1.75rem)] bottom-[unset]")
+    }
+    if (helperMessagesCount === 2) {
+      return cn("top-[calc(100%-3rem)] bottom-[unset]")
+    }
+    if (helperMessagesCount >= 3) {
+      return cn("top-[calc(100%-4.375rem)] bottom-[unset]")
+    }
   }
 
   return cn("top-full")
 }
-
 export function getOptionStyles(
   selected: boolean,
   selectedOptionColor: BgColor,
