@@ -965,4 +965,58 @@ describe("Select", () => {
     // The className is applied to the button itself
     expect(clearBtn).toHaveClass("test-btn-class")
   })
+
+  it("wraps focus to last option with ArrowUp on first, and moves to previous option with ArrowUp", async () => {
+    render(
+      <Select
+        value=""
+        {...defaultProps}
+      />
+    )
+    const input = screen.getByLabelText("Selecione um alimento")
+    input.focus()
+    fireEvent.keyDown(input, { key: "ArrowDown" })
+    let options = screen.getAllByRole("option")
+    // ArrowUp on first option: should wrap to last
+    fireEvent.keyDown(options[0], { key: "ArrowUp" })
+    await waitFor(() => {
+      options = screen.getAllByRole("option")
+      expect(options[options.length - 1]).toHaveAttribute("data-tabindex", "0")
+    })
+    // ArrowUp on last option: should move to previous
+    fireEvent.keyDown(options[options.length - 1], { key: "ArrowUp" })
+    await waitFor(() => {
+      options = screen.getAllByRole("option")
+      expect(options[options.length - 2]).toHaveAttribute("data-tabindex", "0")
+    })
+  })
+
+  it("wraps focus to first option with ArrowDown on last, and moves to next option with ArrowDown", async () => {
+    render(
+      <Select
+        value=""
+        {...defaultProps}
+      />
+    )
+    const input = screen.getByLabelText("Selecione um alimento")
+    input.focus()
+    fireEvent.keyDown(input, { key: "ArrowDown" })
+    let options = screen.getAllByRole("option")
+
+    // ArrowDown on first option: should wrap to second
+    fireEvent.keyDown(options[0], { key: "ArrowDown" })
+    await waitFor(() => {
+      options = screen.getAllByRole("option")
+      expect(options[1]).toHaveAttribute("data-tabindex", "0")
+    })
+
+    // ArrowDown on last option: should move to first
+    for (let i = 1; i < options.length; i++) {
+      fireEvent.keyDown(options[i], { key: "ArrowDown" })
+      await waitFor(() => {
+        options = screen.getAllByRole("option")
+        expect(options[(i + 1) % options.length]).toHaveAttribute("data-tabindex", "0")
+      })
+    }
+  })
 })
