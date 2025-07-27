@@ -97,7 +97,7 @@ export default function Select({
     if (multiple) return ""
     if (!selectedOption) return ""
     if (typeof selectedOption === "object" && "label" in selectedOption) {
-      return selectedOption.label ?? ""
+      return selectedOption.label
     }
     return String(selectedOption)
   }
@@ -127,7 +127,7 @@ export default function Select({
     }
 
     return options.filter((option) => {
-      const label = typeof option === "object" ? option.label : option
+      const label = getOptionLabel(option)
 
       if (typeof label === "string" && typeof searchQuery === "string") {
         return label.toLowerCase().includes(searchQuery.toLowerCase())
@@ -238,9 +238,9 @@ export default function Select({
 
     setSelectedOptions(updatedSelectedOptions)
     onChange?.(
-      updatedSelectedOptions.map((selected) =>
-        typeof selected === "object" ? selected.value : selected
-      )
+      updatedSelectedOptions.map((option) => {
+        return getOptionValue(option)
+      })
     )
 
     // Focus management: focus next chip (by value), or previous if last, or input if none
