@@ -45,7 +45,7 @@ describe("Select", () => {
     expect(label).toBeInTheDocument()
   })
 
-  it("should select option with Enter and update value", () => {
+  it("should select option with Enter and space and update value", () => {
     function Wrapper() {
       const [value, setValue] = useState<OptionType>("")
       return (
@@ -63,6 +63,27 @@ describe("Select", () => {
     fireEvent.keyDown(input, { key: "ArrowDown" })
     const options = screen.getAllByRole("option")
     fireEvent.keyDown(options[0], { key: "Enter" })
+    expect(input).toHaveValue("Banana")
+  })
+
+  it("should select option with Space and space and update value", () => {
+    function Wrapper() {
+      const [value, setValue] = useState<OptionType>("")
+      return (
+        <Select
+          value={value}
+          name="select-input"
+          onChange={(newValue: OptionType) => setValue(newValue)}
+          {...defaultProps}
+        />
+      )
+    }
+    render(<Wrapper />)
+    const input = screen.getByLabelText("Selecione um alimento")
+    input.focus()
+    fireEvent.keyDown(input, { key: "ArrowDown" })
+    const options = screen.getAllByRole("option")
+    fireEvent.keyDown(options[0], { key: " " })
     expect(input).toHaveValue("Banana")
   })
 
@@ -1018,5 +1039,133 @@ describe("Select", () => {
         expect(options[(i + 1) % options.length]).toHaveAttribute("data-tabindex", "0")
       })
     }
+  })
+
+  it("applies w full when full is true and w fit when false, and merges custom className", () => {
+    // full = true
+    const { rerender, container } = render(
+      <Select
+        value=""
+        {...defaultProps}
+        full
+        className="custom-class"
+      />
+    )
+    // The root div is the first child
+    const root = container.firstChild
+    expect(root).toHaveClass("w-full")
+    expect(root).toHaveClass("custom-class")
+    expect(root).not.toHaveClass("w-fit")
+
+    // full = false
+    rerender(
+      <Select
+        value=""
+        {...defaultProps}
+        full={false}
+        className="custom-class"
+      />
+    )
+    expect(root).toHaveClass("w-fit")
+    expect(root).toHaveClass("custom-class")
+    expect(root).not.toHaveClass("w-full")
+  })
+
+  it("calls onClear when clear button is clicked", () => {
+    const handleClear = vi.fn()
+    render(
+      <Select
+        value="banana"
+        clearable
+        onClear={handleClear}
+        options={[{ value: "banana", label: "Banana" }]}
+        label="Test"
+      />
+    )
+    const clearBtn = screen.getByLabelText(/clear/i)
+    fireEvent.click(clearBtn)
+    expect(handleClear).toHaveBeenCalled()
+  })
+
+  it("calls handleClear on clear button keydown (space, enter, delete)", () => {
+    const onClear = vi.fn()
+    const { getByLabelText } = render(
+      <Select
+        clearable
+        value="foo"
+        options={["foo", "bar"]}
+        onClear={onClear}
+      />
+    )
+    const clearBtn = getByLabelText(/clear/i)
+
+    // Space
+    fireEvent.keyDown(clearBtn, { key: " " })
+    expect(onClear).toHaveBeenCalledTimes(1)
+
+    // Enter
+    fireEvent.keyDown(clearBtn, { key: "Enter" })
+    expect(onClear).toHaveBeenCalledTimes(2)
+
+    // Delete
+    fireEvent.keyDown(clearBtn, { key: "Delete" })
+    expect(onClear).toHaveBeenCalledTimes(3)
+  })
+
+  it("focuses input after removing last chip", async () => {
+    function WrapperMultiple() {
+      const [value, setValue] = useState<OptionType[]>(["banana", "cupcake"])
+      return (
+        <Select
+          multiple
+          value={value}
+          onChange={(newValue: OptionType[]) => setValue(newValue)}
+          autoComplete
+          {...defaultProps}
+          options={["banana", "cupcake"]}
+          label="Selecione seus alimentos favoritos"
+        />
+      )
+    }
+    render(<WrapperMultiple />)
+    // Remove both chips
+    const removeButtons = screen.getAllByRole("button", { name: /remove/i })
+    fireEvent.click(removeButtons[0])
+    fireEvent.click(removeButtons[1])
+    // Input should be focused
+    const input = screen.getByLabelText("Selecione seus alimentos favoritos")
+    screen.debug(input)
+    screen.debug()
+    await waitFor(() => {
+      expect(input).toHaveFocus()
+    })
+  })
+
+  it("focuses next chip's remove button after removing a chip with keyboard", async () => {
+    function WrapperMultiple() {
+      const [value, setValue] = useState<OptionType[]>(["banana", "cupcake"])
+      return (
+        <Select
+          multiple
+          value={value}
+          onChange={(newValue: OptionType[]) => setValue(newValue)}
+          autoComplete
+          {...defaultProps}
+          options={["banana", "cupcake"]}
+          label="Selecione seus alimentos favoritos"
+        />
+      )
+    }
+    render(<WrapperMultiple />)
+    // Focus the first chip's remove button
+    const removeButtons = screen.getAllByRole("button", { name: /remove/i })
+    removeButtons[0].focus()
+    // Remove the first chip with keyboard
+    fireEvent.keyDown(removeButtons[0], { key: "Delete" })
+    // Wait for the next chip's remove button to be focused
+    await waitFor(() => {
+      const nextRemoveBtn = screen.getByRole("button", { name: /remove/i })
+      expect(nextRemoveBtn).toHaveFocus()
+    })
   })
 })
