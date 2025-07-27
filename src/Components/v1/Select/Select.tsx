@@ -69,7 +69,7 @@ export default function Select({
   const comboboxRef = useRef<HTMLInputElement>(null)
   const listboxRef = useRef<HTMLDivElement>(null)
   const mergedRootClasses = cn(full ? "w-full" : "w-fit", className)
-  const mergedInputClasses = cn(!autoComplete && multiple && "w-0 h-0", inputClassName)
+  const mergedInputClasses = cn(!autoComplete && multiple && "w-0 h-0 hidden", inputClassName)
   const optionsListItemRef = useRef<(HTMLDivElement | null)[]>([])
 
   const mergedClasses = cn(
@@ -432,7 +432,7 @@ export default function Select({
           label={label}
           ref={comboboxRef}
           aria-autocomplete={autoComplete ? "list" : undefined}
-          aria-hidden={!autoComplete}
+          aria-hidden={!autoComplete && multiple}
           inputContentProps={{
             onKeyDown: handleKeyDownSelectContainer,
             onClick: handleInputClick,
