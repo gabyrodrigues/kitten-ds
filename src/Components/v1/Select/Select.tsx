@@ -183,22 +183,19 @@ export default function Select({
   }
 
   function handleSelectOption(option: OptionType) {
-    const newSelectedOption =
-      typeof option === "object" && option !== null
-        ? (option as OptionObject)
-        : ({ value: option, label: String(option) } as OptionObject)
+    const newSelectedOption = typeof option === "object" ? (option as OptionObject) : option
 
     if (multiple) {
       return handleMultipleSelect(newSelectedOption)
     }
 
     setIsSearching(false)
-    setSearchQuery(newSelectedOption.label)
-    onChange?.(newSelectedOption.value)
+    setSearchQuery(getOptionLabel(newSelectedOption))
+    onChange?.(getOptionValue(newSelectedOption))
     setIsListOpen(false)
   }
 
-  function handleMultipleSelect(newOption: OptionObject) {
+  function handleMultipleSelect(newOption: OptionType) {
     const isSelected = isOptionSelected(newOption)
     const updatedOptions = isSelected ? handleRemoveOption(newOption) : handleAddOption(newOption)
 
@@ -208,11 +205,14 @@ export default function Select({
 
   function isOptionSelected(option: OptionType): boolean {
     const optionValue = getOptionValue(option)
-    return selectedOptions.some((selectedOption) =>
-      typeof selectedOption === "object"
-        ? selectedOption.value === optionValue
-        : selectedOption === optionValue
-    )
+    return selectedOptions.some((selectedOption) => {
+      switch (typeof selectedOption) {
+        case "object":
+          return selectedOption?.value === optionValue
+        default:
+          return selectedOption === optionValue
+      }
+    })
   }
 
   function handleAddOption(option: OptionType): OptionType[] {
