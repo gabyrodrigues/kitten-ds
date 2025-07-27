@@ -20,6 +20,7 @@ export default function Radio({
   checkedClassName,
   errorText,
   helperText,
+  required,
   successText,
   ...props
 }: RadioProps) {
@@ -67,6 +68,7 @@ export default function Radio({
           checked={checked}
           aria-disabled={disabled}
           data-disabled={disabled}
+          required={required}
           tabIndex={disabled ? 0 : undefined}
           onChange={(event) => !disabled && onChange?.(event)}
           {...props}

@@ -554,4 +554,32 @@ describe("RadioGroup", () => {
     expect(radios[1]).toBeRequired()
     expect(radios[1]).not.toBeDisabled()
   })
+
+  it("shows correct message colors when disabled", () => {
+    render(
+      <RadioGroup
+        name="food"
+        value="pizza"
+        required
+        disabled
+      >
+        <Radio
+          value="pizza"
+          label="Pizza"
+          helperText="Helper text"
+          errorText="Error text"
+          successText="Success text"
+        />
+        <Radio
+          value="sushi"
+          label="Sushi"
+          required={false}
+        />
+      </RadioGroup>
+    )
+
+    expect(screen.getByText("Helper text")).toHaveClass("text-disabled")
+    expect(screen.getByText("Error text")).toHaveClass("text-error")
+    expect(screen.getByText("Success text")).toHaveClass("text-success")
+  })
 })

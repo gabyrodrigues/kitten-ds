@@ -94,7 +94,7 @@ export default function RadioGroup({
 
           const childProps = child.props as RadioProps
           const isDisabled = Boolean(disabled) || Boolean(childProps.disabled)
-
+          const isRequired = Boolean(required) || Boolean(childProps.required)
           return (
             <Radio
               key={childProps.value ?? `radio-${index}`}
@@ -104,7 +104,7 @@ export default function RadioGroup({
               onChange={handleRadioChange}
               color={color}
               disabled={isDisabled}
-              required={required}
+              required={isRequired}
             />
           )
         })}
