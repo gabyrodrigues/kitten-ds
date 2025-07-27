@@ -10,7 +10,6 @@ interface OptionsListProps
   extends Pick<
     SelectProps,
     | "autoPosition"
-    | "disabled"
     | "errorText"
     | "helperText"
     | "label"
@@ -20,12 +19,10 @@ interface OptionsListProps
     | "optionsListClassName"
     | "successText"
     | "selectedOptionColor"
-    | "readOnly"
   > {
   activeIndex: number
   filteredOptionsList: OptionType[]
   optionsListId: string
-  isListOpen: boolean
   listboxRef: React.RefObject<HTMLDivElement | null>
   optionsListItemRef: RefObject<(HTMLElement | null)[]>
   shouldOpenAbove: boolean
@@ -37,11 +34,9 @@ interface OptionsListProps
 export function OptionsList({
   activeIndex,
   autoPosition = false,
-  disabled,
   errorText,
   filteredOptionsList,
   helperText,
-  isListOpen,
   label,
   listboxRef,
   multiple,
@@ -50,7 +45,6 @@ export function OptionsList({
   optionsListClassName,
   optionsListId,
   optionsListItemRef,
-  readOnly,
   selectedOptionColor = "bg-primary-highlight",
   shouldOpenAbove,
   successText,
@@ -74,7 +68,6 @@ export function OptionsList({
           label,
           helperText || errorText || successText
         ),
-        isListOpen && !disabled && !readOnly ? "flex" : "hidden",
         optionsListClassName
       )}
       // biome-ignore lint/a11y/useSemanticElements: this is a custom select component list
@@ -121,7 +114,7 @@ export function OptionsList({
 
             {isOptionsListItemSelected(option) && (
               <Icon
-                color={disabled ? "text-typography-disabled" : "text-primary"}
+                color="text-primary"
                 type="check"
                 aria-hidden="true"
               />

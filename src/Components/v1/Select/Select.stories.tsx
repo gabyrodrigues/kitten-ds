@@ -299,6 +299,15 @@ export const Default: Story = {
   render: (args) => <SELECT_WITH_STATE {...(args as SelectProps)} />
 }
 
+export const ArraySimple: Story = {
+  name: "Versão de seleção simples com array de opções",
+  args: {
+    label: "Selecione um alimento",
+    options: ["Banana", "Cupcake", "Mousse", "Pizza", "Sushi"]
+  },
+  render: (args) => <SELECT_WITH_STATE {...(args as SelectProps)} />
+}
+
 export const Multiple: Story = {
   name: "Versão de seleção múltipla",
   args: {

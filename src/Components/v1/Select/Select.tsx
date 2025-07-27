@@ -29,6 +29,7 @@ export default function Select({
   labelClassName,
   leftSection,
   multiple = false,
+  notFoundLabel,
   optionClassName,
   paddingL = "pl-3",
   paddingR = clearable ? "pr-16" : "pr-8",
@@ -256,14 +257,11 @@ export default function Select({
     document.getElementById(buttonId)?.focus()
   }
 
-  function handleClickOption(event: React.MouseEvent<HTMLElement>, option: OptionType) {
-    if (disabled || readOnly) {
-      event.preventDefault()
-      event.stopPropagation()
-      return
+  // biome-ignore lint/style/useNamingConvention: param not used in this function
+  function handleClickOption(_event: React.MouseEvent<HTMLElement>, option: OptionType) {
+    if (!disabled && !readOnly) {
+      handleSelectOption(option)
     }
-
-    handleSelectOption(option)
   }
 
   function handleKeyDownOption(event: React.KeyboardEvent<HTMLElement>) {
@@ -514,15 +512,14 @@ export default function Select({
           <OptionsList
             activeIndex={activeIndex}
             autoPosition={autoPosition}
-            disabled={disabled}
             errorText={errorText}
             filteredOptionsList={filteredOptionsList}
             helperText={helperText}
             optionsListId={optionsListId}
-            isListOpen={isListOpen}
             label={label}
             listboxRef={listboxRef}
             multiple={multiple}
+            notFoundLabel={notFoundLabel}
             optionClassName={optionClassName}
             optionsListClassName={optionsListClassName}
             optionsListItemRef={optionsListItemRef}

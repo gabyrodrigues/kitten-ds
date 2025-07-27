@@ -598,4 +598,68 @@ describe("Select", () => {
     fireEvent.pointerDown(document.body)
     expect(screen.queryByRole("listbox")).not.toBeInTheDocument()
   })
+
+  it("should close listbox and return focus to combobox when Escape is pressed on an option", () => {
+    render(
+      <Select
+        value=""
+        {...defaultProps}
+        label="EscapeOption"
+      />
+    )
+    const input = screen.getByLabelText("EscapeOption")
+    input.focus()
+    fireEvent.keyDown(input, { key: "ArrowDown" })
+    const options = screen.getAllByRole("option")
+    options[0].focus()
+    fireEvent.keyDown(options[0], { key: "Escape" })
+    // The listbox should be closed
+    expect(screen.queryByRole("listbox")).not.toBeInTheDocument()
+    // The combobox wrapper should have focus
+    const combobox = input.closest('[role="combobox"]')
+    expect(combobox).toHaveFocus()
+  })
+
+  it("calls onChangeInput and updates search state when input changes (autoComplete)", () => {
+    const handleChangeInput = vi.fn()
+    function Wrapper() {
+      const [value, setValue] = useState<OptionType>("")
+      return (
+        <Select
+          value={value}
+          onChange={(newValue: OptionType) => setValue(newValue)}
+          onChangeInput={handleChangeInput}
+          autoComplete
+          options={["banana", "sushi"]}
+          label="Test"
+        />
+      )
+    }
+    render(<Wrapper />)
+    const input = screen.getByLabelText("Test")
+    fireEvent.change(input, { target: { value: "ban" } })
+    expect(handleChangeInput).toHaveBeenCalledWith("ban", expect.anything())
+    // Optionally, check that the listbox opens (setIsListOpen)
+    expect(screen.getByRole("listbox")).toBeInTheDocument()
+  })
+
+  it("shows notFoundLabel when no options match (OptionsList empty)", () => {
+    function Wrapper() {
+      const [value, setValue] = useState<OptionType>("")
+      return (
+        <Select
+          value={value}
+          onChange={(newValue: OptionType) => setValue(newValue)}
+          autoComplete
+          options={["banana", "sushi"]}
+          notFoundLabel="No results found"
+          label="Selecione um alimento"
+        />
+      )
+    }
+    render(<Wrapper />)
+    const input = screen.getByLabelText("Selecione um alimento")
+    fireEvent.change(input, { target: { value: "xyz" } })
+    expect(screen.getByText("No results found")).toBeInTheDocument()
+  })
 })
