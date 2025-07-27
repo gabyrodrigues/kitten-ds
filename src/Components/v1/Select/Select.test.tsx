@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest"
 import { axe } from "vitest-axe"
 import Select from "./Select"
 import type { OptionType } from "./Select.types"
+import { getOptionsListPositionStyles } from "./Styles"
 
 const defaultProps = {
   label: "Selecione um alimento",
@@ -548,6 +549,22 @@ describe("Select", () => {
       // biome-ignore lint/style/useNamingConvention: this is a mock function
       toJSON: () => {}
     })
+  })
+
+  it("returns correct class when label and shouldOpenAbove is true", () => {
+    expect(getOptionsListPositionStyles(true, true, "label")).toMatch(
+      /bottom-\[calc\(100%-1\.5rem\)\]/
+    )
+  })
+
+  it("returns correct class when no label and shouldOpenAbove is true", () => {
+    expect(getOptionsListPositionStyles(true, true, "")).toMatch(/bottom-full/)
+  })
+
+  it("returns correct class when it has helper messages", () => {
+    expect(getOptionsListPositionStyles(true, false, "", "error message")).toMatch(
+      /top-\[calc\(100%-1\.875rem\)\]/
+    )
   })
 
   it("should update searchQuery when selectedLabel changes in single-select autocomplete", () => {
