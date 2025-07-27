@@ -173,7 +173,6 @@ export default function Select({
 
   function handleInputChange(value: string, event?: ChangeEvent<HTMLInputElement>) {
     if (!disabled && !readOnly) {
-      // search_query_ref.current = value
       onChangeInput?.(value, event)
       setSearchQuery(value)
       setIsSearching(true)
@@ -331,8 +330,6 @@ export default function Select({
             const last = optionsListItemRef.current[filteredOptionsList.length - 1]
             if (last) last.focus()
           }
-          break
-        default:
           break
       }
     }

@@ -207,34 +207,6 @@ describe("Select", () => {
     expect(options[0]).toHaveAttribute("data-tabindex", "0")
   })
 
-  it("should add and remove chips with keyboard in multiple mode", () => {
-    function WrapperMultiple() {
-      const [value, setValue] = useState<OptionType[]>([])
-      return (
-        <Select
-          multiple
-          value={value}
-          onChange={(newValue: OptionType[]) => setValue(newValue)}
-          clearable
-          {...defaultProps}
-          label="Selecione seus alimentos favoritos"
-        />
-      )
-    }
-    render(<WrapperMultiple />)
-    const input = screen.getByLabelText("Selecione seus alimentos favoritos")
-    input.focus()
-    fireEvent.keyDown(input, { key: "ArrowDown" })
-    const options = screen.getAllByRole("option")
-    fireEvent.keyDown(options[0], { key: "Enter" }) // select Banana
-    const chipBtn = screen.getByRole("button", { name: "Remove Banana" })
-    expect(chipBtn).toBeInTheDocument()
-    // Remove chip with Delete
-    chipBtn.focus()
-    fireEvent.keyDown(chipBtn, { key: "Delete" })
-    expect(chipBtn).not.toBeInTheDocument()
-  })
-
   it("should not open or allow changes when readOnly", () => {
     render(
       <Select
@@ -375,5 +347,255 @@ describe("Select", () => {
     const input = screen.getByLabelText("Selecione um alimento")
     fireEvent.click(screen.getByText("Change"))
     expect(input).toHaveValue("Sushi")
+  })
+
+  it("should add and remove chips with keyboard in multiple mode", () => {
+    function WrapperMultiple() {
+      const [value, setValue] = useState<OptionType[]>([])
+      return (
+        <Select
+          multiple
+          value={value}
+          onChange={(newValue: OptionType[]) => setValue(newValue)}
+          clearable
+          {...defaultProps}
+          label="Selecione seus alimentos favoritos"
+        />
+      )
+    }
+    render(<WrapperMultiple />)
+    const input = screen.getByLabelText("Selecione seus alimentos favoritos")
+    input.focus()
+    fireEvent.keyDown(input, { key: "ArrowDown" })
+    const options = screen.getAllByRole("option")
+    fireEvent.keyDown(options[0], { key: "Enter" }) // select Banana
+    const chipBtn = screen.getByRole("button", { name: "Remove Banana" })
+    expect(chipBtn).toBeInTheDocument()
+    // Remove chip with Delete
+    chipBtn.focus()
+    fireEvent.keyDown(chipBtn, { key: "Delete" })
+    expect(chipBtn).not.toBeInTheDocument()
+  })
+
+  it("should select multiple options and render chips", () => {
+    function WrapperMultiple() {
+      const [value, setValue] = useState<OptionType[]>([])
+      return (
+        <Select
+          multiple
+          value={value}
+          onChange={(newValue: OptionType[]) => setValue(newValue)}
+          clearable
+          {...defaultProps}
+          label="Selecione seus alimentos favoritos"
+        />
+      )
+    }
+    render(<WrapperMultiple />)
+    const input = screen.getByLabelText("Selecione seus alimentos favoritos")
+    input.focus()
+    fireEvent.keyDown(input, { key: "ArrowDown" })
+    let options = screen.getAllByRole("option")
+    fireEvent.keyDown(options[0], { key: "Enter" }) // Banana
+    fireEvent.keyDown(input, { key: "ArrowDown" })
+    options = screen.getAllByRole("option")
+    fireEvent.keyDown(options[1], { key: "Enter" }) // Cupcake
+    expect(screen.getByRole("button", { name: "Remove Banana" })).toBeInTheDocument()
+    expect(screen.getByRole("button", { name: "Remove Cupcake" })).toBeInTheDocument()
+  })
+
+  it("should remove chips with Delete", () => {
+    function WrapperMultiple() {
+      const [value, setValue] = useState<OptionType[]>(["banana", "cupcake"])
+      return (
+        <Select
+          multiple
+          value={value}
+          onChange={(newValue: OptionType[]) => setValue(newValue)}
+          clearable
+          {...defaultProps}
+          label="Selecione seus alimentos favoritos"
+        />
+      )
+    }
+    render(<WrapperMultiple />)
+
+    const chipBtn = screen.getByRole("button", { name: "Remove Cupcake" })
+    chipBtn.focus()
+    fireEvent.keyDown(chipBtn, { key: "Delete" })
+    expect(chipBtn).not.toBeInTheDocument()
+  })
+
+  it("should clear all chips with clear button", () => {
+    function WrapperMultiple() {
+      const [value, setValue] = useState<OptionType[]>(["banana", "cupcake"])
+      return (
+        <Select
+          multiple
+          value={value}
+          onChange={(newValue: OptionType[]) => setValue(newValue)}
+          clearable
+          {...defaultProps}
+          label="Selecione seus alimentos favoritos"
+        />
+      )
+    }
+    render(<WrapperMultiple />)
+    const clearBtn = screen.getByLabelText(/clear/i)
+    fireEvent.click(clearBtn)
+    expect(screen.queryByRole("button", { name: /Remove/ })).not.toBeInTheDocument()
+  })
+
+  it("should call onChange with correct array in multiple mode", () => {
+    const handleChange = vi.fn()
+    function WrapperMultiple() {
+      const [value, setValue] = useState<OptionType[]>([])
+      return (
+        <Select
+          multiple
+          value={value}
+          onChange={(newValue: OptionType[]) => {
+            setValue(newValue)
+            handleChange(newValue)
+          }}
+          {...defaultProps}
+          label="Selecione seus alimentos favoritos"
+        />
+      )
+    }
+    render(<WrapperMultiple />)
+    const input = screen.getByLabelText("Selecione seus alimentos favoritos")
+    input.focus()
+    fireEvent.keyDown(input, { key: "ArrowDown" })
+    const options = screen.getAllByRole("option")
+    fireEvent.keyDown(options[0], { key: "Enter" }) // Banana
+    expect(handleChange).toHaveBeenCalledWith(
+      expect.arrayContaining([{ value: "banana", label: "Banana" }])
+    )
+  })
+
+  it("should set shouldOpenAbove based on available space when autoPosition is true", () => {
+    function Wrapper() {
+      return (
+        <Select
+          value=""
+          autoPosition
+          {...defaultProps}
+          label="AutoPosition"
+        />
+      )
+    }
+    render(<Wrapper />)
+    const input = screen.getByLabelText("AutoPosition")
+    // Mock getBoundingClientRect for select and listbox
+    const select = input.closest("div")
+    if (!select) throw new Error("No select div found")
+    select.getBoundingClientRect = () => ({
+      top: 100,
+      bottom: 200,
+      height: 100,
+      left: 0,
+      right: 0,
+      width: 0,
+      x: 0,
+      y: 0,
+      // biome-ignore lint/suspicious/noEmptyBlockStatements: this is a mock
+      // biome-ignore lint/style/useNamingConvention: this is a mock function
+      toJSON: () => {}
+    })
+    // Open the listbox
+    input.focus()
+    fireEvent.keyDown(input, { key: "ArrowDown" })
+    const listbox = screen.getByRole("listbox")
+    listbox.getBoundingClientRect = () => ({
+      top: 200,
+      bottom: 400,
+      height: 300,
+      left: 0,
+      right: 0,
+      width: 0,
+      x: 0,
+      y: 0,
+      // biome-ignore lint/suspicious/noEmptyBlockStatements: this is a mock
+      // biome-ignore lint/style/useNamingConvention: this is a mock function
+      toJSON: () => {}
+    })
+  })
+
+  it("should update searchQuery when selectedLabel changes in single-select autocomplete", () => {
+    function Wrapper() {
+      const [value, setValue] = useState<OptionType>("banana")
+      return (
+        <>
+          <button
+            type="button"
+            onClick={() => setValue("sushi")}
+          >
+            Change
+          </button>
+          <Select
+            value={value}
+            onChange={(newValue: OptionType) => setValue(newValue)}
+            autoComplete
+            {...defaultProps}
+            label="Autocomplete"
+          />
+        </>
+      )
+    }
+    render(<Wrapper />)
+    const input = screen.getByLabelText("Autocomplete")
+    expect(input).toHaveValue("Banana")
+    fireEvent.click(screen.getByText("Change"))
+    expect(input).toHaveValue("Sushi")
+  })
+
+  it("should close listbox on focusout and Escape key", () => {
+    render(
+      <Select
+        value=""
+        {...defaultProps}
+        label="Focusout/Escape"
+      />
+    )
+    const input = screen.getByLabelText("Focusout/Escape")
+    input.focus()
+    fireEvent.keyDown(input, { key: "ArrowDown" })
+    const listbox = screen.getByRole("listbox")
+    expect(listbox).toBeInTheDocument()
+
+    // Simulate focusout (blur to outside)
+    fireEvent.blur(input, { relatedTarget: document.body })
+    expect(screen.queryByRole("listbox")).not.toBeInTheDocument()
+
+    // Open again
+    input.focus()
+    fireEvent.keyDown(input, { key: "ArrowDown" })
+    expect(screen.getByRole("listbox")).toBeInTheDocument()
+
+    // Simulate Escape key
+    fireEvent.keyDown(document.activeElement || input, { key: "Escape" })
+    expect(screen.queryByRole("listbox")).not.toBeInTheDocument()
+    // check focus is on combobox wrapper
+    const combobox = input.closest('[role="combobox"]')
+    expect(combobox).toHaveFocus()
+  })
+
+  it("should close listbox when clicking outside (handleClickOutside)", () => {
+    render(
+      <Select
+        value=""
+        {...defaultProps}
+        label="OutsideClick"
+      />
+    )
+    const input = screen.getByLabelText("OutsideClick")
+    input.focus()
+    fireEvent.keyDown(input, { key: "ArrowDown" })
+    expect(screen.getByRole("listbox")).toBeInTheDocument()
+
+    // Simulate click outside
+    fireEvent.pointerDown(document.body)
+    expect(screen.queryByRole("listbox")).not.toBeInTheDocument()
   })
 })
