@@ -561,10 +561,29 @@ describe("Select", () => {
     expect(getOptionsListPositionStyles(true, true, "")).toMatch(/bottom-full/)
   })
 
-  it("returns correct class when it has helper messages", () => {
+  it("returns correct class when it has error message", () => {
     expect(getOptionsListPositionStyles(true, false, "", "error message")).toMatch(
-      /top-\[calc\(100%-1\.875rem\)\]/
+      /top-\[calc\(100%-1\.75rem\)\]/
     )
+  })
+
+  it("returns correct class when it has 2 helper messages", () => {
+    expect(
+      getOptionsListPositionStyles(true, false, "", "error message", "helper message")
+    ).toMatch(/top-\[calc\(100%-3rem\)\]/)
+  })
+
+  it("returns correct class when it has 3 helper messages", () => {
+    expect(
+      getOptionsListPositionStyles(
+        true,
+        false,
+        "",
+        "error message",
+        "helper message",
+        "success message"
+      )
+    ).toMatch(/top-\[calc\(100%-4\.375rem\)\]/)
   })
 
   it("should update searchQuery when selectedLabel changes in single-select autocomplete", () => {
