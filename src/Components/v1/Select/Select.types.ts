@@ -195,7 +195,7 @@ export interface SelectProps extends Omit<InputProps, "value" | "onChange" | "au
    * Option to control clear button properties.
    * This is used when clearable is true.
    */
-  clearButtonProps?: IconButtonProps
+  clearButtonProps?: Partial<IconButtonProps>
 
   /**
    * Option to control the Autocomplete label when no items are found.
