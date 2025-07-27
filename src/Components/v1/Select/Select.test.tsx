@@ -779,4 +779,77 @@ describe("Select", () => {
     fireEvent.change(input, { target: { value: "xyz" } })
     expect(screen.getByText("No results found")).toBeInTheDocument()
   })
+
+  it("always provides a string value to the input, even with edge cases", () => {
+    // Single select, primitive value
+    render(
+      <Select
+        value="banana"
+        options={["banana", "sushi"]}
+        label="Primitive"
+      />
+    )
+    expect(screen.getByLabelText("Primitive")).toHaveValue("banana")
+
+    // Single select, object value
+    render(
+      <Select
+        value="banana"
+        options={[{ value: "banana", label: "Banana" }]}
+        label="Object"
+      />
+    )
+    expect(screen.getByLabelText("Object")).toHaveValue("Banana")
+
+    // Single select, no value
+    render(
+      <Select
+        value=""
+        options={["banana", "sushi"]}
+        label="Empty"
+      />
+    )
+    expect(screen.getByLabelText("Empty")).toHaveValue("")
+
+    // Multiple select, value is array
+    render(
+      <Select
+        multiple
+        value={["banana"]}
+        options={["banana", "sushi"]}
+        label="Multiple"
+      />
+    )
+    expect(screen.getByLabelText("Multiple")).toHaveValue("")
+  })
+
+  it("wraps a primitive option as an object with value and string label when selected", () => {
+    const options = ["banana", "sushi"]
+    const handleChange = vi.fn()
+    function Wrapper() {
+      const [value, setValue] = useState<OptionType>("")
+      return (
+        <Select
+          value={value}
+          autoPosition
+          {...defaultProps}
+          label="PrimitiveSelect"
+          onChange={(newValue: OptionType) => {
+            setValue(newValue)
+            handleChange(newValue)
+          }}
+          options={options}
+        />
+      )
+    }
+    render(<Wrapper />)
+    const input = screen.getByLabelText("PrimitiveSelect")
+    fireEvent.click(input)
+    const option = screen.getByText("banana")
+    fireEvent.click(option)
+    // handleChange should be called with "banana" (the value)
+    expect(handleChange).toHaveBeenCalledWith("banana")
+    // The input value should be "banana" (the label)
+    expect(input).toHaveValue("banana")
+  })
 })
