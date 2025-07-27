@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react"
 
 import { useEffect, useState } from "react"
 import Select from "./Select"
-import type { OptionType, SelectProps } from "./Select.types"
+import type { OptionObject, OptionType, SelectProps } from "./Select.types"
 
 const meta: Meta<typeof Select> = {
   component: Select,
@@ -195,7 +195,7 @@ const meta: Meta<typeof Select> = {
       { value: "mousse", label: "Mousse" },
       { value: "pizza", label: "Pizza" },
       { value: "sushi", label: "Sushi" }
-    ] as { value: string | number; label: string }[]
+    ] as OptionObject[]
   }
 }
 
