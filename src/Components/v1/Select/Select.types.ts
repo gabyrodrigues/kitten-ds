@@ -12,8 +12,8 @@ import type {
   PaddingY
 } from "../types"
 
-export type OptionObject = { value: string | number; label: string }
-export type OptionType = number | string | OptionObject
+export type OptionObject = { value: string; label: string }
+export type OptionType = string | OptionObject
 export type SelectedStyleType = "LIST" | "COUNT"
 /**
  * Defines the props available for the Select component.

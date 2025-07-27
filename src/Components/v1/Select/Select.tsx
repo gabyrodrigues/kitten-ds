@@ -47,10 +47,10 @@ export default function Select({
   withAsterisk = false,
   ...props
 }: SelectProps) {
-  const getOptionValue = useCallback((option: OptionType): string | number => {
+  const getOptionValue = useCallback((option: OptionType): string => {
     return typeof option === "object" ? option.value : option
   }, [])
-  const getOptionLabel = useCallback((option: OptionType): string | number => {
+  const getOptionLabel = useCallback((option: OptionType): string => {
     return typeof option === "object" ? option.label : String(option)
   }, [])
 
@@ -60,7 +60,7 @@ export default function Select({
 
   const [isSearching, setIsSearching] = useState(false)
   const [isListOpen, setIsListOpen] = useState(false)
-  const [searchQuery, setSearchQuery] = useState<string | number>(selectedLabel)
+  const [searchQuery, setSearchQuery] = useState<string>(selectedLabel)
   const [selectedOptions, setSelectedOptions] = useState<OptionType[]>(initialSelectedOptions)
   const [shouldOpenAbove, setShouldOpenAbove] = useState(false)
   const [activeIndex, setActiveIndex] = useState(-1)
@@ -118,7 +118,7 @@ export default function Select({
 
   function filterOptionsList(
     options: OptionType[],
-    searchQuery: string | number,
+    searchQuery: string,
     autoComplete: boolean,
     isSearching: boolean
   ): OptionType[] {
@@ -132,8 +132,6 @@ export default function Select({
       if (typeof label === "string" && typeof searchQuery === "string") {
         return label.toLowerCase().includes(searchQuery.toLowerCase())
       }
-
-      return label === searchQuery
     })
   }
 
