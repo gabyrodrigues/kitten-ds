@@ -909,4 +909,24 @@ describe("Select", () => {
     expect(optionsAfter[1]).toHaveAttribute("aria-selected", "false") // This triggers selectedOption !== optionValue
     expect(optionsAfter[2]).toHaveAttribute("aria-selected", "true")
   })
+
+  it("applies clearButtonProps iconClassName and className to the clear button", () => {
+    render(
+      <Select
+        value="banana"
+        clearable
+        clearButtonProps={{
+          iconClassName: "test-icon-class",
+          className: "test-btn-class"
+        }}
+        options={["banana", "sushi"]}
+        label="Testing"
+      />
+    )
+    const clearBtn = screen.getByLabelText(/clear/i)
+    // The iconClassName is applied to the icon inside the button
+    expect(clearBtn.querySelector(".test-icon-class")).toBeInTheDocument()
+    // The className is applied to the button itself
+    expect(clearBtn).toHaveClass("test-btn-class")
+  })
 })
