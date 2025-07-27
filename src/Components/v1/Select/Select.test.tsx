@@ -1,5 +1,5 @@
-import { fireEvent, render, screen } from "@testing-library/react"
-import { useState } from "react"
+import { fireEvent, render, screen, waitFor } from "@testing-library/react"
+import { act, useState } from "react"
 import { describe, expect, it } from "vitest"
 import { axe } from "vitest-axe"
 import Select from "./Select"
@@ -540,52 +540,88 @@ describe("Select", () => {
     )
   })
 
-  it("should set shouldOpenAbove based on available space when autoPosition is true", () => {
-    function Wrapper() {
-      return (
-        <Select
-          value=""
-          autoPosition
-          {...defaultProps}
-          label="AutoPosition"
-        />
-      )
+  it("should open listbox above when space below is insufficient and autoPosition is true", async () => {
+    window.innerHeight = 200 // Force limited space
+
+    const selectRectMock = {
+      top: 150,
+      bottom: 180,
+      height: 30,
+      left: 0,
+      right: 100,
+      width: 100,
+      x: 0,
+      y: 150,
+      // biome-ignore lint/suspicious/noEmptyBlockStatements: this is a mock
+      // biome-ignore lint/style/useNamingConvention: this is a mock function
+      toJSON: () => {}
     }
-    render(<Wrapper />)
-    const input = screen.getByLabelText("AutoPosition")
-    // Mock getBoundingClientRect for select and listbox
-    const select = input.closest("div")
-    if (!select) throw new Error("No select div found")
-    select.getBoundingClientRect = () => ({
-      top: 100,
-      bottom: 200,
+
+    const listboxRectMock = {
+      top: 180,
+      bottom: 280,
       height: 100,
       left: 0,
-      right: 0,
-      width: 0,
+      right: 100,
+      width: 100,
       x: 0,
-      y: 0,
+      y: 180,
       // biome-ignore lint/suspicious/noEmptyBlockStatements: this is a mock
       // biome-ignore lint/style/useNamingConvention: this is a mock function
       toJSON: () => {}
-    })
+    }
+
+    // Fake the getBoundingClientRect before render
+    const mockGetBoundingClientRect = vi.fn(() => selectRectMock)
+    const originalGetBoundingClientRect = Element.prototype.getBoundingClientRect
+    Element.prototype.getBoundingClientRect = mockGetBoundingClientRect
+
+    // Render the component
+    render(
+      <Select
+        value=""
+        autoPosition
+        {...defaultProps}
+        label="AutoPosition"
+      />
+    )
+
+    const input = screen.getByLabelText("AutoPosition")
+
     // Open the listbox
-    input.focus()
-    fireEvent.keyDown(input, { key: "ArrowDown" })
-    const listbox = screen.getByRole("listbox")
-    listbox.getBoundingClientRect = () => ({
-      top: 200,
-      bottom: 400,
-      height: 300,
-      left: 0,
-      right: 0,
-      width: 0,
-      x: 0,
-      y: 0,
-      // biome-ignore lint/suspicious/noEmptyBlockStatements: this is a mock
-      // biome-ignore lint/style/useNamingConvention: this is a mock function
-      toJSON: () => {}
+    await act(() => {
+      input.focus()
+      fireEvent.keyDown(input, { key: "ArrowDown" })
     })
+
+    // Update getBoundingClientRect for listbox
+    screen.getByRole("listbox")
+    mockGetBoundingClientRect.mockImplementation(
+      (function () {
+        let call = 0
+        return () => {
+          call++
+          // First call = select, second call = listbox
+          return call === 1 ? selectRectMock : listboxRectMock
+        }
+      })()
+    )
+
+    // Re-open to trigger the effect with new rects
+    await act(() => {
+      fireEvent.keyDown(input, { key: "Escape" }) // close
+      fireEvent.keyDown(input, { key: "ArrowDown" }) // open again
+    })
+
+    const newListbox = screen.getByRole("listbox")
+
+    await waitFor(() => {
+      expect(newListbox).toBeInTheDocument()
+      expect(newListbox.className).toMatch(/bottom-\[calc\(100%-1\.5rem\)\]/)
+    })
+
+    // Clean up the mock to avoid affecting other tests
+    Element.prototype.getBoundingClientRect = originalGetBoundingClientRect
   })
 
   it("returns correct class when label and shouldOpenAbove is true", () => {
