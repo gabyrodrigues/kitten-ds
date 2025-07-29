@@ -93,7 +93,7 @@ export const WithText: Story = {
   args: {
     hasArrow: true,
     children: (
-      <Flex className="bg-secondary-highlight px-4 py-8 rounded-lg shadow-variant2">
+      <Flex className="bg-secondary-highlight px-4 py-8 rounded-lg shadow-level2">
         <Text
           variant="body3"
           align="text-left"

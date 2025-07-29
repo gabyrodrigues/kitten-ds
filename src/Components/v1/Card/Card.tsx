@@ -34,7 +34,7 @@ export default function Card({
       !isLoading &&
       !disabled &&
       "bg-primary-highlight border border-primary hover:border-default-border",
-    hasShadow && "shadow-variant1",
+    hasShadow && "shadow-level1",
     isLoading && "h-full w-full rounded-lg animate-pulse bg-neutral-gray-200 min-h-32",
     onClick && !isLoading && !disabled ? "cursor-pointer hover:bg-highlight" : "cursor-default",
     disabled && "cursor-default bg-disabled",

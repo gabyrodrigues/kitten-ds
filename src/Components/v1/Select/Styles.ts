@@ -4,7 +4,7 @@ import type { BgColor } from "../types"
 export function getOptionsListStyles() {
   return cn(
     "bg-surface",
-    "absolute z-20 shadow-variant3 overflow-hidden",
+    "absolute z-20 shadow-level3 overflow-hidden",
     "max-h-40 overflow-y-auto scrollbar"
   )
 }

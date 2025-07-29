@@ -13,9 +13,9 @@
   --breakpoint-2xl: 1920px;
 
   /* --- Box Shadow --- */
-  --shadow-variant1: 0px 0px 4px 0px rgba(33, 33, 33, 0.16);
-  --shadow-variant2: 0px 2px 4px 0px rgba(33, 33, 33, 0.16);
-  --shadow-variant3: 0px 4px 8px 0px rgba(33, 33, 33, 0.16);
+  --shadow-level1: 0px 0px 4px 0px rgba(33, 33, 33, 0.16);
+  --shadow-level2: 0px 2px 4px 0px rgba(33, 33, 33, 0.16);
+  --shadow-level3: 0px 4px 8px 0px rgba(33, 33, 33, 0.16);
 
   /* ----- Color Tokens ----- */
 
