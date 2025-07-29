@@ -3,9 +3,10 @@ import type { Meta, StoryObj } from "@storybook/react"
 import { type ChangeEvent, useState } from "react"
 import { Flex } from "../Flex"
 import Checkbox from "./Checkbox"
+import type { CheckboxGroupProps } from "./Checkbox.types"
 import CheckboxGroup from "./CheckboxGroup"
 
-const meta = {
+const meta: Meta<typeof CheckboxGroup> = {
   component: CheckboxGroup,
   title: "Componentes/CheckboxGroup",
   parameters: {
@@ -38,7 +39,7 @@ const meta = {
     defaultA11yLabel: {
       control: { type: "text" },
       description:
-        "Texto de acessibilidade usado como rótulo do grupo quando label não é fornecido."
+        "Mensagem de acessibilidade usado como rótulo do grupo quando label não é fornecido."
     },
     disabled: {
       control: { type: "boolean" },
@@ -47,12 +48,12 @@ const meta = {
     errorText: {
       control: { type: "text" },
       description:
-        "Texto de erro geral para o CheckboxGroup. Esse texto é exibido para indicar que houve um erro na seleção de uma ou mais opções dentro do grupo."
+        "Mensagem de erro geral para o CheckboxGroup. Esse texto é exibido para indicar que houve um erro na seleção de uma ou mais opções dentro do grupo."
     },
     helperText: {
       control: { type: "text" },
       description:
-        "Texto de ajuda geral para o CheckboxGroup. Este texto é exibido abaixo do grupo de checkboxes para fornecer informações adicionais ou orientações ao usuário."
+        "Mensagem de ajuda geral para o CheckboxGroup. Esta mensagem é exibida abaixo do grupo de checkboxes para fornecer informações adicionais ou orientações ao usuário."
     },
     id: {
       control: { type: "text" },
@@ -62,7 +63,7 @@ const meta = {
     label: {
       control: { type: "text" },
       description:
-        "O texto do rótulo a ser exibido acima da lista de checkboxes. Se não for fornecido, o rótulo acessível padrão será usado para a acessibilidade do componente."
+        "O texto de rótulo a ser exibido acima da lista de checkboxes. Se não for fornecido, o rótulo acessível padrão será usado para a acessibilidade do componente."
     },
     labelClassName: {
       control: { type: "text" },
@@ -80,7 +81,7 @@ const meta = {
     successText: {
       control: { type: "text" },
       description:
-        "Texto de sucesso para o checkbox. Este texto é exibido para indicar sucesso ao selecionar uma ou mais opçoes dentro do grupo, indicando que a seleção foi bem-sucedida."
+        "Mensagem de sucesso para o checkbox. Esta mensagem é exibida para indicar sucesso ao selecionar uma ou mais opções dentro do grupo, indicando que a seleção foi bem-sucedida."
     },
     withAsterisk: {
       control: { type: "boolean" },
@@ -91,12 +92,12 @@ const meta = {
   args: {
     children: ""
   }
-} satisfies Meta<typeof CheckboxGroup>
+}
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-const CHECKBOX_GROUP_WITH_STATE = (args) => {
+const CHECKBOX_GROUP_WITH_STATE = (args: CheckboxGroupProps) => {
   const [state, setState] = useState({ cupcake: true, pizza: false, sushi: false })
 
   function handleChange(checked: boolean, event: ChangeEvent<HTMLInputElement>) {
@@ -107,7 +108,7 @@ const CHECKBOX_GROUP_WITH_STATE = (args) => {
   return (
     <CheckboxGroup
       label="Selecione seus alimentos favoritos"
-      {...args}
+      {...(args as CheckboxGroupProps)}
     >
       <Checkbox
         checked={state.cupcake}
@@ -133,31 +134,31 @@ const CHECKBOX_GROUP_WITH_STATE = (args) => {
 
 export const Default: Story = {
   name: "Versão de lista padrão",
-  render: (args) => <CHECKBOX_GROUP_WITH_STATE {...args} />
+  render: (args) => <CHECKBOX_GROUP_WITH_STATE {...(args as CheckboxGroupProps)} />
 }
 
 export const WithErrorText: Story = {
-  name: "Versão com texto de erro",
+  name: "Versão com mensagem de erro",
   args: {
-    errorText: "Texto de erro"
+    errorText: "Mensagem de erro"
   },
-  render: (args) => <CHECKBOX_GROUP_WITH_STATE {...args} />
+  render: (args) => <CHECKBOX_GROUP_WITH_STATE {...(args as CheckboxGroupProps)} />
 }
 
 export const WithHelperText: Story = {
-  name: "Versão com texto de ajuda",
+  name: "Versão com mensagem de ajuda",
   args: {
-    helperText: "Texto de ajuda"
+    helperText: "Mensagem de ajuda"
   },
-  render: (args) => <CHECKBOX_GROUP_WITH_STATE {...args} />
+  render: (args) => <CHECKBOX_GROUP_WITH_STATE {...(args as CheckboxGroupProps)} />
 }
 
 export const WithSuccessText: Story = {
-  name: "Versão com texto de sucesso",
+  name: "Versão com mensagem de sucesso",
   args: {
-    successText: "Texto de sucesso"
+    successText: "Mensagem de sucesso"
   },
-  render: (args) => <CHECKBOX_GROUP_WITH_STATE {...args} />
+  render: (args) => <CHECKBOX_GROUP_WITH_STATE {...(args as CheckboxGroupProps)} />
 }
 
 export const WithAsterisk: Story = {
@@ -167,7 +168,7 @@ export const WithAsterisk: Story = {
     required: true,
     withAsterisk: true
   },
-  render: (args) => <CHECKBOX_GROUP_WITH_STATE {...args} />
+  render: (args) => <CHECKBOX_GROUP_WITH_STATE {...(args as CheckboxGroupProps)} />
 }
 
 export const IndeterminateGroup: Story = {
@@ -190,7 +191,7 @@ export const IndeterminateGroup: Story = {
     return (
       <CheckboxGroup
         label="Cardápio"
-        {...args}
+        {...(args as CheckboxGroupProps)}
       >
         <Checkbox
           checked={checked[0] && checked[1]}

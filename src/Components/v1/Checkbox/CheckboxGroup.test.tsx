@@ -364,6 +364,41 @@ describe("CheckboxGroup", () => {
     expect(sushi).not.toBeDisabled()
   })
 
+  it("renders withAsterik color in legend with disabled color when disabled is true", () => {
+    render(
+      <CheckboxGroup
+        withAsterisk
+        required
+        disabled
+        label="Label"
+      >
+        <Checkbox
+          value="pizza"
+          label="Pizza"
+        />
+      </CheckboxGroup>
+    )
+    const asterisk = screen.getByText("*")
+    expect(asterisk).toHaveClass("text-typography-disabled")
+  })
+
+  it("renders withAsterisk color in legend with error color when disabled is false", () => {
+    render(
+      <CheckboxGroup
+        withAsterisk
+        required
+        label="Label"
+      >
+        <Checkbox
+          value="pizza"
+          label="Pizza"
+        />
+      </CheckboxGroup>
+    )
+    const asterisk = screen.getByText("*")
+    expect(asterisk).toHaveClass("text-error")
+  })
+
   it("renders defaultA11yLabel in a visually hidden legend when label is missing", () => {
     render(
       <CheckboxGroup>

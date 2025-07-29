@@ -49,7 +49,7 @@ export type TextComponent =
   | "del"
   | "dfn"
   | "samp"
-export type TextVariant = "body1" | "body2" | "body3" | "body4"
+export type TextVariant = "body1" | "body2" | "body3" | "body4" | "label"
 export type TextSize =
   | "text-xs"
   | "text-sm"

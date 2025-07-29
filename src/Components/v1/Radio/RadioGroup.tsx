@@ -15,6 +15,7 @@ export default function RadioGroup({
   disabled = false,
   id,
   label,
+  labelClassName,
   helperText,
   errorText,
   successText,
@@ -61,9 +62,9 @@ export default function RadioGroup({
     >
       <Text
         component="legend"
-        variant="body2"
+        variant="label"
         color={disabled ? "text-typography-disabled" : "text-typography-primary"}
-        className={label ? "mb-2" : "sr-only"}
+        className={cn(labelClassName, label ? "mb-2" : "sr-only")}
       >
         {label || defaultA11yLabel}
 
@@ -71,7 +72,7 @@ export default function RadioGroup({
           <Text
             component="span"
             variant="body2"
-            color="text-error"
+            color={disabled ? "text-typography-disabled" : "text-error"}
             className="ml-1 inline"
             aria-hidden="true"
           >
@@ -93,7 +94,7 @@ export default function RadioGroup({
 
           const childProps = child.props as RadioProps
           const isDisabled = Boolean(disabled) || Boolean(childProps.disabled)
-
+          const isRequired = Boolean(required) || Boolean(childProps.required)
           return (
             <Radio
               key={childProps.value ?? `radio-${index}`}
@@ -103,7 +104,7 @@ export default function RadioGroup({
               onChange={handleRadioChange}
               color={color}
               disabled={isDisabled}
-              required={required}
+              required={isRequired}
             />
           )
         })}

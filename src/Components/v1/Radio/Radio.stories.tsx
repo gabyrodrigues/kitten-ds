@@ -1,10 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
-
-import { type ChangeEvent, useEffect, useState } from "react"
 import Radio from "./Radio"
-import RadioGroup from "./RadioGroup"
 
-const meta = {
+const meta: Meta<typeof Radio> = {
   component: Radio,
   title: "Componentes/Radio",
   parameters: {
@@ -51,12 +48,12 @@ const meta = {
     errorText: {
       control: { type: "text" },
       description:
-        "Texto de erro para o radio. Este texto é exibido quando o Radio está em um estado de erro, indicando que algo está errado com a seleção."
+        "Mensagem de erro para o radio. Esta mensagem é exibida quando o Radio está em um estado de erro, indicando que algo está errado com a seleção."
     },
     helperText: {
       control: { type: "text" },
       description:
-        "Texto de ajuda para o radio. Este texto é exibido abaixo do Radio para fornecer informações adicionais ou orientações ao usuário."
+        "Mensagem de ajuda para o radio. Esta mensagem é exibida abaixo do Radio para fornecer informações adicionais ou orientações ao usuário."
     },
     id: {
       control: { type: "text" },
@@ -66,7 +63,7 @@ const meta = {
     label: {
       control: { type: "text" },
       description:
-        "O texto do rótulo associado ao Radio. Este texto é exibido ao lado do botão de opção e é usado para descrever a opção selecionável."
+        "O texto do rótulo associado ao Radio. Este rótulo é exibido ao lado do botão de opção e é usado para descrever a opção selecionável."
     },
     inputClassName: {
       control: { type: "text" },
@@ -81,7 +78,7 @@ const meta = {
     successText: {
       control: { type: "text" },
       description:
-        "Texto de sucesso para o radio. Este texto é exibido quando o Radio está em um estado de sucesso, indicando que a seleção foi bem-sucedida."
+        "Mensagem de sucesso para o radio. Esta mensagem é exibida quando o Radio está em um estado de sucesso, indicando que a seleção foi bem-sucedida."
     },
     value: {
       control: { type: "text" },
@@ -94,7 +91,7 @@ const meta = {
     color: "primary",
     label: "Label Text"
   }
-} satisfies Meta<typeof Radio>
+}
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -107,25 +104,25 @@ export const Default: Story = {
 }
 
 export const WithErrorText: Story = {
-  name: "Versão com texto de erro",
+  name: "Versão com mensagem de erro",
   args: {
-    errorText: "Texto de erro",
+    errorText: "Mensagem de erro",
     value: "error"
   }
 }
 
 export const WithHelperText: Story = {
-  name: "Versão com texto de ajuda",
+  name: "Versão com mensagem de ajuda",
   args: {
-    helperText: "Texto de ajuda",
+    helperText: "Mensagem de ajuda",
     value: "helper"
   }
 }
 
 export const WithSuccessText: Story = {
-  name: "Versão com texto de sucesso",
+  name: "Versão com mensagem de sucesso",
   args: {
-    successText: "Texto de sucesso",
+    successText: "Mensagem de sucesso",
     value: "success"
   }
 }

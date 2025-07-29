@@ -83,7 +83,7 @@ export interface RadioProps
   color?: RadioColor
 
   /**
-   * The helper text for the Radio component.
+   * The helper text to be displayed below the Radio for additional information.
    */
   helperText?: string
 

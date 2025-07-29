@@ -15,4 +15,21 @@
     -webkit-font-feature-settings: "liga";
     -webkit-font-smoothing: antialiased;
   }
+
+  .scrollbar {
+    &::-webkit-scrollbar {
+      height: 8px;
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: var(--color-highlight);
+      border-radius: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--color-gray);
+      border-radius: 8px;
+    }
+  }
 }

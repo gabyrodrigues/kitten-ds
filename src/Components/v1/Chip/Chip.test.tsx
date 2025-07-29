@@ -268,4 +268,19 @@ describe("Chip", () => {
     deleteButton.focus()
     expect(deleteButton).toHaveFocus()
   })
+
+  it("applies hover:bg-inherit to delete button when readOnly is true", () => {
+    render(
+      <Chip
+        onDelete={() => {
+          console.info("Delete action")
+        }}
+        readOnly
+      >
+        Test
+      </Chip>
+    )
+    const deleteBtn = screen.getByRole("button", { name: /delete chip/i })
+    expect(deleteBtn.className).toMatch(/hover:bg-inherit/)
+  })
 })

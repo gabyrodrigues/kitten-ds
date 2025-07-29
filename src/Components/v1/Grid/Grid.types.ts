@@ -1,6 +1,5 @@
 import type { ElementType, HTMLAttributes, ReactNode } from "react"
-import type { GapY } from "tests/build/types"
-import type { Gap, GapX } from "../types"
+import type { Gap, GapX, GapY } from "../types"
 
 type GridRows = "grid-rows-none" | "grid-rows-subgrid" | `grid-rows-${string}`
 type GridCols = "grid-cols-none" | "grid-cols-subgrid" | `grid-cols-${string}`

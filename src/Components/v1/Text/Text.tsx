@@ -28,7 +28,8 @@ export default function Text({
     body1: "text-body1",
     body2: "text-body2",
     body3: "text-body3",
-    body4: "text-body4"
+    body4: "text-body4",
+    label: "text-label"
   }
 
   const mergedClasses = cn(

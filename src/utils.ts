@@ -20,7 +20,8 @@ export const CUSTOM_TW_MERGE = extendTailwindMerge({
         "text-body4",
         "text-body5",
         "text-button",
-        "text-chip"
+        "text-chip",
+        "text-label"
       ]
     }
   },

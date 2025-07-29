@@ -18,6 +18,7 @@ export default function Chip({
   letterSpacing,
   lineHeight,
   radius = "rounded-full",
+  readOnly,
   transform,
   textColor,
   variant = "outlined",
@@ -67,14 +68,18 @@ export default function Chip({
   }
 
   function handleKeyDownDelete(event: KeyboardEvent<HTMLElement>) {
-    if (!disabled && (event.key === " " || event.key === "Enter" || event.key === "Delete")) {
+    if (
+      !disabled &&
+      !readOnly &&
+      (event.key === " " || event.key === "Enter" || event.key === "Delete")
+    ) {
       event.preventDefault()
       event.currentTarget.click()
     }
   }
 
   function handleClickDelete(event: MouseEvent<HTMLElement>) {
-    if (disabled) {
+    if (disabled || readOnly) {
       event.preventDefault()
       event.stopPropagation()
       return
@@ -99,11 +104,16 @@ export default function Chip({
       {onDelete && (
         <button
           type="button"
-          className={cn(deleteVariantClasses, deleteButtonProps?.className)}
+          className={cn(
+            deleteVariantClasses,
+            readOnly && "hover:bg-inherit",
+            deleteButtonProps?.className
+          )}
           {...deleteButtonProps}
           aria-disabled={disabled}
           data-disabled={disabled}
           aria-label={deleteButtonProps?.["aria-label"] || "delete chip"}
+          data-readonly={readOnly}
           onClick={handleClickDelete}
           onKeyDown={handleKeyDownDelete}
         >

@@ -7,7 +7,7 @@ import { Flex } from "../Flex"
 import { Text } from "../Text"
 import { Title } from "../Title"
 
-const meta = {
+const meta: Meta<typeof Card> = {
   component: Card,
   title: "Componentes/Card",
   parameters: {
@@ -66,7 +66,7 @@ const meta = {
     hasShadow: true,
     className: "max-w-84"
   }
-} satisfies Meta<typeof Card>
+}
 
 export default meta
 

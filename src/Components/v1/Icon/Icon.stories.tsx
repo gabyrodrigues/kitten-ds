@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react"
 
 import Icon from "./Icon"
 
-const meta = {
+const meta: Meta<typeof Icon> = {
   component: Icon,
   title: "Componentes/Icon",
   parameters: {
@@ -57,7 +57,7 @@ const meta = {
     color: "text-typography-primary",
     "aria-label": "Settings"
   }
-} satisfies Meta<typeof Icon>
+}
 export default meta
 
 type Story = StoryObj<typeof meta>

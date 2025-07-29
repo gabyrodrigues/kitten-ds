@@ -289,4 +289,61 @@ describe("Checkbox", () => {
     fireEvent.click(checkbox)
     expect(onChange).toHaveBeenCalled()
   })
+
+  it("sets indeterminate to false on change if it was indeterminate", () => {
+    render(
+      <Checkbox
+        indeterminate
+        label="Test"
+      />
+    )
+    const input = screen.getByTestId("checkbox-input") as HTMLInputElement
+    input.indeterminate = true
+    fireEvent.click(input)
+    expect(input.indeterminate).toBe(false)
+  })
+
+  it("calls onClick when input is clicked", () => {
+    const handleClick = vi.fn()
+    render(
+      <Checkbox
+        label="Test"
+        onClick={handleClick}
+      />
+    )
+    const input = screen.getByLabelText("Test")
+    fireEvent.click(input)
+    expect(handleClick).toHaveBeenCalled()
+  })
+
+  it("applies correct colors for icon, label, and helperText when disabled and enabled", () => {
+    const { rerender } = render(
+      <Checkbox
+        checked
+        label="My label"
+        helperText="Help me"
+      />
+    )
+    // Icon color (should be inverted)
+    expect(screen.getByTestId("checkbox-icon")).toHaveClass("text-typography-inverted")
+    // Label color (should be primary)
+    expect(screen.getByText("My label")).toHaveClass("text-typography-primary")
+    // Helper text color (should be secondary)
+    expect(screen.getByText("Help me")).toHaveClass("text-typography-secondary")
+
+    rerender(
+      <Checkbox
+        checked
+        label="My label"
+        helperText="Help me"
+        disabled
+      />
+    )
+    // Icon color (should be disabled)
+    expect(screen.getByTestId("checkbox-icon")).toHaveClass("text-typography-disabled")
+    // Label color (should be disabled)
+    expect(screen.getByText("My label")).toHaveClass("text-typography-disabled")
+    // Helper text color (should be text-disabled)
+    expect(screen.getByText("Help me")).toHaveClass("text-disabled")
+  })
 })
