@@ -17,7 +17,7 @@ export const iconButtonVariants = tv({
     color: {
       primary: "",
       secondary: "",
-      gray: ""
+      neutral: ""
     },
     size: {
       small: "p-1 h-6 w-6 text-base leading-none",
@@ -38,8 +38,8 @@ export const iconButtonVariants = tv({
     },
     {
       variant: "filled",
-      color: "gray",
-      class: "bg-gray text-typography-inverted hover:bg-gray-hover"
+      color: "neutral",
+      class: "bg-neutral text-typography-inverted hover:bg-neutral-hover"
     },
 
     {
@@ -54,8 +54,8 @@ export const iconButtonVariants = tv({
     },
     {
       variant: "outlined",
-      color: "gray",
-      class: "border-gray text-gray hover:bg-highlight"
+      color: "neutral",
+      class: "border-neutral text-neutral hover:bg-highlight"
     },
 
     {
@@ -70,8 +70,8 @@ export const iconButtonVariants = tv({
     },
     {
       variant: "default",
-      color: "gray",
-      class: "text-gray hover:bg-highlight"
+      color: "neutral",
+      class: "text-neutral hover:bg-highlight"
     }
   ],
   defaultVariants: {

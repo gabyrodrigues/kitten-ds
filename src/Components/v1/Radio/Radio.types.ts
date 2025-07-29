@@ -1,7 +1,7 @@
 import type { ChangeEvent, InputHTMLAttributes, ReactNode } from "react"
 import type { FlexProps } from "../Flex/Flex.types"
 
-export type RadioColor = "primary" | "secondary" | "gray"
+export type RadioColor = "primary" | "secondary" | "neutral"
 
 /**
  * Props for the accessible Radio component.
@@ -78,7 +78,7 @@ export interface RadioProps
 
   /**
    * The Radio component variant.
-   * Possible values: "primary", "secondary" or "gray".
+   * Possible values: "primary", "secondary" or "neutral".
    */
   color?: RadioColor
 

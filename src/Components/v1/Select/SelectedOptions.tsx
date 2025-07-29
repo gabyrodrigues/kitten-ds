@@ -31,7 +31,7 @@ export function SelectedOptions({
           <Chip
             id={`chip-${baseId}-${getOptionValue(option)}`}
             key={getOptionValue(option)}
-            color="gray"
+            color="neutral"
             variant="outlined"
             disabled={disabled}
             readOnly={readOnly}

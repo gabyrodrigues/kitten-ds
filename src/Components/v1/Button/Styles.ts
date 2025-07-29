@@ -19,7 +19,7 @@ export const buttonVariants = tv({
       secondary: "",
       error: "",
       success: "",
-      gray: ""
+      neutral: ""
     }
   },
   compoundVariants: [
@@ -45,8 +45,8 @@ export const buttonVariants = tv({
     },
     {
       variant: "filled",
-      color: "gray",
-      class: "bg-gray text-typography-inverted hover:bg-gray-hover"
+      color: "neutral",
+      class: "bg-neutral text-typography-inverted hover:bg-neutral-hover"
     },
 
     {
@@ -71,8 +71,8 @@ export const buttonVariants = tv({
     },
     {
       variant: "outlined",
-      color: "gray",
-      class: "border-gray text-gray hover:bg-highlight"
+      color: "neutral",
+      class: "border-neutral text-neutral hover:bg-highlight"
     },
 
     {
@@ -97,8 +97,8 @@ export const buttonVariants = tv({
     },
     {
       variant: "text",
-      color: "gray",
-      class: "text-gray hover:bg-highlight"
+      color: "neutral",
+      class: "text-neutral hover:bg-highlight"
     }
   ],
   defaultVariants: {

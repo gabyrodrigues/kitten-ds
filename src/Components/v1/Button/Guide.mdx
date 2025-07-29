@@ -32,7 +32,7 @@ Cada tipo de botão possui variantes de cor que também indicam a importância d
 - **Secondary**: Ação complementar ou alternativa.
 - **Error**: Ações destrutivas ou que alertam sobre um risco.
 - **Success**: Ação que indica sucesso ou confirmação.
-- **Gray**: Ações neutras ou de suporte, com menor destaque.
+- **Neutral**: Ações neutras ou de suporte, com menor destaque.
 
 O botão também possui suporte para ícones ou outros elementos visuais, através de suas propriedades `left_section` e `right_section`, que permitem adicionar conteúdo antes ou depois do texto do botão, respectivamente. Essa flexibilidade melhora a percepção da ação e oferece feedback visual imediato, sem comprometer a acessibilidade textual.
 
@@ -67,13 +67,13 @@ Por isso, ao utilizar esse componente, é fundamental que o responsável pelo co
     <Flex radius="rounded-full" paddingX="px-2" paddingY="py-1" className="bg-success !mb-4">
       <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
     </Flex>
-    <Button color="gray">Adicionar ao carrinho</Button>
+    <Button color="neutral">Adicionar ao carrinho</Button>
   </Flex>
   <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-4" radius="rounded-lg" paddingX="px-4" paddingY="py-4" className="border border-default-border">
     <Flex radius="rounded-full" paddingX="px-2" paddingY="py-1" className="bg-error !mb-4">
       <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
     </Flex>
-    <Button color="gray">ADICIONAR AO CARRINHO.</Button>
+    <Button color="neutral">ADICIONAR AO CARRINHO.</Button>
   </Flex>
 </Grid>
 
@@ -86,9 +86,9 @@ Por isso, ao utilizar esse componente, é fundamental que o responsável pelo co
       <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
     </Flex>
     <Flex rowGap="gap-x-4" className="mt-auto">
-      <Button color="gray">Salvar</Button>
-      <Button color="gray">Adicionar item</Button>
-      <Button color="gray">Salvar rascunho</Button>
+      <Button color="neutral">Salvar</Button>
+      <Button color="neutral">Adicionar item</Button>
+      <Button color="neutral">Salvar rascunho</Button>
     </Flex>
   </Flex>
   <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-4" radius="rounded-lg" paddingX="px-4" paddingY="py-4" className="border border-default-border">
@@ -96,8 +96,8 @@ Por isso, ao utilizar esse componente, é fundamental que o responsável pelo co
       <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
     </Flex>
     <Flex gap="gap-4">
-      <Button color="gray">Ir</Button>
-      <Button color="gray">Clique aqui para iniciar o envio de formulário</Button>
+      <Button color="neutral">Ir</Button>
+      <Button color="neutral">Clique aqui para iniciar o envio de formulário</Button>
     </Flex>
   </Flex>
 </Grid>
@@ -121,7 +121,7 @@ Por isso, ao utilizar esse componente, é fundamental que o responsável pelo co
       <Button>Ver detalhes</Button>
       <Button variant="outlined" color="secondary">Voltar</Button>
       <Button variant="outlined">Acessar perfil</Button>
-      <Button variant="text" color="gray">Sair</Button>
+      <Button variant="text" color="neutral">Sair</Button>
     </Flex>
   </Flex>
 </Grid>
@@ -134,7 +134,7 @@ Por isso, ao utilizar esse componente, é fundamental que o responsável pelo co
       <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
     </Flex>
     <Flex rowGap="gap-x-4">
-      <Button color="gray">🞢 Adicionar detalhes</Button>
+      <Button color="neutral">🞢 Adicionar detalhes</Button>
     </Flex>
   </Flex>
   <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-4" radius="rounded-lg" paddingX="px-4" paddingY="py-4" className="border border-default-border">
@@ -142,7 +142,7 @@ Por isso, ao utilizar esse componente, é fundamental que o responsável pelo co
       <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
     </Flex>
     <Flex rowGap="gap-x-4">
-      <Button color="gray">🞢 <br /> Adicionar detalhes</Button>
+      <Button color="neutral">🞢 <br /> Adicionar detalhes</Button>
     </Flex>
   </Flex>
 </Grid>

@@ -1,7 +1,7 @@
 import type { ChangeEvent, InputHTMLAttributes, MouseEvent, ReactNode } from "react"
 import type { FlexProps } from "../Flex/Flex.types"
 
-export type CheckboxColor = "primary" | "secondary" | "gray"
+export type CheckboxColor = "primary" | "secondary" | "neutral"
 
 /**
  * Props for the accessible Checkbox component.
@@ -83,7 +83,7 @@ export interface CheckboxProps
 
   /**
    * The Checkbox component variant.
-   * Possible values: "primary", "secondary" or "gray".
+   * Possible values: "primary", "secondary" or "neutral".
    */
   color?: CheckboxColor
 

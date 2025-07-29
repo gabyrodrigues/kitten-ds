@@ -22,7 +22,7 @@ const meta: Meta<typeof IconButton> = {
     },
     color: {
       control: { type: "select" },
-      options: ["primary", "secondary", "gray"],
+      options: ["primary", "secondary", "neutral"],
       description: "Cor do Icon Button."
     },
     className: {
@@ -64,7 +64,7 @@ const meta: Meta<typeof IconButton> = {
     iconVariant: "outlined",
     weight: 400,
     variant: "default",
-    color: "gray",
+    color: "neutral",
     size: "large",
     ariaLabel: "Settings",
     onClick: () => {
@@ -92,7 +92,7 @@ const ICON_BUTTON_TEMPLATE = (args) => (
     />
     <IconButton
       {...args}
-      color="gray"
+      color="neutral"
     />
   </Flex>
 )

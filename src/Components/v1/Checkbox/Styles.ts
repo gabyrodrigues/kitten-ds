@@ -32,7 +32,10 @@ export const checkboxInputVariants = tv({
         "checked:bg-secondary checked:border-secondary checked:before:bg-secondary",
         "hover:ring-secondary-highlight"
       ],
-      gray: ["checked:bg-gray checked:border-gray checked:before:bg-gray", "hover:ring-highlight"]
+      neutral: [
+        "checked:bg-neutral checked:border-neutral checked:before:bg-neutral",
+        "hover:ring-highlight"
+      ]
     },
     indeterminate: { true: "" }
   },
@@ -49,8 +52,8 @@ export const checkboxInputVariants = tv({
     },
     {
       indeterminate: true,
-      color: "gray",
-      class: "bg-gray border-gray before:bg-gray"
+      color: "neutral",
+      class: "bg-neutral border-neutral before:bg-neutral"
     }
   ],
   defaultVariants: {

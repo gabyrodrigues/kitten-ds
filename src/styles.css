@@ -40,32 +40,32 @@
   --color-warning-hover: var(--color-warning-500);
   --color-warning-highlight: var(--color-warning-100);
 
-  --color-gray: var(--color-neutral-gray-700);
-  --color-gray-hover: var(--color-neutral-gray-800);
+  --color-neutral: var(--color-neutral-700);
+  --color-neutral-hover: var(--color-neutral-800);
 
   /* --- Backgrounds and States --- */
-  --color-disabled: var(--color-neutral-gray-300);
-  --color-highlight: var(--color-neutral-gray-200);
+  --color-disabled: var(--color-neutral-300);
+  --color-highlight: var(--color-neutral-200);
 
-  --color-background: var(--color-neutral-gray-200);
+  --color-background: var(--color-neutral-200);
   --color-background-inverted: var(--color-default-black);
-  --color-surface: var(--color-neutral-gray-100);
+  --color-surface: var(--color-neutral-100);
 
   --color-transparent: transparent;
   --color-inherit: inherit;
 
   /* --- Text --- */
-  --color-typography-primary: var(--color-neutral-gray-800);
-  --color-typography-secondary: var(--color-neutral-gray-600);
-  --color-typography-inverted: var(--color-neutral-gray-100);
-  --color-typography-disabled: var(--color-neutral-gray-500);
+  --color-typography-primary: var(--color-neutral-800);
+  --color-typography-secondary: var(--color-neutral-600);
+  --color-typography-inverted: var(--color-neutral-100);
+  --color-typography-disabled: var(--color-neutral-500);
 
   /* ---  Default & Inputs --- */
-  --color-default-black: var(--color-neutral-gray-900);
-  --color-default-white: var(--color-neutral-gray-100);
-  --color-default-border: var(--color-neutral-gray-400);
-  --color-input-border: var(--color-neutral-gray-600);
-  --color-input-placeholder: var(--color-neutral-gray-500);
+  --color-default-black: var(--color-neutral-900);
+  --color-default-white: var(--color-neutral-100);
+  --color-default-border: var(--color-neutral-400);
+  --color-input-border: var(--color-neutral-600);
+  --color-input-placeholder: var(--color-neutral-500);
 
   /* ---  State Links & Focus --- */
   --color-focus-ring: var(--color-brand-blue-700);
@@ -96,16 +96,16 @@
   --color-brand-blue-200: #bbdefb;
   --color-brand-blue-100: #f1f9ff;
 
-  /*  --- Gray --- */
-  --color-neutral-gray-900: #212121;
-  --color-neutral-gray-800: #373737;
-  --color-neutral-gray-700: #4f4f51;
-  --color-neutral-gray-600: #727275;
-  --color-neutral-gray-500: #b8b8ba;
-  --color-neutral-gray-400: #d0d0d1;
-  --color-neutral-gray-300: #e3e3e3;
-  --color-neutral-gray-200: #f2f2f2;
-  --color-neutral-gray-100: #fcfcfc;
+  /*  --- Neutral --- */
+  --color-neutral-900: #212121;
+  --color-neutral-800: #373737;
+  --color-neutral-700: #4f4f51;
+  --color-neutral-600: #727275;
+  --color-neutral-500: #b8b8ba;
+  --color-neutral-400: #d0d0d1;
+  --color-neutral-300: #e3e3e3;
+  --color-neutral-200: #f2f2f2;
+  --color-neutral-100: #fcfcfc;
 
   /*  --- Success --- */
   --color-success-500: #174f39;

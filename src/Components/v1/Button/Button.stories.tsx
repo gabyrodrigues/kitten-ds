@@ -50,7 +50,7 @@ const meta: Meta<typeof Button> = {
     },
     color: {
       control: { type: "select" },
-      options: ["primary", "secondary", "error", "success", "gray"],
+      options: ["primary", "secondary", "error", "success", "neutral"],
       description: "Esquema de cores do botão."
     },
     component: {
@@ -211,7 +211,7 @@ const BUTTON_TEMPLATE = (args: ButtonProps) => (
     />
     <Button
       {...args}
-      color="gray"
+      color="neutral"
     />
   </Flex>
 )

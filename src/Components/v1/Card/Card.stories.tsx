@@ -235,7 +235,7 @@ export const WithFooter: Story = {
     ),
     footer: (
       <Chip
-        color="gray"
+        color="neutral"
         variant="outlined"
       >
         Versão 1

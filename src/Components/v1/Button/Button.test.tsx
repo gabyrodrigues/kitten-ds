@@ -5,7 +5,7 @@ import { axe } from "vitest-axe"
 import Button from "./Button"
 
 const variants = ["filled", "outlined", "text"] as const
-const colors = ["primary", "secondary", "error", "success", "gray"] as const
+const colors = ["primary", "secondary", "error", "success", "neutral"] as const
 
 describe("Button", () => {
   it("renders with all variant/color combinations and passes a11y", async () => {

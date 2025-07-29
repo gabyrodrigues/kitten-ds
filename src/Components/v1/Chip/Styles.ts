@@ -32,7 +32,7 @@ export const chipVariants = tv({
       error: "",
       success: "",
       warning: "",
-      gray: ""
+      neutral: ""
     },
     clickable: {
       true: "",
@@ -97,14 +97,14 @@ export const chipVariants = tv({
     },
     {
       variant: "filled",
-      color: "gray",
-      class: "bg-gray text-typography-inverted"
+      color: "neutral",
+      class: "bg-neutral text-typography-inverted"
     },
     {
       variant: "filled",
-      color: "gray",
+      color: "neutral",
       clickable: true,
-      class: "hover:bg-gray-hover"
+      class: "hover:bg-neutral-hover"
     },
 
     {
@@ -164,12 +164,12 @@ export const chipVariants = tv({
     },
     {
       variant: "outlined",
-      color: "gray",
-      class: "border-gray text-gray bg-highlight"
+      color: "neutral",
+      class: "border-neutral text-neutral bg-highlight"
     },
     {
       variant: "outlined",
-      color: "gray",
+      color: "neutral",
       clickable: true,
       class: "hover:bg-highlight"
     }
@@ -206,7 +206,7 @@ export const chipDeleteVariants = tv({
       error: "",
       success: "",
       warning: "",
-      gray: ""
+      neutral: ""
     }
   },
   compoundVariants: [
@@ -242,9 +242,9 @@ export const chipDeleteVariants = tv({
     },
     {
       variant: "filled",
-      color: "gray",
+      color: "neutral",
       class:
-        "text-typography-inverted hover:text-gray hover:bg-typography-inverted data-[readOnly=true]:hover:text-typography-inverted"
+        "text-typography-inverted hover:text-neutral hover:bg-typography-inverted data-[readOnly=true]:hover:text-typography-inverted"
     },
 
     {
@@ -279,8 +279,9 @@ export const chipDeleteVariants = tv({
     },
     {
       variant: "outlined",
-      color: "gray",
-      class: "text-gray hover:text-highlight hover:bg-gray data-[readOnly=true]:hover:text-gray"
+      color: "neutral",
+      class:
+        "text-neutral hover:text-highlight hover:bg-neutral data-[readOnly=true]:hover:text-neutral"
     }
   ]
 })

@@ -20,7 +20,7 @@ import type {
 } from "../types"
 
 export type ChipVariant = "filled" | "outlined"
-export type ChipColor = "primary" | "secondary" | "error" | "success" | "warning" | "gray"
+export type ChipColor = "primary" | "secondary" | "error" | "success" | "warning" | "neutral"
 export type ChipComponent = "button" | "div" | "span" | "a"
 
 /**
@@ -44,7 +44,7 @@ export interface ChipProps extends HTMLAttributes<HTMLElement> {
   variant?: ChipVariant
 
   /**
-   * Color scheme ("primary" | "secondary" | "error" | "success" | "warning" | "gray").
+   * Color scheme ("primary" | "secondary" | "error" | "success" | "warning" | "neutral").
    * @default "primary"
    */
   color?: ChipColor
