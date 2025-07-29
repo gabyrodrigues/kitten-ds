@@ -43,6 +43,10 @@
   --color-neutral: var(--color-neutral-700);
   --color-neutral-hover: var(--color-neutral-800);
 
+  --color-info: var(--color-info-200);
+  --color-info-hover: var(--color-info-300);
+  --color-info-highlight: var(--color-info-100);
+
   /* --- Backgrounds and States --- */
   --color-disabled: var(--color-neutral-300);
   --color-highlight: var(--color-neutral-200);
@@ -120,6 +124,13 @@
   --color-error-300: #f38a7b;
   --color-error-200: #f7bdbd;
   --color-error-100: #feefef;
+
+  /*  --- Info --- */
+  --color-info-500: #2c84e2;
+  --color-info-400: #42a5f5;
+  --color-info-300: #97d0ff;
+  --color-info-200: #bbdefb;
+  --color-info-100: #f1f9ff;
 
   /*  --- Warning --- */
   --color-warning-500: #ffbb00;
