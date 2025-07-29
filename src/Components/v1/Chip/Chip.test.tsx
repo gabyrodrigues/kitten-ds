@@ -4,7 +4,7 @@ import { axe } from "vitest-axe"
 import Chip from "./Chip"
 
 const variants = ["filled", "outlined"] as const
-const colors = ["primary", "secondary", "error", "success", "warning", "neutral"] as const
+const colors = ["primary", "secondary", "error", "success", "warning", "info", "neutral"] as const
 
 describe("Chip", () => {
   it("renders with all variant/color combinations and passes a11y", async () => {

@@ -49,7 +49,7 @@ const meta: Meta<typeof Chip> = {
     },
     color: {
       control: { type: "select" },
-      options: ["primary", "secondary", "error", "success", "warning", "neutral"],
+      options: ["primary", "secondary", "error", "success", "warning", "info", "neutral"],
       description: "Esquema de cores do chip."
     },
     component: {
@@ -213,6 +213,10 @@ const CHIP_TEMPLATE = (args) => (
     <Chip
       {...args}
       color="warning"
+    />
+    <Chip
+      {...args}
+      color="info"
     />
     <Chip
       {...args}

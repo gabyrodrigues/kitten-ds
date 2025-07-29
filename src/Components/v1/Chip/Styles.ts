@@ -32,6 +32,7 @@ export const chipVariants = tv({
       error: "",
       success: "",
       warning: "",
+      info: "",
       neutral: ""
     },
     clickable: {
@@ -94,6 +95,17 @@ export const chipVariants = tv({
       color: "warning",
       clickable: true,
       class: "hover:bg-warning-hover"
+    },
+    {
+      variant: "filled",
+      color: "info",
+      class: "bg-info text-typography-primary"
+    },
+    {
+      variant: "filled",
+      color: "info",
+      clickable: true,
+      class: "hover:bg-info-hover"
     },
     {
       variant: "filled",
@@ -164,6 +176,17 @@ export const chipVariants = tv({
     },
     {
       variant: "outlined",
+      color: "info",
+      class: "border-info text-typography-primary bg-info-highlight"
+    },
+    {
+      variant: "outlined",
+      color: "info",
+      clickable: true,
+      class: "hover:bg-info-highlight"
+    },
+    {
+      variant: "outlined",
       color: "neutral",
       class: "border-neutral text-neutral bg-highlight"
     },
@@ -206,6 +229,7 @@ export const chipDeleteVariants = tv({
       error: "",
       success: "",
       warning: "",
+      info: "",
       neutral: ""
     }
   },
@@ -239,6 +263,12 @@ export const chipDeleteVariants = tv({
       color: "warning",
       class:
         "text-typography-primary hover:text-warning hover:bg-typography-primary data-[readOnly=true]:hover:text-typography-primary"
+    },
+    {
+      variant: "filled",
+      color: "info",
+      class:
+        "text-typography-primary hover:text-info hover:bg-typography-primary data-[readOnly=true]:hover:text-typography-primary"
     },
     {
       variant: "filled",
@@ -276,6 +306,12 @@ export const chipDeleteVariants = tv({
       color: "warning",
       class:
         "text-typography-primary hover:text-warning-highlight hover:bg-typography-primary data-[readOnly=true]:hover:text-typography-primary"
+    },
+    {
+      variant: "outlined",
+      color: "info",
+      class:
+        "text-typography-primary hover:text-info-highlight hover:bg-typography-primary data-[readOnly=true]:hover:text-typography-primary"
     },
     {
       variant: "outlined",
