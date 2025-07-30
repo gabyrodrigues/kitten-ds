@@ -130,7 +130,7 @@
 }
 
 @utility border-medium {
-  border-width: 20px;
+  border-width: --value(--border-width-medium);
 }
 
 @utility border-thick {
