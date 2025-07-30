@@ -11,7 +11,7 @@ export const buttonVariants = tv({
       filled:
         "border-none data-[disabled=true]:bg-disabled data-[disabled=true]:text-typography-disabled data-[disabled=true]:hover:bg-disabled",
       outlined:
-        "border-2 bg-transparent data-[disabled=true]:border-disabled data-[disabled=true]:hover:bg-transparent data-[disabled=true]:hover:text-typography-disabled data-[disabled=true]:text-typography-disabled",
+        "border-medium bg-transparent data-[disabled=true]:border-disabled data-[disabled=true]:hover:bg-transparent data-[disabled=true]:hover:text-typography-disabled data-[disabled=true]:text-typography-disabled",
       text: "bg-transparent data-[disabled=true]:text-typography-disabled data-[disabled=true]:hover:bg-transparent"
     },
     color: {

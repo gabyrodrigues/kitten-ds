@@ -17,6 +17,26 @@
   --shadow-level2: 0px 2px 4px 0px rgba(33, 33, 33, 0.16);
   --shadow-level3: 0px 4px 8px 0px rgba(33, 33, 33, 0.16);
 
+  --border-width-thin: 0.0625rem;
+  --border-width-medium: 0.125rem;
+  --border-width-thick: 0.1875rem;
+  --border-width-bold: 0.25rem;
+  --border-width-heavy: 0.5rem;
+
+  /* --- Spacing --- */
+  --spacing-quark: 0.25rem;
+  --spacing-nano: 0.5rem;
+  --spacing-xs: 0.75rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.25rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 2.75rem;
+  --spacing-3xl: 3.5rem;
+  --spacing-4xl: 4.5rem;
+  --spacing-5xl: 5rem;
+  --spacing-6xl: 6rem;
+
   /* ----- Color Tokens ----- */
 
   /* --- Variants --- */

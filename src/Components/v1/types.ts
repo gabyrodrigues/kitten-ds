@@ -6,7 +6,6 @@ export type PaddingLeft = `pl-${string}`
 export type PaddingRight = `pr-${string}`
 export type PaddingX = `px-${string}`
 export type PaddingY = `py-${string}`
-export type BorderRadius = `rounded-${string}`
 export type MarginBottom = `mb-${string}` | `-mb-${string}`
 export type MarginTop = `mt-${string}`
 export type Opacity = `opacity-${string}`
@@ -16,6 +15,17 @@ export type GapX = `gap-x-${string}`
 export type GapY = `gap-y-${string}`
 export type Height = `h-${string}` | `size-${string}`
 export type Width = `w-${string}` | `size-${string}`
+
+export type BorderRadius =
+  | "rounded-xs"
+  | "rounded-sm"
+  | "rounded-md"
+  | "rounded-lg"
+  | "rounded-xl"
+  | "rounded-2xl"
+  | "rounded-3xl"
+  | "rounded-4xl"
+  | `rounded-${string}`
 
 export type FontWeight =
   | "font-thin"

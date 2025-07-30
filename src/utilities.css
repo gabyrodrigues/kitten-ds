@@ -124,3 +124,23 @@
   font-weight: 400;
   line-height: 1.5;
 }
+
+@utility border-thin {
+  border-width: --value(--border-width-thin);
+}
+
+@utility border-medium {
+  border-width: 20px;
+}
+
+@utility border-thick {
+  border-width: --value(--border-width-thick);
+}
+
+@utility border-bold {
+  border-width: --value(--border-width-bold);
+}
+
+@utility border-heavy {
+  border-width: --value(--border-width-heavy);
+}

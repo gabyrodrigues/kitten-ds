@@ -1,5 +1,13 @@
 import { type ClassValue, clsx } from "clsx"
-import { extendTailwindMerge } from "tailwind-merge"
+import { type DefaultClassGroupIds, extendTailwindMerge } from "tailwind-merge"
+
+const borderWidthTokens = [
+  "border-thin",
+  "border-medium",
+  "border-thick",
+  "border-bold",
+  "border-heavy"
+]
 
 export const CUSTOM_TW_MERGE = extendTailwindMerge({
   extend: {
@@ -22,13 +30,37 @@ export const CUSTOM_TW_MERGE = extendTailwindMerge({
         "text-button",
         "text-chip",
         "text-label"
-      ]
+      ],
+      // "border-w": [...borderWidthTokens]
+      // "border-w": [{ border: borderWidthTokens }],
+      // "border-w-x": [{ "border-x": borderWidthTokens }],
+      // "border-w-y": [{ "border-y": borderWidthTokens }],
+      // "border-w-t": [{ "border-t": borderWidthTokens }],
+      // "border-w-r": [{ "border-r": borderWidthTokens }],
+      // "border-w-b": [{ "border-b": borderWidthTokens }],
+      // "border-w-l": [{ "border-l": borderWidthTokens }],
+      // "border-w-s": [{ "border-s": borderWidthTokens }],
+      // "border-w-e": [{ "border-e": borderWidthTokens }]
+      ...Object.fromEntries(
+        // https://github.com/dcastil/tailwind-merge/discussions/393#discussioncomment-12287055
+        (
+          [
+            ["border-w", "border"],
+            ["border-w-x", "border-x"],
+            ["border-w-y", "border-y"],
+            ["border-w-t", "border-t"],
+            ["border-w-r", "border-r"],
+            ["border-w-b", "border-b"],
+            ["border-w-l", "border-l"],
+            ["border-w-s", "border-s"],
+            ["border-w-e", "border-e"]
+          ] satisfies Array<[DefaultClassGroupIds, string]>
+        ).map(([key, value]) => [key, { [value]: borderWidthTokens }])
+      )
     }
   },
   override: {
-    conflictingClassGroups: {
-      "font-size": []
-    }
+    conflictingClassGroups: {}
   }
 })
 
