@@ -33,7 +33,7 @@ export default function Select({
   optionClassName,
   paddingL = "pl-3",
   paddingR = clearable ? "pr-16" : "pr-8",
-  paddingY = "py-1",
+  paddingY = "py-quark",
   placeholder = "Selecione uma opção",
   readOnly = false,
   required = false,

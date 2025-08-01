@@ -2,7 +2,7 @@ import { tv } from "@utils"
 
 export const tooltipContainerVariants = tv({
   base: [
-    "absolute z-50 px-2 py-2 w-max rounded-lg bg-background-inverted shadow-level1 opacity-0",
+    "absolute z-50 px-nano py-nano w-max rounded-lg bg-background-inverted shadow-level1 opacity-0",
     "opacity-0 pointer-events-none",
     "transition-opacity duration-300 delay-300",
     "peer-focus-visible:opacity-100 peer-focus-visible:pointer-events-auto peer-focus-visible:delay-500",

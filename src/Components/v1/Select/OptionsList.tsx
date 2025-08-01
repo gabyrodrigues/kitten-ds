@@ -94,8 +94,8 @@ export function OptionsList({
             role="option"
             component="li"
             width="w-full"
-            paddingX="px-2"
-            paddingY="py-2"
+            paddingX="px-nano"
+            paddingY="py-nano"
             justify="justify-between"
             className={cn(
               getOptionStyles(
@@ -128,7 +128,7 @@ export function OptionsList({
           variant="body3"
           color="text-typography-secondary"
           fontStyle="italic"
-          className="p-2"
+          className="p-nano"
         >
           {notFoundLabel}
         </Text>

@@ -121,16 +121,16 @@ export const Default: Story = {
   },
   render: (args) => (
     <Grid {...args}>
-      <div className="bg-primary p-6 rounded-lg w-full h-full text-typography-inverted font-semibold">
+      <div className="bg-primary p-lg rounded-lg w-full h-full text-typography-inverted font-semibold">
         Item 1
       </div>
-      <div className="bg-primary p-6 rounded-lg w-full h-full text-typography-inverted font-semibold">
+      <div className="bg-primary p-lg rounded-lg w-full h-full text-typography-inverted font-semibold">
         Item 2
       </div>
-      <div className="bg-primary p-6 rounded-lg w-full h-full text-typography-inverted font-semibold">
+      <div className="bg-primary p-lg rounded-lg w-full h-full text-typography-inverted font-semibold">
         Item 3
       </div>
-      <div className="bg-primary p-6 rounded-lg w-full h-full text-typography-inverted font-semibold">
+      <div className="bg-primary p-lg rounded-lg w-full h-full text-typography-inverted font-semibold">
         Item 4
       </div>
     </Grid>

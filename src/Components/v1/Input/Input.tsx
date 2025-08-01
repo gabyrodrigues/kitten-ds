@@ -41,7 +41,7 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(fun
     rightSection,
     paddingL = "pl-3",
     paddingR = rightSection ? "pr-8" : "pr-3",
-    paddingY = "py-2",
+    paddingY = "py-nano",
     rows = 4,
     successText,
     value,

@@ -93,7 +93,7 @@ export const WithText: Story = {
   args: {
     hasArrow: true,
     children: (
-      <Flex className="bg-secondary-highlight px-4 py-8 rounded-lg shadow-level2">
+      <Flex className="bg-secondary-highlight px-sm py-xl rounded-lg shadow-level2">
         <Text
           variant="body3"
           align="text-left"
@@ -109,7 +109,7 @@ export const WithHtmlContent: Story = {
   name: "Versão com conteúdo HTML",
   args: {
     hasArrow: true,
-    bodyClassName: "p-2 min-w-72",
+    bodyClassName: "p-nano min-w-72",
     body: (
       <Flex direction="flex-col">
         <Title
