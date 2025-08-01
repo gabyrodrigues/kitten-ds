@@ -1,5 +1,4 @@
-import { cn } from "@utils"
-import { tv } from "tailwind-variants"
+import { cn, tv } from "@utils"
 
 export const checkboxInputVariants = tv({
   base: [

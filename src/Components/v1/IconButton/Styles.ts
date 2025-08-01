@@ -1,4 +1,4 @@
-import { tv } from "tailwind-variants"
+import { tv } from "@utils"
 
 export const iconButtonVariants = tv({
   base: [
