@@ -9,7 +9,7 @@ export const radioInputVariants = tv({
     "cursor-pointer",
     "appearance-none",
     "rounded-full",
-    "border-2",
+    "border-medium",
     "transition-all",
     "border-input-border",
     "before:absolute",

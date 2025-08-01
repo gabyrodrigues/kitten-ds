@@ -17,7 +17,7 @@ export const chipVariants = tv({
         "data-[disabled=true]:hover:bg-disabled"
       ],
       outlined: [
-        "border-2",
+        "border-medium",
         "bg-transparent",
         "data-[disabled=true]:border-disabled",
         "data-[disabled=true]:bg-typography-inverted",

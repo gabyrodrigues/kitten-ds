@@ -2,7 +2,7 @@ import { cn } from "@utils"
 import type { BgColor, BorderColor } from "../types"
 
 export const INPUT_STYLE = cn(
-  "border-0",
+  "border-none",
   "outline-0",
   "flex-1",
   "bg-transparent",

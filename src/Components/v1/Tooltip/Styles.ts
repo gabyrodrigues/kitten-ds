@@ -52,42 +52,42 @@ export const tooltipArrowVariants = tv({
     {
       position: "top",
       hasArrow: true,
-      class: "border-t-4 border-t-background-inverted border-x-4 border-b-0"
+      class: "border-t-bold border-t-background-inverted border-x-bold border-b-none"
     },
     {
       position: "top-left",
       hasArrow: true,
-      class: "border-t-4 border-t-background-inverted border-x-4 border-b-0"
+      class: "border-t-bold border-t-background-inverted border-x-bold border-b-none"
     },
     {
       position: "top-right",
       hasArrow: true,
-      class: "border-t-4 border-t-background-inverted border-x-4 border-b-0"
+      class: "border-t-bold border-t-background-inverted border-x-bold border-b-none"
     },
     {
       position: "bottom",
       hasArrow: true,
-      class: "border-b-4 border-b-background-inverted border-x-4 border-t-0"
+      class: "border-b-bold border-b-background-inverted border-x-bold border-t-none"
     },
     {
       position: "bottom-right",
       hasArrow: true,
-      class: "border-b-4 border-b-background-inverted border-x-4 border-t-0"
+      class: "border-b-bold border-b-background-inverted border-x-bold border-t-none"
     },
     {
       position: "bottom-left",
       hasArrow: true,
-      class: "border-b-4 border-b-background-inverted border-x-4 border-t-0"
+      class: "border-b-bold border-b-background-inverted border-x-bold border-t-none"
     },
     {
       position: "left",
       hasArrow: true,
-      class: "border-l-4 border-l-background-inverted border-y-4 border-r-0"
+      class: "border-l-bold border-l-background-inverted border-y-bold border-r-none"
     },
     {
       position: "right",
       hasArrow: true,
-      class: "border-r-4 border-r-background-inverted border-y-4 border-l-0"
+      class: "border-r-bold border-r-background-inverted border-y-bold border-l-none"
     }
   ],
   defaultVariants: {

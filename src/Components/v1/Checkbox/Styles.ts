@@ -9,7 +9,7 @@ export const checkboxInputVariants = tv({
     "cursor-pointer",
     "appearance-none",
     "rounded-sm",
-    "border-2",
+    "border-medium",
     "border-input-border",
     "transition-all",
     "before:block before:w-6 before:h-6 before:rounded-full before:absolute before:top-1/2 before:left-1/2 before:-translate-y-1/2 before:-translate-x-1/2 before:opacity-0 before:transition-opacity",

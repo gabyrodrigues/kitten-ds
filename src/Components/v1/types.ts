@@ -219,6 +219,8 @@ export type BorderRadius =
   | "rounded-2xl"
   | "rounded-3xl"
   | "rounded-4xl"
+  | "rounded-full"
+  | "rounded-none"
   | `rounded-${string}`
 
 export type FontWeight =
