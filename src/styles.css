@@ -17,6 +17,7 @@
   --shadow-level2: 0px 2px 4px 0px rgba(33, 33, 33, 0.16);
   --shadow-level3: 0px 4px 8px 0px rgba(33, 33, 33, 0.16);
 
+  /* --- Border Width --- */
   --border-width-thin: 0.0625rem;
   --border-width-medium: 0.125rem;
   --border-width-thick: 0.1875rem;

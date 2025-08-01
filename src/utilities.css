@@ -126,21 +126,21 @@
 }
 
 @utility border-thin {
-  border-width: --value(--border-width-thin);
+  border-width: var(--border-width-thin);
 }
 
 @utility border-medium {
-  border-width: --value(--border-width-medium);
+  border-width: var(--border-width-medium);
 }
 
 @utility border-thick {
-  border-width: --value(--border-width-thick);
+  border-width: var(--border-width-thick);
 }
 
 @utility border-bold {
-  border-width: --value(--border-width-bold);
+  border-width: var(--border-width-bold);
 }
 
 @utility border-heavy {
-  border-width: --value(--border-width-heavy);
+  border-width: var(--border-width-heavy);
 }
