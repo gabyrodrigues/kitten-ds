@@ -60,7 +60,7 @@ const meta = {
     position: "top-right",
     className: "",
     isOpen: false,
-    timeToClose: 60000
+    timeToClose: 5000
   }
 } satisfies Meta<typeof Snackbar>
 

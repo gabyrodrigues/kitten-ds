@@ -56,78 +56,78 @@ export default function Snackbar({
   }, [isOpen, autoClose])
 
   return (
-    <>
-      {isOpen && (
+    isOpen && (
+      <Flex
+        id="toast-default"
+        radius="rounded-sm"
+        align="items-start"
+        justify="justify-center"
+        colGap="gap-x-2xl"
+        wrap="flex-nowrap"
+        role={["error", "warning", "success"].includes(color) ? "alert" : "status"}
+        aria-live="polite"
+        {...props}
+        className={mergedClasses}
+      >
         <Flex
-          id="toast-default"
-          radius="rounded-sm"
+          colGap="gap-x-sm"
+          width="w-full"
           align="items-start"
-          justify="justify-center"
-          colGap="gap-x-2xl"
-          wrap="flex-nowrap"
-          {...props}
-          className={mergedClasses}
         >
+          <Icon
+            type={handleSnackbarColorVariants(color, variant)?.icon}
+            color={handleSnackbarColorVariants(color, variant)?.iconColor as TextColor}
+            className="self-start"
+            variant="outlined"
+          />
+
           <Flex
-            colGap="gap-x-sm"
+            direction="flex-col"
+            flex="flex-1"
+            wrap="flex-nowrap"
             width="w-full"
-            align="items-start"
+          >
+            {typeof title === "string" ? (
+              <Title
+                variant="h6"
+                color={handleSnackbarColorVariants(color, variant)?.textColor as TextColor}
+              >
+                {title}
+              </Title>
+            ) : (
+              title
+            )}
+
+            {typeof description === "string" ? (
+              <Text
+                variant="body3"
+                color={handleSnackbarColorVariants(color, variant)?.textColor as TextColor}
+              >
+                {description}
+              </Text>
+            ) : (
+              description
+            )}
+          </Flex>
+        </Flex>
+
+        {onClose && (
+          <button
+            type="button"
+            className={cn(closeVariantClasses, closeButtonProps?.className)}
+            {...closeButtonProps}
+            aria-label={closeButtonProps?.["aria-label"] || "close snackbar"}
+            onKeyDown={handleKeyDownClose}
+            onClick={handleCloseModal}
           >
             <Icon
-              type={handleSnackbarColorVariants(color, variant)?.icon}
-              color={handleSnackbarColorVariants(color, variant)?.iconColor as TextColor}
-              className="self-start"
-              variant="outlined"
+              color="inherit"
+              type="close"
+              fontSize="text-base"
             />
-
-            <Flex
-              direction="flex-col"
-              flex="flex-1"
-              wrap="flex-nowrap"
-              width="w-full"
-            >
-              {typeof title === "string" ? (
-                <Title
-                  variant="h6"
-                  color={handleSnackbarColorVariants(color, variant)?.textColor as TextColor}
-                >
-                  {title}
-                </Title>
-              ) : (
-                title
-              )}
-
-              {typeof description === "string" ? (
-                <Text
-                  variant="body3"
-                  color={handleSnackbarColorVariants(color, variant)?.textColor as TextColor}
-                >
-                  {description}
-                </Text>
-              ) : (
-                description
-              )}
-            </Flex>
-          </Flex>
-
-          {onClose && (
-            <button
-              type="button"
-              className={cn(closeVariantClasses, closeButtonProps?.className)}
-              {...closeButtonProps}
-              aria-label={closeButtonProps?.["aria-label"] || "close snackbar"}
-              onKeyDown={handleKeyDownClose}
-              onClick={handleCloseModal}
-            >
-              <Icon
-                color="inherit"
-                type="close"
-                fontSize="text-base"
-              />
-            </button>
-          )}
-        </Flex>
-      )}
-    </>
+          </button>
+        )}
+      </Flex>
+    )
   )
 }
