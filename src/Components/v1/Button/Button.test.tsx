@@ -172,7 +172,7 @@ describe("Button", () => {
       </Button>
     )
     const button = screen.getByRole("button", { name: "Loading" })
-    screen.debug(button)
+
     expect(button).toHaveAttribute("aria-disabled", "true")
     expect(button).toHaveAttribute("data-disabled", "true")
     expect(button).toHaveAttribute("aria-busy", "true")

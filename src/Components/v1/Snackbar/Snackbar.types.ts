@@ -1,4 +1,5 @@
 import type { ButtonHTMLAttributes, ReactNode } from "react"
+import type { FlexProps } from "../Flex/Flex.types"
 
 export type SnackbarVariant = "filled" | "outlined"
 export type SnackbarColor = "success" | "error" | "info" | "warning" | "neutral"
@@ -11,7 +12,7 @@ export type SnackbarPosition = "top-right" | "top-left" | "bottom-right" | "bott
  * display notifications.
  * It includes options for customization such as color, variant, position, and more.
  */
-export interface SnackbarProps {
+export interface SnackbarProps extends Omit<FlexProps, "title"> {
   /**
    * The CSS class name to be applied to the Snackbar component.
    */

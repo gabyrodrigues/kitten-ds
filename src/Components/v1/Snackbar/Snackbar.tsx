@@ -1,5 +1,5 @@
 import { cn } from "@utils"
-import { type KeyboardEvent, useCallback, useEffect } from "react"
+import { type KeyboardEvent, useCallback, useEffect, useId } from "react"
 import { Flex } from "../Flex"
 import { Icon } from "../Icon"
 import { Text } from "../Text"
@@ -13,6 +13,7 @@ export default function Snackbar({
   className,
   closeButtonProps,
   description,
+  id,
   isOpen,
   position = "top-right",
   timeToClose = 6000,
@@ -28,6 +29,9 @@ export default function Snackbar({
   })
   const mergedClasses = cn(variantClasses, className)
   const closeVariantClasses = snackbarCloseVariants({ variant, color })
+
+  const reactId = useId()
+  const baseId = id ?? `snackbar-${reactId}`
 
   const handleCloseModal = useCallback(() => {
     onClose?.()
@@ -58,7 +62,7 @@ export default function Snackbar({
   return (
     isOpen && (
       <Flex
-        id="toast-default"
+        id={baseId}
         radius="rounded-sm"
         align="items-start"
         justify="justify-center"
