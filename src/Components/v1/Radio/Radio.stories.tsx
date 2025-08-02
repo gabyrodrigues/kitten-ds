@@ -26,9 +26,9 @@ const meta: Meta<typeof Radio> = {
     },
     color: {
       control: { type: "radio" },
-      options: ["primary", "secondary", "gray"],
+      options: ["primary", "secondary", "neutral"],
       description:
-        "Define a cor do Radio Button. As opções disponíveis são: 'primary', 'secondary' e 'gray'. Se o componente for usado dentro de um RadioGroup, a cor será herdada do grupo e não poderá ser alterada individualmente."
+        "Define a cor do Radio Button. As opções disponíveis são: 'primary', 'secondary' e 'neutral'. Se o componente for usado dentro de um RadioGroup, a cor será herdada do grupo e não poderá ser alterada individualmente."
     },
     contentClassName: {
       control: { type: "text" },

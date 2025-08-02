@@ -15,14 +15,14 @@ import { Title } from "../Title"
 O componente `Flex` organiza elementos de forma flexível e responsiva, utilizando o modelo de *layout* Flexbox do CSS. Ele permite alinhar, distribuir e espaçar elementos de maneira eficiente, adaptando-se a diferentes tamanhos de tela e resoluções por meio de suas propriedades baseadas em classes do Tailwind CSS.
 
 <Flex align="items-center" justify="justify-center" direction="flex-col">
-  <Flex direction="flex-col" justify="justify-between" align="items-center" wrap="flex-nowrap" gap="gap-4" width="w-full" className="max-w-164 md:flex-row">
-    <div className="bg-primary p-6 rounded-lg w-full text-center">
+  <Flex direction="flex-col" justify="justify-between" align="items-center" wrap="flex-nowrap" gap="gap-sm" width="w-full" className="max-w-164 md:flex-row">
+    <div className="bg-primary p-lg rounded-lg w-full text-center">
       <Text className="!text-typography-inverted" weight="font-semibold">Item 1</Text>
     </div>
-    <div className="bg-primary p-6 rounded-lg w-full text-center">
+    <div className="bg-primary p-lg rounded-lg w-full text-center">
       <Text className="!text-typography-inverted" weight="font-semibold">Item 2</Text>
     </div>
-    <div className="bg-primary p-6 rounded-lg w-full text-center">
+    <div className="bg-primary p-lg rounded-lg w-full text-center">
       <Text className="!text-typography-inverted" weight="font-semibold">Item 3</Text>
     </div>
   </Flex>

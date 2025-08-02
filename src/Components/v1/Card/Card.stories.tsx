@@ -117,7 +117,7 @@ export const WithBorder: Story = {
 
         <Text
           variant="body2"
-          marginTop="mt-4"
+          marginTop="mt-sm"
         >
           Este é um exemplo de conteúdo de texto dentro do card. Ele pode conter informações
           adicionais, descrições ou qualquer outro tipo de conteúdo textual.
@@ -148,7 +148,7 @@ export const WithText: Story = {
 
         <Text
           variant="body2"
-          marginTop="mt-4"
+          marginTop="mt-sm"
         >
           Este é um exemplo de conteúdo de texto dentro do card. Ele pode conter informações
           adicionais, descrições ou qualquer outro tipo de conteúdo textual.
@@ -187,7 +187,7 @@ export const WithHeading: Story = {
 
         <Text
           variant="body2"
-          marginTop="mt-4"
+          marginTop="mt-sm"
         >
           Este é um exemplo de conteúdo de texto dentro do card. Ele pode conter informações
           adicionais, descrições ou qualquer outro tipo de conteúdo textual.
@@ -226,7 +226,7 @@ export const WithFooter: Story = {
 
         <Text
           variant="body2"
-          marginTop="mt-4"
+          marginTop="mt-sm"
         >
           Este é um exemplo de conteúdo de texto dentro do card. Ele pode conter informações
           adicionais, descrições ou qualquer outro tipo de conteúdo textual.
@@ -235,7 +235,7 @@ export const WithFooter: Story = {
     ),
     footer: (
       <Chip
-        color="gray"
+        color="neutral"
         variant="outlined"
       >
         Versão 1
@@ -253,7 +253,7 @@ export const WithMedia: Story = {
         alt="Gato laranja deitado olhando para a câmera"
       />
     ),
-    headingClassName: "border-0 p-0",
+    headingClassName: "border-none p-0",
     children: (
       <Flex direction="flex-col">
         <Title
@@ -272,14 +272,14 @@ export const WithMedia: Story = {
 
         <Text
           variant="body2"
-          marginTop="mt-4"
+          marginTop="mt-sm"
         >
           Este é um exemplo de conteúdo de texto dentro do card. Ele pode conter informações
           adicionais, descrições ou qualquer outro tipo de conteúdo textual.
         </Text>
         <Button
           full
-          className="mt-4"
+          className="mt-sm"
           onClick={() => console.log("Button clicked")}
         >
           Ver mais detalhes
@@ -310,7 +310,7 @@ export const Selectable: Story = {
 
         <Text
           variant="body2"
-          marginTop="mt-4"
+          marginTop="mt-sm"
         >
           Este é um exemplo de conteúdo de texto dentro do card. Ele pode conter informações
           adicionais, descrições ou qualquer outro tipo de conteúdo textual.
@@ -357,7 +357,7 @@ export const Disabled: Story = {
 
         <Text
           variant="body2"
-          marginTop="mt-4"
+          marginTop="mt-sm"
         >
           Este é um exemplo de conteúdo de texto dentro do card. Ele pode conter informações
           adicionais, descrições ou qualquer outro tipo de conteúdo textual.

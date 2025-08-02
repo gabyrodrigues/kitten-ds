@@ -1,4 +1,4 @@
-import { tv } from "tailwind-variants"
+import { tv } from "@utils"
 
 export const iconButtonVariants = tv({
   base: [
@@ -10,19 +10,19 @@ export const iconButtonVariants = tv({
       filled:
         "border-none data-[disabled=true]:bg-disabled data-[disabled=true]:text-typography-inverted data-[disabled=true]:hover:bg-disabled",
       outlined:
-        "border-2 bg-transparent data-[disabled=true]:border-disabled data-[disabled=true]:hover:bg-transparent data-[disabled=true]:hover:text-typography-disabled data-[disabled=true]:text-typography-disabled",
+        "border-medium bg-transparent data-[disabled=true]:border-disabled data-[disabled=true]:hover:bg-transparent data-[disabled=true]:hover:text-typography-disabled data-[disabled=true]:text-typography-disabled",
       default:
         "bg-transparent data-[disabled=true]:text-typography-disabled data-[disabled=true]:hover:bg-transparent"
     },
     color: {
       primary: "",
       secondary: "",
-      gray: ""
+      neutral: ""
     },
     size: {
-      small: "p-1 h-6 w-6 text-base leading-none",
-      medium: "p-2 h-8 w-8 text-xl leading-none",
-      large: "p-3 h-11 w-11 text-xl leading-none"
+      sm: "p-quark h-6 w-6 text-base leading-none",
+      md: "p-nano h-8 w-8 text-xl leading-none",
+      lg: "p-xs h-11 w-11 text-xl leading-none"
     }
   },
   compoundVariants: [
@@ -38,8 +38,8 @@ export const iconButtonVariants = tv({
     },
     {
       variant: "filled",
-      color: "gray",
-      class: "bg-gray text-typography-inverted hover:bg-gray-hover"
+      color: "neutral",
+      class: "bg-neutral text-typography-inverted hover:bg-neutral-hover"
     },
 
     {
@@ -54,8 +54,8 @@ export const iconButtonVariants = tv({
     },
     {
       variant: "outlined",
-      color: "gray",
-      class: "border-gray text-gray hover:bg-highlight"
+      color: "neutral",
+      class: "border-neutral text-neutral hover:bg-highlight"
     },
 
     {
@@ -70,8 +70,8 @@ export const iconButtonVariants = tv({
     },
     {
       variant: "default",
-      color: "gray",
-      class: "text-gray hover:bg-highlight"
+      color: "neutral",
+      class: "text-neutral hover:bg-highlight"
     }
   ],
   defaultVariants: {

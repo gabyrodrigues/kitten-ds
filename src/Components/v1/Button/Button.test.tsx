@@ -5,7 +5,7 @@ import { axe } from "vitest-axe"
 import Button from "./Button"
 
 const variants = ["filled", "outlined", "text"] as const
-const colors = ["primary", "secondary", "error", "success", "gray"] as const
+const colors = ["primary", "secondary", "error", "success", "neutral"] as const
 
 describe("Button", () => {
   it("renders with all variant/color combinations and passes a11y", async () => {
@@ -159,5 +159,33 @@ describe("Button", () => {
     expect(button).toHaveFocus()
 
     expect(button).toHaveClass("focus-visible:ring-focus-ring")
+  })
+
+  it("applies correct attributes and prevents interaction when loading", () => {
+    const handleClick = vi.fn()
+    render(
+      <Button
+        isLoading
+        onClick={handleClick}
+      >
+        Loading
+      </Button>
+    )
+    const button = screen.getByRole("button", { name: "Loading" })
+    screen.debug(button)
+    expect(button).toHaveAttribute("aria-disabled", "true")
+    expect(button).toHaveAttribute("data-disabled", "true")
+    expect(button).toHaveAttribute("aria-busy", "true")
+    expect(button).toHaveAttribute("data-loading", "true")
+    expect(button).toHaveAttribute("tabindex", "0")
+
+    // Prevents click
+    fireEvent.click(button)
+    expect(handleClick).not.toHaveBeenCalled()
+  })
+
+  it("shows spinner when loading", () => {
+    render(<Button isLoading>Loading</Button>)
+    expect(screen.getByRole("status")).toBeInTheDocument()
   })
 })

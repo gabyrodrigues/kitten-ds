@@ -22,7 +22,7 @@ const meta: Meta<typeof IconButton> = {
     },
     color: {
       control: { type: "select" },
-      options: ["primary", "secondary", "gray"],
+      options: ["primary", "secondary", "neutral"],
       description: "Cor do Icon Button."
     },
     className: {
@@ -55,7 +55,7 @@ const meta: Meta<typeof IconButton> = {
     },
     size: {
       control: { type: "select" },
-      options: ["small", "medium", "large"],
+      options: ["sm", "md", "lg"],
       description: "Tamanho do componente."
     }
   },
@@ -64,8 +64,8 @@ const meta: Meta<typeof IconButton> = {
     iconVariant: "outlined",
     weight: 400,
     variant: "default",
-    color: "gray",
-    size: "large",
+    color: "neutral",
+    size: "lg",
     ariaLabel: "Settings",
     onClick: () => {
       console.info("clicked")
@@ -79,7 +79,7 @@ type Story = StoryObj<typeof meta>
 
 const ICON_BUTTON_TEMPLATE = (args) => (
   <Flex
-    gap="gap-4"
+    gap="gap-sm"
     wrap="flex-wrap"
   >
     <IconButton
@@ -92,7 +92,7 @@ const ICON_BUTTON_TEMPLATE = (args) => (
     />
     <IconButton
       {...args}
-      color="gray"
+      color="neutral"
     />
   </Flex>
 )

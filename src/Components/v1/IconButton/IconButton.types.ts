@@ -2,8 +2,8 @@ import type { ButtonHTMLAttributes, MouseEventHandler } from "react"
 import type { IconVariant, IconWeight } from "../Icon/Icon.types"
 
 export type IconButtonVariant = "filled" | "outlined" | "default"
-export type IconButtonColor = "primary" | "secondary" | "gray"
-export type IconButtonSize = "small" | "medium" | "large"
+export type IconButtonColor = "primary" | "secondary" | "neutral"
+export type IconButtonSize = "sm" | "md" | "lg"
 
 /**
  * Props for the accessible Icon Button component.
@@ -60,7 +60,7 @@ export interface IconButtonProps
   variant?: IconButtonVariant
 
   /**
-   * Color scheme ("primary" | "secondary" | "gray").
+   * Color scheme ("primary" | "secondary" | "neutral").
    * @default "primary"
    */
   color?: IconButtonColor

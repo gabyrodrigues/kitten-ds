@@ -1,5 +1,6 @@
 import { cn } from "@utils"
 import { type KeyboardEvent, type MouseEvent, type ReactElement, forwardRef } from "react"
+import { Spinner } from "../Spinner"
 import type { ButtonProps } from "./Button.types"
 import { buttonVariants } from "./Styles"
 
@@ -14,6 +15,7 @@ const Button = forwardRef<HTMLElement, ButtonProps>(function Button(
     color = "primary",
     component = "button",
     disabled,
+    isLoading = false,
     fontSize,
     full = false,
     justify = "justify-center",
@@ -53,8 +55,10 @@ const Button = forwardRef<HTMLElement, ButtonProps>(function Button(
     whitespace
   )
 
+  const isActuallyDisabled = disabled || isLoading
+
   function handleClick(event: MouseEvent<HTMLElement>) {
-    if (disabled) {
+    if (isActuallyDisabled) {
       event.preventDefault()
       event.stopPropagation()
       return
@@ -63,7 +67,7 @@ const Button = forwardRef<HTMLElement, ButtonProps>(function Button(
   }
 
   function handleKeyDown(event: KeyboardEvent<HTMLElement>) {
-    if (!disabled && (event.key === " " || event.key === "Enter")) {
+    if (!isActuallyDisabled && (event.key === " " || event.key === "Enter")) {
       event.preventDefault()
       event.currentTarget.click()
     }
@@ -77,14 +81,22 @@ const Button = forwardRef<HTMLElement, ButtonProps>(function Button(
       ref={ref}
       type={isNativeButton ? type : undefined}
       role={isNativeButton ? undefined : "button"}
-      aria-disabled={disabled}
-      data-disabled={disabled}
-      tabIndex={disabled ? 0 : undefined}
+      aria-disabled={isActuallyDisabled}
+      data-disabled={isActuallyDisabled}
+      aria-busy={isLoading}
+      data-loading={isLoading ? "true" : "false"}
+      tabIndex={isActuallyDisabled ? 0 : undefined}
       className={mergedClasses}
       onClick={handleClick}
       onKeyDown={isNativeButton ? undefined : handleKeyDown}
       {...props}
     >
+      {isLoading && (
+        <Spinner
+          className="mr-2"
+          color="disabled"
+        />
+      )}
       {leftSection && leftSection}
       {children}
       {rightSection && rightSection}

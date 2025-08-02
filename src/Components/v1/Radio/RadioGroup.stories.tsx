@@ -29,9 +29,9 @@ const meta: Meta<typeof RadioGroup> = {
     },
     color: {
       control: { type: "radio" },
-      options: ["primary", "secondary", "gray"],
+      options: ["primary", "secondary", "neutral"],
       description:
-        "Define a cor do Radio Button. As opções disponíveis são: 'primary', 'secondary' e 'gray'. Os componentes Radio dentro do RadioGroup herdarão essa cor e não poderão ser alterados individualmente."
+        "Define a cor do Radio Button. As opções disponíveis são: 'primary', 'secondary' e 'neutral'. Os componentes Radio dentro do RadioGroup herdarão essa cor e não poderão ser alterados individualmente."
     },
     defaultA11yLabel: {
       control: { type: "text" },

@@ -14,7 +14,7 @@ import type {
 } from "../types"
 
 export type ButtonVariant = "filled" | "outlined" | "text"
-export type ButtonColor = "primary" | "secondary" | "error" | "success" | "gray"
+export type ButtonColor = "primary" | "secondary" | "error" | "success" | "neutral"
 
 /**
  * Props for the accessible Button component.
@@ -51,7 +51,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant
 
   /**
-   * Color scheme ("primary" | "secondary" | "error" | "success" | "gray").
+   * Color scheme ("primary" | "secondary" | "error" | "success" | "neutral").
    * @default "primary"
    */
   color?: ButtonColor
@@ -86,6 +86,15 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    * `aria-disabled` for custom components.
    */
   disabled?: boolean
+
+  /**
+   * Whether the button is in a loading state.
+   * Adds `aria-busy` attribute for custom components and a spinner on the left side of button label.
+   * If true, the button will not respond to click events.
+   * This is useful for indicating asynchronous operations.
+   * @default false
+   */
+  isLoading?: boolean
 
   /**
    * Click event handler.

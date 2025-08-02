@@ -7,7 +7,7 @@ import { Flex, Text, Button, Title } from "../../Components"
 
 O sistema de espaçamento do Kitten DS é baseado em uma escala modular que segue incrementos de `4px`, alinhada à abordagem do Tailwind CSS. Essa escala padronizada garante consistência visual, facilita o alinhamento dos componentes e cria padrões de espaçamento previsíveis em toda a interface.
 
-Embora não existam *tokens* CSS personalizados no tema para espaçamento, recomenda-se o uso das classes utilitárias do Tailwind, como `p-4`, `mb-6`, `gap-x-8`, `gap-y-4`, que correspondem diretamente aos valores desta escala. Isso torna a construção de layouts mais simples, coerente e alinhada com os componentes do Kitten DS.
+Embora não existam *tokens* CSS personalizados no tema para espaçamento, recomenda-se o uso das classes utilitárias do Tailwind, como `p-sm`, `mb-lg`, `gap-x-xl`, `gap-y-sm`, que correspondem diretamente aos valores desta escala. Isso torna a construção de layouts mais simples, coerente e alinhada com os componentes do Kitten DS.
 
 > 💡 **Por que isso importa?**  
 > Adotar uma escala de espaçamento consistente melhora a harmonia visual, reduz erros de alinhamento, melhora a legibilidade e simplifica muito a manutenção. Alterações futuras são mais rápidas e seguras, já que os espaçamentos ficam concentrados na configuração dos containers — e não dispersos em ajustes manuais e margens avulsas.
@@ -32,32 +32,32 @@ Essa divisão ajuda a manter o código limpo, evita regras sobrepostas e facilit
     <tr>
       <td><strong>4px</strong></td>
       <td>Espaçamento interno entre ícones e texto</td>
-      <td><code>p-1</code>, <code>gap-1</code></td>
+      <td><code>p-quark</code>, <code>gap-quark</code></td>
     </tr>
     <tr>
       <td><strong>8px</strong></td>
       <td>Separação de elementos relacionados, como entre labels e inputs de formulários, ícones e texto ou itens em uma lista</td>
-      <td><code>m-2</code>, <code>gap-2</code>, <code>p-2</code></td>
+      <td><code>m-nano</code>, <code>gap-nano</code>, <code>p-nano</code></td>
     </tr>
     <tr>
       <td><strong>12px</strong></td>
       <td>Espaçamento vertical em elementos de formulário, preenchimento lateral de botões e outros elementos de formulário</td>
-      <td><code>m-3</code>, <code>p-3</code></td>
+      <td><code>m-xs</code>, <code>p-xs</code></td>
     </tr>
     <tr>
       <td><strong>16px</strong></td>
       <td>Separação entre grupos de conteúdo distintos</td>
-      <td><code>m-4</code>, <code>gap-4</code>, <code>p-4</code></td>
+      <td><code>m-sm</code>, <code>gap-sm</code>, <code>p-sm</code></td>
     </tr>
     <tr>
       <td><strong>24px</strong></td>
       <td>Separação entre subseções de conteúdo, como blocos de texto e títulos</td>
-      <td><code>m-6</code>, <code>p-6</code></td>
+      <td><code>m-lg</code>, <code>p-lg</code></td>
     </tr>
     <tr>
       <td><strong>32px</strong></td>
       <td>Separação entre áreas maiores, como seções ou blocos principais da página</td>
-      <td><code>m-8</code>, <code>p-8</code></td>
+      <td><code>m-xl</code>, <code>p-xl</code></td>
     </tr>
   </tbody>
 </table>
@@ -80,21 +80,21 @@ Aqui temos um layout simples utilizando os componentes `Flex`, `Title`, `Input` 
 
 export function SpacingExample() {
   return (
-    <Flex direction="flex-col" paddingX="px-8" paddingY="py-8">
-      <Title variant="h4" marginBottom="mb-6">
+    <Flex direction="flex-col" paddingX="px-xl" paddingY="py-xl">
+      <Title variant="h4" marginBottom="mb-lg">
         Formulário de Contato
       </Title>
 
       {/* Container principal com espaçamento entre os blocos */}
-      <Flex direction="flex-col" gap="gap-6" className="sb-unstyled">
+      <Flex direction="flex-col" gap="gap-lg" className="sb-unstyled">
         {/* Campos do formulário, espaçamento vertical entre inputs via gap */}
-        <Flex direction="flex-col" gap="gap-4">
+        <Flex direction="flex-col" gap="gap-sm">
           <Input placeholder="Digite seu nome" full />
           <Input placeholder="Digite seu email" full />
         </Flex>
 
         {/* Botões alinhados horizontalmente com gap */}
-        <Flex direction="flex-row" colGap="gap-x-4" width="w-full">
+        <Flex direction="flex-row" colGap="gap-x-sm" width="w-full">
           <Button color="primary" full>Enviar</Button>
           <Button color="error" full>Cancelar</Button>
         </Flex>
@@ -106,16 +106,16 @@ export function SpacingExample() {
 
 ### 💻 Resultado do exemplo
 
-<Flex direction="flex-col" paddingX="px-8" paddingY="py-8" className="sb-unstyled max-w-92">
-  <Title variant="h4" marginBottom="mb-6" className="sb-unstyled">Formulário de Contato</Title>
+<Flex direction="flex-col" paddingX="px-xl" paddingY="py-xl" className="sb-unstyled max-w-92">
+  <Title variant="h4" marginBottom="mb-lg" className="sb-unstyled">Formulário de Contato</Title>
   
-  <Flex direction="flex-col" gap="gap-6" className="sb-unstyled">
-    <Flex direction="flex-col" gap="gap-4" width="w-full" className="sb-unstyled">
-      <input type="text" placeholder="Nome" className="w-full p-3 border rounded flex-1 sb-unstyled" />
-      <input type="email" placeholder="Email" className="w-full p-3 border rounded flex-1 sb-unstyled" />
+  <Flex direction="flex-col" gap="gap-lg" className="sb-unstyled">
+    <Flex direction="flex-col" gap="gap-sm" width="w-full" className="sb-unstyled">
+      <input type="text" placeholder="Nome" className="w-full p-xs border rounded flex-1 sb-unstyled" />
+      <input type="email" placeholder="Email" className="w-full p-xs border rounded flex-1 sb-unstyled" />
     </Flex>
 
-    <Flex direction="flex-row" colGap="gap-x-4" width="w-full" className="sb-unstyled">
+    <Flex direction="flex-row" colGap="gap-x-sm" width="w-full" className="sb-unstyled">
       <Button color="success" full className="sb-unstyled">Enviar</Button>
       <Button color="error" full className="sb-unstyled">Cancelar</Button>
     </Flex>

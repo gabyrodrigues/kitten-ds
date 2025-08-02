@@ -49,7 +49,7 @@ const meta: Meta<typeof Chip> = {
     },
     color: {
       control: { type: "select" },
-      options: ["primary", "secondary", "error", "success", "warning", "gray"],
+      options: ["primary", "secondary", "error", "success", "warning", "info", "neutral"],
       description: "Esquema de cores do chip."
     },
     component: {
@@ -191,7 +191,7 @@ type Story = StoryObj<typeof meta>
 
 const CHIP_TEMPLATE = (args) => (
   <Flex
-    gap="gap-4"
+    gap="gap-sm"
     wrap="flex-wrap"
   >
     <Chip
@@ -216,7 +216,11 @@ const CHIP_TEMPLATE = (args) => (
     />
     <Chip
       {...args}
-      color="gray"
+      color="info"
+    />
+    <Chip
+      {...args}
+      color="neutral"
     />
   </Flex>
 )

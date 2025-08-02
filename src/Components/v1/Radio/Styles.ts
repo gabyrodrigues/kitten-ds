@@ -1,4 +1,4 @@
-import { tv } from "tailwind-variants"
+import { tv } from "@utils"
 
 export const radioInputVariants = tv({
   base: [
@@ -9,7 +9,7 @@ export const radioInputVariants = tv({
     "cursor-pointer",
     "appearance-none",
     "rounded-full",
-    "border-2",
+    "border-medium",
     "transition-all",
     "border-input-border",
     "before:absolute",
@@ -34,7 +34,7 @@ export const radioInputVariants = tv({
     color: {
       primary: "checked:border-primary hover:border-primary hover:ring-primary-highlight",
       secondary: "checked:border-secondary hover:border-secondary hover:ring-secondary-highlight",
-      gray: "checked:border-gray hover:border-gray hover:ring-highlight"
+      neutral: "checked:border-neutral hover:border-neutral hover:ring-highlight"
     }
   },
   defaultVariants: {
@@ -62,7 +62,7 @@ export const radioSpanVariants = tv({
     color: {
       primary: "bg-primary peer-hover:bg-primary",
       secondary: "bg-secondary peer-hover:bg-secondary",
-      gray: "bg-gray peer-hover:bg-gray"
+      neutral: "bg-neutral peer-hover:bg-neutral"
     }
   },
   defaultVariants: {

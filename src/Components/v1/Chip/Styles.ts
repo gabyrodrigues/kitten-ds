@@ -1,9 +1,9 @@
-import { tv } from "tailwind-variants"
+import { tv } from "@utils"
 
 export const chipVariants = tv({
   base: [
-    "px-3 py-1 min-h-7",
-    "flex items-center justify-center rounded-full gap-x-1",
+    "px-xs py-quark min-h-7",
+    "flex items-center justify-center rounded-full gap-x-quark",
     "relative",
     "data-[disabled=true]:text-typography-disabled",
     "data-[disabled=true]:cursor-default"
@@ -17,7 +17,7 @@ export const chipVariants = tv({
         "data-[disabled=true]:hover:bg-disabled"
       ],
       outlined: [
-        "border-2",
+        "border-medium",
         "bg-transparent",
         "data-[disabled=true]:border-disabled",
         "data-[disabled=true]:bg-typography-inverted",
@@ -32,7 +32,8 @@ export const chipVariants = tv({
       error: "",
       success: "",
       warning: "",
-      gray: ""
+      info: "",
+      neutral: ""
     },
     clickable: {
       true: "",
@@ -97,14 +98,25 @@ export const chipVariants = tv({
     },
     {
       variant: "filled",
-      color: "gray",
-      class: "bg-gray text-typography-inverted"
+      color: "info",
+      class: "bg-info text-typography-primary"
     },
     {
       variant: "filled",
-      color: "gray",
+      color: "info",
       clickable: true,
-      class: "hover:bg-gray-hover"
+      class: "hover:bg-info-hover"
+    },
+    {
+      variant: "filled",
+      color: "neutral",
+      class: "bg-neutral text-typography-inverted"
+    },
+    {
+      variant: "filled",
+      color: "neutral",
+      clickable: true,
+      class: "hover:bg-neutral-hover"
     },
 
     {
@@ -164,12 +176,23 @@ export const chipVariants = tv({
     },
     {
       variant: "outlined",
-      color: "gray",
-      class: "border-gray text-gray bg-highlight"
+      color: "info",
+      class: "border-info text-typography-primary bg-info-highlight"
     },
     {
       variant: "outlined",
-      color: "gray",
+      color: "info",
+      clickable: true,
+      class: "hover:bg-info-highlight"
+    },
+    {
+      variant: "outlined",
+      color: "neutral",
+      class: "border-neutral text-neutral bg-highlight"
+    },
+    {
+      variant: "outlined",
+      color: "neutral",
       clickable: true,
       class: "hover:bg-highlight"
     }
@@ -206,7 +229,8 @@ export const chipDeleteVariants = tv({
       error: "",
       success: "",
       warning: "",
-      gray: ""
+      info: "",
+      neutral: ""
     }
   },
   compoundVariants: [
@@ -242,9 +266,15 @@ export const chipDeleteVariants = tv({
     },
     {
       variant: "filled",
-      color: "gray",
+      color: "info",
       class:
-        "text-typography-inverted hover:text-gray hover:bg-typography-inverted data-[readOnly=true]:hover:text-typography-inverted"
+        "text-typography-primary hover:text-info hover:bg-typography-primary data-[readOnly=true]:hover:text-typography-primary"
+    },
+    {
+      variant: "filled",
+      color: "neutral",
+      class:
+        "text-typography-inverted hover:text-neutral hover:bg-typography-inverted data-[readOnly=true]:hover:text-typography-inverted"
     },
 
     {
@@ -279,8 +309,15 @@ export const chipDeleteVariants = tv({
     },
     {
       variant: "outlined",
-      color: "gray",
-      class: "text-gray hover:text-highlight hover:bg-gray data-[readOnly=true]:hover:text-gray"
+      color: "info",
+      class:
+        "text-typography-primary hover:text-info-highlight hover:bg-typography-primary data-[readOnly=true]:hover:text-typography-primary"
+    },
+    {
+      variant: "outlined",
+      color: "neutral",
+      class:
+        "text-neutral hover:text-highlight hover:bg-neutral data-[readOnly=true]:hover:text-neutral"
     }
   ]
 })

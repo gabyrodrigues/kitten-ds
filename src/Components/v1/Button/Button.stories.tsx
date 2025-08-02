@@ -50,7 +50,7 @@ const meta: Meta<typeof Button> = {
     },
     color: {
       control: { type: "select" },
-      options: ["primary", "secondary", "error", "success", "gray"],
+      options: ["primary", "secondary", "error", "success", "neutral"],
       description: "Esquema de cores do botão."
     },
     component: {
@@ -69,6 +69,11 @@ const meta: Meta<typeof Button> = {
     full: {
       control: { type: "boolean" },
       description: "Aplica largura total ao botão, ocupando todo o espaço disponível."
+    },
+    isLoading: {
+      control: { type: "boolean" },
+      description:
+        "Indica se o botão está em estado de carregamento. Adiciona um spinner à esquerda do rótulo do botão. Se verdadeiro, o botão não responderá a eventos de clique. Útil para indicar operações assíncronas."
     },
     justify: {
       control: { type: "select" },
@@ -91,6 +96,18 @@ const meta: Meta<typeof Button> = {
       control: { type: "text" },
       description: "Conteúdo exibido à esquerda do texto principal do botão."
     },
+    letterSpacing: {
+      control: { type: "select" },
+      options: [
+        "tracking-tighter",
+        "tracking-tight",
+        "tracking-normal",
+        "tracking-wide",
+        "tracking-wider",
+        "tracking-widest"
+      ],
+      description: "Espaçamento entre letras no texto do botão."
+    },
     lineHeight: {
       control: { type: "select" },
       options: [
@@ -103,18 +120,6 @@ const meta: Meta<typeof Button> = {
       ],
       description:
         "Altura da linha do texto no botão. Define o espaçamento vertical entre linhas de texto."
-    },
-    letterSpacing: {
-      control: { type: "select" },
-      options: [
-        "tracking-tighter",
-        "tracking-tight",
-        "tracking-normal",
-        "tracking-wide",
-        "tracking-wider",
-        "tracking-widest"
-      ],
-      description: "Espaçamento entre letras no texto do botão."
     },
     onClick: {
       action: "clicked",
@@ -176,6 +181,7 @@ const meta: Meta<typeof Button> = {
     children: "Button",
     align: "items-center",
     justify: "justify-center",
+    isLoading: false,
     disabled: false,
     full: false,
     onClick: () => {
@@ -190,7 +196,7 @@ type Story = StoryObj<typeof meta>
 
 const BUTTON_TEMPLATE = (args: ButtonProps) => (
   <Flex
-    gap="gap-4"
+    gap="gap-sm"
     wrap="flex-wrap"
   >
     <Button
@@ -211,7 +217,7 @@ const BUTTON_TEMPLATE = (args: ButtonProps) => (
     />
     <Button
       {...args}
-      color="gray"
+      color="neutral"
     />
   </Flex>
 )

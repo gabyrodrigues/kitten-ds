@@ -1,5 +1,4 @@
-import { cn } from "@utils"
-import { tv } from "tailwind-variants"
+import { cn, tv } from "@utils"
 
 export const checkboxInputVariants = tv({
   base: [
@@ -10,7 +9,7 @@ export const checkboxInputVariants = tv({
     "cursor-pointer",
     "appearance-none",
     "rounded-sm",
-    "border-2",
+    "border-medium",
     "border-input-border",
     "transition-all",
     "before:block before:w-6 before:h-6 before:rounded-full before:absolute before:top-1/2 before:left-1/2 before:-translate-y-1/2 before:-translate-x-1/2 before:opacity-0 before:transition-opacity",
@@ -32,7 +31,10 @@ export const checkboxInputVariants = tv({
         "checked:bg-secondary checked:border-secondary checked:before:bg-secondary",
         "hover:ring-secondary-highlight"
       ],
-      gray: ["checked:bg-gray checked:border-gray checked:before:bg-gray", "hover:ring-highlight"]
+      neutral: [
+        "checked:bg-neutral checked:border-neutral checked:before:bg-neutral",
+        "hover:ring-highlight"
+      ]
     },
     indeterminate: { true: "" }
   },
@@ -49,8 +51,8 @@ export const checkboxInputVariants = tv({
     },
     {
       indeterminate: true,
-      color: "gray",
-      class: "bg-gray border-gray before:bg-gray"
+      color: "neutral",
+      class: "bg-neutral border-neutral before:bg-neutral"
     }
   ],
   defaultVariants: {

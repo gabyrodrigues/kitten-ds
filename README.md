@@ -54,14 +54,14 @@ Por exemplo, os *tokens* padrão incluem:
 --color-primary-hover: var(--color-brand-purple-900);
 --color-primary-highlight: var(--color-brand-purple-100);
 
---shadow-variant1: 0px 0px 4px 0px rgba(33, 33, 33, 0.16);
---shadow-variant2: 0px 2px 4px 0px rgba(33, 33, 33, 0.16);
---shadow-variant3: 0px 4px 8px 0px rgba(33, 33, 33, 0.16);
+--shadow-level1: 0px 0px 4px 0px rgba(33, 33, 33, 0.16);
+--shadow-level2: 0px 2px 4px 0px rgba(33, 33, 33, 0.16);
+--shadow-level3: 0px 4px 8px 0px rgba(33, 33, 33, 0.16);
 
---color-typography-primary: var(--color-neutral-gray-800);
---color-typography-secondary: var(--color-neutral-gray-600);
---color-typography-inverted: var(--color-neutral-gray-100);
---color-typography-disabled: var(--color-neutral-gray-500);
+--color-typography-primary: var(--color-neutral-800);
+--color-typography-secondary: var(--color-neutral-600);
+--color-typography-inverted: var(--color-neutral-100);
+--color-typography-disabled: var(--color-neutral-500);
 ```
 
 Se quiser alterar a paleta, por exemplo, basta definir novos valores no seu CSS global:
@@ -72,7 +72,7 @@ Se quiser alterar a paleta, por exemplo, basta definir novos valores no seu CSS 
     --color-primary-hover: var(--color-brand-blue-800);
     --color-primary-highlight: var(--color-brand-blue-100);
 
-    --shadow-variant1: 0px 1px 4px rgba(0, 0, 0, 0.12);
+    --shadow-level1: 0px 1px 4px rgba(0, 0, 0, 0.12);
   }
 ```
 

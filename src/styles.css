@@ -13,9 +13,30 @@
   --breakpoint-2xl: 1920px;
 
   /* --- Box Shadow --- */
-  --shadow-variant1: 0px 0px 4px 0px rgba(33, 33, 33, 0.16);
-  --shadow-variant2: 0px 2px 4px 0px rgba(33, 33, 33, 0.16);
-  --shadow-variant3: 0px 4px 8px 0px rgba(33, 33, 33, 0.16);
+  --shadow-level1: 0px 0px 4px 0px rgba(33, 33, 33, 0.16);
+  --shadow-level2: 0px 2px 4px 0px rgba(33, 33, 33, 0.16);
+  --shadow-level3: 0px 4px 8px 0px rgba(33, 33, 33, 0.16);
+
+  /* --- Border Width --- */
+  --border-width-thin: 0.0625rem; /* 1px */
+  --border-width-medium: 0.125rem; /* 2px */
+  --border-width-thick: 0.1875rem; /* 3px */
+  --border-width-bold: 0.25rem; /* 4px */
+  --border-width-heavy: 0.5rem; /* 8px */
+
+  /* --- Spacing --- */
+  --spacing-quark: 0.25rem; /* 4px */
+  --spacing-nano: 0.5rem; /* 8px */
+  --spacing-xs: 0.75rem; /* 12px */
+  --spacing-sm: 1rem; /* 16px */
+  --spacing-md: 1.25rem; /* 20px */
+  --spacing-lg: 1.5rem; /* 24px */
+  --spacing-xl: 2rem; /* 32px */
+  --spacing-2xl: 2.75rem; /* 44px */
+  --spacing-3xl: 3.5rem; /* 56px */
+  --spacing-4xl: 4.5rem; /* 72px */
+  --spacing-5xl: 5rem; /* 80px */
+  --spacing-6xl: 6rem; /* 96px */
 
   /* ----- Color Tokens ----- */
 
@@ -40,32 +61,36 @@
   --color-warning-hover: var(--color-warning-500);
   --color-warning-highlight: var(--color-warning-100);
 
-  --color-gray: var(--color-neutral-gray-700);
-  --color-gray-hover: var(--color-neutral-gray-800);
+  --color-neutral: var(--color-neutral-700);
+  --color-neutral-hover: var(--color-neutral-800);
+
+  --color-info: var(--color-info-200);
+  --color-info-hover: var(--color-info-300);
+  --color-info-highlight: var(--color-info-100);
 
   /* --- Backgrounds and States --- */
-  --color-disabled: var(--color-neutral-gray-300);
-  --color-highlight: var(--color-neutral-gray-200);
+  --color-disabled: var(--color-neutral-300);
+  --color-highlight: var(--color-neutral-200);
 
-  --color-background: var(--color-neutral-gray-200);
+  --color-background: var(--color-neutral-200);
   --color-background-inverted: var(--color-default-black);
-  --color-surface: var(--color-neutral-gray-100);
+  --color-surface: var(--color-neutral-100);
 
   --color-transparent: transparent;
   --color-inherit: inherit;
 
   /* --- Text --- */
-  --color-typography-primary: var(--color-neutral-gray-800);
-  --color-typography-secondary: var(--color-neutral-gray-600);
-  --color-typography-inverted: var(--color-neutral-gray-100);
-  --color-typography-disabled: var(--color-neutral-gray-500);
+  --color-typography-primary: var(--color-neutral-800);
+  --color-typography-secondary: var(--color-neutral-600);
+  --color-typography-inverted: var(--color-neutral-100);
+  --color-typography-disabled: var(--color-neutral-500);
 
   /* ---  Default & Inputs --- */
-  --color-default-black: var(--color-neutral-gray-900);
-  --color-default-white: var(--color-neutral-gray-100);
-  --color-default-border: var(--color-neutral-gray-400);
-  --color-input-border: var(--color-neutral-gray-600);
-  --color-input-placeholder: var(--color-neutral-gray-500);
+  --color-default-black: var(--color-neutral-900);
+  --color-default-white: var(--color-neutral-100);
+  --color-default-border: var(--color-neutral-400);
+  --color-input-border: var(--color-neutral-600);
+  --color-input-placeholder: var(--color-neutral-500);
 
   /* ---  State Links & Focus --- */
   --color-focus-ring: var(--color-brand-blue-700);
@@ -96,16 +121,16 @@
   --color-brand-blue-200: #bbdefb;
   --color-brand-blue-100: #f1f9ff;
 
-  /*  --- Gray --- */
-  --color-neutral-gray-900: #212121;
-  --color-neutral-gray-800: #373737;
-  --color-neutral-gray-700: #4f4f51;
-  --color-neutral-gray-600: #727275;
-  --color-neutral-gray-500: #b8b8ba;
-  --color-neutral-gray-400: #d0d0d1;
-  --color-neutral-gray-300: #e3e3e3;
-  --color-neutral-gray-200: #f2f2f2;
-  --color-neutral-gray-100: #fcfcfc;
+  /*  --- Neutral --- */
+  --color-neutral-900: #212121;
+  --color-neutral-800: #373737;
+  --color-neutral-700: #4f4f51;
+  --color-neutral-600: #727275;
+  --color-neutral-500: #b8b8ba;
+  --color-neutral-400: #d0d0d1;
+  --color-neutral-300: #e3e3e3;
+  --color-neutral-200: #f2f2f2;
+  --color-neutral-100: #fcfcfc;
 
   /*  --- Success --- */
   --color-success-500: #174f39;
@@ -120,6 +145,13 @@
   --color-error-300: #f38a7b;
   --color-error-200: #f7bdbd;
   --color-error-100: #feefef;
+
+  /*  --- Info --- */
+  --color-info-500: #2c84e2;
+  --color-info-400: #42a5f5;
+  --color-info-300: #97d0ff;
+  --color-info-200: #bbdefb;
+  --color-info-100: #f1f9ff;
 
   /*  --- Warning --- */
   --color-warning-500: #ffbb00;

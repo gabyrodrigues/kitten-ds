@@ -104,7 +104,7 @@ const meta: Meta<typeof Flex> = {
     justify: "justify-between",
     align: "items-center",
     wrap: "flex-wrap",
-    gap: "gap-4"
+    gap: "gap-sm"
   }
 }
 
@@ -116,13 +116,13 @@ export const Default: Story = {
   name: "Versão de exemplo",
   render: (args) => (
     <Flex {...args}>
-      <div className="bg-primary p-6 rounded-lg w-full text-typography-inverted font-semibold">
+      <div className="bg-primary p-lg rounded-lg w-full text-typography-inverted font-semibold">
         Item 1
       </div>
-      <div className="bg-primary p-6 rounded-lg w-full text-typography-inverted font-semibold">
+      <div className="bg-primary p-lg rounded-lg w-full text-typography-inverted font-semibold">
         Item 2
       </div>
-      <div className="bg-primary p-6 rounded-lg w-full text-typography-inverted font-semibold">
+      <div className="bg-primary p-lg rounded-lg w-full text-typography-inverted font-semibold">
         Item 3
       </div>
     </Flex>

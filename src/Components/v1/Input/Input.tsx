@@ -41,7 +41,7 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(fun
     rightSection,
     paddingL = "pl-3",
     paddingR = rightSection ? "pr-8" : "pr-3",
-    paddingY = "py-2",
+    paddingY = "py-nano",
     rows = 4,
     successText,
     value,
@@ -123,7 +123,7 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(fun
         <Text
           component="label"
           variant="label"
-          marginBottom="mb-2"
+          marginBottom="mb-nano"
           color={disabled ? "text-disabled" : "text-typography-primary"}
           className={cn(labelClassName)}
           htmlFor={baseId}
@@ -152,7 +152,7 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(fun
         {leftSection && (
           <Flex
             align="items-center"
-            gap="gap-1"
+            gap="gap-quark"
             wrap="flex-wrap"
             className="shrink-0 max-w-fit"
           >

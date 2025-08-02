@@ -94,54 +94,54 @@ O componente `Text` foi desenvolvido com foco em acessibilidade e usabilidade. D
 
 <Title component="h1" className="!text-h5">Ao exibir textos, sempre verifique a semântica e a hierarquia do conteúdo. Utilize as variantes de texto apropriadas para garantir que o conteúdo seja legível e visualmente consistente.</Title>
 
-<Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-4" rowGap="gap-y-4" className="!mb-12 !mt-6">
-  <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-4" radius="rounded-lg" paddingX="px-4" paddingY="py-4" className="border border-default-border">
-    <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-2" className="!mb-4">
-      <Flex radius="rounded-full" paddingX="px-2" paddingY="py-1" className="bg-success">
+<Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
+  <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
+    <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
+      <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-success">
         <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
       </Flex>
     </Flex>
-    <Flex direction="flex-col" rowGap="gap-y-2" className="flex-1 mt-auto">
+    <Flex direction="flex-col" rowGap="gap-y-nano" className="flex-1 mt-auto">
       <Text className="sb-unstyled" variant="body2">Este é um texto explicativo com variante apropriada, garantindo legibilidade e consistência com o restante da interface.</Text>
       <Text className="sb-unstyled" variant="body4" color="text-typography-secondary">Este é um texto de apoio complementar, usando o componente `caption` corretamente.</Text>
     </Flex>
   </Flex>
-  <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-4" radius="rounded-lg" paddingX="px-4" paddingY="py-4" className="border border-default-border">
-    <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-2" className="!mb-4">
-      <Flex radius="rounded-full" paddingX="px-2" paddingY="py-1" className="bg-error">
+  <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
+    <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
+      <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-error">
         <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
       </Flex>
     </Flex>
-    <Flex direction="flex-col" rowGap="gap-y-2" className="flex-1 mt-auto">
+    <Flex direction="flex-col" rowGap="gap-y-nano" className="flex-1 mt-auto">
       <Text className="text-2xl font-bold sb-unstyled">Este texto está agindo como um título, mas deveria ser um componente `Title`.</Text>
-      <Text className="text-body4 font-normal text-gray-500 sb-unstyled">Este texto aplica estilos que já existem como variante `body4`, mas os sobrescreve manualmente.</Text>
+      <Text className="text-body4 font-normal text-neutral-500 sb-unstyled">Este texto aplica estilos que já existem como variante `body4`, mas os sobrescreve manualmente.</Text>
     </Flex>
   </Flex>
 </Grid>
 
 <Title component="h1" className="!text-h5">Use variantes de texto apropriadas para cada tipo de conteúdo. Evite usar estilos manuais para simular tamanhos, pesos ou usos que já estão definidos nas variantes do componente.</Title>
 
-<Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-4" rowGap="gap-y-4" className="!mb-12 !mt-6">
-  <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-4" radius="rounded-lg" paddingX="px-4" paddingY="py-4" className="border border-default-border">
-    <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-2" className="!mb-4">
-      <Flex radius="rounded-full" paddingX="px-2" paddingY="py-1" className="bg-success">
+<Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
+  <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
+    <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
+      <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-success">
         <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
       </Flex>
     </Flex>
-    <Flex direction="flex-col" rowGap="gap-y-2" className="flex-1 mt-auto">
+    <Flex direction="flex-col" rowGap="gap-y-nano" className="flex-1 mt-auto">
       <Text variant="body2" className="sb-unstyled">Este é o texto descritivo principal, explicando o conteúdo de forma clara e acessível.</Text>
       <Text variant="body4" color="text-typography-secondary" className="sb-unstyled">Texto utilizado como legenda de apoio</Text>
     </Flex>
   </Flex>
-  <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-4" radius="rounded-lg" paddingX="px-4" paddingY="py-4" className="border border-default-border">
-    <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-2" className="!mb-4">
-      <Flex radius="rounded-full" paddingX="px-2" paddingY="py-1" className="bg-error">
+  <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
+    <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
+      <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-error">
         <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
       </Flex>
     </Flex>
-    <Flex direction="flex-col" rowGap="gap-y-2" className="flex-1 mt-auto">
-      <Text className="text-[14px] text-neutral-gray-800 sb-unstyled">Este é o texto descritivo com estilos manuais que poderiam ser resolvidos com a variante `body4` e outras propriedades adequadas do componente, como `color` para definir a cor.</Text>
-      <Text className="sb-unstyled text-[12px] text-neutral-gray-600">Texto utilizado como legenda de apoio mas escrito manualmente</Text>
+    <Flex direction="flex-col" rowGap="gap-y-nano" className="flex-1 mt-auto">
+      <Text className="text-[14px] text-neutral-800 sb-unstyled">Este é o texto descritivo com estilos manuais que poderiam ser resolvidos com a variante `body4` e outras propriedades adequadas do componente, como `color` para definir a cor.</Text>
+      <Text className="sb-unstyled text-[12px] text-neutral-600">Texto utilizado como legenda de apoio mas escrito manualmente</Text>
     </Flex>
   </Flex>
 </Grid>

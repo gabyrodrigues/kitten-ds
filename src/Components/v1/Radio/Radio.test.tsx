@@ -4,7 +4,7 @@ import { axe } from "vitest-axe"
 
 import Radio from "./Radio"
 
-const colors = ["primary", "secondary", "gray"] as const
+const colors = ["primary", "secondary", "neutral"] as const
 
 describe("Radio", () => {
   it("renders with all variant/color combinations and passes a11y", async () => {

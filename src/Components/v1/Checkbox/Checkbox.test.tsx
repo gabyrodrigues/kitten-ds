@@ -4,7 +4,7 @@ import { axe } from "vitest-axe"
 
 import Checkbox from "./Checkbox"
 
-const colors = ["primary", "secondary", "gray"] as const
+const colors = ["primary", "secondary", "neutral"] as const
 
 describe("Checkbox", () => {
   it("renders with all variant/color combinations and passes a11y", async () => {

@@ -1,8 +1,8 @@
-import { tv } from "tailwind-variants"
+import { tv } from "@utils"
 
 export const tooltipContainerVariants = tv({
   base: [
-    "absolute z-50 px-2 py-2 w-max rounded-lg bg-background-inverted shadow-variant1 opacity-0",
+    "absolute z-50 px-nano py-nano w-max rounded-lg bg-background-inverted shadow-level1 opacity-0",
     "opacity-0 pointer-events-none",
     "transition-opacity duration-300 delay-300",
     "peer-focus-visible:opacity-100 peer-focus-visible:pointer-events-auto peer-focus-visible:delay-500",
@@ -10,14 +10,14 @@ export const tooltipContainerVariants = tv({
   ],
   variants: {
     position: {
-      bottom: "top-full mt-1 left-1/2 -translate-x-1/2",
-      "bottom-left": "top-full mt-1 left-0",
-      "bottom-right": "top-full mt-1 right-0",
-      left: "right-full mr-1 top-1/2 -translate-y-1/2",
-      right: "left-full ml-1 top-1/2 -translate-y-1/2",
-      top: "bottom-full mb-1 left-1/2 -translate-x-1/2",
-      "top-left": "bottom-full mb-1 left-0",
-      "top-right": "bottom-full mb-1 right-0"
+      bottom: "top-full mt-quark left-1/2 -translate-x-1/2",
+      "bottom-left": "top-full mt-quark left-0",
+      "bottom-right": "top-full mt-quark right-0",
+      left: "right-full mr-quark top-1/2 -translate-y-1/2",
+      right: "left-full ml-quark top-1/2 -translate-y-1/2",
+      top: "bottom-full mb-quark left-1/2 -translate-x-1/2",
+      "top-left": "bottom-full mb-quark left-0",
+      "top-right": "bottom-full mb-quark right-0"
     },
     hasArrow: {
       true: "",
@@ -52,42 +52,42 @@ export const tooltipArrowVariants = tv({
     {
       position: "top",
       hasArrow: true,
-      class: "border-t-4 border-t-background-inverted border-x-4 border-b-0"
+      class: "border-t-bold border-t-background-inverted border-x-bold border-b-none"
     },
     {
       position: "top-left",
       hasArrow: true,
-      class: "border-t-4 border-t-background-inverted border-x-4 border-b-0"
+      class: "border-t-bold border-t-background-inverted border-x-bold border-b-none"
     },
     {
       position: "top-right",
       hasArrow: true,
-      class: "border-t-4 border-t-background-inverted border-x-4 border-b-0"
+      class: "border-t-bold border-t-background-inverted border-x-bold border-b-none"
     },
     {
       position: "bottom",
       hasArrow: true,
-      class: "border-b-4 border-b-background-inverted border-x-4 border-t-0"
+      class: "border-b-bold border-b-background-inverted border-x-bold border-t-none"
     },
     {
       position: "bottom-right",
       hasArrow: true,
-      class: "border-b-4 border-b-background-inverted border-x-4 border-t-0"
+      class: "border-b-bold border-b-background-inverted border-x-bold border-t-none"
     },
     {
       position: "bottom-left",
       hasArrow: true,
-      class: "border-b-4 border-b-background-inverted border-x-4 border-t-0"
+      class: "border-b-bold border-b-background-inverted border-x-bold border-t-none"
     },
     {
       position: "left",
       hasArrow: true,
-      class: "border-l-4 border-l-background-inverted border-y-4 border-r-0"
+      class: "border-l-bold border-l-background-inverted border-y-bold border-r-none"
     },
     {
       position: "right",
       hasArrow: true,
-      class: "border-r-4 border-r-background-inverted border-y-4 border-l-0"
+      class: "border-r-bold border-r-background-inverted border-y-bold border-l-none"
     }
   ],
   defaultVariants: {

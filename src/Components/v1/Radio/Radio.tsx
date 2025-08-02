@@ -51,7 +51,7 @@ export default function Radio({
   return (
     <Flex
       align="items-start"
-      colGap="gap-x-3"
+      colGap="gap-x-xs"
       className={mergedRootClasses}
     >
       <Flex

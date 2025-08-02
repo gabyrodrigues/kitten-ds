@@ -32,7 +32,7 @@ Cada botão de ícone pode ser personalizado com diferentes cores, permitindo qu
 
 - **Primary**: Ação principal da página.
 - **Secondary**: Ação complementar ou alternativa.
-- **Gray**: Ações neutras ou de suporte, com menor destaque.
+- **Neutral**: Ações neutras ou de suporte, com menor destaque.
 
 <img src="/assets/icon-button-sizes.png" alt="Exibição de uma lista de botões delineados, cada um demonstrando um tamanho diferente: small, medium e large." style={{ margin: '8px auto' }} />
 
@@ -57,15 +57,15 @@ Diferente do `Button`, o `IconButton` **não possui texto visível**, por isso r
 
 <Title component="h1" className="!text-h5">Evite a sobrecarga visual causada por muitos `IconButtons` destacados.  Isso pode comprometer a clareza da interface, gerar prioridades visuais sobrepostas e dificultar a navegação do usuário</Title>
 
-<Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-4" rowGap="gap-y-4" className="!mb-12 !mt-6">
-  <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-4" radius="rounded-lg" paddingX="px-4" paddingY="py-4" className="border border-default-border">
-    <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-2" className="!mb-4">
-      <Flex radius="rounded-full" paddingX="px-2" paddingY="py-1" className="bg-success">
+<Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
+  <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
+    <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
+      <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-success">
         <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
       </Flex>
       <Text className="!m-0">Destaque apenas a ação principal e mantenha uma hierarquia visual clara.</Text>
     </Flex>
-    <Flex rowGap="gap-x-4">
+    <Flex rowGap="gap-x-sm">
       <IconButton icon="person" iconClassName="!font-[Material_Symbols_Outlined]
       )" variant="filled" ariaLabel="Perfil do usuário" />
       <IconButton icon="settings" iconClassName="!font-[Material_Symbols_Outlined]
@@ -74,14 +74,14 @@ Diferente do `Button`, o `IconButton` **não possui texto visível**, por isso r
       )" variant="default" ariaLabel="Mais opções" />
     </Flex>
   </Flex>
-  <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-4" radius="rounded-lg" paddingX="px-4" paddingY="py-4" className="border border-default-border">
-    <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-2" className="!mb-4">
-      <Flex radius="rounded-full" paddingX="px-2" paddingY="py-1" className="bg-error">
+  <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
+    <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
+      <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-error">
         <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
       </Flex>
       <Text className="!m-0">Evite agrupar ícones com a mesma aparência (variante e cor), pois isso pode confundir o usuário sobre a prioridade de cada ação.</Text>
     </Flex>
-    <Flex rowGap="gap-x-4">
+    <Flex rowGap="gap-x-sm">
       <IconButton icon="person" iconClassName="!font-[Material_Symbols_Outlined]
       )" variant="filled" color="primary" ariaLabel="Perfil do usuário" />
       <IconButton icon="settings" iconClassName="!font-[Material_Symbols_Outlined]
@@ -94,27 +94,27 @@ Diferente do `Button`, o `IconButton` **não possui texto visível**, por isso r
 
 <Title component="h1" className="!text-h5">Use ícones que representem claramente a ação do botão, sempre forneça um `ariaLabel` descritivo e evite ícones visuais semelhantes para ações diferentes.</Title>
 
-<Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-4" rowGap="gap-y-4" className="!mb-12 !mt-6">
-  <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-4" radius="rounded-lg" paddingX="px-4" paddingY="py-4" className="border border-default-border">
-    <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-2" className="!mb-4">
-      <Flex radius="rounded-full" paddingX="px-2" paddingY="py-1" className="bg-success">
+<Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
+  <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
+    <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
+      <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-success">
         <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
       </Flex>
       <Text className="!m-0">Use ícones claros e distintos que representam a ação, com rótulos acessíveis (`ariaLabel`) que descrevem exatamente o que será feito.</Text>
     </Flex>
-    <Flex rowGap="gap-x-4">
+    <Flex rowGap="gap-x-sm">
      <IconButton icon="save" iconClassName="!font-[Material_Symbols_Outlined]" variant="filled" color="primary" ariaLabel="Salvar alterações" />
       <IconButton icon="delete" iconClassName="!font-[Material_Symbols_Outlined]" variant="outlined" color="secondary" ariaLabel="Deletar item" />
     </Flex>
   </Flex>
-  <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-4" radius="rounded-lg" paddingX="px-4" paddingY="py-4" className="border border-default-border">
-    <Flex direction="flex-col" rowGap="gap-x-4" colGap="gap-y-2" className="!mb-4">
-      <Flex radius="rounded-full" paddingX="px-2" paddingY="py-1" className="bg-error">
+  <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
+    <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
+      <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-error">
         <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
       </Flex>
       <Text className="!m-0">Agrupar ícones de ações diferentes com representações parecidas e não descrevendo claramente a ação descrita pelo `ariaLabel`</Text>
     </Flex>
-    <Flex rowGap="gap-x-4">
+    <Flex rowGap="gap-x-sm">
       <IconButton icon="person" iconClassName="!font-[Material_Symbols_Outlined]" variant="filled" color="primary" ariaLabel="Perfil do usuário" />
 
       <IconButton icon="account_circle" iconClassName="!font-[Material_Symbols_Outlined]" variant="filled" color="secondary" ariaLabel="Mensagens do usuário" />

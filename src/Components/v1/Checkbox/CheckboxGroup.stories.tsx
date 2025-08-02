@@ -32,9 +32,9 @@ const meta: Meta<typeof CheckboxGroup> = {
     },
     color: {
       control: { type: "radio" },
-      options: ["primary", "secondary", "gray"],
+      options: ["primary", "secondary", "neutral"],
       description:
-        "Define a cor do Checkbox. As opções disponíveis são: 'primary', 'secondary' e 'gray'. Os componentes Checkbox dentro do CheckboxGroup herdarão essa cor e não poderão ser alterados individualmente."
+        "Define a cor do Checkbox. As opções disponíveis são: 'primary', 'secondary' e 'neutral'. Os componentes Checkbox dentro do CheckboxGroup herdarão essa cor e não poderão ser alterados individualmente."
     },
     defaultA11yLabel: {
       control: { type: "text" },
@@ -206,14 +206,14 @@ export const IndeterminateGroup: Story = {
           onChange={handleChild1Change}
           label="Brigadeiro"
           name="child1"
-          className="ml-9"
+          className="ml-xl"
         />
         <Checkbox
           checked={checked[1]}
           onChange={handleChild2Change}
           label="Mousse"
           name="child2"
-          className="ml-9"
+          className="ml-xl"
         />
       </CheckboxGroup>
     )

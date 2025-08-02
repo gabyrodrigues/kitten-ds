@@ -31,9 +31,9 @@ const meta: Meta<typeof Checkbox> = {
     },
     color: {
       control: { type: "radio" },
-      options: ["primary", "secondary", "gray"],
+      options: ["primary", "secondary", "neutral"],
       description:
-        "Define a cor do Checkbox. As opções disponíveis são: 'primary', 'secondary' e 'gray'. Se o componente for usado dentro de um CheckboxGroup, a cor será herdada do grupo e não poderá ser alterada individualmente."
+        "Define a cor do Checkbox. As opções disponíveis são: 'primary', 'secondary' e 'neutral'. Se o componente for usado dentro de um CheckboxGroup, a cor será herdada do grupo e não poderá ser alterada individualmente."
     },
     disabled: {
       control: { type: "boolean" },
@@ -125,7 +125,7 @@ const CHECKBOX_WITH_INDETERMINATE_STATE = (args: CheckboxProps) => {
   return (
     <Flex
       direction="flex-col"
-      gap="gap-12"
+      gap="gap-2xl"
     >
       <Checkbox
         {...args}

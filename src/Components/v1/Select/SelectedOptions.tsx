@@ -31,11 +31,11 @@ export function SelectedOptions({
           <Chip
             id={`chip-${baseId}-${getOptionValue(option)}`}
             key={getOptionValue(option)}
-            color="gray"
+            color="neutral"
             variant="outlined"
             disabled={disabled}
             readOnly={readOnly}
-            className="cursor-default font-normal shrink-0 py-0.5 pl-2 pr-0.5"
+            className="cursor-default font-normal shrink-0 pl-nano pr-quark"
             deleteButtonProps={{
               id: `chip-btn-${baseId}-${getOptionValue(option)}`,
               "aria-label": `Remove ${getOptionLabel(option)}`

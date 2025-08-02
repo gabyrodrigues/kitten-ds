@@ -100,8 +100,8 @@ const meta: Meta<typeof Grid> = {
   args: {
     cols: "grid-cols-2",
     rows: "grid-rows-2",
-    rowGap: "gap-y-2",
-    colGap: "gap-x-3",
+    rowGap: "gap-y-nano",
+    colGap: "gap-x-xs",
     flow: "grid-flow-row",
     autoCols: "auto-cols-min",
     autoRows: "auto-rows-auto",
@@ -121,16 +121,16 @@ export const Default: Story = {
   },
   render: (args) => (
     <Grid {...args}>
-      <div className="bg-primary p-6 rounded-lg w-full h-full text-typography-inverted font-semibold">
+      <div className="bg-primary p-lg rounded-lg w-full h-full text-typography-inverted font-semibold">
         Item 1
       </div>
-      <div className="bg-primary p-6 rounded-lg w-full h-full text-typography-inverted font-semibold">
+      <div className="bg-primary p-lg rounded-lg w-full h-full text-typography-inverted font-semibold">
         Item 2
       </div>
-      <div className="bg-primary p-6 rounded-lg w-full h-full text-typography-inverted font-semibold">
+      <div className="bg-primary p-lg rounded-lg w-full h-full text-typography-inverted font-semibold">
         Item 3
       </div>
-      <div className="bg-primary p-6 rounded-lg w-full h-full text-typography-inverted font-semibold">
+      <div className="bg-primary p-lg rounded-lg w-full h-full text-typography-inverted font-semibold">
         Item 4
       </div>
     </Grid>

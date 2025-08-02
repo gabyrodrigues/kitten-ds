@@ -10,7 +10,7 @@ export default function Chip({
   borderColor,
   children,
   className,
-  color = "gray",
+  color = "neutral",
   component = "div",
   disabled,
   fontSize,
