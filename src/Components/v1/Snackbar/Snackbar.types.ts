@@ -1,11 +1,15 @@
-import type { ReactNode } from "react"
+import type { ButtonHTMLAttributes, ReactNode } from "react"
 
 export type SnackbarVariant = "filled" | "outlined"
 export type SnackbarColor = "success" | "error" | "info" | "warning" | "neutral"
 export type SnackbarPosition = "top-right" | "top-left" | "bottom-right" | "bottom-left"
 
 /**
- * Represents the properties for the Snackbar component.
+ * Props for the Snackbar component.
+ * The Snackbar component is used to display brief messages or alerts to the user.
+ * It can be used to inform users about the status of an operation, provide feedback, or
+ * display notifications.
+ * It includes options for customization such as color, variant, position, and more.
  */
 export interface SnackbarProps {
   /**
@@ -33,7 +37,7 @@ export interface SnackbarProps {
   /**
    * The Snackbar variant options.
    * Possible values: "filled" or "outlined".
-   * @default "outlined"
+   * @default "filled"
    */
   variant?: SnackbarVariant
 
@@ -44,6 +48,7 @@ export interface SnackbarProps {
 
   /**
    * Callback function to be called when the modal is closed.
+   * If not provided, the modal will not be closable and will not display the close button
    */
   onClose?: () => void
 
@@ -58,4 +63,12 @@ export interface SnackbarProps {
    * @default "top-right"
    */
   position?: SnackbarPosition
+
+  /**
+   * Apply properties to the close button.
+   * This is useful for customizing the close button's appearance and behavior.
+   * It will be rendered only if `onClose` prop is provided.
+   *
+   */
+  closeButtonProps?: ButtonHTMLAttributes<HTMLButtonElement>
 }

@@ -1,24 +1,24 @@
 import { cn } from "@utils"
-import { useCallback, useEffect } from "react"
+import { type KeyboardEvent, useCallback, useEffect } from "react"
 import { Flex } from "../Flex"
 import { Icon } from "../Icon"
-import { IconButton } from "../IconButton"
 import { Text } from "../Text"
 import { Title } from "../Title"
 import type { TextColor } from "../types"
 import type { SnackbarProps } from "./Snackbar.types"
-import { handleSnackbarColorVariants, snackbarVariants } from "./Styles"
+import { handleSnackbarColorVariants, snackbarCloseVariants, snackbarVariants } from "./Styles"
 
 export default function Snackbar({
-  isOpen,
-  onClose,
-  timeToClose = 6000,
-  className,
-  title,
-  description,
   color = "success",
-  variant = "outlined",
+  className,
+  closeButtonProps,
+  description,
+  isOpen,
   position = "top-right",
+  timeToClose = 6000,
+  title,
+  variant = "outlined",
+  onClose,
   ...props
 }: SnackbarProps) {
   const variantClasses = snackbarVariants({
@@ -27,18 +27,26 @@ export default function Snackbar({
     position
   })
   const mergedClasses = cn(variantClasses, className)
+  const closeVariantClasses = snackbarCloseVariants({ variant, color })
 
-  const closeModal = useCallback(() => {
+  const handleCloseModal = useCallback(() => {
     onClose?.()
   }, [onClose])
 
   const autoClose = useCallback(() => {
     const timer = setTimeout(() => {
-      closeModal()
+      handleCloseModal()
     }, timeToClose)
 
     return () => clearTimeout(timer)
-  }, [closeModal, timeToClose])
+  }, [handleCloseModal, timeToClose])
+
+  function handleKeyDownClose(event: KeyboardEvent<HTMLElement>) {
+    if (event.key === " " || event.key === "Enter" || event.key === "Delete") {
+      event.preventDefault()
+      event.currentTarget.click()
+    }
+  }
 
   useEffect(() => {
     if (isOpen) {
@@ -102,19 +110,21 @@ export default function Snackbar({
             </Flex>
           </Flex>
 
-          {!!onClose && (
-            <IconButton
-              icon="close"
-              className="bg-transparent"
-              ariaLabel="Close"
-              size="sm"
-              iconClassName={cn(
-                "text-base",
-                handleSnackbarColorVariants(color, variant)?.textColor
-              )}
-              onKeyUp={closeModal}
-              onClick={closeModal}
-            />
+          {onClose && (
+            <button
+              type="button"
+              className={cn(closeVariantClasses, closeButtonProps?.className)}
+              {...closeButtonProps}
+              aria-label={closeButtonProps?.["aria-label"] || "close snackbar"}
+              onKeyDown={handleKeyDownClose}
+              onClick={handleCloseModal}
+            >
+              <Icon
+                color="inherit"
+                type="close"
+                fontSize="text-base"
+              />
+            </button>
           )}
         </Flex>
       )}

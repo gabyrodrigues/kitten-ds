@@ -56,7 +56,7 @@ const meta = {
     description:
       "A descrição do alerta explica o contexto da ação e orienta sobre o que pode acontecer.",
     color: "success",
-    variant: "outlined",
+    variant: "filled",
     position: "top-right",
     className: "",
     isOpen: false,
