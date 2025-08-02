@@ -64,7 +64,7 @@ export default function RadioGroup({
         component="legend"
         variant="label"
         color={disabled ? "text-typography-disabled" : "text-typography-primary"}
-        className={cn(labelClassName, label ? "mb-2" : "sr-only")}
+        className={cn(labelClassName, label ? "mb-nano" : "sr-only")}
       >
         {label || defaultA11yLabel}
 
@@ -73,7 +73,7 @@ export default function RadioGroup({
             component="span"
             variant="body2"
             color={disabled ? "text-typography-disabled" : "text-error"}
-            className="ml-1 inline"
+            className="ml-quark inline"
             aria-hidden="true"
           >
             *

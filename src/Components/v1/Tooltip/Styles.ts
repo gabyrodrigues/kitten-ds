@@ -10,14 +10,14 @@ export const tooltipContainerVariants = tv({
   ],
   variants: {
     position: {
-      bottom: "top-full mt-1 left-1/2 -translate-x-1/2",
-      "bottom-left": "top-full mt-1 left-0",
-      "bottom-right": "top-full mt-1 right-0",
-      left: "right-full mr-1 top-1/2 -translate-y-1/2",
-      right: "left-full ml-1 top-1/2 -translate-y-1/2",
-      top: "bottom-full mb-1 left-1/2 -translate-x-1/2",
-      "top-left": "bottom-full mb-1 left-0",
-      "top-right": "bottom-full mb-1 right-0"
+      bottom: "top-full mt-quark left-1/2 -translate-x-1/2",
+      "bottom-left": "top-full mt-quark left-0",
+      "bottom-right": "top-full mt-quark right-0",
+      left: "right-full mr-quark top-1/2 -translate-y-1/2",
+      right: "left-full ml-quark top-1/2 -translate-y-1/2",
+      top: "bottom-full mb-quark left-1/2 -translate-x-1/2",
+      "top-left": "bottom-full mb-quark left-0",
+      "top-right": "bottom-full mb-quark right-0"
     },
     hasArrow: {
       true: "",

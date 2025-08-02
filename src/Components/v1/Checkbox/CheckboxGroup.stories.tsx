@@ -206,14 +206,14 @@ export const IndeterminateGroup: Story = {
           onChange={handleChild1Change}
           label="Brigadeiro"
           name="child1"
-          className="ml-9"
+          className="ml-xl"
         />
         <Checkbox
           checked={checked[1]}
           onChange={handleChild2Change}
           label="Mousse"
           name="child2"
-          className="ml-9"
+          className="ml-xl"
         />
       </CheckboxGroup>
     )

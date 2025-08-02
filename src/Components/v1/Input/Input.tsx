@@ -123,7 +123,7 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(fun
         <Text
           component="label"
           variant="label"
-          marginBottom="mb-2"
+          marginBottom="mb-nano"
           color={disabled ? "text-disabled" : "text-typography-primary"}
           className={cn(labelClassName)}
           htmlFor={baseId}

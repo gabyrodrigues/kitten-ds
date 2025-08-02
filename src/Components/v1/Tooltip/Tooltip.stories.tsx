@@ -117,7 +117,7 @@ export const WithHtmlContent: Story = {
           component="h1"
           align="text-left"
           color="text-typography-inverted"
-          marginBottom="mb-3"
+          marginBottom="mb-xs"
         >
           Tooltip com título
         </Title>

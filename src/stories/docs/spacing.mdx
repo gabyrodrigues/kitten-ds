@@ -47,7 +47,7 @@ Essa divisão ajuda a manter o código limpo, evita regras sobrepostas e facilit
     <tr>
       <td><strong>16px</strong></td>
       <td>Separação entre grupos de conteúdo distintos</td>
-      <td><code>m-4</code>, <code>gap-sm</code>, <code>p-sm</code></td>
+      <td><code>m-sm</code>, <code>gap-sm</code>, <code>p-sm</code></td>
     </tr>
     <tr>
       <td><strong>24px</strong></td>
@@ -57,7 +57,7 @@ Essa divisão ajuda a manter o código limpo, evita regras sobrepostas e facilit
     <tr>
       <td><strong>32px</strong></td>
       <td>Separação entre áreas maiores, como seções ou blocos principais da página</td>
-      <td><code>m-8</code>, <code>p-8</code></td>
+      <td><code>m-xl</code>, <code>p-xl</code></td>
     </tr>
   </tbody>
 </table>
@@ -81,7 +81,7 @@ Aqui temos um layout simples utilizando os componentes `Flex`, `Title`, `Input` 
 export function SpacingExample() {
   return (
     <Flex direction="flex-col" paddingX="px-xl" paddingY="py-xl">
-      <Title variant="h4" marginBottom="mb-6">
+      <Title variant="h4" marginBottom="mb-lg">
         Formulário de Contato
       </Title>
 
@@ -107,7 +107,7 @@ export function SpacingExample() {
 ### 💻 Resultado do exemplo
 
 <Flex direction="flex-col" paddingX="px-xl" paddingY="py-xl" className="sb-unstyled max-w-92">
-  <Title variant="h4" marginBottom="mb-6" className="sb-unstyled">Formulário de Contato</Title>
+  <Title variant="h4" marginBottom="mb-lg" className="sb-unstyled">Formulário de Contato</Title>
   
   <Flex direction="flex-col" gap="gap-lg" className="sb-unstyled">
     <Flex direction="flex-col" gap="gap-sm" width="w-full" className="sb-unstyled">
