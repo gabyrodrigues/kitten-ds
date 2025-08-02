@@ -88,6 +88,15 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean
 
   /**
+   * Whether the button is in a loading state.
+   * Adds `aria-busy` attribute for custom components and a spinner on the left side of button label.
+   * If true, the button will not respond to click events.
+   * This is useful for indicating asynchronous operations.
+   * @default false
+   */
+  isLoading?: boolean
+
+  /**
    * Click event handler.
    *
    * Will not be called if the button is disabled.
