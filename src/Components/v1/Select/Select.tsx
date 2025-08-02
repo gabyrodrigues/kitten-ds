@@ -487,7 +487,7 @@ export default function Select({
               {clearable && value && !readOnly && !disabled && (
                 <IconButton
                   icon="close"
-                  size="medium"
+                  size="md"
                   ariaLabel="Clear"
                   iconClassName={cn(
                     "text-base text-typography-primary",
