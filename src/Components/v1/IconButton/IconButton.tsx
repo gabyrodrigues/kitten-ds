@@ -14,7 +14,7 @@ const IconButton = forwardRef(function IconButton(
     icon,
     iconClassName,
     iconVariant = "outlined",
-    size = "large",
+    size = "lg",
     variant = "default",
     weight = 400,
     onClick,

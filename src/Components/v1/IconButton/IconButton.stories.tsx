@@ -55,7 +55,7 @@ const meta: Meta<typeof IconButton> = {
     },
     size: {
       control: { type: "select" },
-      options: ["small", "medium", "large"],
+      options: ["sm", "md", "lg"],
       description: "Tamanho do componente."
     }
   },
@@ -65,7 +65,7 @@ const meta: Meta<typeof IconButton> = {
     weight: 400,
     variant: "default",
     color: "neutral",
-    size: "large",
+    size: "lg",
     ariaLabel: "Settings",
     onClick: () => {
       console.info("clicked")

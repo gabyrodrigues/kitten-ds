@@ -20,9 +20,9 @@ export const iconButtonVariants = tv({
       neutral: ""
     },
     size: {
-      small: "p-quark h-6 w-6 text-base leading-none",
-      medium: "p-nano h-8 w-8 text-xl leading-none",
-      large: "p-xs h-11 w-11 text-xl leading-none"
+      sm: "p-quark h-6 w-6 text-base leading-none",
+      md: "p-nano h-8 w-8 text-xl leading-none",
+      lg: "p-xs h-11 w-11 text-xl leading-none"
     }
   },
   compoundVariants: [

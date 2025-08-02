@@ -3,7 +3,7 @@ import type { IconVariant, IconWeight } from "../Icon/Icon.types"
 
 export type IconButtonVariant = "filled" | "outlined" | "default"
 export type IconButtonColor = "primary" | "secondary" | "neutral"
-export type IconButtonSize = "small" | "medium" | "large"
+export type IconButtonSize = "sm" | "md" | "lg"
 
 /**
  * Props for the accessible Icon Button component.
