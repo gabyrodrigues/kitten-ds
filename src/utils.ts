@@ -74,27 +74,50 @@ export function cn(...inputs: ClassValue[]) {
 export function sanitizeHtml(input: string): string {
   const allowedTags = ["b", "i", "u", "em", "strong", "p", "s", "small", "br", "a"]
   const allowedAttributes = ["href", "class"]
+  const selfClosingTags = ["br"]
 
-  // Create a temporary DOM element to parse the HTML
-  const container = document.createElement("div")
-  container.innerHTML = input
+  return input.replace(
+    /<(\/)?([a-z0-9]+)([^>]*)>/gi,
+    // biome-ignore lint/style/useNamingConvention: unused param
+    (_, closingSlash, tagName, attributes) => {
+      const formattedTagName = tagName.toLowerCase()
 
-  for (const node of container.querySelectorAll("*")) {
-    const tagName = node.tagName.toLowerCase()
+      if (!allowedTags.includes(formattedTagName)) return ""
 
-    if (!allowedTags.includes(tagName)) {
-      node.remove()
-      continue
-    }
-
-    for (const attr of [...node.attributes]) {
-      if (!allowedAttributes.includes(attr.name.toLowerCase())) {
-        node.removeAttribute(attr.name)
+      if (closingSlash) {
+        return `</${formattedTagName}>`
       }
-    }
-  }
 
-  return container.innerHTML
+      if (!attributes) {
+        return selfClosingTags.includes(formattedTagName)
+          ? `<${formattedTagName} />`
+          : `<${formattedTagName}>`
+      }
+
+      // Check if tag is self-closing with a trailing slash in attributes
+      const isSelfClosing = /\s*\/\s*$/.test(attributes)
+
+      // Remove trailing slash if present
+      const cleanedAttributes = attributes.replace(/\s*\/\s*$/, "")
+
+      // Filter allowed attributes
+      const attrsMatches = [
+        ...cleanedAttributes.matchAll(/([a-z0-9\-]+)\s*=\s*("[^"]*"|'[^']*'|[^\s'">]+)/gi)
+      ]
+
+      const filteredAttrs = attrsMatches
+        .filter(([, attributeName]) => allowedAttributes.includes(attributeName.toLowerCase()))
+        .map(([full]) => full)
+        .join(" ")
+
+      // Build tag with filtered attributes and add self-closing slash if needed
+      if (selfClosingTags.includes(formattedTagName) && isSelfClosing) {
+        return `<${formattedTagName}${filteredAttrs ? ` ${filteredAttrs}` : ""} />`
+      }
+
+      return `<${formattedTagName}${filteredAttrs ? ` ${filteredAttrs}` : ""}>`
+    }
+  )
 }
 
 export function generateRandomId(prefix?: string) {
