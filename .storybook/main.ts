@@ -9,7 +9,6 @@ const config: StorybookConfig = {
   staticDirs: [{ from: "../src/assets", to: "/assets" }, "./public"],
   addons: [
     "@storybook/addon-essentials",
-    "@chromatic-com/storybook",
     "@storybook/experimental-addon-test",
     "@storybook/addon-a11y"
   ],

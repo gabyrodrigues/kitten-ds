@@ -54,7 +54,6 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@chromatic-com/storybook": "^3",
     "@rollup/plugin-commonjs": "^28.0.3",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-typescript": "^12.1.2",
