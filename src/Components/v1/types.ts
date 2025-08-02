@@ -2,13 +2,8 @@ export type BgColor = `bg-${string}`
 export type BgOpacity = `bg-${string}`
 export type BorderColor = `border-${string}`
 export type TextColor = `text-${string}` | "inherit"
-export type PaddingX = `px-${string}`
-export type PaddingY = `py-${string}`
 export type Opacity = `opacity-${string}`
 export type LineClamp = `line-clamp-${string}`
-export type Gap = `gap-${string}`
-export type GapX = `gap-x-${string}`
-export type GapY = `gap-y-${string}`
 export type Height = `h-${string}` | `size-${string}`
 export type Width = `w-${string}` | `size-${string}`
 export type TextAlign =
@@ -30,6 +25,51 @@ export type WordBreak = "break-normal" | "break-all" | "break-keep"
 export type TextTransform = "uppercase" | "lowercase" | "capitalize" | "normal-case"
 export type FontStyle = "italic" | "not-italic"
 export type TextDecoration = "underline" | "overline" | "line-through" | "no-underline"
+
+export type Gap =
+  | "gap-quark"
+  | "gap-nano"
+  | "gap-xs"
+  | "gap-sm"
+  | "gap-md"
+  | "gap-lg"
+  | "gap-xl"
+  | "gap-2xl"
+  | "gap-3xl"
+  | "gap-4xl"
+  | "gap-5xl"
+  | "gap-6xl"
+  | `gap-${string}`
+
+export type GapX =
+  | "gap-x-quark"
+  | "gap-x-nano"
+  | "gap-x-xs"
+  | "gap-x-sm"
+  | "gap-x-md"
+  | "gap-x-lg"
+  | "gap-x-xl"
+  | "gap-x-2xl"
+  | "gap-x-3xl"
+  | "gap-x-4xl"
+  | "gap-x-5xl"
+  | "gap-x-6xl"
+  | `gap-x-${string}`
+
+export type GapY =
+  | "gap-y-quark"
+  | "gap-y-nano"
+  | "gap-y-xs"
+  | "gap-y-sm"
+  | "gap-y-md"
+  | "gap-y-lg"
+  | "gap-y-xl"
+  | "gap-y-2xl"
+  | "gap-y-3xl"
+  | "gap-y-4xl"
+  | "gap-y-5xl"
+  | "gap-y-6xl"
+  | `gap-y-${string}`
 
 export type MarginLeft =
   | "ml-quark"
@@ -173,20 +213,6 @@ export type PaddingRight =
   | "pr-6xl"
   | `pr-${string}`
 
-export type PaddingTop =
-  | "pt-quark"
-  | "pt-nano"
-  | "pt-xs"
-  | "pt-sm"
-  | "pt-md"
-  | "pt-lg"
-  | "pt-xl"
-  | "pt-2xl"
-  | "pt-3xl"
-  | "pt-4xl"
-  | "pt-5xl"
-  | "pt-6xl"
-  | `pt-${string}`
 export type PaddingBottom =
   | "pb-quark"
   | "pb-nano"
@@ -201,6 +227,51 @@ export type PaddingBottom =
   | "pb-5xl"
   | "pb-6xl"
   | `pb-${string}`
+
+export type PaddingTop =
+  | "pt-quark"
+  | "pt-nano"
+  | "pt-xs"
+  | "pt-sm"
+  | "pt-md"
+  | "pt-lg"
+  | "pt-xl"
+  | "pt-2xl"
+  | "pt-3xl"
+  | "pt-4xl"
+  | "pt-5xl"
+  | "pt-6xl"
+  | `pt-${string}`
+
+export type PaddingX =
+  | "px-quark"
+  | "px-nano"
+  | "px-xs"
+  | "px-sm"
+  | "px-md"
+  | "px-lg"
+  | "px-xl"
+  | "px-2xl"
+  | "px-3xl"
+  | "px-4xl"
+  | "px-5xl"
+  | "px-6xl"
+  | `px-${string}`
+
+export type PaddingY =
+  | "py-quark"
+  | "py-nano"
+  | "py-xs"
+  | "py-sm"
+  | "py-md"
+  | "py-lg"
+  | "py-xl"
+  | "py-2xl"
+  | "py-3xl"
+  | "py-4xl"
+  | "py-5xl"
+  | "py-6xl"
+  | `py-${string}`
 
 export type BorderWidth =
   | "border-thin"
