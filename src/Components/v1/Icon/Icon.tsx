@@ -13,9 +13,9 @@ export default function Icon({
 }: IconProps) {
   const mergedClasses = cn(
     "material-symbols-icons",
-    "leading-none",
     color,
     fontSize,
+    "leading-none",
     getWeightClass(variant, weight),
     className
   )

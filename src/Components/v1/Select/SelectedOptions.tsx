@@ -35,7 +35,7 @@ export function SelectedOptions({
             variant="outlined"
             disabled={disabled}
             readOnly={readOnly}
-            className="cursor-default font-normal shrink-0 py-0.5 pl-2 pr-0.5"
+            className="cursor-default font-normal shrink-0 py-0.5 pl-nano pr-0.5"
             deleteButtonProps={{
               id: `chip-btn-${baseId}-${getOptionValue(option)}`,
               "aria-label": `Remove ${getOptionLabel(option)}`
