@@ -152,7 +152,7 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(fun
         {leftSection && (
           <Flex
             align="items-center"
-            gap="gap-1"
+            gap="gap-quark"
             wrap="flex-wrap"
             className="shrink-0 max-w-fit"
           >

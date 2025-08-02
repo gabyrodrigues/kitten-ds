@@ -125,7 +125,7 @@ const CHECKBOX_WITH_INDETERMINATE_STATE = (args: CheckboxProps) => {
   return (
     <Flex
       direction="flex-col"
-      gap="gap-12"
+      gap="gap-2xl"
     >
       <Checkbox
         {...args}

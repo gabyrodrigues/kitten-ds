@@ -104,7 +104,7 @@ const meta: Meta<typeof Flex> = {
     justify: "justify-between",
     align: "items-center",
     wrap: "flex-wrap",
-    gap: "gap-4"
+    gap: "gap-sm"
   }
 }
 

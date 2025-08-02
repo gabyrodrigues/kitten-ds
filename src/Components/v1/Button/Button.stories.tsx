@@ -190,7 +190,7 @@ type Story = StoryObj<typeof meta>
 
 const BUTTON_TEMPLATE = (args: ButtonProps) => (
   <Flex
-    gap="gap-4"
+    gap="gap-sm"
     wrap="flex-wrap"
   >
     <Button

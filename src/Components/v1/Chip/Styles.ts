@@ -3,7 +3,7 @@ import { tv } from "@utils"
 export const chipVariants = tv({
   base: [
     "px-xs py-quark min-h-7",
-    "flex items-center justify-center rounded-full gap-x-1",
+    "flex items-center justify-center rounded-full gap-x-quark",
     "relative",
     "data-[disabled=true]:text-typography-disabled",
     "data-[disabled=true]:cursor-default"

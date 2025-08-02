@@ -75,7 +75,7 @@ export default function CheckboxGroup({
 
       <Flex
         direction="flex-col"
-        rowGap="gap-y-3"
+        rowGap="gap-y-xs"
         className={cn(listClassName)}
       >
         {flattenedChildren.map((child, index) => {
@@ -102,8 +102,8 @@ export default function CheckboxGroup({
       {(helperText || errorText || successText) && (
         <Flex
           direction="flex-col"
-          gap="gap-1"
-          className="mt-2"
+          gap="gap-quark"
+          className="mt-nano"
         >
           {helperText && (
             <Text

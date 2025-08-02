@@ -191,7 +191,7 @@ type Story = StoryObj<typeof meta>
 
 const CHIP_TEMPLATE = (args) => (
   <Flex
-    gap="gap-4"
+    gap="gap-sm"
     wrap="flex-wrap"
   >
     <Chip

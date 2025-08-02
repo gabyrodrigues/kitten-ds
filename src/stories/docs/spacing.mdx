@@ -7,7 +7,7 @@ import { Flex, Text, Button, Title } from "../../Components"
 
 O sistema de espaçamento do Kitten DS é baseado em uma escala modular que segue incrementos de `4px`, alinhada à abordagem do Tailwind CSS. Essa escala padronizada garante consistência visual, facilita o alinhamento dos componentes e cria padrões de espaçamento previsíveis em toda a interface.
 
-Embora não existam *tokens* CSS personalizados no tema para espaçamento, recomenda-se o uso das classes utilitárias do Tailwind, como `p-sm`, `mb-6`, `gap-x-8`, `gap-y-sm`, que correspondem diretamente aos valores desta escala. Isso torna a construção de layouts mais simples, coerente e alinhada com os componentes do Kitten DS.
+Embora não existam *tokens* CSS personalizados no tema para espaçamento, recomenda-se o uso das classes utilitárias do Tailwind, como `p-sm`, `mb-lg`, `gap-x-xl`, `gap-y-sm`, que correspondem diretamente aos valores desta escala. Isso torna a construção de layouts mais simples, coerente e alinhada com os componentes do Kitten DS.
 
 > 💡 **Por que isso importa?**  
 > Adotar uma escala de espaçamento consistente melhora a harmonia visual, reduz erros de alinhamento, melhora a legibilidade e simplifica muito a manutenção. Alterações futuras são mais rápidas e seguras, já que os espaçamentos ficam concentrados na configuração dos containers — e não dispersos em ajustes manuais e margens avulsas.
@@ -47,7 +47,7 @@ Essa divisão ajuda a manter o código limpo, evita regras sobrepostas e facilit
     <tr>
       <td><strong>16px</strong></td>
       <td>Separação entre grupos de conteúdo distintos</td>
-      <td><code>m-4</code>, <code>gap-4</code>, <code>p-sm</code></td>
+      <td><code>m-4</code>, <code>gap-sm</code>, <code>p-sm</code></td>
     </tr>
     <tr>
       <td><strong>24px</strong></td>
@@ -94,7 +94,7 @@ export function SpacingExample() {
         </Flex>
 
         {/* Botões alinhados horizontalmente com gap */}
-        <Flex direction="flex-row" colGap="gap-x-4" width="w-full">
+        <Flex direction="flex-row" colGap="gap-x-sm" width="w-full">
           <Button color="primary" full>Enviar</Button>
           <Button color="error" full>Cancelar</Button>
         </Flex>
@@ -115,7 +115,7 @@ export function SpacingExample() {
       <input type="email" placeholder="Email" className="w-full p-xs border rounded flex-1 sb-unstyled" />
     </Flex>
 
-    <Flex direction="flex-row" colGap="gap-x-4" width="w-full" className="sb-unstyled">
+    <Flex direction="flex-row" colGap="gap-x-sm" width="w-full" className="sb-unstyled">
       <Button color="success" full className="sb-unstyled">Enviar</Button>
       <Button color="error" full className="sb-unstyled">Cancelar</Button>
     </Flex>
