@@ -6,7 +6,7 @@ import Spinner from "./Spinner"
 const colors = ["primary", "secondary", "neutral", "disabled"] as const
 
 describe("Spinner", () => {
-  it("renders with all variant/color combinations and passes a11y", async () => {
+  it("renders with all color combinations and passes a11y", async () => {
     for (const color of colors) {
       const { container, unmount } = render(
         <Spinner

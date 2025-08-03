@@ -104,8 +104,8 @@ export default function Radio({
           <Text
             variant="body3"
             color="text-success"
-            id={`${baseId}_success`}
             aria-live="polite"
+            id={`${baseId}_success`}
           >
             {successText}
           </Text>
@@ -115,6 +115,7 @@ export default function Radio({
           <Text
             variant="body3"
             color="text-error"
+            aria-live="polite"
             id={`${baseId}_error`}
           >
             {errorText}

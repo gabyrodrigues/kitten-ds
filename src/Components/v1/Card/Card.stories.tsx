@@ -253,7 +253,7 @@ export const WithMedia: Story = {
         alt="Gato laranja deitado olhando para a câmera"
       />
     ),
-    headingClassName: "border-none p-0",
+    headingClassName: "border-none py-0 px-0",
     children: (
       <Flex direction="flex-col">
         <Title

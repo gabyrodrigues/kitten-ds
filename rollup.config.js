@@ -2,7 +2,17 @@ import commonjs from "@rollup/plugin-commonjs"
 import resolve from "@rollup/plugin-node-resolve"
 import typescript from "@rollup/plugin-typescript"
 import copy from "rollup-plugin-copy"
-import dts from "rollup-plugin-dts"
+import { dts } from "rollup-plugin-dts"
+
+const EXTERNAL_PACKAGES = [
+  "react",
+  "react-dom",
+  "react/jsx-runtime",
+  "clsx",
+  "@sunne-team/shared",
+  "tailwind-merge",
+  "tailwind-variants"
+]
 
 const CJS_MJS_N_STYLES = {
   input: "src/index.ts",
@@ -10,22 +20,12 @@ const CJS_MJS_N_STYLES = {
     {
       file: "dist/cjs/index.cjs",
       format: "cjs",
-      sourcemap: true,
-      entryFileNames: (chunkInfo) => {
-        if (chunkInfo.name.includes("node_modules"))
-          return `${chunkInfo.name.replace("node_modules", "external")}.cjs`
-        return "[name].cjs"
-      }
+      sourcemap: true
     },
     {
       file: "dist/esm/index.mjs",
       format: "esm",
-      sourcemap: true,
-      entryFileNames: (chunkInfo) => {
-        if (chunkInfo.name.includes("node_modules"))
-          return `${chunkInfo.name.replace("node_modules", "external")}.mjs`
-        return "[name].mjs"
-      }
+      sourcemap: true
     }
   ],
   plugins: [
@@ -44,7 +44,10 @@ const CJS_MJS_N_STYLES = {
       ]
     })
   ],
-  external: ["react", "react-dom", "clsx", "tailwind-merge"]
+  external: (id) =>
+    EXTERNAL_PACKAGES.includes(id) ||
+    EXTERNAL_PACKAGES.some((pkg) => id.startsWith(`${pkg}/`)) ||
+    /\.css$/.test(id)
 }
 
 const TYPES = {
@@ -63,13 +66,7 @@ const TYPES = {
       }
     }
   ],
-  plugins: [
-    dts.default(),
-    typescript({
-      tsconfig: "./tsconfig.types.json",
-      exclude: ["./src/stories/**", "./src/**/*.stories.ts"]
-    })
-  ],
+  plugins: [dts()],
   external: [/\.css$/]
 }
 
