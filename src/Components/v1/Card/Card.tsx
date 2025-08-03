@@ -45,7 +45,8 @@ export default function Card({
   )
 
   const mergedHeadingClasses = cn(
-    "px-sm py-sm border-b border-b-default-border",
+    "px-sm py-sm",
+    "border-b border-b-default-border",
     disabled && "opacity-50",
     headingClassName
   )

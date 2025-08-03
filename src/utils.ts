@@ -3,6 +3,20 @@ import { type DefaultClassGroupIds, extendTailwindMerge } from "tailwind-merge"
 import { type TV, tv as tvBase } from "tailwind-variants"
 
 const borderWidthTokens = ["thin", "medium", "thick", "bold", "heavy"]
+const spacingTokens = [
+  "quark",
+  "nano",
+  "xs",
+  "sm",
+  "md",
+  "lg",
+  "xl",
+  "2xl",
+  "3xl",
+  "4xl",
+  "5xl",
+  "6xl"
+]
 
 const twMergeConfig = {
   classGroups: {
@@ -45,12 +59,12 @@ const twMergeConfig = {
 
 export const CUSTOM_TW_MERGE = extendTailwindMerge({
   extend: {
+    theme: {
+      spacing: [...spacingTokens]
+    },
     classGroups: {
       ...twMergeConfig.classGroups
     }
-  },
-  override: {
-    conflictingClassGroups: {}
   }
 })
 
@@ -60,6 +74,10 @@ export const tv: TV = (options, config) =>
     twMerge: config?.twMerge ?? true,
     twMergeConfig: {
       ...config?.twMergeConfig,
+      theme: {
+        ...config?.twMergeConfig?.theme,
+        spacing: [...spacingTokens]
+      },
       classGroups: {
         ...config?.twMergeConfig?.classGroups,
         ...twMergeConfig.classGroups
