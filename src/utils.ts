@@ -19,6 +19,9 @@ const spacingTokens = [
 ]
 
 const twMergeConfig = {
+  theme: {
+    spacing: [...spacingTokens]
+  },
   classGroups: {
     "font-size": [
       "text-display1",
@@ -60,7 +63,7 @@ const twMergeConfig = {
 export const CUSTOM_TW_MERGE = extendTailwindMerge({
   extend: {
     theme: {
-      spacing: [...spacingTokens]
+      ...twMergeConfig.theme
     },
     classGroups: {
       ...twMergeConfig.classGroups
@@ -76,7 +79,7 @@ export const tv: TV = (options, config) =>
       ...config?.twMergeConfig,
       theme: {
         ...config?.twMergeConfig?.theme,
-        spacing: [...spacingTokens]
+        ...twMergeConfig.theme
       },
       classGroups: {
         ...config?.twMergeConfig?.classGroups,
