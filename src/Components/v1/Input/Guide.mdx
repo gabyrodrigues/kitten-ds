@@ -16,7 +16,7 @@ O componente `Input` é um elemento de formulário para entrada de dados do usu�
 
 O `Input` recebe informações do usuário em diversos contextos, como formulários de cadastro, pesquisa e filtros. Ele pode ser estilizado e configurado para atender a diferentes necessidades, como validação de entrada, uso de *placeholder* e exibição de rótulos.
 
-### ⚙️ Tipos de input
+### ⚙️ Tipos de Input
 
 <img src="/assets/text-input-area-variants.png" alt="Exibição do componente de Input em uma lista com as suas variações e estados de texto simples ou multilinha, com mensagem de erro, ajuda e sucesso" style={{ margin: '0 auto' }} />
 
@@ -162,9 +162,9 @@ O componente `Input` implementa, por padrão, diretrizes essenciais de acessibil
 
 - O componente é **totalmente navegável via teclado**, permitindo que usuários que dependem exclusivamente do teclado possam acessá-lo e utilizá-lo sem obstáculos, conforme recomendado pelas diretrizes da <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html" target="_blank">WCAG 2.1.1 (Keyboard)</Link>;
 - A **borda de foco é visível**, com pelo menos 2px de espessura e sem sobreposição por outros elementos, conforme exigido pela <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance-enhanced" target="_blank">WCAG 2.4.12 (Focus Appearance)</Link>;
-- A identificação de erros utiliza cor + ícone + mensagem textual, garantindo que a informação não dependa apenas da cor. Essa prática está alinhada com a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color" target="_blank">WGAG 1.4.1: Use of Color</Link> e  <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/consistent-identification.html" target="_blank">WCAG 3.2.4: Consistent Identification</Link>;
+- A identificação de erros utiliza **cor, ícone e mensagem textual**, garantindo que a informação não dependa apenas da cor. Essa prática está alinhada com a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color" target="_blank">WGAG 1.4.1: Use of Color</Link> e  <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/consistent-identification.html" target="_blank">WCAG 3.2.4: Consistent Identification</Link>;
 - Mensagens de sucesso, ajuda ou erro são associadas ao campo através do atributo `aria-describedby`, permitindo que leitores de tela anunciem essas mensagens corretamente, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html" target="_blank">WCAG 1.3.1 (Info and Relationships)</Link>;
-- Para mensagens dinâmicas (erro ou sucesso), é utilizado o atributo `aria-live="polite"`, garantindo que leitores de tela as anunciem de forma não intrusiva, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html" target="_blank">WCAG 4.1.3 (Status Messages)</Link>;
+- Para mensagens dinâmicas (erro ou sucesso), é utilizado o atributo `aria-live="polite"`, garantindo que leitores de tela as anunciem as mudanças de forma não intrusiva, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html" target="_blank">WCAG 4.1.3 (Status Messages)</Link>;
 
 ### 📌 Boas práticas de acessibilidade ao utilizar o componente
 
