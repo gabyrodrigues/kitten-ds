@@ -34,11 +34,11 @@ Cada tipo de botão possui variantes de cor que também indicam a importância d
 - **Success**: Ação que indica sucesso ou confirmação.
 - **Neutral**: Ações neutras ou de suporte, com menor destaque.
 
-O botão também possui suporte para ícones ou outros elementos visuais, através de suas propriedades `left_section` e `right_section`, que permitem adicionar conteúdo antes ou depois do texto do botão, respectivamente. Essa flexibilidade melhora a percepção da ação e oferece feedback visual imediato, sem comprometer a acessibilidade textual.
+O botão também possui suporte para ícones ou outros elementos visuais, através de suas propriedades `leftSection` e `rightSection`, que permitem adicionar conteúdo antes ou depois do texto do botão, respectivamente. Essa flexibilidade melhora a percepção da ação e oferece feedback visual imediato, sem comprometer a acessibilidade textual.
 
-> ⚠️ Observação: Use os tipos de cores de acordo com o contexto e importância da ação, não use variantes de cor que não comuniquem o contexto da ação, como por exemplo, usar a variante de cor "negative" (erro) para ações que não são destrutivas ou que não alertam sobre um risco. 
+> ⚠️ Observação: Use os tipos de cores de acordo com o contexto e importância da ação, não use variantes de cor que não comuniquem o contexto da ação, como por exemplo, usar a variante de cor "error" (erro) para ações que não são destrutivas ou que não alertam sobre um risco. 
 
-> ⚠️ Apesar da flexibilidade, não é recomendado utilizar as propriedades `left_section` e `right_section` ao mesmo tempo, principalmente em casos de ícones combinados, pois isso pode causar confusão visual e comprometer a clareza da ação.
+> ⚠️ Apesar da flexibilidade, não é recomendado utilizar as propriedades `leftSection` e `rightSection` ao mesmo tempo, principalmente em casos de ícones combinados, pois isso pode causar confusão visual e comprometer a clareza da ação.
 
 ## 💡 Recomendações de Uso
 
@@ -46,7 +46,7 @@ O botão também possui suporte para ícones ou outros elementos visuais, atrav�
 - Ao combinar labels com ícones, é importante garantir que o texto seja claro e compreensível por si só, mesmo sem o ícone. O ícone deve complementar a ação, mas não substituí-la;
 - Ao decidir a variante do botão, considere a importância da ação e o contexto em que o botão será usado;
 - Ao decidir a cor do botão, considere o estado da ação (ex: sucesso, erro, ação primária ou secundária);
-- Os ícones podem ser usados para reforçar a ação do botão, tanto do lado esquedo (`left_section`) quanto do lado direito (`right_section`);
+- Os ícones podem ser usados para reforçar a ação do botão, tanto do lado esquedo (`leftSection`) quanto do lado direito (`rightSection`);
 - Verifique sempre se o botão manteve o padrão adequado para área de toque, garantindo que o usuário possa clicar facilmente, especialmente em dispositivos móveis;
 - Em casos de espaços limitados ou componentes compactos, considere o uso do componente de `IconButton` para manter a clareza e a funcionalidade, de preferência com um tooltip explicativo e uso de `aria-label` para acessibilidade;
 - Use o estado `disabled` para indicar ações que não estão disponíveis no momento;
