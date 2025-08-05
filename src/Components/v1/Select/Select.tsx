@@ -90,7 +90,7 @@ export default function Select({
     if (multiple && Array.isArray(value)) {
       return options.filter((option) => value.includes(getOptionValue(option)))
     }
-    return options.find((option) => getOptionValue(option) === value)
+    return options?.find((option) => getOptionValue(option) === value)
   }
 
   function getSelectedLabel(selectedOption: OptionType | OptionType[] | undefined): string {
