@@ -3,6 +3,7 @@ import { Flex } from "../Flex"
 import { Grid } from "../Grid"
 import { Input } from "../Input"
 import { Link } from "../Link"
+import { Select } from "../Select"
 import { Text } from "../Text"
 import { Title } from "../Title"
 
@@ -50,7 +51,7 @@ Outros recursos importantes incluem:
 - Sempre forneça feedback visual claro para os diferentes estados do campo, como erro, sucesso ou ajuda contextual;
 - Utilize a versão com pesquisa para facilitar a navegação em listas extensas;
 - Evite sobrecarregar o campo com muitos elementos adicionais, mesmo com suporte a `leftSection` e `rightSection`. Mantenha a interface limpa e intuitiva;
-- Evite o uso do Select quando a digitação for mais rápida e eficiente. Exemplos comuns incluem listas de estados, países, anos de nascimento ou idade — nesses casos, campos de texto simples ou com autocompletar costumam oferecer melhor experiência. <Link className="sb-unstyled text-sm" href="https://www.nngroup.com/articles/drop-down-menus/" target="_blank">(NNGroup)</Link>;
+- Evite o uso do `Select` quando a digitação for mais rápida e eficiente. Exemplos comuns incluem listas de estados, países, anos de nascimento ou idade — nesses casos, campos de texto simples ou com autocompletar costumam oferecer melhor experiência. <Link className="sb-unstyled text-sm" href="https://www.nngroup.com/articles/drop-down-menus/" target="_blank">(NNGroup)</Link>;
 - Para listas curtas (2 a 4 itens), prefira botões de opção (`Radio` ou `Checkbox`) ou menus estáticos, que reduzem o número de interações necessárias;
 - Opte por nomes de opções curtos e descritivos, evitando rótulos longos que dificultem a leitura e a seleção;
 - Assegure a acessibilidade do componente:
@@ -62,6 +63,81 @@ Use placeholders apenas como exemplos temporários de preenchimento. Não depend
 - Sinalize claramente os campos obrigatórios, considerando o contexto:
   - Se a maioria dos campos for opcional, destaque os obrigatórios;
   - Se a maioria for obrigatória, destaque apenas os opcionais.
+
+### ☑️✖️ O que fazer vs. O que não fazer
+
+O componente `Select` foi desenvolvido com foco em acessibilidade, usabilidade e experiência do usuário. Abaixo estão algumas diretrizes sobre o que fazer e o que não fazer ao utilizar este componente para manter a acessibilidade e a usabilidade e melhorar a experiência do usuário:
+
+<Title component="h1" className="!text-h5">Utilize rótulos claros e descritivos para cada Select, garantindo que todos os usuários compreendam o propósito do campo.</Title>
+
+<Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
+  <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
+    <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-success !mb-sm">
+      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
+    </Flex>
+    <Select label="Escolha sua comida favorita" readOnly full value="" options={[]} className="sb-unstyled" />
+  </Flex>
+  <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
+    <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-error !mb-sm">
+      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
+    </Flex>
+    <Select label="Selecione" readOnly full value="" options={[]} className="sb-unstyled" />
+  </Flex>
+</Grid>
+
+<Title component="h1" className="!text-h5">Use o *placeholder* para auxiliar o usuário com intruções ou exemplos de entrada, mas não dependa exclusivamente dele para descrever o propósito do campo.</Title>
+
+<Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
+  <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
+    <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
+      <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-success">
+        <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
+      </Flex>
+      <Text className="!m-0">O *placeholder* deve ser utilizado como um auxílio, e não como a única forma de descrever o propósito do campo.</Text>
+    </Flex>
+    <Flex rowGap="gap-x-sm" width="w-full">
+       <Select label="Escolha sua comida favorita" readOnly full value="" options={[]} className="sb-unstyled" />
+    </Flex>
+  </Flex>
+  <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
+    <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
+      <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-error">
+        <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
+      </Flex>
+      <Text className="!m-0">Não utilize o *placeholder* como a única forma de descrever o propósito do campo, pois ele desaparece quando o usuário começa a digitar, tornando-se inacessível.</Text>
+    </Flex>
+    <Flex rowGap="gap-x-sm" width="w-full">
+      <Select placeholder="Escolha sua comida favorita" readOnly full value="" options={[]} className="sb-unstyled" />
+    </Flex>
+  </Flex>
+</Grid>
+
+<Title component="h1" className="!text-h5">Evite o uso do `Select` quando a digitação for mais rápida e eficiente.</Title>
+
+<Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
+  <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
+    <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
+      <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-success">
+        <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
+      </Flex>
+      <Text className="!m-0">Quando a lista de opções for extensa e a digitação for mais rápida, dê preferência ao uso de campos de texto simples, como o `Input`, para permitir que o usuário digite diretamente a informação.</Text>
+    </Flex>
+    <Flex rowGap="gap-x-sm" width="w-full" className="mt-auto sb-unstyled">
+      <Input label="Sua idade" placeholder="Insira sua idade" readOnly full className="sb-unstyled" />
+    </Flex>
+  </Flex>
+  <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
+    <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
+      <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-error">
+        <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
+      </Flex>
+      <Text className="!m-0">Não utilize o `Select` para listas de opções curtas ou quando a digitação for mais rápida, pois isso pode tornar a interação mais lenta e menos eficiente.</Text>
+    </Flex>
+    <Flex rowGap="gap-x-sm" width="w-full">
+      <Select label="Selecione a sua idade" readOnly full value="" options={[]} className="sb-unstyled" />
+    </Flex>
+  </Flex>
+</Grid>
 
 ## ♿ Acessibilidade
 
