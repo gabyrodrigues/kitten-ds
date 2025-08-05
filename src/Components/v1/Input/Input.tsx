@@ -211,6 +211,7 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(fun
                 variant="outlined"
                 color="text-success"
                 fontSize="text-sm"
+                aria-hidden="true"
               />
               {successText}
             </Text>
@@ -228,6 +229,7 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(fun
                 variant="outlined"
                 color="text-error"
                 fontSize="text-sm"
+                aria-hidden="true"
               />
               {errorText}
             </Text>

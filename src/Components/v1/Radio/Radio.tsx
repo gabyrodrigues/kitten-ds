@@ -114,6 +114,7 @@ export default function Radio({
               variant="outlined"
               color="text-success"
               fontSize="text-sm"
+              aria-hidden="true"
             />
             {successText}
           </Text>
@@ -132,6 +133,7 @@ export default function Radio({
               variant="outlined"
               color="text-error"
               fontSize="text-sm"
+              aria-hidden="true"
             />
             {errorText}
           </Text>
