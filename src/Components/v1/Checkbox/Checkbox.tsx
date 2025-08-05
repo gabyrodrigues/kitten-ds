@@ -141,7 +141,14 @@ export default function Checkbox({
             color="text-success"
             id={`${baseId}_success`}
             aria-live="polite"
+            className="flex items-center gap-1"
           >
+            <Icon
+              type="check_circle"
+              variant="outlined"
+              color="text-success"
+              fontSize="text-sm"
+            />
             {successText}
           </Text>
         )}
@@ -152,7 +159,14 @@ export default function Checkbox({
             color="text-error"
             id={`${baseId}_error`}
             aria-live="polite"
+            className="flex items-center gap-1"
           >
+            <Icon
+              type="error"
+              variant="outlined"
+              color="text-error"
+              fontSize="text-sm"
+            />
             {errorText}
           </Text>
         )}

@@ -1,6 +1,7 @@
 import { cn } from "@utils"
 import React, { useId, type ReactElement } from "react"
 import { Flex } from "../Flex"
+import { Icon } from "../Icon"
 import { Text } from "../Text"
 import Checkbox from "./Checkbox"
 import type { CheckboxGroupProps, CheckboxProps } from "./Checkbox.types"
@@ -120,7 +121,14 @@ export default function CheckboxGroup({
               color="text-error"
               id={`${baseId}_error`}
               aria-live="polite"
+              className="flex items-center gap-1"
             >
+              <Icon
+                type="error"
+                variant="outlined"
+                color="text-error"
+                fontSize="text-sm"
+              />
               {errorText}
             </Text>
           )}
@@ -130,7 +138,14 @@ export default function CheckboxGroup({
               color="text-success"
               id={`${baseId}_success`}
               aria-live="polite"
+              className="flex items-center gap-1"
             >
+              <Icon
+                type="check_circle"
+                variant="outlined"
+                color="text-success"
+                fontSize="text-sm"
+              />
               {successText}
             </Text>
           )}

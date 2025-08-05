@@ -1,6 +1,7 @@
 import { cn } from "@utils"
 import React, { useId, type ChangeEvent, type ReactElement } from "react"
 import { Flex } from "../Flex"
+import { Icon } from "../Icon"
 import { Text } from "../Text"
 import Radio from "./Radio"
 import type { RadioGroupProps, RadioProps } from "./Radio.types"
@@ -132,7 +133,14 @@ export default function RadioGroup({
               color="text-error"
               id={`${baseId}_error`}
               aria-live="polite"
+              className="flex items-center gap-1"
             >
+              <Icon
+                type="error"
+                variant="outlined"
+                color="text-error"
+                fontSize="text-sm"
+              />
               {errorText}
             </Text>
           )}
@@ -142,7 +150,14 @@ export default function RadioGroup({
               color="text-success"
               id={`${baseId}_success`}
               aria-live="polite"
+              className="flex items-center gap-1"
             >
+              <Icon
+                type="check_circle"
+                variant="outlined"
+                color="text-success"
+                fontSize="text-sm"
+              />
               {successText}
             </Text>
           )}
