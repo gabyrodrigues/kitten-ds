@@ -20,8 +20,11 @@ export const radioInputVariants = tv({
     "hover:ring-8",
     "bg-surface",
     "data-[disabled=true]:border-disabled",
+    "data-[readOnly=true]:hover:border-input-border",
     "data-[disabled=true]:cursor-default",
+    "data-[readOnly=true]:cursor-default",
     "data-[disabled=true]:hover:ring-0 data-[disabled=true]:focus-visible:ring-3",
+    "data-[readOnly=true]:hover:ring-0 data-[readOnly=true]:focus-visible:ring-3",
     "focus-visible:outline-0 focus-visible:ring-3 focus-visible:ring-focus-ring focus-visible:ring-offset-2",
     "before:content-['']",
     "before:absolute",
@@ -32,9 +35,12 @@ export const radioInputVariants = tv({
   ],
   variants: {
     color: {
-      primary: "checked:border-primary hover:border-primary hover:ring-primary-highlight",
-      secondary: "checked:border-secondary hover:border-secondary hover:ring-secondary-highlight",
-      neutral: "checked:border-neutral hover:border-neutral hover:ring-highlight"
+      primary:
+        "checked:border-primary hover:border-primary hover:ring-primary-highlight data-[readOnly=true]:checked:hover:border-primary",
+      secondary:
+        "checked:border-secondary hover:border-secondary hover:ring-secondary-highlight data-[readOnly=true]:checked:hover:border-secondary",
+      neutral:
+        "checked:border-neutral hover:border-neutral hover:ring-highlight data-[readOnly=true]:checked:hover:border-neutral"
     }
   },
   defaultVariants: {

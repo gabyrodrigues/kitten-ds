@@ -96,6 +96,15 @@ export interface RadioProps
    * The success text to be displayed below the Radio in case of success.
    */
   successText?: string
+
+  /**
+   * If true, the Radio will be in read-only mode.
+   * This means that users can see the selected option but cannot change it.
+   * It is useful for displaying information without allowing modifications.
+   *
+   * @default false
+   */
+  readOnly?: boolean
 }
 
 export interface RadioGroupProps
@@ -110,6 +119,7 @@ export interface RadioGroupProps
       | "labelClassName"
       | "name"
       | "onChange"
+      | "readOnly"
       | "successText"
       | "value"
     >,

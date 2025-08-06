@@ -75,6 +75,11 @@ const meta: Meta<typeof Radio> = {
       description:
         "Opção para adicionar classes CSS à raíz do Radio. Útil para personalizar o estilo da parte externa do componente."
     },
+    readOnly: {
+      control: { type: "boolean" },
+      description:
+        "Define o Radio como somente leitura, tornando-o não interativo, mas ainda focável. Útil para exibir o estado atual sem permitir alterações. Também pode ser herdado de um RadioGroup se estiver sendo usado dentro de um."
+    },
     successText: {
       control: { type: "text" },
       description:

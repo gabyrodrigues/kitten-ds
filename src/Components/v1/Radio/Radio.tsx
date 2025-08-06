@@ -21,6 +21,7 @@ export default function Radio({
   checkedClassName,
   errorText,
   helperText,
+  readOnly = false,
   required,
   successText,
   ...props
@@ -35,7 +36,11 @@ export default function Radio({
   const mergedRootClasses = cn("flex-wrap", className)
   const mergedContentClasses = cn("relative", "rounded-full", contentClassName)
   const mergedInputClasses = cn(radioInputClasses, inputClassName)
-  const mergedLabelClasses = cn("cursor-pointer", disabled && "cursor-default", labelClassName)
+  const mergedLabelClasses = cn(
+    "cursor-pointer",
+    (disabled || readOnly) && "cursor-default",
+    labelClassName
+  )
   const mergedCheckedClasses = cn(radioSpanClasses, checkedClassName)
 
   const reactId = useId()
@@ -69,9 +74,10 @@ export default function Radio({
           checked={checked}
           aria-disabled={disabled}
           data-disabled={disabled}
+          data-readonly={readOnly}
           required={required}
           tabIndex={disabled ? 0 : undefined}
-          onChange={(event) => !disabled && onChange?.(event)}
+          onChange={(event) => !disabled && !readOnly && onChange?.(event)}
           {...props}
           className={mergedInputClasses}
         />

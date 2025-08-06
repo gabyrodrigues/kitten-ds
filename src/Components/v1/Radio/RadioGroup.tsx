@@ -23,6 +23,7 @@ export default function RadioGroup({
   successText,
   className,
   listClassName,
+  readOnly = false,
   required = false,
   withAsterisk = false,
   ...props
@@ -37,7 +38,7 @@ export default function RadioGroup({
   const mergedClasses = cn("flex flex-col", className)
 
   function handleRadioChange(event: ChangeEvent<HTMLInputElement>) {
-    if (!disabled) {
+    if (!disabled && !readOnly) {
       onChange?.(event)
     }
   }
@@ -98,6 +99,7 @@ export default function RadioGroup({
           const childProps = child.props as RadioProps
           const isDisabled = Boolean(disabled) || Boolean(childProps.disabled)
           const isRequired = Boolean(required) || Boolean(childProps.required)
+          const isReadOnly = Boolean(readOnly) || Boolean(childProps.readOnly)
 
           return (
             <Radio
@@ -109,6 +111,7 @@ export default function RadioGroup({
               color={color}
               disabled={isDisabled}
               required={isRequired}
+              readOnly={isReadOnly}
             />
           )
         })}

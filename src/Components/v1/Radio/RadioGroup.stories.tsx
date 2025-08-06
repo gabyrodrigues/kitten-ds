@@ -76,6 +76,11 @@ const meta: Meta<typeof RadioGroup> = {
       control: { type: "text" },
       description: "Classes CSS para o contêiner da lista de radios dentro do RadioGroup."
     },
+    readOnly: {
+      control: { type: "boolean" },
+      description:
+        "Define os Radios dentro do RadioGroup como somente leitura, tornando-os não interativos, mas ainda focáveis. Útil para exibir o estado atual sem permitir alterações."
+    },
     required: {
       control: { type: "boolean" },
       description:
@@ -101,6 +106,7 @@ const meta: Meta<typeof RadioGroup> = {
     disabled: false,
     color: "primary",
     direction: "vertical",
+    readOnly: false,
     label: "Label Text",
     children: ""
   }
