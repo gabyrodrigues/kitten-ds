@@ -1,0 +1,154 @@
+import { Meta } from "@storybook/blocks"
+import { Flex } from "../Flex"
+import { Grid } from "../Grid"
+import { Link } from "../Link"
+import { Radio, RadioGroup } from "../Radio"
+import { Text } from "../Text"
+import { Title } from "../Title"
+
+<Meta title="Componentes/RadioGroup/Guia de Uso" />
+
+# 🧭  Guia de Uso
+
+## 📘 Visão Geral
+
+O componente `RadioGroup` é utilizado para agrupar múltiplas opções de `Radio`. Clicar em uma opção dentro do grupo desmarca automaticamente qualquer outra opção previamente selecionada, garantindo que apenas uma opção possa ser escolhida por vez. Isso é especialmente útil em formulários e questionários onde é necessário que o usuário selecione uma única resposta dentre várias alternativas.
+
+O `RadioGroup` é ideal para situações em que o usuário precisa visualizar as opções de forma clara e organizada. Ele facilita a compreensão das escolhas disponíveis e assegura que a seleção seja mutuamente exclusiva, evitando ambiguidades. Frequentemente, o `RadioGroup` é utilizado em formulários de inscrição, pesquisas de opinião e configurações de preferências.
+
+### ⚙️ Tipos de RadioGroup
+
+<img src="/assets/radio-group-variants.png" alt="Exibição do componente de RadioGroup em uma lista com suas variantes de orientação horizontal e vertical" style={{ margin: '0 auto' }} />
+
+O componente `RadioGroup` possui duas orientações principais:
+
+- **Horizontal**: As opções são dispostas em uma linha, uma ao lado da outra. Útil para opções mais curtas ou quando o espaço horizontal é suficiente, proporcionando uma visualização compacta e rápida das opções disponíveis;
+- **Vertical**: As opções são dispostas em uma coluna, uma abaixo da outra. Orientação padrão do `RadioGroup`, facilitando a leitura e a seleção de opções em listas mais longas. 
+
+Como o `RadioGroup` é um agrupamento para múltiplos componentes `Radio`, ele não possui variantes de cor ou estado próprios, mas sim herda as características dos `Radio` que contém. Consulte as variantes, estados e outras orientações do `Radio` no guia de uso do componente [**Radio**](/docs/componentes-radio-guia-de-uso--propriedades).
+
+## 🖥️ Exemplo de Uso
+
+> O componente `RadioGroup` está relacionado ao componente [**Radio**](/docs/componentes-radio-guia-de-uso--propriedades), que representa cada opção individual dentro do grupo. O uso do `RadioGroup` exige que os elementos `Radio` estejam encapsulados em seu interior para que funcionem corretamente.
+
+No exemplo abaixo, mostramos como utilizar o `RadioGroup` com múltiplos `Radio`, organizando visualmente as opções e garantindo que apenas uma delas possa ser selecionada. Além disso, é possível ver como o `RadioGroup` pode repassar propriedades como `color` e `name` para os seus `Radio` filhos:
+
+```javascript
+import { Radio, RadioGroup } from "kitten-ds"
+function App() {
+  return (
+    <div>
+      <RadioGroup
+        name="food"
+        label="Selecione sua comida favorita"
+        value="pizza"
+        color="primary"
+      >
+        <Radio
+          value="bacon"
+          label="Bacon"
+        />
+        <Radio
+          value="pizza"
+          label="Pizza"
+        />
+        <Radio
+          value="sushi"
+          label="Sushi"
+        />
+      </RadioGroup>
+    </div>
+  );
+}
+
+export default App;
+```
+
+> 🎨 A propriedade color definida no `RadioGroup` será aplicada automaticamente a todos os `Radio` dentro do grupo, garantindo consistência visual. O mesmo vale para a propriedade `name`, que assegura o comportamento de seleção única entre as opções.
+
+> ℹ️ Para mais detalhes sobre todas as propriedades disponíveis no `RadioGroup`, e como elas se relacionam com os componentes `Radio`, consulte a [documentação de propriedades do RadioGroup](/docs/componentes-radiogroup--propriedades).
+
+## 💡 Recomendações de Uso
+
+- Utilize o `RadioGroup` quando precisar de uma seleção única entre várias opções;
+- Agrupe opções relacionadas dentro de um `RadioGroup` para melhorar a organização e a clareza;
+- Prefira o uso de `RadioGroup` quando houver um número limitado de opções (geralmente até 5) e for necessário que o usuário escolha apenas uma delas;
+- Utilize o `RadioGroup` em situações onde as opções são mutuamente exclusivas, ou seja, a seleção de uma opção impede a seleção de outra;
+- Mantenha a consistência visual com o restante da interface, utilizando variantes de cor apropriadas para indicar o propósito ou prioridade da escolha;
+- Forneça feedback visual claro para os diferentes estados do `Radio`, como erro, sucesso ou ajuda;
+- Utilize rótulos claros em cada opção de `Radio`, além de também utilizar um rótulo descritivo para o `RadioGroup`, que pode indicar a categoria do agrupamento ou descrever o propósito do grupo de opções;
+- Alinhe a lista verticalmente sempre que possível e use a orientação horizontal apenas quando as opções forem curtas e o espaço permitir, para evitar que o usuário precise rolar horizontalmente.
+
+> Lembre-se: uma vez selecionada, a opção `Radio` não pode ser desmarcada. Se fizer sentido, inclua uma opção como "Nenhum" ou "Não se aplica" para permitir uma escolha neutra. Caso o comportamento desejado permita desmarcar, considere usar o componente `Checkbox` em vez de `Radio`.
+
+### ☑️✖️ O que fazer vs. O que não fazer
+
+O componente `RadioGroup` foi desenvolvido com foco em acessibilidade, usabilidade e experiência do usuário. Abaixo estão algumas diretrizes sobre o que fazer e o que não fazer ao utilizar este componente para manter a acessibilidade e a usabilidade e melhorar a experiência do usuário:
+
+<Title component="h1" className="!text-h5">Utilize rótulos claros e descritivos para cada `RadioGroup`, garantindo que todos os usuários compreendam o propósito das opções a serem selecionadas. Evite a criação de `RadioGroup` sem rótulos.</Title>
+
+<Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
+  <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
+    <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-success !mb-sm">
+      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
+    </Flex>
+      <RadioGroup
+        name="food"
+        label="Selecione sua comida favorita"
+        value="pizza"
+      >
+        <Radio
+          value="bacon"
+          label="Bacon"
+        />
+        <Radio
+          value="pizza"
+          label="Pizza"
+        />
+        <Radio
+          value="sushi"
+          label="Sushi"
+        />
+      </RadioGroup>
+  </Flex>
+  <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
+    <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-error !mb-sm">
+      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
+    </Flex>
+    <Flex className="mt-auto sb-unstyled">
+      <RadioGroup
+        name="foods"
+        value="pizza"
+      >
+        <Radio
+          value="bacon"
+          label="Bacon"
+        />
+        <Radio
+          value="pizza"
+          label="Pizza"
+        />
+        <Radio
+          value="sushi"
+          label="Sushi"
+        />
+      </RadioGroup>
+    </Flex>
+  </Flex>
+</Grid>
+
+## ♿ Acessibilidade
+
+O componente `RadioGroup`, por agrupar componentes `Radio`, segue as mesmas diretrizes e recomendações aplicadas ao `Radio`. Além disso, o `RadioGroup` também possui características adicionais importantes:
+
+- A lista de opções é **navegável por teclado**, permitindo que os usuários selecionem uma opção utilizando as **teclas de seta para cima e para baixo**, conforme recomendado pela <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html" target="_blank">WCAG 2.1.1 (Keyboard)</Link>;
+- Mensagens de sucesso, ajuda ou erro são associadas ao grupo por meio do atributo `aria-describedby`, permitindo que leitores de tela as anunciem corretamente, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html" target="_blank">WCAG 1.3.1 (Info and Relationships)</Link>;
+- Para mensagens dinâmicas (erro ou sucesso) do grupo, é utilizado o atributo `aria-live="polite"`, garantindo que leitores de tela anunciem essas mudanças de forma não intrusiva, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html" target="_blank">WCAG 4.1.3 (Status Messages)</Link>.
+
+### 📌 Boas práticas de acessibilidade ao utilizar o componente
+
+Além das diretrizes já implementadas no `RadioGroup` e no `Radio`, considere as seguintes práticas ao utilizar o `RadioGroup`:
+
+- Sempre forneça um **rótulo claro e descritivo** para o grupo por meio da propriedade `label`, indicando a categoria ou propósito do grupo de opções, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions.html" target="_blank">WCAG 3.3.2 (Labels or Instructions)</Link>;
+- Se for absolutamente necessário que o `RadioGroup` não possua um rótulo visível, adicione a propriedade `aria-label` com uma descrição clara do propósito do grupo, garantindo que leitores de tela possam compreendê-lo. Essa prática está alinhada com a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html" target="_blank">WCAG 2.4.6 (Headings and Labels)</Link>;
+- Sempre que possível, realize a **validação da opção selecionada nos grupos antes do envio do formulário**, exibindo mensagens de erro claras e específicas, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/error-identification.html" target="_blank">WCAG 3.3.1 (Error Identification)</Link>.
