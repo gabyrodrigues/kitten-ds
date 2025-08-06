@@ -16,6 +16,8 @@ O componente `Checkbox` (caixa de seleção) é utilizado para permitir a seleç
 
 O `Checkbox` é ideal para situações onde as escolhas não são mutuamente exclusivas, como seleção de interesses, preferências ou categorias de produtos. Ele é amplamente utilizado em formulários, questionários e configurações de preferências.
 
+A *label* (rótulo) do `Checkbox` é considerada uma extensão da área clicável, facilitando a interação do usuário. Ao clicar no rótulo, o `Checkbox` correspondente é selecionado, melhorando a usabilidade e acessibilidade do componente.
+
 ### ⚙️ Tipos de Checkbox
 
 <img src="/assets/checkbox-color-variants.png" alt="Exibição do componente de Checkbox em uma lista com suas variantes de cor: primária, secundária e neutra." style={{ margin: '0 auto' }} />
@@ -62,7 +64,7 @@ O componente `Checkbox` implementa, por padrão, diretrizes essenciais de acessi
 - A identificação de erros utiliza **cor, ícone e mensagem textual**, garantindo que a informação não dependa apenas da cor. Essa prática está alinhada com a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color" target="_blank">WCAG 1.4.1: Use of Color</Link> e <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/consistent-identification.html" target="_blank">WCAG 3.2.4: Consistent Identification</Link>;
 - Mensagens de sucesso, ajuda ou erro são associadas ao campo através do atributo `aria-describedby`, permitindo que leitores de tela anunciem essas mensagens corretamente, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html" target="_blank">WCAG 1.3.1 (Info and Relationships)</Link>;
 - O estado de foco é sempre preservado quando aplicável, inclusive com suporte visual claro, conforme recomendado pela <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible" target="_blank">WCAG 2.4.7 (Focus Visible)</Link>. Mesmo quando o `Checkbox` está desabilitado, o estilo visual de foco é mantido para reforçar a percepção de que ele está presente na interface, promovendo melhor experiência para todos os usuários;
-- Para mensagens dinâmicas (erro ou sucesso), é utilizado o atributo `aria-live="polite"`, garantindo que leitores de tela as anunciem as mudanças de forma não intrusiva, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html" target="_blank">WCAG 4.1.3 (Status Messages)</Link>.
+- Para mensagens dinâmicas (erro ou sucesso), é utilizado o atributo `aria-live="polite"`, garantindo que leitores de tela anunciem essas mudanças de forma não intrusiva, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html" target="_blank">WCAG 4.1.3 (Status Messages)</Link>.
 
 ### 📌 Boas práticas de acessibilidade ao utilizar o componente
 
