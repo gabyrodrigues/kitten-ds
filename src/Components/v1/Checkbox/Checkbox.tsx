@@ -98,7 +98,7 @@ export default function Checkbox({
           checked={checked}
           aria-disabled={disabled}
           data-disabled={disabled}
-          data-readOnly={readOnly}
+          data-readonly={readOnly}
           tabIndex={disabled ? 0 : undefined}
           onChange={(event) => !disabled && !readOnly && handleChange?.(event)}
           onClick={(event) => !disabled && !readOnly && handleClick?.(event)}

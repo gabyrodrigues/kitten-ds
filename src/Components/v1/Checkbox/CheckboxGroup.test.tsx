@@ -364,7 +364,7 @@ describe("CheckboxGroup", () => {
     expect(sushi).not.toBeDisabled()
   })
 
-  it("renders withAsterik color in legend with disabled color when disabled is true", () => {
+  it("renders withAsterisk color in legend with disabled color when disabled is true", () => {
     render(
       <CheckboxGroup
         withAsterisk
