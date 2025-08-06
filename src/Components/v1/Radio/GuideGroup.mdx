@@ -31,7 +31,7 @@ Como o `RadioGroup` é um agrupamento para múltiplos componentes `Radio`, ele n
 
 > O componente `RadioGroup` está relacionado ao componente [**Radio**](/docs/componentes-radio-guia-de-uso--propriedades), que representa cada opção individual dentro do grupo. O uso do `RadioGroup` exige que os elementos `Radio` estejam encapsulados em seu interior para que funcionem corretamente.
 
-No exemplo abaixo, mostramos como utilizar o `RadioGroup` com múltiplos `Radio`, organizando visualmente as opções e garantindo que apenas uma delas possa ser selecionada. Além disso, é possível ver como o `RadioGroup` pode repassar propriedades como `color` e `name` para os seus `Radio` filhos:
+No exemplo abaixo, é possível ver como utilizar o `RadioGroup` com múltiplos `Radio`, organizando visualmente as opções e garantindo que apenas uma delas possa ser selecionada. Além disso, é possível ver como o `RadioGroup` pode repassar propriedades como `color` e `name` para os seus `Radio` filhos:
 
 ```javascript
 import { Radio, RadioGroup } from "kitten-ds"
@@ -64,7 +64,7 @@ function App() {
 export default App;
 ```
 
-> 🎨 A propriedade color definida no `RadioGroup` será aplicada automaticamente a todos os `Radio` dentro do grupo, garantindo consistência visual. O mesmo vale para a propriedade `name`, que assegura o comportamento de seleção única entre as opções.
+> 🎨 A propriedade `color` definida no `RadioGroup` será aplicada automaticamente a todos os `Radio` dentro do grupo, garantindo consistência visual. O mesmo vale para a propriedade `name`, que assegura o comportamento de seleção única entre as opções.
 
 > ℹ️ Para mais detalhes sobre todas as propriedades disponíveis no `RadioGroup`, e como elas se relacionam com os componentes `Radio`, consulte a [documentação de propriedades do RadioGroup](/docs/componentes-radiogroup--propriedades).
 
@@ -75,7 +75,7 @@ export default App;
 - Prefira o uso de `RadioGroup` quando houver um número limitado de opções (geralmente até 5) e for necessário que o usuário escolha apenas uma delas;
 - Utilize o `RadioGroup` em situações onde as opções são mutuamente exclusivas, ou seja, a seleção de uma opção impede a seleção de outra;
 - Mantenha a consistência visual com o restante da interface, utilizando variantes de cor apropriadas para indicar o propósito ou prioridade da escolha;
-- Forneça feedback visual claro para os diferentes estados do `Radio`, como erro, sucesso ou ajuda;
+- Forneça *feedback* visual claro para os diferentes estados do `Radio`, como erro, sucesso ou ajuda;
 - Utilize rótulos claros em cada opção de `Radio`, além de também utilizar um rótulo descritivo para o `RadioGroup`, que pode indicar a categoria do agrupamento ou descrever o propósito do grupo de opções;
 - Alinhe a lista verticalmente sempre que possível e use a orientação horizontal apenas quando as opções forem curtas e o espaço permitir, para evitar que o usuário precise rolar horizontalmente.
 
