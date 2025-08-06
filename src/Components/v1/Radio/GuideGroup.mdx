@@ -20,10 +20,12 @@ O `RadioGroup` é ideal para situações em que o usuário precisa visualizar as
 
 <img src="/assets/radio-group-variants.png" alt="Exibição do componente de RadioGroup em uma lista com suas variantes de orientação horizontal e vertical" style={{ margin: '0 auto' }} />
 
-O componente `RadioGroup` possui duas orientações principais:
+O componente `RadioGroup` oferece duas orientações principais:
 
 - **Horizontal**: As opções são dispostas em uma linha, uma ao lado da outra. Útil para opções mais curtas ou quando o espaço horizontal é suficiente, proporcionando uma visualização compacta e rápida das opções disponíveis;
 - **Vertical**: As opções são dispostas em uma coluna, uma abaixo da outra. Orientação padrão do `RadioGroup`, facilitando a leitura e a seleção de opções em listas mais longas. 
+
+O `RadioGroup` também oferece suporte à obrigatoriedade. Através da combinação das propriedades `withAsterisk` e `required`, é possível indicar visualmente (com um asterisco (*)) que pelo menos uma opção precisa ser selecionada. Isso é útil em formulários onde a seleção de pelo menos uma opção é necessária para o envio.
 
 Como o `RadioGroup` é um agrupamento para múltiplos componentes `Radio`, ele não possui variantes de cor ou estado próprios, mas sim herda as características dos `Radio` que contém. Consulte as variantes, estados e outras orientações do `Radio` no guia de uso do componente [**Radio**](/docs/componentes-radio-guia-de-uso--propriedades).
 
@@ -66,12 +68,13 @@ export default App;
 
 > 🎨 A propriedade `color` definida no `RadioGroup` será aplicada automaticamente a todos os `Radio` dentro do grupo, garantindo consistência visual. O mesmo vale para a propriedade `name`, que assegura o comportamento de seleção única entre as opções.
 
-> ℹ️ Para mais detalhes sobre todas as propriedades disponíveis no `RadioGroup`, e como elas se relacionam com os componentes `Radio`, consulte a [documentação de propriedades do RadioGroup](/docs/componentes-radiogroup--propriedades).
+> ℹ️ Para mais detalhes sobre todas as propriedades disponíveis no `RadioGroup` e como elas se relacionam com os componentes `Radio`, consulte a [documentação de propriedades do RadioGroup](/docs/componentes-radiogroup--propriedades).
 
 ## 💡 Recomendações de Uso
 
 - Utilize o `RadioGroup` quando precisar de uma seleção única entre várias opções;
 - Agrupe opções relacionadas dentro de um `RadioGroup` para melhorar a organização e a clareza;
+- Organize as opções de `Radio` de forma lógica, como por exemplo em ordem alfabética, por prioridade, frequência de uso ou relevância para o usuário;
 - Prefira o uso de `RadioGroup` quando houver um número limitado de opções (geralmente até 5) e for necessário que o usuário escolha apenas uma delas;
 - Utilize o `RadioGroup` em situações onde as opções são mutuamente exclusivas, ou seja, a seleção de uma opção impede a seleção de outra;
 - Mantenha a consistência visual com o restante da interface, utilizando variantes de cor apropriadas para indicar o propósito ou prioridade da escolha;
@@ -149,8 +152,8 @@ O componente `RadioGroup`, por agrupar componentes `Radio`, segue as mesmas dire
 O `RadioGroup` é totalmente **acessível via teclado**, conforme recomendado pela <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html" target="_blank">WCAG 2.1.1 (Keyboard)</Link>. A navegação do componente funciona da seguinte forma:
 
 - **Tab** ou **Shift + Tab**: Move o foco para o `RadioGroup` e, em seguida, para o `Radio` atualmente selecionado. Pressionar **Tab** novamente move o foco para o próximo elemento interativo fora do grupo;
-- **Setas (Arrow Down ↓ ou Arrow Right →)**: Move o foco para o próximo `Radio` dentro do grupo. Ao atingir o último item, o foco retorna ao primeiro;
-- **Setas (Arrow Up ↑ ou Arrow Left ←)**: Move o foco para o `Radio` anterior dentro do grupo. Se estiver no primeiro item, o foco retorna ao último;
+- **Setas (Arrow Down ↓ ou Arrow Right →)**: Move o foco para o próximo `Radio` do grupo. Ao atingir o último item, o foco retorna ao primeiro;
+- **Setas (Arrow Up ↑ ou Arrow Left ←)**: Move o foco para o `Radio` anterior do grupo. Se estiver no primeiro item, o foco retorna ao último;
 - **Espaço (Spacebar)**: Seleciona o `Radio` em foco, desmarcando automaticamente os demais itens do grupo.
 
 ### 📌 Boas práticas de acessibilidade ao utilizar o componente
@@ -158,5 +161,5 @@ O `RadioGroup` é totalmente **acessível via teclado**, conforme recomendado pe
 Além das diretrizes já implementadas no `RadioGroup` e no `Radio`, considere as seguintes práticas ao utilizar o `RadioGroup`:
 
 - Sempre forneça um **rótulo claro e descritivo** para o grupo por meio da propriedade `label`, indicando a categoria ou propósito do grupo de opções, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions.html" target="_blank">WCAG 3.3.2 (Labels or Instructions)</Link>;
-- Se for absolutamente necessário que o `RadioGroup` não possua um rótulo visível, adicione a propriedade `aria-label` com uma descrição clara do propósito do grupo, garantindo que leitores de tela possam compreendê-lo. Essa prática está alinhada com a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html" target="_blank">WCAG 2.4.6 (Headings and Labels)</Link>;
+- Se for **necessário** que o `RadioGroup` **não possua um rótulo visível**, o componente **aplica automaticamente um rótulo acessível** padrão através da propriedade `defaultA11yLabel`, que pode ser **customizada** conforme a necessidade para garantir que leitores de tela compreendam o propósito do grupo. Essa prática está alinhada com a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html" target="_blank">WCAG 2.4.6 (Headings and Labels)</Link>;
 - Sempre que possível, realize a **validação da opção selecionada nos grupos antes do envio do formulário**, exibindo mensagens de erro claras e específicas, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/error-identification.html" target="_blank">WCAG 3.3.1 (Error Identification)</Link>.
