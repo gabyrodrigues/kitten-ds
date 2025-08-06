@@ -101,12 +101,27 @@ export interface CheckboxProps
    * The success text to be displayed below the Checkbox in case of success.
    */
   successText?: string
+
+  /**
+   * Specifies whether the Checkbox component is read-only or not.
+   * This means the user cannot change its state,
+   * but it can still be focused and interacted with programmatically.
+   * This is useful for displaying the Checkbox in a non-editable state while still allowing it to be part of the form.
+   */
+  readOnly?: boolean
 }
 
 export interface CheckboxGroupProps
   extends Pick<
       CheckboxProps,
-      "color" | "disabled" | "errorText" | "helperText" | "id" | "labelClassName" | "successText"
+      | "color"
+      | "disabled"
+      | "errorText"
+      | "helperText"
+      | "id"
+      | "labelClassName"
+      | "readOnly"
+      | "successText"
     >,
     Omit<FlexProps, "color" | "direction"> {
   /**

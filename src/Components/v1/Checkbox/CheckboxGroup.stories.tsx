@@ -84,6 +84,11 @@ const meta: Meta<typeof CheckboxGroup> = {
       description:
         "Indica se o CheckboxGroup é obrigatório. Isso pode ser usado para validação de formulários, onde o usuário deve selecionar pelo menos uma opção."
     },
+    readOnly: {
+      control: { type: "boolean" },
+      description:
+        "Especifica se o CheckboxGroup é somente leitura ou não. Isso significa que o usuário não pode alterar o estado dos checkboxes, mas ainda pode ser focado e interagido programaticamente. Útil para exibir o CheckboxGroup em um estado não editável, mas ainda permitindo que ele faça parte do formulário."
+    },
     successText: {
       control: { type: "text" },
       description:
@@ -97,7 +102,8 @@ const meta: Meta<typeof CheckboxGroup> = {
   },
   args: {
     children: "",
-    direction: "vertical"
+    direction: "vertical",
+    readOnly: false
   }
 }
 

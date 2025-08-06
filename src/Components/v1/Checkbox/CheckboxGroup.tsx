@@ -20,6 +20,7 @@ export default function CheckboxGroup({
   successText,
   className,
   listClassName,
+  readOnly = false,
   required = false,
   withAsterisk = false,
   ...props
@@ -89,12 +90,15 @@ export default function CheckboxGroup({
           if (child.type === Checkbox) {
             const childProps = child.props as CheckboxProps
             const isDisabled = Boolean(disabled) || Boolean(childProps.disabled)
+            const isReadOnly = Boolean(readOnly) || Boolean(childProps.readOnly)
+
             return (
               <Checkbox
                 key={childProps?.name ?? `checkbox-${index}`}
                 {...childProps}
                 color={color}
                 disabled={isDisabled}
+                readOnly={isReadOnly}
                 required={required}
               />
             )
