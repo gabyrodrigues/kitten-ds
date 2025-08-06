@@ -74,7 +74,7 @@ export default function Radio({
           checked={checked}
           aria-disabled={disabled}
           data-disabled={disabled}
-          data-readonly={readOnly}
+          data-readOnly={readOnly}
           required={required}
           tabIndex={disabled ? 0 : undefined}
           onChange={(event) => !disabled && !readOnly && onChange?.(event)}

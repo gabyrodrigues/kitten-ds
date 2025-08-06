@@ -94,7 +94,8 @@ const meta: Meta<typeof Radio> = {
   args: {
     disabled: false,
     color: "primary",
-    label: "Label Text"
+    label: "Label Text",
+    readOnly: false
   }
 }
 
