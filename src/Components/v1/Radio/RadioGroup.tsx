@@ -87,6 +87,7 @@ export default function RadioGroup({
         direction={direction === "horizontal" ? "flex-row" : "flex-col"}
         gap="gap-xs"
         className={cn(listClassName)}
+        data-testid="radio-group-list"
       >
         {flattenedChildren.map((child, index) => {
           if (!React.isValidElement(child) || child.type !== Radio) {

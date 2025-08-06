@@ -79,6 +79,7 @@ export default function CheckboxGroup({
         direction={direction === "horizontal" ? "flex-row" : "flex-col"}
         gap="gap-xs"
         className={cn(listClassName)}
+        data-testid="checkbox-group-list"
       >
         {flattenedChildren.map((child, index) => {
           if (!React.isValidElement(child) || child.type !== Checkbox) {
