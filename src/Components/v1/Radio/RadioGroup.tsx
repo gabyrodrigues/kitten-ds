@@ -110,8 +110,8 @@ export default function RadioGroup({
               onChange={handleRadioChange}
               color={color}
               disabled={isDisabled}
-              required={isRequired}
               readOnly={isReadOnly}
+              required={isRequired}
             />
           )
         })}
