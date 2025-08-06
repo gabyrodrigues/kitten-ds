@@ -108,7 +108,7 @@ export interface CheckboxGroupProps
       CheckboxProps,
       "color" | "disabled" | "errorText" | "helperText" | "id" | "labelClassName" | "successText"
     >,
-    Omit<FlexProps, "color"> {
+    Omit<FlexProps, "color" | "direction"> {
   /**
    * The label text to be displayed above the list of checkboxes.
    * If not provided, the default accessible label will be used.
@@ -156,4 +156,13 @@ export interface CheckboxGroupProps
    * If true, the asterisk will be displayed next to the label if withAsterisk is also true.
    */
   required?: boolean
+
+  /**
+   * The direction in which the Checkboxes are displayed within the CheckboxGroup.
+   * It can be either "vertical" or "horizontal".
+   * This controls the layout of the Checkbox buttons.
+   *
+   * @default "vertical"
+   */
+  direction?: "vertical" | "horizontal"
 }

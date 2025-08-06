@@ -10,6 +10,7 @@ export default function CheckboxGroup({
   children,
   color = "primary",
   defaultA11yLabel = "Checkbox Group",
+  direction = "vertical",
   disabled = false,
   id,
   label,
@@ -75,8 +76,8 @@ export default function CheckboxGroup({
       </Text>
 
       <Flex
-        direction="flex-col"
-        rowGap="gap-y-xs"
+        direction={direction === "horizontal" ? "flex-row" : "flex-col"}
+        gap="gap-xs"
         className={cn(listClassName)}
       >
         {flattenedChildren.map((child, index) => {

@@ -38,6 +38,12 @@ const meta: Meta<typeof RadioGroup> = {
       description:
         "Mensagem de acessibilidade usado como rótulo do grupo quando label não é fornecido."
     },
+    direction: {
+      control: { type: "radio" },
+      options: ["horizontal", "vertical"],
+      description:
+        "Define a direção dos botões de rádio dentro do RadioGroup. As opções disponíveis são: 'horizontal' e 'vertical'. Isso controla o layout dos botões de rádio."
+    },
     disabled: {
       control: { type: "boolean" },
       description: "Desabilita os radios dentro do RadioGroup, tornando-os não interativos."
@@ -94,6 +100,7 @@ const meta: Meta<typeof RadioGroup> = {
   args: {
     disabled: false,
     color: "primary",
+    direction: "vertical",
     label: "Label Text",
     children: ""
   }

@@ -113,7 +113,7 @@ export interface RadioGroupProps
       | "successText"
       | "value"
     >,
-    Omit<FlexProps, "color" | "onChange" | "value"> {
+    Omit<FlexProps, "color" | "onChange" | "value" | "direction"> {
   /**
    * The CSS class name to be applied to the RadioGroup root.
    */
@@ -155,4 +155,13 @@ export interface RadioGroupProps
    * If true, the asterisk will be displayed next to the label if withAsterisk is also true.
    */
   required?: boolean
+
+  /**
+   * The direction in which the Radio buttons are displayed within the RadioGroup.
+   * It can be either "vertical" or "horizontal".
+   * This controls the layout of the Radio buttons.
+   *
+   * @default "vertical"
+   */
+  direction?: "vertical" | "horizontal"
 }

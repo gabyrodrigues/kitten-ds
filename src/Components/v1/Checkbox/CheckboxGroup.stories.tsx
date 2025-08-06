@@ -41,6 +41,12 @@ const meta: Meta<typeof CheckboxGroup> = {
       description:
         "Mensagem de acessibilidade usado como rótulo do grupo quando label não é fornecido."
     },
+    direction: {
+      control: { type: "radio" },
+      options: ["horizontal", "vertical"],
+      description:
+        "Define a direção dos checkboxes dentro do CheckboxGroup. As opções disponíveis são: 'horizontal' e 'vertical'. Isso controla o layout dos checkboxes."
+    },
     disabled: {
       control: { type: "boolean" },
       description: "Desabilita os checkboxes dentro do CheckboxGroup, tornando-os não interativos."
@@ -90,7 +96,8 @@ const meta: Meta<typeof CheckboxGroup> = {
     }
   },
   args: {
-    children: ""
+    children: "",
+    direction: "vertical"
   }
 }
 
