@@ -1,0 +1,104 @@
+import { Meta } from "@storybook/blocks"
+import { Flex } from "../Flex"
+import { Grid } from "../Grid"
+import { Link } from "../Link"
+import { Chip } from "../Chip"
+import { Text } from "../Text"
+import { Title } from "../Title"
+
+<Meta title="Componentes/Chip/Guia de Uso" />
+
+# 🧭  Guia de Uso
+
+## 📘 Visão Geral
+
+O `Chip` é um componente compacto indicado para situações em que é necessário informar, rotular, filtrar ou agrupar informações. Ele pode representar uma entidade, um atributo ou uma ação, sendo ideal para destacar elementos em uma interface de forma visualmente agradável e funcional. O componente permite um rápido reconhecimento por meio de palavras-chave, ícones ou cores, facilitando a interação do usuário com o conteúdo apresentado.
+
+Os `Chips` ajudam a destacar ou organizar informações, tornando-as mais acessíveis e fáceis de compreender, especialmente em interfaces com grande volume de dados ou múltiplas opções. São frequentemente utilizados em contextos de seleção múltipla, categorização ou filtragem de dados.
+
+### ⚙️ Tipos de Chip
+
+<img src="/assets/chip-state-variants.png" alt="Exibição dos tipos de Chip em uma lista com as suas variações e estados como hover, focus e disabled e aplicação com ícone" style={{ margin: '0 auto' }} />
+
+O componente `Chip` possui duas variações principais, que podem indicar o nível de importância ou o tipo de informação apresentada:
+
+- **Filled (Preenchido)**: Indica uma ação ou informação principal. Ideal para destacar opções ou ações relevantes;
+- **Outlined (Contornado)**: Indica informações complementares, com menor destaque visual.
+
+Além de exibir informações, o `Chip` pode ser interativo, permitindo ações como seleção, remoção ou navegação, utilizando as propriedades `onClick` ou `onDelete` para lidar com os eventos.
+
+<img src="/assets/chip-color-variants.png" alt="Exibição de uma lista de botões preenchidos e cada botão tem sua cor atribuída: primária, secundária, erro, successo e cinza." style={{ margin: '48px auto' }} />
+
+Os `Chips` possuem variantes de cor que comunicam diferentes significados e níveis de prioridade:
+
+- **Primary (Primária)**: Ação principal ou informação relevante;
+- **Secondary (Secundária)**: Informações complementares;
+- **Error (Erro)**: Erros ou ações potencialmente destrutivas;
+- **Success (Sucesso)**: Ações bem-sucedidas ou confirmações;
+- **Warning (Aviso)**: Informações que exigem atenção, mas não são críticas;
+- **Info (Informação)**: Dados informativos ou auxiliares;
+- **Neutral (Neutra)**: Conteúdo neutro ou suporte visual discreto.
+
+Além do texto, o `Chip` pode conter ícones que facilitam o reconhecimento visual e melhoram a usabilidade, desde que usados com moderação.
+
+> ⚠️ Use as variantes de cor de forma semântica e consistente. Evite, por exemplo, usar a cor de erro (error) para ações que não representem risco, pois isso pode gerar confusão visual e cognitiva.
+
+## 💡 Recomendações de Uso
+
+- Utilize `Chips` para destacar informações importantes como categorias, tags ou ações;
+- Use `Chips` interativos apenas quando o usuário puder realizar ações claras (como remover, filtrar ou selecionar);
+- Evite utilizar `Chips` para informações irrelevantes ou redundantes, para não gerar sobrecarga visual;
+- Se utilizar ícones, garanta que complementem o texto e não substituam o significado — para fins de acessibilidade, nunca dependa apenas do ícone;
+- Prefira rótulos curtos e diretos. O `Chip` deve conter apenas uma linha de texto clara e objetiva;
+- Evite adicionar muitos `Chips` em uma mesma interface, pois isso pode causar ruído visual. Use com moderação;
+- Mantenha consistência: não misture tipos, cores ou interações diferentes em um mesmo grupo de `Chips`, pois isso compromete a previsibilidade da interface;
+- Evite misturar `Chips` interativos e não interativos no mesmo contexto. Estabeleça um padrão de comportamento e mantenha-o coerente.
+
+### ☑️✖️ O que fazer vs. O que não fazer
+
+O componente `Chip` foi desenvolvido com foco em acessibilidade, usabilidade e experiência do usuário. Abaixo estão algumas diretrizes sobre o que fazer e o que não fazer ao utilizar este componente para manter a acessibilidade e a usabilidade e melhorar a experiência do usuário:
+
+<Title component="h1" className="!text-h5">Utilize rótulos objetivos e curtos para os `Chips`. Use palavras-chave ou termos que sejam facilmente reconhecíveis pelo usuário.</Title>
+
+<Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
+  <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
+    <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-success !mb-sm">
+      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
+    </Flex>
+    <Chip variant="filled" color="primary">Versão 1</Chip>
+    <Chip variant="filled" color="success">Versão 1</Chip>
+    <Chip variant="filled" color="neutral">Versão 1</Chip>
+  </Flex>
+  <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
+    <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-error !mb-sm">
+      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
+    </Flex>
+    <Chip variant="filled" color="primary">Atualmente o sistema está na versão 1 e já possui diversas funcionalidades lançadas e prontas para uso</Chip>
+    <Chip variant="filled" color="success">Atualmente o sistema está na versão 1 e já possui diversas funcionalidades lançadas e prontas para uso</Chip>
+    <Chip variant="filled" color="neutral">Atualmente o sistema está na versão 1 e já possui diversas funcionalidades lançadas e prontas para uso</Chip>
+  </Flex>
+</Grid>
+
+
+## ♿ Acessibilidade
+
+O componente `Chip` foi desenvolvido com foco em acessibilidade, usabilidade e experiência do usuário. A versão padrão (sem interação) é visualmente acessível, com contraste adequado e boa legibilidade. Já nas versões interativas (clicável ou deletável), o componente segue as seguintes diretrizes:
+
+- Quando o `Chip` é clicável, ele utiliza o elemento `<button>`, semanticamente adequado para elementos interativos:
+  - O uso de `<button>` garante que o componente seja reconhecido como interativo por tecnologias assistivas, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html" target="_blank">WCAG 1.3.1 (Info and Relationships)</Link>;
+  - É totalmente navegável via teclado, permitindo o uso da tecla **Tab** para foco e **Enter** ou **Espaço** para ativação, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html" target="_blank">WCAG 2.1.1 (Keyboard)</Link>;
+  - Use `onClick` para definir a ação de clique e `onKeyDown` para garantir suporte completo a teclado (**Enter** e **Espaço**), conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html" target="_blank">WCAG 2.1 (Keyboard)</Link>;
+- Quando o `Chip` é deletável, ele utiliza por padrão um elemento `div`, mas a ação de exclusão é sempre implementada por meio de um `button`:
+  - A ação de deletar é acessível via teclado, permitindo foco com a tecla **Tab** e ativação com as teclas **Enter**, **Delete** ou **Espaço**, conforme a  <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html" target="_blank">WCAG 2.1.1 (Keyboard)</Link>;
+- Ambas as variações interativas seguem recomendações adicionais de acessibilidade para garantir uma experiência inclusiva:
+  - A borda de foco visível possui pelo menos 2px de espessura e está sempre visível, sem ficar oculta por outros elementos, conforme <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance-enhanced" target="_blank">WCAG 2.4.13 (Focus Appearance  - Enhanced)</Link>;
+  - O estado de foco é sempre preservado quando aplicável, inclusive com suporte visual claro, conforme recomendado pela <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible" target="_blank">WCAG 2.4.7 (Focus Visible)</Link>;
+  - A área de toque do botão de deletar foi ajustada para atingir pelo menos `24x24 pixels`, mesmo que visualmente menor, seguindo a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/target-size.html" target="_blank">WCAG 2.5.5 (Target Size)</Link>.
+
+### 📌 Boas práticas de acessibilidade ao utilizar o componente
+
+Para complementar e garantir a acessibilidade, recomenda-se:
+
+- Preservar os recursos visuais de acessibilidade (foco, contraste, legibilidade) ao customizar estilos ou *tokens*, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html" target="_blank">WCAG 2.4.7 (Focus Visible)</Link>, <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html" target="_blank">WCAG 1.4.3 (Contrast Minimum)</Link> e <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance-enhanced.html" target="_blank">WCAG 2.4.13 (Focus Appearance - Enhanced)</Link>;
+- Utilizar `aria-label` para descrever de forma clara e objetiva o propósito do `Chip`, principalmente quando o conteúdo visual não for autoexplicativo, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value.html" target="_blank">WCAG 4.1.2 (Name, Role, Value)</Link>;
+- Indicar, quando necessário, o motivo do `Chip` estar desabilitado, utilizando texto visível ou `aria-describedby`, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html" target="_blank">WCAG 1.3.1 (Information and Relationships)</Link> e <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions.html" target="_blank">3.3.2 (Labels or Instructions)</Link>.
