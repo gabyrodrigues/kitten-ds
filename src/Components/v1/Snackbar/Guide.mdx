@@ -1,0 +1,42 @@
+import { Meta } from "@storybook/blocks"
+import { Flex } from "../Flex"
+import { Grid } from "../Grid"
+import { Link } from "../Link"
+import { Snackbar } from "../Snackbar"
+import { Text } from "../Text"
+import { Title } from "../Title"
+
+<Meta title="Componentes/Snackbar/Guia de Uso" />
+
+# 🧭  Guia de Uso
+
+## 📘 Visão Geral
+
+O componente `Snackbar` tem a função de exibir uma informação contextual, de forma breve e temporária, representando um retorno do sistema ou mensagem que não interrompe ou interfere no fluxo principal.
+
+Ele é utilizado para exibir mensagens de feedback ao usuário, geralmente após uma ação específica, como o envio de um formulário ou a conclusão de uma tarefa. Ele é projetado para ser discreto e não intrusivo, permitindo que o usuário continue interagindo com a interface enquanto a mensagem é exibida.
+
+### ⚙️ Tipos de Snackbar
+
+<img src="/assets/snackbar-variants.png" alt="Exibição dos tipos de Snackbar em uma lista com as suas variações filled e outlined, com e sem descrição" style={{ margin: '0 auto' }} />
+
+O componente `Snackbar` possui duas variações principais, que podem indicar o nível de destaque ou o tipo de informação apresentada:
+
+- **Filled (Preenchido)**: Indica uma mensagem de *feedback* de maior destaque visual;
+- **Outlined (Contornado)**: Indica mensagens de *feedback* com destaque visual moderado.
+
+Além de exibir informações, o `Snackbar` pode ser interativo, permitindo ações como fechar a mensagem, utilizando as propriedades `onClose` para lidar com esse evento.
+
+<img src="/assets/snackbar-color-variants.png" alt="Exibição de uma lista de botões preenchidos e cada botão tem sua cor atribuída: primária, secundária, erro, successo e cinza." style={{ margin: '48px auto' }} />
+
+As `Snackbars` possuem variantes de cor que comunicam diferentes significados e níveis de prioridade:
+
+- **Success (Sucesso)**: *Feedback* para ações bem-sucedidas ou confirmações;
+- **Error (Erro)**: Erros ou ações potencialmente destrutivas;
+- **Warning (Aviso)**: Informações que exigem atenção, mas não são críticas;
+- **Info (Informação)**: Dados informativos ou auxiliares;
+- **Neutral (Neutra)**: Conteúdo neutro ou *feedback* visual discreto.
+
+Cada cor é acompanhada de um ícone que reforça o significado da mensagem, proporcionando uma experiência mais intuitiva e visualmente clara.
+
+> ⚠️ Use as variantes de cor de forma semântica e consistente. Evite, por exemplo, usar a cor de erro (error) para ações que não representem risco, pois isso pode gerar confusão visual e cognitiva.
