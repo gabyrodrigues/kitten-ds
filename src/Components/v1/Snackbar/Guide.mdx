@@ -20,23 +20,28 @@ Ele é utilizado para exibir mensagens de feedback ao usuário, geralmente após
 
 <img src="/assets/snackbar-variants.png" alt="Exibição dos tipos de Snackbar em uma lista com as suas variações filled e outlined, com e sem descrição" style={{ margin: '0 auto' }} />
 
-O componente `Snackbar` possui duas variações principais, que podem indicar o nível de destaque ou o tipo de informação apresentada:
+O `Snackbar` é composto por:
+
+- **Ícone**: Representa visualmente o tipo de mensagem (sucesso, erro, aviso, etc.);
+- **Título**: Texto principal que descreve a mensagem;
+- **Descrição**: Texto adicional (opcional) para fornecer mais contexto ou detalhes sobre a mensagem;
+- **Fechar**: Botão para fechar o `Snackbar`, representado por um ícone de "X". Ele já é implementado por padrão, mas pode ter a ação complementada a partir da propriedade `onClose`.
+
+O componente possui duas variações principais, que podem indicar o nível de destaque ou o tipo de informação apresentada:
 
 - **Filled (Preenchido)**: Indica uma mensagem de *feedback* de maior destaque visual;
-- **Outlined (Contornado)**: Indica mensagens de *feedback* com destaque visual moderado.
-
-Além de exibir informações, o `Snackbar` pode ser interativo, permitindo ações como fechar a mensagem, utilizando as propriedades `onClose` para lidar com esse evento.
+- **Outlined (Contornado)**: Indica uma mensagem de *feedback* com destaque visual moderado.
 
 <img src="/assets/snackbar-color-variants.png" alt="Exibição de uma lista de botões preenchidos e cada botão tem sua cor atribuída: primária, secundária, erro, successo e cinza." style={{ margin: '48px auto' }} />
 
-As `Snackbars` possuem variantes de cor que comunicam diferentes significados e níveis de prioridade:
+O `Snackbar` possui variantes de cor que comunicam diferentes significados e níveis de prioridade:
 
 - **Success (Sucesso)**: *Feedback* para ações bem-sucedidas ou confirmações;
-- **Error (Erro)**: Erros ou ações potencialmente destrutivas;
+- **Error (Erro)**: Erros ou *feedback* de ações potencialmente destrutivas;
 - **Warning (Aviso)**: Informações que exigem atenção, mas não são críticas;
 - **Info (Informação)**: Dados informativos ou auxiliares;
 - **Neutral (Neutra)**: Conteúdo neutro ou *feedback* visual discreto.
 
 Cada cor é acompanhada de um ícone que reforça o significado da mensagem, proporcionando uma experiência mais intuitiva e visualmente clara.
 
-> ⚠️ Use as variantes de cor de forma semântica e consistente. Evite, por exemplo, usar a cor de erro (error) para ações que não representem risco, pois isso pode gerar confusão visual e cognitiva.
+> ⚠️ Use as variantes de cor de forma semântica e consistente. Evite, por exemplo, usar a cor de erro (error) para *feedbacks* que não representem erro, pois isso pode gerar confusão visual e cognitiva.
