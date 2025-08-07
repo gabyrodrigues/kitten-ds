@@ -69,7 +69,6 @@ export default function Snackbar({
         colGap="gap-x-2xl"
         wrap="flex-nowrap"
         role={["error", "warning", "success"].includes(color) ? "alert" : "status"}
-        aria-live="polite"
         {...props}
         className={mergedClasses}
       >
