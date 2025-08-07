@@ -14,7 +14,7 @@ import { Title } from "../Title"
 
 O componente `Snackbar` tem a função de exibir uma informação contextual, de forma breve e temporária, representando um retorno do sistema ou mensagem que não interrompe ou interfere no fluxo principal.
 
-Ele é utilizado para exibir mensagens de feedback ao usuário, geralmente após uma ação específica, como o envio de um formulário ou a conclusão de uma tarefa. Ele é projetado para ser discreto e não intrusivo, permitindo que o usuário continue interagindo com a interface enquanto a mensagem é exibida.
+Ele é utilizado para exibir mensagens de *feedback* ao usuário, geralmente após uma ação específica, como o envio de um formulário ou a conclusão de uma tarefa. O `Snackbar` é projetado para ser discreto e não intrusivo, permitindo que o usuário continue interagindo com a interface enquanto a mensagem é exibida.
 
 ### ⚙️ Tipos de Snackbar
 
@@ -24,24 +24,69 @@ O `Snackbar` é composto por:
 
 - **Ícone**: Representa visualmente o tipo de mensagem (sucesso, erro, aviso, etc.);
 - **Título**: Texto principal que descreve a mensagem;
-- **Descrição**: Texto adicional (opcional) para fornecer mais contexto ou detalhes sobre a mensagem;
-- **Fechar**: Botão para fechar o `Snackbar`, representado por um ícone de "X". Ele já é implementado por padrão, mas pode ter a ação complementada a partir da propriedade `onClose`.
+- **Descrição** *(opcional)*: Texto adicional para fornecer mais contexto ou detalhes sobre a mensagem;
+- **Fechar**: Botão representado por um ícone "X", presente por padrão, podendo ter sua ação complementada via `onClose`.
 
-O componente possui duas variações principais, que podem indicar o nível de destaque ou o tipo de informação apresentada:
+O componente possui duas variações visuais:
 
-- **Filled (Preenchido)**: Indica uma mensagem de *feedback* de maior destaque visual;
-- **Outlined (Contornado)**: Indica uma mensagem de *feedback* com destaque visual moderado.
+- **Filled (Preenchido)**: Indica um *feedback* de maior destaque visual;
+- **Outlined (Contornado)**: Indica um *feedback* com destaque mais sutil.
 
 <img src="/assets/snackbar-color-variants.png" alt="Exibição de uma lista de botões preenchidos e cada botão tem sua cor atribuída: primária, secundária, erro, successo e cinza." style={{ margin: '48px auto' }} />
 
-O `Snackbar` possui variantes de cor que comunicam diferentes significados e níveis de prioridade:
+As variantes de cor comunicam diferentes significados e níveis de prioridade:
 
-- **Success (Sucesso)**: *Feedback* para ações bem-sucedidas ou confirmações;
-- **Error (Erro)**: Erros ou *feedback* de ações potencialmente destrutivas;
-- **Warning (Aviso)**: Informações que exigem atenção, mas não são críticas;
-- **Info (Informação)**: Dados informativos ou auxiliares;
-- **Neutral (Neutra)**: Conteúdo neutro ou *feedback* visual discreto.
+- **Success (Sucesso)**: Para ações bem-sucedidas ou confirmações. Exemplo: *"Seu cadastro foi realizado com sucesso!"*;
+- **Error (Erro)**: Para erros ou ações com falhas. Exemplo: *"Ocorreu um erro ao processar sua solicitação."*;
+- **Warning (Aviso)**: Para alertas importantes, mas não críticos. Exemplo: *"Sua licença está prestes a expirar. Renove em até 30 dias."*;
+- **Info (Informação)**: Para dados informativos ou auxiliares. Exemplo: *"Nova versão disponível"*;
+- **Neutral (Neutra)**: Para mensagens neutras ou menos relevantes. Exemplo: *"Nenhuma ação necessária no momento."*.
 
-Cada cor é acompanhada de um ícone que reforça o significado da mensagem, proporcionando uma experiência mais intuitiva e visualmente clara.
+Cada variante é acompanhada de um ícone semântico que reforça o significado, proporcionando uma experiência mais intuitiva.
 
-> ⚠️ Use as variantes de cor de forma semântica e consistente. Evite, por exemplo, usar a cor de erro (error) para *feedbacks* que não representem erro, pois isso pode gerar confusão visual e cognitiva.
+> ⚠️ Use as variantes de cor de forma semântica e consistente. Evite, por exemplo, usar a cor de erro para mensagens que não representem um erro real — isso pode causar confusão cognitiva e afetar a acessibilidade.
+
+## 🔨 Comportamento
+
+O `Snackbar` é exibido de forma temporária e não intrusiva. Ele desaparece automaticamente após um período ou quando o usuário interage com o botão de fechar.
+
+### ✖️ Fechamento do Snackbar
+
+- **Botão de fechar**: Todas as variações possuem um botão com ícone de "X". Clicá-lo fecha imediatamente o `Snackbar`;
+- **Fechamento automático**: Por padrão, o tempo de exibição é de 6 segundos. Esse valor pode ser alterado via propriedade `timeToClose` (em milissegundos). É importante garantir tempo suficiente para leitura da mensagem sem causar frustração ao usuário.
+ 
+### 📐 Posicionamento do Snackbar
+
+Por padrão, o `Snackbar` aparece no canto superior direito da tela, mas pode ser reposicionado usando a propriedade `position`, que aceita:
+
+- `top-left`: Canto superior esquerdo;
+- `top-right`: Canto superior direito;
+- `bottom-left`: Canto inferior esquerdo;
+- `bottom-right`: Canto inferior direito.
+
+Garanta que ele **não sobreponha elementos interativos essenciais**, como botões ou campos de formulário, para evitar impacto negativo na experiência do usuário.
+
+## 💡 Recomendações de Uso
+
+- Mantenha o título e a descrição curtos e objetivos;
+- Escolha a **variante de cor apropriada** para comunicar corretamente a intenção da mensagem;
+- Para mensagens de erro, prefira linguagem clara e evite jargões técnicos ou códigos que possam confundir o usuário;
+- Evite sobrecarregar o conteúdo com informações desnecessárias ou excessivamente longas;
+- Evite exibir múltiplos *Snackbars* simultaneamente sem necessidade — priorize um por vez, ou use fila com transição suave.
+
+## ♿ Acessibilidade
+
+Por padrão, o componente `Snackbar` já implementa diretrizes essenciais de acessibilidade para garantir que todos os usuários possam interagir com ele de forma eficaz:
+
+- Para cada tipo de alerta, são definidos `roles` apropriados que indicam o papel do `Snackbar` na interface — como `alert` para mensagens de erro, aviso e sucesso, e `status` para mensagens informativas. Esses `roles` comunicam automaticamente a urgência da mensagem a leitores de tela, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value.html" target="_blank">WCAG 4.1.2 (Name, Role, Value)</Link> e <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html" target="_blank">WCAG 4.1.3 (Status Messages)</Link>;
+- Cada tipo de `Snackbar` usa cores e ícones que reforçam visualmente o significado da mensagem, melhorando a compreensão mesmo para usuários com limitações cognitivas ou sensoriais, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html" target="_blank">WCAG 1.4.1 (Use of Color)</Link> e <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html" target="_blank">WCAG 1.4.3 (Contrast Minimum)</Link>;
+- O botão de fechar o `Snackbar` é acessível via teclado: é possível focar com **Tab** e ativar com **Enter** ou **Espaço**, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html" target="_blank">WCAG 2.1.1 (Keyboard)</Link>;
+- Esse mesmo botão possui **foco visível** com pelo menos 2px de espessura e contraste adequado, garantindo visibilidade consistente, de acordo com a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance-enhanced" target="_blank">WCAG 2.4.13 (Focus Appearance – Enhanced)</Link>.
+
+### 📌 Boas práticas de acessibilidade ao utilizar o componente
+
+Para complementar a implementação acessível do `Snackbar`, recomenda-se:
+
+- Escolher sempre o tipo de mensagem adequado (erro, sucesso, aviso etc.), para garantir que os usuários compreendam a natureza e a prioridade da informação. Alinhado à <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value.html" target="_blank">WCAG 4.1.2 (Name, Role, Value)</Link>;
+
+- Garantir que o conteúdo textual da mensagem seja claro, direto e compreensível — não confie apenas na cor ou no ícone para transmitir significado, conforme a <Link href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html">WCAG 1.4.1 (Use of Color)</Link>.
