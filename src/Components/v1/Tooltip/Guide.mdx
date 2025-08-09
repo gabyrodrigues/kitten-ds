@@ -1,0 +1,96 @@
+import { Meta } from "@storybook/blocks"
+import { Flex } from "../Flex"
+import { Grid } from "../Grid"
+import { Link } from "../Link"
+import { Text } from "../Text"
+import { Title } from "../Title"
+
+<Meta title="Componentes/Tooltip/Guia de Uso" />
+
+# 🧭  Guia de Uso
+
+## 📘 Visão Geral
+
+O componente `Tooltip` fornece informações ou contexto adicional sobre um elemento da interface, apresentando dicas ou instruções sem sobrecarregar a tela.
+
+Ele pode possuir textos simples ou mais detalhados, sendo comumente utilizado para explicar ícones, botões ou outros elementos interativos, melhorando a usabilidade e a compreensão do usuário sobre as funcionalidades disponíveis.
+
+## 🔨 Comportamento
+
+O `Tooltip` é ativado por meio de interações do usuário, como passar o *mouse* sobre um elemento ou focar nele via teclado, e desaparece automaticamente após um curto período ou quando o usuário interage com a interface.
+
+Foi definido para o `Tooltip` um atraso padrão de **300 milissegundos** antes de ser exibido. Esse atraso evita que ele apareça acidentalmente durante movimentos rápidos do *mouse* e proporciona uma experiência mais fluida. Por isso, não é recomendada a sobrescrita desse comportamento.
+
+Para garantir que o `Tooltip` seja exibido corretamente também para usuários de leitores de tela, é importante inserir um `id` único no elemento que aciona o `Tooltip`, utilizando a propriedade `id` do componente. Isso permite associar o `Tooltip` ao elemento alvo, garantindo acessibilidade e usabilidade.
+
+Exemplo de uso:
+
+```javascript
+import { Tooltip } from "kitten-ds"
+function App() {
+  return (
+    <div>
+      <Tooltip
+        id="tooltip-unico"
+        body="Informação adicional sobre o funcionamento"
+      >
+        <button>Botão com tooltip</button>
+      </Tooltip>
+    </div>
+  );
+}
+
+export default App;
+```
+
+É a partir desse `id` que o `Tooltip` recebe o atributo `aria-describedby`, permitindo que leitores de tela anunciem o conteúdo descritivo associado ao elemento.
+
+### 📐 Posicionamento do Tooltip
+
+<img src="/assets/tooltip-variants.png" alt="Exibição de uma lista de tooltips que mostra a aplicação com e sem indicador de flecha do posicionamento e cada uma das variantes de posicionamento" style={{ margin: '48px auto' }} />
+
+Por padrão, o `Tooltip` é exibido abaixo do elemento alvo, mas pode ser reposicionado usando a propriedade `position`, que aceita os seguintes valores:
+
+- **top**: Acima do elemento alvo;
+- **bottom**: Abaixo do elemento alvo;
+- **left**: À esquerda do elemento alvo;
+- **right**: À direita do elemento alvo;
+- **bottom-left**: No canto inferior esquerdo do elemento alvo;
+- **bottom-right**: No canto inferior direito do elemento alvo;
+- **top-left**: No canto superior esquerdo do elemento alvo;
+- **top-right**: No canto superior direito do elemento alvo.
+
+Em todas as variações de posicionamento é possível exibir um indicador de flecha apontando para o elemento alvo via propriedade `hasArrow`, ajudando a reforçar a relação entre o `Tooltip` e o elemento descrito.
+
+<img src="/assets/tooltip-positions.png" alt="Exibição de ícones de informação exemplificando como as tooltips são exibidas ao interagir com o ícone e as posições bottom, bottom-left e bottom-right estiverem definidas como posicionamento da tooltip" style={{ margin: '48px auto' }} />
+
+A nomenclatura dos posicionamentos é baseada na posição do `Tooltip` em relação ao elemento alvo, e não na posição do *mouse*. Isso significa que o `Tooltip` será exibido na posição especificada independentemente de onde o cursor estiver localizado.
+
+## 💡 Recomendações de Uso
+
+- Forneça informações contextuais para ajudar o usuário a entender melhor a interface;
+- Mantenha o texto curto e direto, evitando sobrecarga de informações;
+- Prefira usar o `Tooltip` em elementos interativos, como botões e ícones, onde a ajuda adicional pode ser benéfica;
+- Não utilize `Tooltip` em ícones ou botões de ícone com significados autoexplicativos, como uma ação de fechar usando o ícone de "X";
+- Teste em diferentes dispositivos e tamanhos de tela para garantir que não sobreponha conteúdo importante;
+- Evite usar o `Tooltip` para informações críticas que o usuário precisa ver imediatamente, pois ele pode ser facilmente ignorado ou não percebido, já que sua exibição depende da interação do usuário;
+- Não utilize o `Tooltip` para substituir mensagens de erro ou feedbacks importantes, pois ele é destinado a fornecer informações adicionais e não deve ser usado como um meio principal de comunicação com o usuário;
+- Não inseria ações interativas dentro do `Tooltip`, pois ele deve ser usado apenas para exibir informações e não para interações diretas.
+
+## ♿ Acessibilidade
+
+Por padrão, o componente `Tooltip` já implementa diretrizes essenciais de acessibilidade para garantir que todos os usuários possam interagir com ele de forma eficaz:
+
+- O `Tooltip` é associado ao elemento alvo através do atributo `aria-describedby`, preenchido automaticamente com o `id` atribuído ao `Tooltip`.  Isso permite que leitores de tela anunciem o conteúdo descritivo associado ao elemento, em conformidade com a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html" target="_blank">WCAG 1.3.1 (Info and Relationships)</Link> e a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value.html" target="_blank">WCAG 4.1.2 (Name, Role, Value)</Link>;
+- O `Tooltip` pode ser exibido não apenas no *hover* do mouse, mas também ao receber foco via teclado no elemento alvo, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html" target="_blank">WCAG 2.1.1 (Keyboard)</Link>;
+- O `Tooltip` permanece visível enquanto o elemento alvo estiver em foco ou sob o cursor, sem tempo limite para sua exibição, atendendo à <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html" target="_blank">WCAG 1.4.13 (Content on Hover or Focus)</Link>;
+- O `Tooltip` não deve receber foco diretamente — apenas o elemento alvo é focável — evitando interrupções na ordem lógica de navegação, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/focus-order.html" target="_blank">WCAG 2.4.3 (Focus Order)</Link>;
+- Após a perda do foco ou do *hover*, o `Tooltip` não desaparece imediatamente, aplicando um atraso de aproximadamente 500 milissegundos antes de sumir, o que dá tempo para leitura da informação antes que seja removida. Esse comportamento também segue a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html" target="_blank">WCAG 1.4.13 (Content on Hover or Focus)</Link>.
+
+### 📌 Boas práticas de acessibilidade ao utilizar o componente
+
+Para complementar e garantir a acessibilidade, é importante considerar:
+
+- Não utilize ações interativas como conteúdo do `Tooltip`, como botões ou links, pois isso pode confundir os usuários sobre seu propósito e prejudicar a ordem de foco, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/focus-order.html" target="_blank">WCAG 2.4.3 (Focus Order)</Link> e a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html" target="_blank">WCAG 1.4.13 (Content on Hover or Focus)</Link>;
+- Se o elemento alvo for estático (por exemplo, um ícone), envolva-o em um `IconButton` ou `Button` para permitir ativação por teclado sem precisar definir `tabindex="0"` manualmente. Isso está alinhado com a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html" target="_blank">WCAG 2.1.1 (Keyboard)</Link>;
+- O `Tooltip` foi desenvolvido para não cobrir o elemento alvo, garantindo que a informação adicional não obstrua o conteúdo principal. É importante manter esse comportamento ao utilizá-lo para estar alinhado com a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html" target="_blank">WCAG 1.4.13 (Content on Hover or Focus)</Link>.
