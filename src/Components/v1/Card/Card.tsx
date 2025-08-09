@@ -17,6 +17,7 @@ export default function Card({
   hasShadow = true,
   heading,
   headingClassName,
+  id,
   isLoading,
   justify = "justify-start",
   footer,
@@ -69,7 +70,8 @@ export default function Card({
   }
 
   const reactId = useId()
-  const headingId = heading ? `card-heading-${reactId}` : undefined
+  const baseId = id ?? reactId
+  const headingId = heading ? `card-heading-${baseId}` : undefined
 
   return (
     <Flex
@@ -86,7 +88,8 @@ export default function Card({
       data-loading={isLoading ? "true" : "false"}
       aria-labelledby={heading ? headingId : undefined}
       data-active={active ? "true" : "false"}
-      role={onClick && !disabled ? "button" : "region"}
+      data-testid="card-root"
+      role={onClick && !disabled ? "button" : undefined}
       {...(onClick && !disabled ? { onClick: handleClick } : {})}
       {...(onClick && !disabled ? { onKeyDown: handleKeyDown } : {})}
     >

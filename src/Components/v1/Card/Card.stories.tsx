@@ -381,3 +381,47 @@ export const Disabled: Story = {
     )
   }
 }
+
+export const Linkable: Story = {
+  name: "Versão de redirecionamento",
+  args: {
+    children: (
+      <Flex direction="flex-col">
+        <Title
+          variant="h5"
+          component="h1"
+          color="text-typography-primary"
+        >
+          Título do Card
+        </Title>
+        <Text
+          variant="body2"
+          color="text-typography-secondary"
+        >
+          subtítulo descritivo
+        </Text>
+
+        <Text
+          variant="body2"
+          marginTop="mt-sm"
+        >
+          Este é um exemplo de conteúdo de texto dentro do card. Ele pode conter informações
+          adicionais, descrições ou qualquer outro tipo de conteúdo textual.
+        </Text>
+      </Flex>
+    )
+  },
+  render: (args) => {
+    return (
+      <Card
+        {...args}
+        onClick={() => {
+          console.info("Card clicked")
+          window.open("https://google.com", "_blank")
+        }}
+      >
+        {args.children}
+      </Card>
+    )
+  }
+}
