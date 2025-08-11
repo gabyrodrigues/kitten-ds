@@ -17,7 +17,6 @@ export default function Spinner({
     <div
       className={cn(variantClasses, className)}
       role="status"
-      aria-live="polite"
       {...props}
     />
   )
