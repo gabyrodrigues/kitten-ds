@@ -1,5 +1,11 @@
 import { Meta } from "@storybook/blocks"
+import { Button } from "../Button"
+import { Card } from "../Card"
+import { Flex } from "../Flex"
+import { Grid } from "../Grid"
 import { Link } from "../Link"
+import { Text } from "../Text"
+import { Title } from "../Title"
 
 <Meta title="Componentes/Card/Guia de Uso" />
 
@@ -11,53 +17,189 @@ O `Card` fornece um elemento de superfície para agrupar informações relaciona
 
 ### ⚙️ Tipos de Card
 
+<img src="/assets/card-variants.png" alt="Exibição dos tipos de card em uma lista com sua versão de apenas leitura e versão selecionável em seu estado de hover, selecionado e focado" style={{ margin: '0 auto', maxWidth: '600px' }} />
+
 O componente `Card` possui as seguintes variações:
 
-- **Apenas leitura**: Versão padrão do `Card`, que apenas agrupa as informações contidas. Ele pode possui elementos interativos dentro dele, como um link ou botão, mas não há nenhum tipo de interação no `Card` propriamente dito;
-- **Interativo**: Versão do `Card` que o torna interativo, podendo assumir as características de:
-  - **Link**: Redirecionando o usuário para uma nova página ou seção ao clicar;
-  - **Selecionável**: O `Card` pode ser selecionado, permitindo que o usuário escolha uma ou mais opções de um conjunto de `Cards`. A versão selecionável também pode ser desabilitada, evitando que o usuário interaja com ela caso esteja indisponível no momento.
+- **Apenas leitura**: Versão padrão do `Card`, que apenas agrupa as informações contidas. Ele pode conter elementos interativos dentro dele, como um link ou botão, mas não há interação no `Card` como um todo;
+- **Interativo**: Versão do `Card` que o torna clicável ou selecionável, podendo assumir as características de:
+  - **Link**: Redireciona o usuário para uma nova página ou seção ao clicar;
+  - **Selecionável**: Permite que o usuário escolha uma ou mais opções de um conjunto de `Cards`. A versão selecionável também pode estar desabilitada, evitando que o usuário interaja quando indisponível.
 
 O componente também pode possuir as seguintes variações estilo:
 
-- **Com borda**: O `Card` pode exibir uma borda ao seu redor, a partir da propriedade `hasBorder`, destacando-o do fundo e criando uma separação visual com outros elementos. Isso é útil para enfatizar o conteúdo do `Card` e torná-lo mais distinto;
-- **Com sobreamento**: Por padrão, o `Card` exibe uma sombra ao seu redor, a partir da propriedade `hasShadow`, criando um efeito de elevação e destacando-o do fundo;
-- **Estado de carregamento**: O `Card` pode ser exibido em um estado de carregamento, através da propriedade `isLoading`, que exibe uma animação de pulsação. Isso é útil para indicar que o conteúdo está sendo carregado ou processado, funcionando como um elemento de esqueleto, para que o usuário entenda que a informação ainda não está disponível.
+- **Com borda**: Ao ativar a propriedade `hasBorder`, o `Card` exibe uma borda ao seu redor, destacando-o do fundo e criando separação visual com outros elementos. Isso ajuda a enfatizar o conteúdo e a criar contraste com o entorno, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html" target="_blank">WCAG 1.4.3 (Contrast - Minimum)</Link>;
+- **Com sobreamento**: Por padrão, a propriedade `hasShadow` cria um efeito de elevação, ajudando a distinguir o `Card` do fundo e reforçando a hierarquia visual;
+- **Estado de carregamento**: Isso comunica que o conteúdo está sendo carregado e ajuda na percepção de progresso, atendendo ao princípio da <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html" target="_blank">WCAG 4.1.3 (Status Messages)</Link>.
 
 ### 🧱 Estrutura
 
+<img src="/assets/card-content.png" alt="Exibição de card com exemplos aplicados de estrutura, com apenas conteúdo, conteúdo e cabeçalho e conteúdo com cabeçalho e rodapé" style={{ margin: '0 auto', maxWidth: '800px' }} />
+
 A estrutura básica de um `Card` é composta pelos seguintes elementos:
 
-- **Cabeçalho**: Área destinada ao título e outras informações adicionais de destaque;
-- **Conteúdo**: Área onde o conteúdo principal é exibido, podendo incluir texto, imagens e outros elementos;
-- **Rodapé**: Área opcional para informações ou ações adicionais.
+- **Cabeçalho**: Área destinada ao título e outras informações de destaque;
+- **Conteúdo**: Área onde é exibido o conteúdo principal (texto, imagens, gráficos etc.);
+- **Rodapé**: Área opcional para ações ou informações complementares.
+
+### ☑️✖️ O que fazer vs. O que não fazer
+
+Ao utilizar o componente, é fundamental que sejam seguidas boas práticas de escrita e formatação para garantir uma experiência de usuário consistente e agradável. Abaixo estão algumas orientações sobre o que fazer e o que não fazer ao utilizar o `Card`.
+
+<Title component="h1" className="!text-h5">
+Seja claro e objetivo ao inserir conteúdo nos `Cards`e evite o uso excessivo de informações que possam sobrecarregar o componente. Considere que eles são apenas uma amostra do conteúdo principal ao qual estão relacionados.
+</Title>
+
+<Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
+  <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
+    <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-success !mb-sm">
+      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
+    </Flex>
+    <Card className="max-w-92">
+      <Title
+        variant="h5"
+        component="h1"
+        color="text-typography-primary"
+        className="sb-unstyled"
+      >Título do Card</Title>
+      <Text
+        variant="body2"
+        color="text-typography-secondary"
+        className="sb-unstyled"
+      >subtítulo descritivo</Text>
+
+      <Text
+        variant="body2"
+        marginTop="mt-sm"
+        className="sb-unstyled"
+      >Este é um exemplo de conteúdo de texto dentro do Card. Ele pode conter informações
+        adicionais, descrições ou qualquer outro tipo de conteúdo textual.</Text>
+    </Card>
+  </Flex>
+  <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
+    <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-error !mb-sm">
+      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
+    </Flex>
+    <Card className="max-w-92">
+      <Title
+        variant="h5"
+        component="h1"
+        color="text-typography-primary"
+        className="sb-unstyled"
+      >Título do Card</Title>
+      <Text
+        variant="body2"
+        color="text-typography-secondary"
+        className="sb-unstyled"
+      >subtítulo descrevendo todos os detalhes sobre o Card e a origem dele</Text>
+
+      <Text
+        variant="body2"
+        marginTop="mt-sm"
+        className="sb-unstyled"
+      >Este é um exemplo de conteúdo de texto dentro do Card. Ele pode conter informações
+        adicionais, descrições ou qualquer outro tipo de conteúdo textual. Aqui além disso, ele busca exemplificar o detalhamento de todas as informações que o Card pode conter, o que acaba tornando o componente muito carregado e difícil de ler. Evite inserir informações excessivas que possam sobrecarregar o Card.</Text>
+    </Card>
+  </Flex>
+</Grid>
+
+<Title component="h1" className="!text-h5">Evite inserir ações em conjunto com a variação selecionável do `Card`. Além de sobrecarregar o componente, múltiplas ações sobrepostas podem dificultar a interação do usuário.</Title>
+
+<Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
+  <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
+    <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-success !mb-sm">
+      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
+    </Flex>
+    <Card className="max-w-86" active>
+      <Title
+        variant="h5"
+        component="h1"
+        color="text-typography-primary"
+        className="sb-unstyled"
+      >Título do Card</Title>
+      <Text
+        variant="body2"
+        color="text-typography-secondary"
+        className="sb-unstyled"
+      >subtítulo descritivo</Text>
+
+      <Text
+        variant="body2"
+        marginTop="mt-sm"
+        className="sb-unstyled"
+      >Este é um exemplo de conteúdo de texto dentro de um Card selecionável.</Text>
+    </Card>
+  </Flex>
+  <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
+    <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-error !mb-sm">
+      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
+    </Flex>
+    <Card className="max-w-92" active>
+      <Title
+        variant="h5"
+        component="h1"
+        color="text-typography-primary"
+        className="sb-unstyled"
+      >Título do Card</Title>
+       <Text
+        variant="body2"
+        color="text-typography-secondary"
+        className="sb-unstyled"
+      >subtítulo descritivo</Text>
+
+      <Text
+        variant="body2"
+        marginTop="mt-sm"
+        className="sb-unstyled"
+      >Este é um exemplo de conteúdo de texto dentro de um Card selecionável ativo.</Text>
+
+      <Flex colGap="gap-x-2" width="w-full" className="mt-sm sb-unstyled">
+        <Button
+          full
+          readOnly
+          className="sb-unstyled"
+        >
+          Ver mais
+        </Button>
+        <Button
+          full
+          readOnly
+          variant="outlined"
+          className="sb-unstyled"
+        >
+          Configurações
+        </Button>
+      </Flex>
+    </Card>
+  </Flex>
+</Grid>
 
 ## 💡 Recomendações de Uso
 
 - Utilize o `Card` para agrupar informações relacionadas de forma clara e organizada;
-- Ao utilizar cards em conjunto, mantenha as larguras padronizadas de um card para o outro;
-- Prefira a versão interativa do `Card` quando for necessário permitir a interação do usuário, como seleção ou navegação;
-- Aproveite as variações de estilo para destacar informações importantes ou criar hierarquia visual;
-- Organize-os de forma simples, pois a apresentação dos cards tem impacto no modo em como são compreendidos;
-- Considere o uso do estado de carregamento para melhorar a experiência do usuário durante a espera por conteúdo.
-- Evite inserir elementos interativos ao utilizar o `Card` em sua versão selecionável, como links ou botões, pois isso pode causar problemas de navegação e entendimento do usuário sobre o que acontece ao clicar no componente.
+- Mantenha larguras consistentes entre `Cards` que aparecem lado a lado, para facilitar a leitura e o escaneamento visual;
+- Use a versão interativa apenas quando for necessário permitir interação, como seleção ou navegação;
+- Aproveite variações de estilo para criar hierarquia visual e reforçar o significado do conteúdo;
+- Organize-os de forma simples e previsível, para que a estrutura e a função sejam fáceis de entender;
+- Use o estado de carregamento para melhorar a percepção de desempenho durante a espera por conteúdo;
+- Evite inserir múltiplos elementos interativos dentro de um `Card` selecionável, para não criar conflitos na navegação por teclado e evitar ambiguidade na ação do clique.
 
 ## ♿ Acessibilidade
 
-O componente `Icon` foi desenvolvido e testado para atender às diretrizes WCAG, oferecendo suporte a propriedades de acessibilidade e práticas recomendadas para garantir uma experiência inclusiva para todos os usuários.
+O componente `Card` foi desenvolvido e testado para atender às diretrizes WCAG, oferecendo suporte a propriedades de acessibilidade e práticas recomendadas para garantir uma experiência inclusiva para todos os usuários.
 
-- Quando o `Card` possui um texto ou título simples no cabeçalho, ele é automaticamente associado à área do card, melhorando a compreensão do conteúdo. Estando alinhado com a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html" target="_blank">WCAG 1.3.1 (Info and Relationships)</Link>.
-- Em seu estado de carregamento, o `Card` define a propriedade `aria-busy`, isso ajuda a indicar que o conteúdo está sendo carregado e melhora a acessibilidade para usuários de leitores de tela. Conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/aria-busy.html" target="_blank">WCAG 4.1.2 (Name, Role, Value)</Link>.
+- Quando o `Card` possui um texto ou título simples no cabeçalho, ele é automaticamente associado à área do `Card` por meio de atributos como `aria-labelledby`, melhorando a compreensão do conteúdo. Isso está alinhado com a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html" target="_blank">WCAG 1.3.1 (Info and Relationships)</Link>.
+- Em seu estado de carregamento, o `Card` define a propriedade `aria-busy`, indicando a usuários de leitores de tela que o conteúdo está sendo atualizado. Esse comportamento está de acordo com a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html" target="_blank">WCAG 4.1.3 (Status Messages)</Link>.
 
 Na versão interativa, foram considerados os seguintes pontos focados em acessibilidade:
 
-- O `Card` interativo é totalmente navegável via teclado, a partir do `role=button` e `tabindex=0` permitindo o uso da tecla **Tab** para foco e **Enter** ou **Espaço** para ativação, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html" target="_blank">WCAG 2.1.1 (Keyboard)</Link>;
-- A borda de foco visível possui pelo menos 2px de espessura e está sempre visível, sem ficar oculta por outros elementos, conforme <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance-enhanced" target="_blank">WCAG 2.4.13 (Focus Appearance  - Enhanced)</Link>;
-- O estado de foco é sempre preservado quando aplicável, inclusive com suporte visual claro, conforme recomendado pela <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible" target="_blank">WCAG 2.4.7 (Focus Visible)</Link>;
-- Quando desativado, as diretrizes de contraste de cores não se aplicam aos componentes desativados. As <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html#inactive-controls" target="_blank">diretrizes de contraste mínimo definidas nas WCAG 2.1</Link> declaram explicitamente que os componentes desativados estão isentos da diretriz;
+- O `Card` interativo é totalmente navegável via teclado. Ao receber `role=button` e `tabindex=0`, permite o uso da tecla **Tab** para foco e **Enter** ou **Espaço** para ativação, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html" target="_blank">WCAG 2.1.1 (Keyboard)</Link>;
+- A borda de foco visível possui pelo menos 2px de espessura e nunca é ocultada por outros elementos, em conformidade com a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance-enhanced" target="_blank">WCAG 2.4.13 (Focus Appearance - Enhanced)</Link>;
+- O estado de foco é sempre preservado e possui indicação visual clara, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible" target="_blank">WCAG 2.4.7 (Focus Visible)</Link>;
+- Quando desativado, o `Card` não precisa atender às diretrizes de contraste de cores para controles inativos, de acordo com a exceção descrita na <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html#inactive-controls" target="_blank">WCAG 1.4.3 (Contrast Minimum – Inactive Controls)</Link>.
 
 ### 📌 Boas práticas de acessibilidade ao utilizar o componente
 
 Para complementar e garantir a acessibilidade, é importante considerar:
 
-- Em casos onde sejam inseridos diferentes elementos interativos dentro do `Card`, mantenha uma sequência lógica de foco, garantindo que os usuários possam navegar facilmente entre os elementos. Conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/focus-order" target="_blank">WCAG 2.4.3 (Focus Order)</Link>.
+- Quando houver múltiplos elementos interativos dentro do `Card`, mantenha uma sequência lógica de foco, para que os usuários possam navegar de forma previsível entre eles, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/focus-order" target="_blank">WCAG 2.4.3 (Focus Order)</Link>.
