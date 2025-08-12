@@ -21,18 +21,20 @@ Com um conjunto flexível de variações e estados, o `Button` assegura consist�
 
 O componente oferece três variantes principais, cada uma com um nível de hierarquia visual e de prioridade de ação:
 
-- **Filled (Preenchido)**: Destaca a ação principal da interface. Devido ao seu alto contraste, deve ser usado com moderação. Idealmente, apenas um botão preenchido por tela.
-- **Outlined (Delineado)**: Indicado para ações secundárias. Oferece destaque moderado, suficiente para chamar atenção sem competir com o botão principal.
+- **Filled (Preenchido)**: Destaca a ação principal da interface. Devido ao seu alto contraste, deve ser usado com moderação. Idealmente, apenas um botão preenchido por tela;
+- **Outlined (Delineado)**: Indicado para ações secundárias. Oferece destaque moderado, suficiente para chamar atenção sem competir com o botão principal;
 - **Text (Texto)**: Botões discretos, utilizados em ações de baixo impacto, como links, etapas auxiliares ou dentro de componentes compactos. Ideal onde o espaço é limitado ou quando o foco está em outras ações.
+
+Todas as variantes de botão possuem estados visuais para interações como **hover**, **focus** e **disabled**, garantindo uma experiência consistente e acessível. Além disso, através da propriedade `isLoading`, é possível indicar que uma ação está em andamento, desabilitando a interação e exibindo um estado de carregamento a partir de um `Spinner` ao lado esquerdo do rótulo do botão.
 
 <img src="/assets/button-colors.png" alt="Exibição de uma lista de botões e cada botão tem sua cor atribuída: primária, secundária, erro, sucesso e neutro." style={{ margin: '48px auto' }} />
 
 Cada tipo de botão possui variantes de cor que também indicam a importância da ação e seu estado, sendo:
 
-- **Primary (Primária)**: Ação principal da página.
-- **Secondary (Secundária)**: Ação complementar ou alternativa.
-- **Error (Erro)**: Ações destrutivas ou que alertam sobre um risco.
-- **Success (Sucesso)**: Ação que indica sucesso ou confirmação.
+- **Primary (Primária)**: Ação principal da página;
+- **Secondary (Secundária)**: Ação complementar ou alternativa;
+- **Error (Erro)**: Ações destrutivas ou que alertam sobre um risco;
+- **Success (Sucesso)**: Ação que indica sucesso ou confirmação;
 - **Neutral (Neutra)**: Ações neutras ou de suporte, com menor destaque.
 
 O botão também possui suporte para ícones ou outros elementos visuais, através de suas propriedades `leftSection` e `rightSection`, que permitem adicionar conteúdo antes ou depois do texto do botão, respectivamente. Essa flexibilidade melhora a percepção da ação e oferece *feedback* visual imediato, sem comprometer a acessibilidade textual.
@@ -150,20 +152,21 @@ Por isso, ao utilizar esse componente, é fundamental que o responsável pelo co
 
 ## ♿ Acessibilidade
 
-Por padrão, o componente `Button` já implementa diretrizes essenciais de acessibilidade para garantir que todos os usuários possam interagir com ele de forma eficaz:
+Por padrão, o componente `Button` implementa diretrizes essenciais de acessibilidade para garantir que todos os usuários possam interagir com ele de forma eficaz:
 
-- O botão pode ser ativado pelas teclas Espaço e *Enter* no teclado, conforme recomendado pelo padrão <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html" target="_blank">WCAG 2.1.1 Button (Keyboard)</Link>;
+- O botão pode ser ativado pelas teclas **Espaço** e **Enter** no teclado, conforme recomendado pela <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html" target="_blank">WCAG 2.1.1 Button (Keyboard)</Link>;
 - A borda de foco visível possui pelo menos 2px de espessura e está sempre visível, sem ficar oculta por outros elementos, conforme <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance-enhanced" target="_blank">WCAG 2.4.13 (Focus Appearance - Enhanced)</Link>;
-- O estado de foco é sempre preservado quando aplicável, inclusive com suporte visual claro, conforme recomendado pela <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible" target="_blank">WCAG 2.4.7 (Focus Visible)</Link>.
+- O estado de foco é sempre preservado quando aplicável, incluindo um suporte visual claro, conforme recomendado pela <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible" target="_blank">WCAG 2.4.7 (Focus Visible)</Link>. Mesmo quando o botão está desabilitado, o estilo visual de foco é mantido para reforçar a percepção de que ele está presente na interface, promovendo melhor experiência para todos os usuários;
+- Botões desabilitados estão isentos das diretrizes de contraste de cores, conforme as <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html#inactive-controls" target="_blank">diretrizes de contraste mínimo da WCAG 2.1</Link>;
+- Quando `isLoading` está ativo, o botão é desabilitado para evitar ações duplicadas e inclui os atributos `aria-busy` e `data-loading` para informar tecnologias assistivas e ferramentas de automação que o componente está ocupado. Essa prática segue a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html" target="_blank">WCAG 4.1.3 (Status Messages)</Link>.
 
 ### 📌 Boas práticas de acessibilidade ao utilizar o componente
 
 Para complementar e garantir a acessibilidade, é importante considerar:
 
-- Quando os botões estão desativados na interface do usuário, as diretrizes de contraste de cores não se aplicam aos componentes desativados. As <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html#inactive-controls" target="_blank">diretrizes de contraste mínimo definidas nas WCAG 2.1</Link> declaram explicitamente que os componentes desativados estão isentos da diretriz;
-- Garanta que elementos interativos mantenham uma área de toque acessível — idealmente com pelo menos 44x44 pixels em dispositivos de toque — para facilitar o uso por pessoas com mobilidade reduzida ou precisão limitada. Isso está alinhado com a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/target-size.html" target="_blank">WCAG 2.5.5 (Target Size)</Link>;
-- É recomendado informar o motivo do botão estar desabilitado para garantir clareza ao usuário, seguindo as diretrizes de <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html" target="_blank">WCAG 1.3.1 (Information and Relationships)</Link> e <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions.html" target="_blank">3.3.2 (Labels or Instructions)</Link>, podendo usar texto visível ou `aria-describedby`;
-- Ao usar a propriedade `component` para renderizar elementos que não são `<button>`, o componente já aplica `role="button"` automaticamente, mas é importante garantir que o elemento seja semanticamente correto para a ação que está sendo realizada;
-- Use `aria-label` para descrever a ação do botão, especialmente quando o texto não for suficiente para transmitir a ação, conforme recomendado pela <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions.html" target="_blank">WCAG 3.3.2 Labels or Instructions</Link>;
-- Utilize `onClick` para definir a ação ao clicar e `onKeyDown` para capturar eventos de teclado (*Enter* e Espaço), garantindo ativação pelo teclado além das funções padrão. Conforme <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html" target="_blank">WCAG 2.1 (Keyboard)</Link>;
+- Garanta que elementos interativos mantenham uma área de toque acessível — idealmente pelo menos `44x44 píxeis` em dispositivos de toque — para facilitar o uso por pessoas com mobilidade reduzida ou precisão limitada. Isso está alinhado com a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/target-size.html" target="_blank">WCAG 2.5.5 (Target Size)</Link>;
+- Sempre informe o motivo do botão estar desabilitado para garantir clareza, utilizando texto visível ou `aria-describedby`, conforme as diretrizes <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html" target="_blank">WCAG 1.3.1 (Info and Relationships)</Link> e <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions.html" target="_blank">3.3.2 (Labels or Instructions)</Link>;
+- Use `aria-label`  para descrever a ação do botão, especialmente quando o texto visual não for suficiente, conforme recomendado pela <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions.html" target="_blank">WCAG 3.3.2 (Labels or Instructions)</Link>;
+- Utilize `onClick` para definir a ação ao clicar e `onKeyDown` para capturar eventos de teclado (**Enter** e **Espaço**), garantindo ativação pelo teclado além das funções padrão. Conforme <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html" target="_blank">WCAG 2.1 (Keyboard)</Link>;
+- Utilize a propriedade `isLoading` para indicar que a seção ou ação está em estado de carregamento, fornecendo um *feedback* claro ao usuário e às tecnologias assistivas, em conformidade com a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html" target="_blank">WCAG 4.1.3 (Status Messages)</Link>;
 - Preserve os recursos visuais de acessibilidade (foco, contraste, legibilidade) ao customizar estilos ou *tokens*, mantendo a consistência com os testes de acessibilidade já realizados, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html" target="_blank">WCAG 2.4.7 (Focus Visible)</Link>, <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html" target="_blank">WCAG 1.4.3 (Contrast Minimum)</Link> e <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance-enhanced.html" target="_blank">WCAG 2.4.13 (Focus Appearance - Enhanced)</Link>.
