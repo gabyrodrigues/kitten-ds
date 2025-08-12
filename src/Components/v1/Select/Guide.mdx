@@ -1,6 +1,8 @@
 import { Meta } from "@storybook/blocks"
+import { Chip } from "../Chip"
 import { Flex } from "../Flex"
 import { Grid } from "../Grid"
+import { Icon } from "../Icon"
 import { Input } from "../Input"
 import { Link } from "../Link"
 import { Select } from "../Select"
@@ -72,15 +74,11 @@ O componente `Select` foi desenvolvido com foco em acessibilidade, usabilidade e
 
 <Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
-    <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-success !mb-sm">
-      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
-    </Flex>
+    <Chip variant="outlined" color="success"><Icon type="check_circle" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que fazer</Chip>
     <Select label="Escolha sua comida favorita" readOnly full value="" options={[]} className="sb-unstyled" />
   </Flex>
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
-    <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-error !mb-sm">
-      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
-    </Flex>
+    <Chip variant="outlined" color="error"><Icon type="cancel" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que não fazer</Chip>
     <Select label="Selecione" readOnly full value="" options={[]} className="sb-unstyled" />
   </Flex>
 </Grid>
@@ -90,9 +88,7 @@ O componente `Select` foi desenvolvido com foco em acessibilidade, usabilidade e
 <Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
     <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
-      <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-success">
-        <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
-      </Flex>
+      <Chip variant="outlined" color="success"><Icon type="check_circle" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que fazer</Chip>
       <Text className="!m-0">O *placeholder* deve ser utilizado como um auxílio, e não como a única forma de descrever o propósito do campo.</Text>
     </Flex>
     <Flex rowGap="gap-x-sm" width="w-full">
@@ -101,9 +97,7 @@ O componente `Select` foi desenvolvido com foco em acessibilidade, usabilidade e
   </Flex>
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
     <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
-      <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-error">
-        <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
-      </Flex>
+      <Chip variant="outlined" color="error"><Icon type="cancel" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que não fazer</Chip>
       <Text className="!m-0">Não utilize o *placeholder* como a única forma de descrever o propósito do campo, pois ele desaparece quando o usuário começa a digitar, tornando-se inacessível.</Text>
     </Flex>
     <Flex rowGap="gap-x-sm" width="w-full">
@@ -117,9 +111,7 @@ O componente `Select` foi desenvolvido com foco em acessibilidade, usabilidade e
 <Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
     <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
-      <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-success">
-        <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
-      </Flex>
+      <Chip variant="outlined" color="success"><Icon type="check_circle" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que fazer</Chip>
       <Text className="!m-0">Quando a lista de opções for extensa e a digitação for mais rápida, dê preferência ao uso de campos de texto simples, como o `Input`, para permitir que o usuário digite diretamente a informação.</Text>
     </Flex>
     <Flex rowGap="gap-x-sm" width="w-full" className="mt-auto sb-unstyled">
@@ -128,9 +120,7 @@ O componente `Select` foi desenvolvido com foco em acessibilidade, usabilidade e
   </Flex>
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
     <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
-      <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-error">
-        <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
-      </Flex>
+      <Chip variant="outlined" color="error"><Icon type="cancel" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que não fazer</Chip>
       <Text className="!m-0">Não utilize o `Select` para listas de opções curtas ou quando a digitação for mais rápida, pois isso pode tornar a interação mais lenta e menos eficiente.</Text>
     </Flex>
     <Flex rowGap="gap-x-sm" width="w-full">

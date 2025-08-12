@@ -1,7 +1,9 @@
 import { Meta } from "@storybook/blocks"
-import { IconButton } from "../IconButton"
+import { Chip } from "../Chip"
 import { Flex } from "../Flex"
 import { Grid } from "../Grid"
+import { Icon } from "../Icon"
+import { IconButton } from "../IconButton"
 import { Link } from "../Link"
 import { Title } from "../Title"
 import { Text } from "../Text"
@@ -60,9 +62,7 @@ Diferente do `Button`, o `IconButton` **não possui texto visível**, por isso r
 <Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
     <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
-      <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-success">
-        <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
-      </Flex>
+      <Chip variant="outlined" color="success"><Icon type="check_circle" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que fazer</Chip>
       <Text className="!m-0">Destaque apenas a ação principal e mantenha uma hierarquia visual clara.</Text>
     </Flex>
     <Flex rowGap="gap-x-sm">
@@ -76,9 +76,7 @@ Diferente do `Button`, o `IconButton` **não possui texto visível**, por isso r
   </Flex>
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
     <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
-      <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-error">
-        <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
-      </Flex>
+      <Chip variant="outlined" color="error"><Icon type="cancel" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que não fazer</Chip>
       <Text className="!m-0">Evite agrupar ícones com a mesma aparência (variante e cor), pois isso pode confundir o usuário sobre a prioridade de cada ação.</Text>
     </Flex>
     <Flex rowGap="gap-x-sm">
@@ -97,9 +95,7 @@ Diferente do `Button`, o `IconButton` **não possui texto visível**, por isso r
 <Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
     <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
-      <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-success">
-        <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
-      </Flex>
+      <Chip variant="outlined" color="success"><Icon type="check_circle" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que fazer</Chip>
       <Text className="!m-0">Use ícones claros e distintos que representam a ação, com rótulos acessíveis (`ariaLabel`) que descrevem exatamente o que será feito.</Text>
     </Flex>
     <Flex rowGap="gap-x-sm">
@@ -109,9 +105,7 @@ Diferente do `Button`, o `IconButton` **não possui texto visível**, por isso r
   </Flex>
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
     <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
-      <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-error">
-        <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
-      </Flex>
+      <Chip variant="outlined" color="error"><Icon type="cancel" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que não fazer</Chip>
       <Text className="!m-0">Agrupar ícones de ações diferentes com representações parecidas e não descrevendo claramente a ação descrita pelo `ariaLabel`</Text>
     </Flex>
     <Flex rowGap="gap-x-sm">

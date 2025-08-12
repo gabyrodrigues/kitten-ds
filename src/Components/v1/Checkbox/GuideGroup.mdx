@@ -1,6 +1,8 @@
 import { Meta } from "@storybook/blocks"
+import { Chip } from "../Chip"
 import { Flex } from "../Flex"
 import { Grid } from "../Grid"
+import { Icon } from "../Icon"
 import { Link } from "../Link"
 import { Checkbox, CheckboxGroup } from "../Checkbox"
 import { Title } from "../Title"
@@ -90,9 +92,7 @@ O componente `CheckboxGroup` foi desenvolvido com foco em acessibilidade, usabil
 
 <Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
-    <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-success !mb-sm">
-      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
-    </Flex>
+    <Chip variant="outlined" color="success"><Icon type="check_circle" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que fazer</Chip>
       <CheckboxGroup
         readOnly
         label="Selecione suas comidas favoritas"
@@ -120,9 +120,7 @@ O componente `CheckboxGroup` foi desenvolvido com foco em acessibilidade, usabil
       </CheckboxGroup>
   </Flex>
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
-    <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-error !mb-sm">
-      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
-    </Flex>
+    <Chip variant="outlined" color="error"><Icon type="cancel" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que não fazer</Chip>
     <Flex className="mt-auto sb-unstyled">
       <CheckboxGroup
         readOnly

@@ -1,7 +1,9 @@
 import { Meta } from "@storybook/blocks"
 import { Button } from "../Button"
+import { Chip } from "../Chip"
 import { Flex } from "../Flex"
 import { Grid } from "../Grid"
+import { Icon } from "../Icon"
 import { Link } from "../Link"
 import { Title } from "../Title"
 
@@ -23,7 +25,7 @@ O componente oferece três variantes principais, cada uma com um nível de hiera
 
 - **Filled (Preenchido)**: Destaca a ação principal da interface. Devido ao seu alto contraste, deve ser usado com moderação. Idealmente, apenas um botão preenchido por tela;
 - **Outlined (Delineado)**: Indicado para ações secundárias. Oferece destaque moderado, suficiente para chamar atenção sem competir com o botão principal;
-- **Text (Texto)**: Botões discretos, utilizados em ações de baixo impacto, como links, etapas auxiliares ou dentro de componentes compactos. Ideal onde o espaço é limitado ou quando o foco está em outras ações.
+- **Text (Texto)**: Botões discretos, utilizados em ações de baixo impacto, como redirecionamentos, etapas auxiliares ou dentro de componentes compactos. Ideal onde o espaço é limitado ou quando o foco está em outras ações.
 
 Todas as variantes de botão possuem estados visuais para interações como **hover**, **focus** e **disabled**, garantindo uma experiência consistente e acessível. Além disso, através da propriedade `isLoading`, é possível indicar que uma ação está em andamento, desabilitando a interação e exibindo um estado de carregamento a partir de um `Spinner` ao lado esquerdo do rótulo do botão.
 
@@ -39,19 +41,19 @@ Cada tipo de botão possui variantes de cor que também indicam a importância d
 
 O botão também possui suporte para ícones ou outros elementos visuais, através de suas propriedades `leftSection` e `rightSection`, que permitem adicionar conteúdo antes ou depois do texto do botão, respectivamente. Essa flexibilidade melhora a percepção da ação e oferece *feedback* visual imediato, sem comprometer a acessibilidade textual.
 
-> ⚠️ Use os tipos de cores de acordo com o contexto e importância da ação, não use variantes de cor que não comuniquem o contexto da ação, como por exemplo, usar a variante de cor "error" (erro) para ações que não são destrutivas ou que não alertam sobre um risco. 
+> ⚠️ Use os tipos de cores de acordo com o contexto e importância da ação, não use variantes de cor que não comuniquem o contexto da ação, como por exemplo, usar a variante de erro para ações que não são destrutivas ou que não alertam sobre um risco. 
 
 > ⚠️ Apesar da flexibilidade, não é recomendado utilizar as propriedades `leftSection` e `rightSection` ao mesmo tempo, principalmente em casos de ícones combinados, pois isso pode causar confusão visual e comprometer a clareza da ação.
 
 ## 💡 Recomendações de Uso
 
 - Utilize rótulos claros, objetivos e fáceis de entender. Botões devem indicar exatamente o que acontecerá ao interagir com eles;
-- Ao combinar labels com ícones, é importante garantir que o texto seja claro e compreensível por si só, mesmo sem o ícone. O ícone deve complementar a ação, mas não substituí-la;
+- Ao combinar rótulos de botão com ícones, é importante garantir que o texto seja claro e compreensível por si só, mesmo sem o ícone. O ícone deve complementar a ação, mas não substituí-la;
 - Ao decidir a variante do botão, considere a importância da ação e o contexto em que o botão será usado;
 - Ao decidir a cor do botão, considere o estado da ação (ex: sucesso, erro, ação primária ou secundária);
 - Os ícones podem ser usados para reforçar a ação do botão, tanto do lado esquedo (`leftSection`) quanto do lado direito (`rightSection`);
 - Verifique sempre se o botão manteve o padrão adequado para área de toque, garantindo que o usuário possa clicar facilmente, especialmente em dispositivos móveis;
-- Em casos de espaços limitados ou componentes compactos, considere o uso do componente de `IconButton` para manter a clareza e a funcionalidade, de preferência com um tooltip explicativo e uso de `aria-label` para acessibilidade;
+- Em casos de espaços limitados ou componentes compactos, considere o uso do componente de `IconButton` para manter a clareza e a funcionalidade, de preferência com um `Tooltip` explicativo e uso de `aria-label` para acessibilidade;
 - Use o estado `disabled` para indicar ações que não estão disponíveis no momento;
 - Evite o uso excessivo de botões preenchidos em uma mesma página para não sobrecarregar visualmente o usuário.
 - Mantenha a consistência no uso de cores e estilos de botões em toda a aplicação;
@@ -63,31 +65,25 @@ O componente `Button` foi desenvolvido desde o início com foco na acessibilidad
 
 Por isso, ao utilizar esse componente, é fundamental que o responsável pelo conteúdo siga boas práticas e critérios específicos para manter sua acessibilidade e usabilidade:
 
-<Title component="h1" className="!text-h5">Comece com uma letra maiúscula e use letras maiúsculas na frase, mas não adicione pontos finais ou frases em caixa alta.</Title>
+<Title component="h4" className="!text-h6">Comece com uma letra maiúscula e use letras maiúsculas na frase, mas não adicione pontos finais ou frases em caixa alta.</Title>
 
 <Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
-    <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-success !mb-sm">
-      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
-    </Flex>
+    <Chip variant="outlined" color="success"><Icon type="check_circle" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que fazer</Chip>
     <Button color="neutral">Adicionar ao carrinho</Button>
   </Flex>
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
-    <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-error !mb-sm">
-      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
-    </Flex>
+    <Chip variant="outlined" color="error"><Icon type="cancel" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que não fazer</Chip>
     <Button color="neutral">ADICIONAR AO CARRINHO.</Button>
   </Flex>
 </Grid>
 
-<Title component="h1" className="!text-h5">Comece com um verbo claro e direto que indique a ação a ser executada. Se necessário, complemente com um substantivo que traga contexto <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels" target="_blank">(WCAG 2.4.6: Headings and Labels)</Link>.</Title>
-<Title component="h1" className="!text-h5">Evite frases longas, técnicas ou vagas. Prefira termos simples e acessíveis, garantindo que o texto visível seja o mesmo nome lido por leitores de tela <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/label-in-name" target="_blank">(WCAG 2.5.3: Label in Name)</Link>.</Title>
+<Title component="h4" className="!text-h6">Comece com um verbo claro e direto que indique a ação a ser executada. Se necessário, complemente com um substantivo que traga contexto <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels" target="_blank">(WCAG 2.4.6: Headings and Labels)</Link>.</Title>
+<Title component="h4" className="!text-h6">Evite frases longas, técnicas ou vagas. Prefira termos simples e acessíveis, garantindo que o texto visível seja o mesmo nome lido por leitores de tela <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/label-in-name" target="_blank">(WCAG 2.5.3: Label in Name)</Link>.</Title>
 
 <Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
-    <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-success !mb-sm">
-      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
-    </Flex>
+    <Chip variant="outlined" color="success"><Icon type="check_circle" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que fazer</Chip>
     <Flex rowGap="gap-x-sm" className="mt-auto">
       <Button color="neutral">Salvar</Button>
       <Button color="neutral">Adicionar item</Button>
@@ -95,9 +91,7 @@ Por isso, ao utilizar esse componente, é fundamental que o responsável pelo co
     </Flex>
   </Flex>
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
-    <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-error !mb-sm">
-      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
-    </Flex>
+    <Chip variant="outlined" color="error"><Icon type="cancel" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que não fazer</Chip>
     <Flex gap="gap-sm">
       <Button color="neutral">Ir</Button>
       <Button color="neutral">Clique aqui para iniciar o envio de formulário</Button>
@@ -105,21 +99,17 @@ Por isso, ao utilizar esse componente, é fundamental que o responsável pelo co
   </Flex>
 </Grid>
 
-<Title component="h1" className="!text-h5">Limite a quantidade de botões por tela. Muitas opções aumentam a complexidade visual e dificultam a tomada de decisão pelo usuário.</Title>
+<Title component="h4" className="!text-h6">Limite a quantidade de botões por tela. Muitas opções aumentam a complexidade visual e dificultam a tomada de decisão pelo usuário.</Title>
 
 <Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
-    <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-success !mb-sm">
-      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
-    </Flex>
+    <Chip variant="outlined" color="success"><Icon type="check_circle" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que fazer</Chip>
     <Flex rowGap="gap-x-sm">
       <Button>Ver detalhes</Button>
     </Flex>
   </Flex>
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
-    <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-error !mb-sm">
-      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
-    </Flex>
+    <Chip variant="outlined" color="error"><Icon type="cancel" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que não fazer</Chip>
     <Flex rowGap="gap-x-sm">
       <Button>Ver detalhes</Button>
       <Button variant="outlined" color="secondary">Voltar</Button>
@@ -129,21 +119,17 @@ Por isso, ao utilizar esse componente, é fundamental que o responsável pelo co
   </Flex>
 </Grid>
 
-<Title component="h1" className="!text-h5">Adicione ícones ou elementos ao lado da label (à esquerda ou direita) para reforçar a ação, sem substituir o texto. Nunca posicione o ícone acima ou abaixo da label.</Title>
+<Title component="h4" className="!text-h6">Adicione ícones ou elementos ao lado da label (à esquerda ou direita) para reforçar a ação, sem substituir o texto. Nunca posicione o ícone acima ou abaixo da label.</Title>
 
 <Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
-    <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-success !mb-sm">
-      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
-    </Flex>
+    <Chip variant="outlined" color="success"><Icon type="check_circle" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que fazer</Chip>
     <Flex rowGap="gap-x-sm">
       <Button color="neutral">🞢 Adicionar detalhes</Button>
     </Flex>
   </Flex>
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
-    <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-error !mb-sm">
-      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
-    </Flex>
+    <Chip variant="outlined" color="error"><Icon type="cancel" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que não fazer</Chip>
     <Flex rowGap="gap-x-sm">
       <Button color="neutral">🞢 <br /> Adicionar detalhes</Button>
     </Flex>

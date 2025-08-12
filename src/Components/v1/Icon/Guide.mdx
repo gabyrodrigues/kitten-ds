@@ -1,4 +1,5 @@
 import { Meta } from "@storybook/blocks"
+import { Chip } from "../Chip"
 import { Flex } from "../Flex"
 import { Grid } from "../Grid"
 import { Icon } from "../Icon"
@@ -45,18 +46,14 @@ O componente `Icon` foi desenvolvido com foco em acessibilidade e usabilidade. D
 <Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
     <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
-      <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-success">
-        <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
-      </Flex>
+      <Chip variant="outlined" color="success"><Icon type="check_circle" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que fazer</Chip>
       <Text className="!m-0">Associe o ícone com associações já estabelecidas, como o ícone de disquete para salvar, que é amplamente reconhecido como padrão para essa ação. Em casos de o texto não estar vísivel, recomenda-se usar o atributo `aria-label`.</Text>
     </Flex>
     <Icon color="inherit" type="save" fontSize="text-6xl" className="sb-unstyled text-6xl" aria-label="Ícone de disquete representando a ação de salvar" />
   </Flex>
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
     <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
-      <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-error">
-        <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
-      </Flex>
+      <Chip variant="outlined" color="error"><Icon type="cancel" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que não fazer</Chip>
       <Text className="!m-0">Evite usar ícone incomuns ou pouco reconhecíveis, principalmente se não estiverem acompanhados de texto visível. Eles podem ser associados com outros conceitos e causar confusão.</Text>
     </Flex>
     <Icon color="inherit" type="cloud_download" fontSize="text-6xl" className="sb-unstyled mt-auto" aria-label="Ícone de núvem junto com uma seta para baixo representando a ação de salvar" />
@@ -68,9 +65,7 @@ O componente `Icon` foi desenvolvido com foco em acessibilidade e usabilidade. D
 
 <Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
-    <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-success !mb-sm">
-      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
-    </Flex>
+    <Chip variant="outlined" color="success"><Icon type="check_circle" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que fazer</Chip>
     <ul>
       <li>
         <Link className="sb-unstyled flex w-fit">
@@ -95,9 +90,7 @@ O componente `Icon` foi desenvolvido com foco em acessibilidade e usabilidade. D
     </ul>
   </Flex>
    <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
-    <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-error !mb-sm">
-      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
-    </Flex>
+    <Chip variant="outlined" color="error"><Icon type="cancel" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que não fazer</Chip>
     <ul>
       <li>
         <Link className="sb-unstyled flex w-fit">

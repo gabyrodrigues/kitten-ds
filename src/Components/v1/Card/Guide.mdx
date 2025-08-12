@@ -1,8 +1,10 @@
 import { Meta } from "@storybook/blocks"
 import { Button } from "../Button"
 import { Card } from "../Card"
+import { Chip } from "../Chip"
 import { Flex } from "../Flex"
 import { Grid } from "../Grid"
+import { Icon } from "../Icon"
 import { Link } from "../Link"
 import { Text } from "../Text"
 import { Title } from "../Title"
@@ -46,15 +48,13 @@ A estrutura básica de um `Card` é composta pelos seguintes elementos:
 
 Ao utilizar o componente, é fundamental que sejam seguidas boas práticas de escrita e formatação para garantir uma experiência de usuário consistente e agradável. Abaixo estão algumas orientações sobre o que fazer e o que não fazer ao utilizar o `Card`.
 
-<Title component="h1" className="!text-h5">
+<Title component="h4" className="!text-h6">
 Seja claro e objetivo ao inserir conteúdo nos `Cards`e evite o uso excessivo de informações que possam sobrecarregar o componente. Considere que eles são apenas uma amostra do conteúdo principal ao qual estão relacionados.
 </Title>
 
 <Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
-    <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-success !mb-sm">
-      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
-    </Flex>
+    <Chip variant="outlined" color="success"><Icon type="check_circle" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que fazer</Chip>
     <Card className="max-w-92">
       <Title
         variant="h5"
@@ -77,9 +77,7 @@ Seja claro e objetivo ao inserir conteúdo nos `Cards`e evite o uso excessivo de
     </Card>
   </Flex>
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
-    <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-error !mb-sm">
-      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
-    </Flex>
+    <Chip variant="outlined" color="error"><Icon type="cancel" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que não fazer</Chip>
     <Card className="max-w-92">
       <Title
         variant="h5"
@@ -103,13 +101,11 @@ Seja claro e objetivo ao inserir conteúdo nos `Cards`e evite o uso excessivo de
   </Flex>
 </Grid>
 
-<Title component="h1" className="!text-h5">Evite inserir ações em conjunto com a variação selecionável do `Card`. Além de sobrecarregar o componente, múltiplas ações sobrepostas podem dificultar a interação do usuário.</Title>
+<Title component="h4" className="!text-h6">Evite inserir ações em conjunto com a variação selecionável do `Card`. Além de sobrecarregar o componente, múltiplas ações sobrepostas podem dificultar a interação do usuário.</Title>
 
 <Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
-    <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-success !mb-sm">
-      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
-    </Flex>
+    <Chip variant="outlined" color="success"><Icon type="check_circle" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que fazer</Chip>
     <Card className="max-w-86" active>
       <Title
         variant="h5"
@@ -131,9 +127,7 @@ Seja claro e objetivo ao inserir conteúdo nos `Cards`e evite o uso excessivo de
     </Card>
   </Flex>
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
-    <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-error !mb-sm">
-      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
-    </Flex>
+    <Chip variant="outlined" color="error"><Icon type="cancel" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que não fazer</Chip>
     <Card className="max-w-92" active>
       <Title
         variant="h5"
