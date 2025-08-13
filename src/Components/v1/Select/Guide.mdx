@@ -53,12 +53,12 @@ Outros recursos importantes incluem:
 - Sempre forneça *feedback* visual claro para os diferentes estados do campo, como erro, sucesso ou ajuda contextual;
 - Utilize a versão com pesquisa para facilitar a navegação em listas extensas;
 - Evite sobrecarregar o campo com muitos elementos adicionais, mesmo com suporte a `leftSection` e `rightSection`. Mantenha a interface limpa e intuitiva;
-- Evite o uso do `Select` quando a digitação for mais rápida e eficiente. Exemplos comuns incluem listas de estados, países, anos de nascimento ou idade — nesses casos, campos de texto simples ou com autocompletar costumam oferecer melhor experiência. <Link className="sb-unstyled text-sm" href="https://www.nngroup.com/articles/drop-down-menus/" target="_blank">(NNGroup)</Link>;
+- Evite o uso do `Select` quando a digitação for mais rápida e eficiente. Exemplos comuns incluem listas de estados, países, anos de nascimento ou idade — nesses casos, campos de texto simples ou com autocompletar costumam oferecer melhor experiência <Link className="sb-unstyled text-sm" href="https://www.nngroup.com/articles/drop-down-menus/" target="_blank">(NNGroup)</Link>;
 - Para listas curtas (2 a 4 itens), prefira botões de opção (`Radio` ou `Checkbox`) ou menus estáticos, que reduzem o número de interações necessárias;
 - Opte por nomes de opções curtos e descritivos, evitando rótulos longos que dificultem a leitura e a seleção;
 - Assegure a acessibilidade do componente:
-  - Utilize rótulos claros e visíveis (label);
-  - Garanta que mensagens de erro, ajuda ou sucesso estejam associadas ao campo via aria-describedby;
+  - Utilize rótulos claros e visíveis;
+  - Garanta que mensagens de erro, ajuda ou sucesso estejam associadas ao campo via `aria-describedby`;
   - Certifique-se de que o componente seja totalmente navegável por teclado (abrir, navegar, selecionar, remover);
   - Mantenha o foco visível durante a navegação;
 Use placeholders apenas como exemplos temporários de preenchimento. Não dependa deles como substitutos de rótulo, pois desaparecem ao digitar e podem comprometer a acessibilidade;

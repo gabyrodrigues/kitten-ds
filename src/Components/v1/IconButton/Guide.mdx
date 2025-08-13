@@ -25,7 +25,7 @@ O `IconButton` mantém a mesma estrutura e propriedades do `Button`, mas com foc
 O componente `IconButton` oferece três variantes principais, cada uma com um propósito específico:
 
 - **Filled (Preenchido)**: Os botões de ícone preenchidos são usados para ações principais da interface por serem mais destacados e visíveis, sendo recomendados para ações mais prioritárias;
-- **Outlined (Delineado)**: Os botões de ícones delineados são recomendados para ações menos prioritárias ou alternativas às ações principais. Eles possuem menos destaque visual que os preenchidos, mas ainda são visíveis e funcionais;
+- **Outlined (Delineado)**: Os botões de ícone delineados são recomendados para ações menos prioritárias ou alternativas às ações principais. Eles possuem menos destaque visual que os preenchidos, mas ainda são visíveis e funcionais;
 - **Default (Padrão)**: Os botões de ícone padrão são recomendados para ações secundárias ou complementares, onde o foco deve ser menor que as outras ações. Eles são mais sutis e menos destacados que os preenchidos e delineados.
 
 <img src="/assets/icon-button-colors.png" alt="Exibição de uma lista de botões preenchidos e cada botão tem sua cor atribuída: primária, secundária e neutra." style={{ margin: '8px auto' }} />
@@ -45,11 +45,11 @@ Escolha o tamanho do `IconButton` a partir da propridade `size` conforme o conte
 
 ## 💡 Recomendações de Uso
 
-- Use o botão de ícone apenas quando o espaço for limitado e a ação puder ser claramente representada por um ícone. Caso contrário, prefira o componente Button com texto para garantir clareza e acessibilidade;
+- Use o `IconButton` apenas quando o espaço for limitado e a ação puder ser claramente representada por um ícone. Caso contrário, prefira o componente Button com texto para garantir clareza e acessibilidade;
 - Mesmo quando o ícone for autoexplicativo, recomenda-se o uso de `ariaLabel` ou `Tooltip` para garantir acessibilidade, especialmente para usuários de leitores de tela;
-- Escolha a variante e cor do IconButton com base na relevância da ação e no contexto de uso. Variantes mais destacadas e cores mais vibrantes devem ser reservadas para ações prioritárias;
+- Escolha a variante e cor do `IconButton` com base na relevância da ação e no contexto de uso. Variantes mais destacadas e cores mais vibrantes devem ser reservadas para ações prioritárias;
 - Use o estado `disabled` para indicar ações que não estão disponíveis no momento;
-- Evite o uso excessivo de botões de ícone em uma única tela, pois isso pode causar confusão e dificultar a navegação do usuário. Mantenha um equilíbrio entre a quantidade de botões e a clareza das ações.
+- Evite o uso excessivo de `IconButton` em uma única tela, pois isso pode causar confusão e dificultar a navegação do usuário. Mantenha um equilíbrio entre a quantidade de botões e a clareza das ações.
 
 ### ☑️✖️ O que fazer vs. O que não fazer
 
@@ -66,12 +66,9 @@ Diferente do `Button`, o `IconButton` **não possui texto visível**, por isso r
       <Text className="!m-0">Destaque apenas a ação principal e mantenha uma hierarquia visual clara.</Text>
     </Flex>
     <Flex rowGap="gap-x-sm">
-      <IconButton icon="person" iconClassName="!font-[Material_Symbols_Outlined]
-      )" variant="filled" ariaLabel="Perfil do usuário" />
-      <IconButton icon="settings" iconClassName="!font-[Material_Symbols_Outlined]
-      )" variant="default" ariaLabel="Configurações da conta" />
-      <IconButton icon="more_vert" iconClassName="!font-[Material_Symbols_Outlined]
-      )" variant="default" ariaLabel="Mais opções" />
+      <IconButton icon="person" className="sb-unstyled" variant="filled" ariaLabel="Perfil do usuário" />
+      <IconButton icon="settings" className="sb-unstyled" variant="default" ariaLabel="Configurações da conta" />
+      <IconButton icon="more_vert" className="sb-unstyled" variant="default" ariaLabel="Mais opções" />
     </Flex>
   </Flex>
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
@@ -80,12 +77,9 @@ Diferente do `Button`, o `IconButton` **não possui texto visível**, por isso r
       <Text className="!m-0">Evite agrupar ícones com a mesma aparência (variante e cor), pois isso pode confundir o usuário sobre a prioridade de cada ação.</Text>
     </Flex>
     <Flex rowGap="gap-x-sm">
-      <IconButton icon="person" iconClassName="!font-[Material_Symbols_Outlined]
-      )" variant="filled" color="primary" ariaLabel="Perfil do usuário" />
-      <IconButton icon="settings" iconClassName="!font-[Material_Symbols_Outlined]
-      )" variant="filled" color="secondary" ariaLabel="Configurações da conta" />
-      <IconButton icon="more_vert" iconClassName="!font-[Material_Symbols_Outlined]
-      )" variant="filled" color="primary" ariaLabel="Mais opções" />
+      <IconButton icon="person" className="sb-unstyled" variant="filled" color="primary" ariaLabel="Perfil do usuário" />
+      <IconButton icon="settings" className="sb-unstyled" variant="filled" color="secondary" ariaLabel="Configurações da conta" />
+      <IconButton icon="more_vert" className="sb-unstyled" variant="filled" color="primary" ariaLabel="Mais opções" />
     </Flex>
   </Flex>
 </Grid>
@@ -99,8 +93,8 @@ Diferente do `Button`, o `IconButton` **não possui texto visível**, por isso r
       <Text className="!m-0">Use ícones claros e distintos que representam a ação, com rótulos acessíveis (`ariaLabel`) que descrevem exatamente o que será feito.</Text>
     </Flex>
     <Flex rowGap="gap-x-sm">
-     <IconButton icon="save" iconClassName="!font-[Material_Symbols_Outlined]" variant="filled" color="primary" ariaLabel="Salvar alterações" />
-      <IconButton icon="delete" iconClassName="!font-[Material_Symbols_Outlined]" variant="outlined" color="secondary" ariaLabel="Deletar item" />
+     <IconButton icon="save" className="sb-unstyled" variant="filled" color="primary" ariaLabel="Salvar alterações" />
+      <IconButton icon="delete" className="sb-unstyled" variant="outlined" color="secondary" ariaLabel="Deletar item" />
     </Flex>
   </Flex>
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
@@ -109,9 +103,9 @@ Diferente do `Button`, o `IconButton` **não possui texto visível**, por isso r
       <Text className="!m-0">Agrupar ícones de ações diferentes com representações parecidas e não descrevendo claramente a ação descrita pelo `ariaLabel`</Text>
     </Flex>
     <Flex rowGap="gap-x-sm">
-      <IconButton icon="person" iconClassName="!font-[Material_Symbols_Outlined]" variant="filled" color="primary" ariaLabel="Perfil do usuário" />
+      <IconButton icon="person" className="sb-unstyled" variant="filled" color="primary" ariaLabel="Perfil do usuário" />
 
-      <IconButton icon="account_circle" iconClassName="!font-[Material_Symbols_Outlined]" variant="filled" color="secondary" ariaLabel="Mensagens do usuário" />
+      <IconButton icon="account_circle" className="sb-unstyled" variant="filled" color="secondary" ariaLabel="Mensagens do usuário" />
     </Flex>
   </Flex>
 </Grid>
@@ -120,17 +114,17 @@ Diferente do `Button`, o `IconButton` **não possui texto visível**, por isso r
 
 Por padrão, o componente `IconButton` já implementa diretrizes essenciais de acessibilidade para garantir que todos os usuários possam interagir com ele de forma eficaz:
 
-- O botão pode ser ativado pelas teclas Espaço e *Enter* no teclado, conforme recomendado pelo padrão <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html" target="_blank">WCAG 2.1.1 (Keyboard)</Link>;
+- O botão pode ser ativado pelas teclas **Espaço** e **Enter** no teclado, conforme recomendado pelo padrão <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html" target="_blank">WCAG 2.1.1 (Keyboard)</Link>;
 - A borda de foco visível possui pelo menos **2 píxeis** de espessura e está sempre visível, sem ficar oculta por outros elementos, conforme <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance-enhanced" target="_blank">WCAG 2.4.12 (Focus Appearance)</Link>;
-- Quando o botão é representado apenas por um ícone, o componente já exige o uso da propriedade `ariaLabel`, que garante uma descrição acessível da ação, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html" target="_blank">WCAG 1.1.1 (Non-text Content)</Link>;
-- O estado de foco é sempre preservado quando aplicável, incluindo um suporte visual claro,, conforme recomendado pela <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible" target="_blank">WCAG 2.4.7 (Focus Visible)</Link>. Mesmo quando o botão está desabilitado, o estilo visual de foco é mantido para reforçar a percepção de que ele está presente na interface, promovendo melhor experiência para todos os usuários.
+- Quando o botão é representado apenas por um ícone, o componente já exige o uso da propriedade `ariaLabel`, que permite uma descrição acessível da ação, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html" target="_blank">WCAG 1.1.1 (Non-text Content)</Link>;
+- O estado de foco é sempre preservado quando aplicável, incluindo um suporte visual claro, conforme recomendado pela <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible" target="_blank">WCAG 2.4.7 (Focus Visible)</Link>. Mesmo quando o botão está desabilitado, o estilo visual de foco é mantido para reforçar a percepção de que ele está presente na interface, promovendo melhor experiência para todos os usuários.
 
 
 ### 📌 Boas práticas de acessibilidade ao utilizar o componente
 
 Para complementar e garantir a acessibilidade, é importante considerar:
 
-- Priorize o uso do tamanho `large` (44x44px) do `IconButton` em contextos onde o botão será tocado diretamente, garantindo a área mínima recomendada pela <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/target-size.html" target="_blank">WCAG 2.5.5 (Target Size)</Link> para dispositivos de toque. Se optar pelos tamanhos `medium` (32x32px) ou `small` (24x24px), certifique-se de que haja espaçamento suficiente ao redor do botão para compensar a área de toque, mantendo a acessibilidade;
+- Priorize o uso do tamanho `large (44x44px)` do `IconButton` em contextos onde o botão será tocado diretamente, garantindo a área mínima recomendada pela <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/target-size.html" target="_blank">WCAG 2.5.5 (Target Size)</Link> para dispositivos de toque. Se optar pelos tamanhos `medium (32x32px)` ou `small (24x24px)`, certifique-se de que haja espaçamento suficiente ao redor do botão para compensar a área de toque, mantendo a acessibilidade;
 - O uso de `Tooltip` é opcional, mas pode ajudar a reforçar visualmente o significado do botão para todos os usuários. Embora não seja obrigatório, ele pode apoiar a compreensão conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions.html" target="_blank">WCAG 3.3.2 (Labels or Instructions)</Link>;
 - Quando os botões estão desativados na interface do usuário, as diretrizes de contraste de cores não se aplicam aos componentes desativados. As <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html#inactive-controls" target="_blank">diretrizes de contraste mínimo definidas nas WCAG 2.1</Link> declaram explicitamente que os componentes desativados estão isentos da diretriz;
 - É recomendado informar o motivo do botão estar desabilitado para garantir clareza ao usuário, seguindo as diretrizes de <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html" target="_blank">WCAG 1.3.1 (Information and Relationships)</Link> e <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions.html" target="_blank">3.3.2 (Labels or Instructions)</Link>, podendo usar texto visível ou `aria-describedby`;

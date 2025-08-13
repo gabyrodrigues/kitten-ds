@@ -26,7 +26,7 @@ O componente `RadioGroup` oferece duas orientações principais:
 - **Horizontal**: As opções são dispostas em uma linha, uma ao lado da outra. Útil para opções mais curtas ou quando o espaço horizontal é suficiente, proporcionando uma visualização compacta e rápida das opções disponíveis;
 - **Vertical**: As opções são dispostas em uma coluna, uma abaixo da outra. Orientação padrão do `RadioGroup`, facilitando a leitura e a seleção de opções em listas mais longas. 
 
-O `RadioGroup` também oferece suporte à obrigatoriedade. Através da combinação das propriedades `withAsterisk` e `required`, é possível indicar visualmente (com um asterisco (*)) que pelo menos uma opção precisa ser selecionada. Isso é útil em formulários onde a seleção de pelo menos uma opção é necessária para o envio.
+O `RadioGroup` também oferece suporte à obrigatoriedade. Através da combinação das propriedades `withAsterisk` e `required`, é possível indicar visualmente (com um asterisco `(*)`) que pelo menos uma opção precisa ser selecionada. Isso é útil em formulários onde a seleção de pelo menos uma opção é necessária para o envio.
 
 Como o `RadioGroup` é um agrupamento para múltiplos componentes `Radio`, ele não possui variantes de cor ou estado próprios, mas sim herda as características dos `Radio` que contém. Consulte as variantes, estados e outras orientações do `Radio` no guia de uso do componente [**Radio**](/docs/componentes-radio-guia-de-uso--propriedades).
 
@@ -83,7 +83,7 @@ export default App;
 - Utilize rótulos claros em cada opção de `Radio`, além de também utilizar um rótulo descritivo para o `RadioGroup`, que pode indicar a categoria do agrupamento ou descrever o propósito do grupo de opções;
 - Alinhe a lista verticalmente sempre que possível e use a orientação horizontal apenas quando as opções forem curtas e o espaço permitir, para evitar que o usuário precise rolar horizontalmente.
 
-> Lembre-se: uma vez selecionada, a opção `Radio` não pode ser desmarcada. Se fizer sentido, inclua uma opção como "Nenhum" ou "Não se aplica" para permitir uma escolha neutra. Caso o comportamento desejado permita desmarcar, considere usar o componente `Checkbox` em vez de `Radio`.
+> ⚠️ Lembre-se: uma vez selecionada, a opção `Radio` não pode ser desmarcada. Se fizer sentido, inclua uma opção como "Nenhum" ou "Não se aplica" para permitir uma escolha neutra. Caso o comportamento desejado permita desmarcar, considere usar o componente `Checkbox` em vez de `Radio`.
 
 ### ☑️✖️ O que fazer vs. O que não fazer
 
