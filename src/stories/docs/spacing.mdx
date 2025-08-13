@@ -7,74 +7,104 @@ import { Flex, Text, Button, Title } from "../../Components"
 
 O sistema de espaçamento do Kitten DS é baseado em uma escala modular que segue incrementos de `4px`, alinhada à abordagem do Tailwind CSS. Essa escala padronizada garante consistência visual, facilita o alinhamento dos componentes e cria padrões de espaçamento previsíveis em toda a interface.
 
-Embora não existam *tokens* CSS personalizados no tema para espaçamento, recomenda-se o uso das classes utilitárias do Tailwind, como `p-sm`, `mb-lg`, `gap-x-xl`, `gap-y-sm`, que correspondem diretamente aos valores desta escala. Isso torna a construção de layouts mais simples, coerente e alinhada com os componentes do Kitten DS.
+O Kitten DS utiliza essa escala para definir *tokens* de espaçamento, que podem ser aplicados em margens, preenchimentos e espaçamentos entre elementos. Esses *tokens* são fundamentais para manter a consistência no desenvolvimento de componentes e *layouts*, permitindo que eles possuam um padrão de espaçamento uniforme.
 
 > 💡 **Por que isso importa?**  
-> Adotar uma escala de espaçamento consistente melhora a harmonia visual, reduz erros de alinhamento, melhora a legibilidade e simplifica muito a manutenção. Alterações futuras são mais rápidas e seguras, já que os espaçamentos ficam concentrados na configuração dos containers — e não dispersos em ajustes manuais e margens avulsas.
+> Ao adotar uma escala de espaçamento consistente por meio do uso de *tokens*, é possível reduzir erros de alinhamento, melhorar a legibilidade e simplificar a manutenção. Alterações futuras tornam-se mais rápidas e seguras, já que os espaçamentos ficam concentrados na configuração do tema, evitando ajustes manuais e margens avulsas.
 
-## ℹ️ Uso recomendado das classes Tailwind para espaçamento
+## ℹ️ Uso recomendado dos tokens de espaçamento
 
-- **`gap`**: usado em containers (`Flex`, `Grid`) para definir espaçamento entre elementos irmãos, como campos de formulários, listas, blocos ou botões alinhados;
-- **`padding` (`p-`, `px-`, `py-`)**: usado para espaçamento interno, por exemplo, para o conteúdo dentro de botões, inputs, cards e containers;
-- **`margin` (`m-`, `mx-`, `my-`)**: ideal para espaçamento externo, separando títulos das seções ou labels dos inputs.
+- **`gap`**: Usado em containers (`Flex`, `Grid`) para definir espaçamento entre elementos irmãos, como campos de formulários, listas, blocos ou botões alinhados;
+- **`padding` (`p-`, `px-`, `py-`)**: Usado para espaçamento interno, por exemplo, no conteúdo dentro de botões, inputs, cards e containers;
+- **`margin` (`m-`, `mx-`, `my-`)**: Ideal para espaçamento externo, separando títulos das seções ou labels dos inputs.
 
 Essa divisão ajuda a manter o código limpo, evita regras sobrepostas e facilita ajustes futuros para manter a consistência do design.
 
 <table>
   <thead>
     <tr>
+      <th>Token</th>
       <th>Valor (px)</th>
       <th>Uso recomendado</th>
-      <th>Classes Tailwind recomendadas</th>
     </tr>
   </thead>
   <tbody>
     <tr>
+      <td><code>quark</code></td>
       <td><strong>4px</strong></td>
-      <td>Espaçamento interno entre ícones e texto</td>
-      <td><code>p-quark</code>, <code>gap-quark</code></td>
+      <td>Espaçamento interno mínimo entre os componentes, como entre ícones e texto</td>
     </tr>
     <tr>
+      <td><code>nano</code></td>
       <td><strong>8px</strong></td>
-      <td>Separação de elementos relacionados, como entre labels e inputs de formulários, ícones e texto ou itens em uma lista</td>
-      <td><code>m-nano</code>, <code>gap-nano</code>, <code>p-nano</code></td>
+      <td>Separação de elementos diretamente relacionados, como rótulos e inputs</td>
     </tr>
     <tr>
+      <td><code>xs</code></td>
       <td><strong>12px</strong></td>
-      <td>Espaçamento vertical em elementos de formulário, preenchimento lateral de botões e outros elementos de formulário</td>
-      <td><code>m-xs</code>, <code>p-xs</code></td>
+      <td>Espaçamento vertical em elementos de formulário; preenchimento lateral de botões</td>
     </tr>
     <tr>
+      <td><code>sm</code></td>
       <td><strong>16px</strong></td>
-      <td>Separação entre grupos de conteúdo distintos</td>
-      <td><code>m-sm</code>, <code>gap-sm</code>, <code>p-sm</code></td>
+      <td>Separação entre grupos de conteúdo relacionados (ex: texto + botão)</td>
     </tr>
     <tr>
+      <td><code>md</code></td>
+      <td><strong>20px</strong></td>
+      <td>Intermediário entre seções menores e médias; útil para ajustar densidade em componentes reutilizáveis</td>
+    </tr>
+    <tr>
+      <td><code>lg</code></td>
       <td><strong>24px</strong></td>
-      <td>Separação entre subseções de conteúdo, como blocos de texto e títulos</td>
-      <td><code>m-lg</code>, <code>p-lg</code></td>
+      <td>Separação entre subseções, como entre títulos e blocos de texto</td>
     </tr>
     <tr>
+      <td><code>xl</code></td>
       <td><strong>32px</strong></td>
-      <td>Separação entre áreas maiores, como seções ou blocos principais da página</td>
-      <td><code>m-xl</code>, <code>p-xl</code></td>
+      <td>Espaçamento entre grandes áreas de conteúdo ou seções de uma página</td>
+    </tr>
+    <tr>
+      <td><code>2xl</code></td>
+      <td><strong>44px</strong></td>
+      <td>Usado em cartões, modais ou seções com destaque intermediário. Ajuda na separação clara entre blocos</td>
+    </tr>
+    <tr>
+      <td><code>3xl</code></td>
+      <td><strong>56px</strong></td>
+      <td>Ideal para espaçamentos mais generosos entre seções de páginas e blocos principais</td>
+    </tr>
+    <tr>
+      <td><code>4xl</code></td>
+      <td><strong>72px</strong></td>
+      <td>Ideal para separar seções de grande impacto, como banners iniciais, destaques visuais ou campanhas promocionais</td>
+    </tr>
+    <tr>
+      <td><code>5xl</code></td>
+      <td><strong>80px</strong></td>
+      <td>Respiro entre grandes grupos de conteúdo em páginas de alto impacto</td>
+    </tr>
+    <tr>
+      <td><code>6xl</code></td>
+      <td><strong>96px</strong></td>
+      <td>Separação máxima, usada para *layouts* amplos ou páginas responsivas com muita hierarquia visual</td>
     </tr>
   </tbody>
 </table>
 
 > ✅ **Dica prática:**  
-> Usar `gap` como padrão simplifica muito a construção dos layouts. Isso é especialmente relevante porque muitos componentes do *design system*, como `Input` e `Button`, já possuem espaçamentos internos (via `padding`) e não exigem margens adicionais. Dessa forma, o container que agrupa esses elementos é responsável pelo espaçamento entre eles.
+> Usar `gap` como padrão simplifica muito a construção dos *layouts*. Isso é especialmente relevante porque muitos componentes do *design system*, como `Input` e `Button`, já possuem espaçamentos internos (via `padding`) e não exigem margens adicionais. Dessa forma, o container que agrupa esses elementos é responsável pelo espaçamento entre eles.
 
 > ⚠️ **Atenção:**  
 > No Kitten DS, o uso de `gap` é priorizado nos containers (`Flex`, `Grid`) para definir o espaçamento entre elementos que fazem parte de uma mesma estrutura (irmãos dentro do mesmo container). Já o uso de `margin` é recomendado quando:
 > - Não existe um container controlando o espaçamento, como na separação entre um título e um bloco de conteúdo, ou entre seções da página. Para elementos como `Input` e `Button`, o próprio componente já encapsula os espaçamentos internos, incluindo `labels` quando aplicável;
-> - Ou quando você quer criar um espaçamento externo em relação a outros blocos.
+> - Ou quando você deseja criar um espaçamento externo em relação a outros blocos.
 
 > 🚫 Evite misturar `margin` e `gap` no mesmo grupo de elementos, pois isso gera espaçamentos duplicados e desalinhamentos.
 
 ## 🛠️ Exemplo prático de espaçamento com Kitten DS
 
-Aqui temos um layout simples utilizando os componentes `Flex`, `Title`, `Input` e `Button`, aplicando os espaçamentos recomendados segundo este guia:
+Aqui temos um *layout* simples utilizando os componentes `Flex`, `Title`, `Input` e `Button`, aplicando os espaçamentos recomendados segundo este guia:
 
 ```jsx live
 
@@ -122,5 +152,5 @@ export function SpacingExample() {
   </Flex>
 </Flex>
 
-> ✨ Nota: A utilização correta dos espaçamentos não é apenas uma questão estética, mas também contribui para interfaces mais legíveis, acessíveis e com maior coerência visual. O Kitten DS, alinhado ao Tailwind, promove essa consistência de forma simples e escalável.
-> **Seguir essas recomendações reduz retrabalho, evita desalinhamentos e torna seu código mais fácil de manter.**
+> ✨ Nota: A utilização correta dos *tokens* de espaçamento não é apenas uma questão estética, mas também contribui para interfaces mais legíveis, acessíveis e com maior coerência visual. O Kitten DS, alinhado ao Tailwind, promove essa consistência de forma simples e escalável.
+> **Seguir essas recomendações reduz retrabalho, evita desalinhamentos e torna o código mais fácil de manter.**

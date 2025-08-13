@@ -46,7 +46,7 @@ Exemplo de uso com Tailwind CSS:
     <tr>
       <td>primary-hover</td>
       <td>Brand Purple 900</td>
-      <td>Variação do estado de hover e a cor mais escura para *tokens* primários</td>
+      <td>Variação do estado de *hover* e a cor mais escura para *tokens* primários</td>
       <td className="[&>*]:!block">
         <ColorItem
           colors={{
@@ -82,7 +82,7 @@ Exemplo de uso com Tailwind CSS:
     <tr>
       <td>secondary-hover</td>
       <td>Brand Blue 900</td>
-      <td>Variação do estado de hover e a cor mais escura para *tokens* secundários</td>
+      <td>Variação do estado de *hover* e a cor mais escura para *tokens* secundários</td>
       <td className="[&>*]:!block">
         <ColorItem
           colors={{
@@ -105,7 +105,7 @@ Exemplo de uso com Tailwind CSS:
     </tr>
     <tr>
       <td>disabled</td>
-      <td>Neutral 200</td>
+      <td>Neutral 300</td>
       <td>Cor usada para planos de fundo e elementos em um estado desativado ou inativo</td>
       <td className="[&>*]:!block">
         <ColorItem
@@ -117,8 +117,8 @@ Exemplo de uso com Tailwind CSS:
     </tr>
     <tr>
       <td>highlight</td>
-      <td>Neutral 100</td>
-      <td>Cor de fundo clara usada para enfatizar de forma sutil os elementos neutros</td>
+      <td>Neutral 200</td>
+      <td>Cor de fundo claro usada para enfatizar de forma sutil os elementos neutros</td>
       <td className="[&>*]:!block">
         <ColorItem
           colors={{
@@ -129,7 +129,7 @@ Exemplo de uso com Tailwind CSS:
     </tr>
     <tr>
       <td>background</td>
-      <td>Neutral 100</td>
+      <td>Neutral 200</td>
       <td>Plano de fundo padrão da página</td>
       <td className="[&>*]:!block">
         <ColorItem
@@ -141,7 +141,7 @@ Exemplo de uso com Tailwind CSS:
     </tr>
     <tr>
       <td>surface</td>
-      <td>Neutral 50</td>
+      <td>Neutral 100</td>
       <td>Cor do plano de fundo para superfícies e camadas sobre o plano de fundo</td>
       <td className="[&>*]:!block">
         <ColorItem
@@ -166,7 +166,7 @@ Exemplo de uso com Tailwind CSS:
     <tr>
       <td>error-hover</td>
       <td>Error 500</td>
-      <td>Variação do estado de hover e a cor mais escura para *tokens* de erro</td>
+      <td>Variação do estado de *hover* e a cor mais escura para *tokens* de erro</td>
       <td className="[&>*]:!block">
         <ColorItem
           colors={{
@@ -202,7 +202,7 @@ Exemplo de uso com Tailwind CSS:
     <tr>
       <td>success-hover</td>
       <td>Success 500</td>
-      <td>Variação do estado de hover e a cor mais escura para *tokens* de sucesso</td>
+      <td>Variação do estado de *hover* e a cor mais escura para *tokens* de sucesso</td>
       <td className="[&>*]:!block">
         <ColorItem
           colors={{
@@ -238,7 +238,7 @@ Exemplo de uso com Tailwind CSS:
     <tr>
       <td>warning-hover</td>
       <td>Warning 500</td>
-      <td>Variação do estado de hover e a cor mais escura para *tokens* de aviso e alerta</td>
+      <td>Variação do estado de *hover* e a cor mais escura para *tokens* de aviso e alerta</td>
       <td className="[&>*]:!block">
         <ColorItem
           colors={{
@@ -260,6 +260,42 @@ Exemplo de uso com Tailwind CSS:
       </td>
     </tr>
     <tr>
+      <td>info</td>
+      <td>Info 200</td>
+      <td>Cor de base usada para estados e componentes de informação</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'info': 'var(--color-info)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>info-hover</td>
+      <td>Info 300</td>
+      <td>Variação do estado de *hover* e a cor mais escura para *tokens* de informação</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'info-hover': 'var(--color-info-hover)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>info-highlight</td>
+      <td>Info 100</td>
+      <td>Cor de destaque ou de fundo para as variantes de informação</td>
+      <td className="[&>*]:!block">
+        <ColorItem
+          colors={{
+            'info-highlight': 'var(--color-info-highlight)',
+          }}
+        />
+      </td>
+    </tr>
+    <tr>
       <td>neutral</td>
       <td>Neutral 700</td>
       <td>Variante de cor neutra básica usada para componentes e ações</td>
@@ -274,7 +310,7 @@ Exemplo de uso com Tailwind CSS:
     <tr>
       <td>neutral-hover</td>
       <td>Neutral 800</td>
-      <td>Variação do estado de hover e a cor mais escura para *tokens* neutros/cinza</td>
+      <td>Variação do estado de *hover* e a cor mais escura para *tokens* neutros/cinza</td>
       <td className="[&>*]:!block">
         <ColorItem
           colors={{
@@ -309,7 +345,7 @@ Exemplo de uso com Tailwind CSS:
     </tr>
     <tr>
       <td>typography-inverted</td>
-      <td>Neutral 50</td>
+      <td>Neutral 100</td>
       <td>Cor usada para texto em fundos escuros ou coloridos</td>
       <td className="[&>*]:!block">
         <ColorItem
@@ -321,8 +357,8 @@ Exemplo de uso com Tailwind CSS:
     </tr>
     <tr>
       <td>typography-disabled</td>
-      <td>Neutral 400</td>
-      <td>Cor usada para o texto em estados desativados ou inativos</td>
+      <td>Neutral 500</td>
+      <td>Cor usada para texto em estados desativados ou inativos</td>
       <td className="[&>*]:!block">
         <ColorItem
           colors={{
@@ -345,7 +381,7 @@ Exemplo de uso com Tailwind CSS:
     </tr>
     <tr>
       <td>default-white</td>
-      <td>Neutral 50</td>
+      <td>Neutral 100</td>
       <td>Cor branca padrão usada em todo o sistema quando necessário</td>
       <td className="[&>*]:!block">
         <ColorItem
@@ -357,7 +393,7 @@ Exemplo de uso com Tailwind CSS:
     </tr>
     <tr>
       <td>default-border</td>
-      <td>Neutral 300</td>
+      <td>Neutral 400</td>
       <td>Cor padrão usada para bordas de componentes e elementos</td>
       <td className="[&>*]:!block">
         <ColorItem
@@ -381,7 +417,7 @@ Exemplo de uso com Tailwind CSS:
     </tr>
     <tr>
       <td>input-placeholder</td>
-      <td>Neutral 400</td>
+      <td>Neutral 500</td>
       <td>Cor do placeholder dos componentes Input e Select</td>
       <td className="[&>*]:!block">
         <ColorItem
@@ -465,7 +501,6 @@ Com base nesses testes, a documentação recomenda:
 
 Todas as definições documentadas seguem os critérios de contraste do <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-enhanced.html" target="_blank">nível AAA das diretrizes WCAG</Link>, com foco em acessibilidade e em uma experiência de leitura inclusiva em diferentes contextos e condições de visualização.
 
-> **⚠️ Atenção ao uso dos *tokens* `warning`:**  
-> Por se tratar de um tom de amarelo claro, essa cor pode apresentar **baixo contraste sobre fundos igualmente claros**, como `background` e `surface`.  
-> Recomenda-se **evitar seu uso em textos ou ícones nesses contextos**, especialmente em mensagens de alerta.  
-> Sempre verifique se o contraste atende às diretrizes de acessibilidade (<Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-enhanced.html" target="_blank">WCAG AAA</Link>) antes de aplicar esse *token*.
+> **⚠️ Atenção ao uso dos *tokens* `warning` e *info*:**  
+> Por se tratar de tons de amarelo e azul claro, respectivamente, essas cores podem apresentar **baixo contraste sobre fundos igualmente claros**, como `background` e `surface`.   
+> Sempre verifique se o contraste atende às diretrizes de acessibilidade (<Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-enhanced.html" target="_blank">WCAG AAA</Link>) antes de aplicar esses *tokens*.
