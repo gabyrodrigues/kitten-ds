@@ -75,6 +75,11 @@ const meta: Meta<typeof Checkbox> = {
       description:
         "O nome do Checkbox. Este atributo é usado para identificar o Checkbox em formulários e eventos de mudança."
     },
+    readOnly: {
+      control: { type: "boolean" },
+      description:
+        "Especifica se o Checkbox é somente leitura ou não. Isso significa que o usuário não pode alterar seu estado, mas ainda pode ser focado e interagido programaticamente. Útil para exibir o Checkbox em um estado não editável, mas ainda permitindo que ele faça parte do formulário."
+    },
     successText: {
       control: { type: "text" },
       description:
@@ -85,7 +90,8 @@ const meta: Meta<typeof Checkbox> = {
     disabled: false,
     checked: false,
     color: "primary",
-    label: "Label Text"
+    label: "Label Text",
+    readOnly: false
   }
 }
 

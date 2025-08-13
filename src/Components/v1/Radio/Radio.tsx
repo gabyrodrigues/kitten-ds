@@ -1,6 +1,7 @@
 import { cn } from "@utils"
 import { useId } from "react"
 import { Flex } from "../Flex"
+import { Icon } from "../Icon"
 import { Text } from "../Text"
 import type { RadioProps } from "./Radio.types"
 import { radioInputVariants, radioSpanVariants } from "./Styles"
@@ -20,6 +21,7 @@ export default function Radio({
   checkedClassName,
   errorText,
   helperText,
+  readOnly = false,
   required,
   successText,
   ...props
@@ -34,7 +36,11 @@ export default function Radio({
   const mergedRootClasses = cn("flex-wrap", className)
   const mergedContentClasses = cn("relative", "rounded-full", contentClassName)
   const mergedInputClasses = cn(radioInputClasses, inputClassName)
-  const mergedLabelClasses = cn("cursor-pointer", disabled && "cursor-default", labelClassName)
+  const mergedLabelClasses = cn(
+    "cursor-pointer",
+    (disabled || readOnly) && "cursor-default",
+    labelClassName
+  )
   const mergedCheckedClasses = cn(radioSpanClasses, checkedClassName)
 
   const reactId = useId()
@@ -68,9 +74,10 @@ export default function Radio({
           checked={checked}
           aria-disabled={disabled}
           data-disabled={disabled}
+          data-readonly={readOnly}
           required={required}
           tabIndex={disabled ? 0 : undefined}
-          onChange={(event) => !disabled && onChange?.(event)}
+          onChange={(event) => !disabled && !readOnly && onChange?.(event)}
           {...props}
           className={mergedInputClasses}
         />
@@ -104,9 +111,17 @@ export default function Radio({
           <Text
             variant="body3"
             color="text-success"
-            aria-live="polite"
             id={`${baseId}_success`}
+            aria-live="polite"
+            className="flex items-center gap-1"
           >
+            <Icon
+              type="check_circle"
+              variant="outlined"
+              color="text-success"
+              fontSize="text-sm"
+              aria-hidden="true"
+            />
             {successText}
           </Text>
         )}
@@ -115,9 +130,17 @@ export default function Radio({
           <Text
             variant="body3"
             color="text-error"
-            aria-live="polite"
             id={`${baseId}_error`}
+            aria-live="polite"
+            className="flex items-center gap-1"
           >
+            <Icon
+              type="error"
+              variant="outlined"
+              color="text-error"
+              fontSize="text-sm"
+              aria-hidden="true"
+            />
             {errorText}
           </Text>
         )}

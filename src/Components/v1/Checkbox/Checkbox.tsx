@@ -7,18 +7,19 @@ import type { CheckboxProps } from "./Checkbox.types"
 import { CHECKBOX_INPUT_CONTAINER, SPAN_STYLE, checkboxInputVariants } from "./Styles"
 
 export default function Checkbox({
-  id,
   checked = false,
-  indeterminate = false,
-  disabled,
-  label,
-  labelClassName,
   className,
-  contentClassName,
-  inputClassName,
   color,
+  contentClassName,
+  disabled = false,
   errorText,
   helperText,
+  id,
+  indeterminate = false,
+  inputClassName,
+  label,
+  labelClassName,
+  readOnly = false,
   successText,
   onChange,
   onClick,
@@ -36,7 +37,11 @@ export default function Checkbox({
   const mergedRootClasses = cn("flex-wrap", className)
   const mergedContentClasses = cn(CHECKBOX_INPUT_CONTAINER, contentClassName)
   const mergedInputClasses = cn(checkboxInputClasses, inputClassName)
-  const mergedLabelClasses = cn("cursor-pointer", disabled && "cursor-default", labelClassName)
+  const mergedLabelClasses = cn(
+    "cursor-pointer",
+    (disabled || readOnly) && "cursor-default",
+    labelClassName
+  )
 
   const reactId = useId()
   const baseId = id ?? `checkbox-${reactId}`
@@ -93,9 +98,10 @@ export default function Checkbox({
           checked={checked}
           aria-disabled={disabled}
           data-disabled={disabled}
+          data-readonly={readOnly}
           tabIndex={disabled ? 0 : undefined}
-          onChange={(event) => !disabled && handleChange?.(event)}
-          onClick={(event) => !disabled && handleClick?.(event)}
+          onChange={(event) => !disabled && !readOnly && handleChange?.(event)}
+          onClick={(event) => !disabled && !readOnly && handleClick?.(event)}
           data-testid="checkbox-input"
           {...props}
           className={mergedInputClasses}
@@ -141,7 +147,15 @@ export default function Checkbox({
             color="text-success"
             id={`${baseId}_success`}
             aria-live="polite"
+            className="flex items-center gap-1"
           >
+            <Icon
+              type="check_circle"
+              variant="outlined"
+              color="text-success"
+              fontSize="text-sm"
+              aria-hidden="true"
+            />
             {successText}
           </Text>
         )}
@@ -152,7 +166,15 @@ export default function Checkbox({
             color="text-error"
             id={`${baseId}_error`}
             aria-live="polite"
+            className="flex items-center gap-1"
           >
+            <Icon
+              type="error"
+              variant="outlined"
+              color="text-error"
+              fontSize="text-sm"
+              aria-hidden="true"
+            />
             {errorText}
           </Text>
         )}

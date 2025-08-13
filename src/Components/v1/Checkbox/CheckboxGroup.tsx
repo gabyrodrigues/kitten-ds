@@ -1,6 +1,7 @@
 import { cn } from "@utils"
 import React, { useId, type ReactElement } from "react"
 import { Flex } from "../Flex"
+import { Icon } from "../Icon"
 import { Text } from "../Text"
 import Checkbox from "./Checkbox"
 import type { CheckboxGroupProps, CheckboxProps } from "./Checkbox.types"
@@ -9,6 +10,7 @@ export default function CheckboxGroup({
   children,
   color = "primary",
   defaultA11yLabel = "Checkbox Group",
+  direction = "vertical",
   disabled = false,
   id,
   label,
@@ -18,6 +20,7 @@ export default function CheckboxGroup({
   successText,
   className,
   listClassName,
+  readOnly = false,
   required = false,
   withAsterisk = false,
   ...props
@@ -74,9 +77,10 @@ export default function CheckboxGroup({
       </Text>
 
       <Flex
-        direction="flex-col"
-        rowGap="gap-y-xs"
+        direction={direction === "horizontal" ? "flex-row" : "flex-col"}
+        gap="gap-xs"
         className={cn(listClassName)}
+        data-testid="checkbox-group-list"
       >
         {flattenedChildren.map((child, index) => {
           if (!React.isValidElement(child) || child.type !== Checkbox) {
@@ -86,12 +90,15 @@ export default function CheckboxGroup({
           if (child.type === Checkbox) {
             const childProps = child.props as CheckboxProps
             const isDisabled = Boolean(disabled) || Boolean(childProps.disabled)
+            const isReadOnly = Boolean(readOnly) || Boolean(childProps.readOnly)
+
             return (
               <Checkbox
                 key={childProps?.name ?? `checkbox-${index}`}
                 {...childProps}
                 color={color}
                 disabled={isDisabled}
+                readOnly={isReadOnly}
                 required={required}
               />
             )
@@ -120,7 +127,15 @@ export default function CheckboxGroup({
               color="text-error"
               id={`${baseId}_error`}
               aria-live="polite"
+              className="flex items-center gap-1"
             >
+              <Icon
+                type="error"
+                variant="outlined"
+                color="text-error"
+                fontSize="text-sm"
+                aria-hidden="true"
+              />
               {errorText}
             </Text>
           )}
@@ -130,7 +145,15 @@ export default function CheckboxGroup({
               color="text-success"
               id={`${baseId}_success`}
               aria-live="polite"
+              className="flex items-center gap-1"
             >
+              <Icon
+                type="check_circle"
+                variant="outlined"
+                color="text-success"
+                fontSize="text-sm"
+                aria-hidden="true"
+              />
               {successText}
             </Text>
           )}

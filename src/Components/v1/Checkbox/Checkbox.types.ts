@@ -101,14 +101,29 @@ export interface CheckboxProps
    * The success text to be displayed below the Checkbox in case of success.
    */
   successText?: string
+
+  /**
+   * Specifies whether the Checkbox component is read-only or not.
+   * This means the user cannot change its state,
+   * but it can still be focused and interacted with programmatically.
+   * This is useful for displaying the Checkbox in a non-editable state while still allowing it to be part of the form.
+   */
+  readOnly?: boolean
 }
 
 export interface CheckboxGroupProps
   extends Pick<
       CheckboxProps,
-      "color" | "disabled" | "errorText" | "helperText" | "id" | "labelClassName" | "successText"
+      | "color"
+      | "disabled"
+      | "errorText"
+      | "helperText"
+      | "id"
+      | "labelClassName"
+      | "readOnly"
+      | "successText"
     >,
-    Omit<FlexProps, "color"> {
+    Omit<FlexProps, "color" | "direction"> {
   /**
    * The label text to be displayed above the list of checkboxes.
    * If not provided, the default accessible label will be used.
@@ -156,4 +171,13 @@ export interface CheckboxGroupProps
    * If true, the asterisk will be displayed next to the label if withAsterisk is also true.
    */
   required?: boolean
+
+  /**
+   * The direction in which the Checkboxes are displayed within the CheckboxGroup.
+   * It can be either "vertical" or "horizontal".
+   * This controls the layout of the Checkbox buttons.
+   *
+   * @default "vertical"
+   */
+  direction?: "vertical" | "horizontal"
 }

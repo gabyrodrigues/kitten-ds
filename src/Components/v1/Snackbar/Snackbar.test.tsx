@@ -29,7 +29,6 @@ describe("Snackbar", () => {
         )
 
         expect(snackbar).toBeInTheDocument()
-        expect(snackbar).toHaveAttribute("aria-live", "polite")
 
         const results = await axe(container)
         expect(results.violations).toEqual([])

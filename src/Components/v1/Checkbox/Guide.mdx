@@ -1,0 +1,70 @@
+import { Meta } from "@storybook/blocks"
+import { Link } from "../Link"
+
+<Meta title="Componentes/Checkbox/Guia de Uso" />
+
+# 🧭  Guia de Uso
+
+## 📘 Visão Geral
+
+O componente `Checkbox` (caixa de seleção) é utilizado para permitir a seleção de uma ou mais opções em um conjunto, possibilitando que o usuário marque várias alternativas simultaneamente. Cada `Checkbox` atua de forma independente, permitindo que o usuário escolha várias opções sem afetar as demais.
+
+O `Checkbox` é ideal para situações onde as escolhas não são mutuamente exclusivas, como seleção de interesses, preferências ou categorias de produtos. Ele é amplamente utilizado em formulários, questionários e configurações de preferências.
+
+A *label* (rótulo) do `Checkbox` é considerada uma extensão da área clicável, facilitando a interação do usuário. Ao clicar no rótulo, o `Checkbox` correspondente é selecionado, melhorando a usabilidade e acessibilidade do componente.
+
+### ⚙️ Tipos de Checkbox
+
+<img src="/assets/checkbox-color-variants.png" alt="Exibição do componente de Checkbox em uma lista com suas variantes de cor: primária, secundária e neutra." style={{ margin: '0 auto' }} />
+
+O componente `Checkbox` possui três variantes de cor, que podem ser utilizadas conforme o contexto e a identidade visual da interface:
+
+- **Primary (Primária)**: Para ações principais ou que requerem maior destaque visual;
+- **Secondary (Secundária)**: Indicada para ações de apoio ou menor prioridade;
+- **Neutral (Neutra)**: Ideal para contextos neutros, como formulários padrão ou interfaces discretas.
+
+<img src="/assets/checkbox-state-variants.png" alt="Exibição do componente de Checkbox em uma lista com suas variantes de estado: padrão, selecionado, desabilitado e com mensagens de ajuda." style={{ margin: '0 auto' }} />
+
+O componente também possui variações de estado, que refletem sua condição de uso:
+
+- **Padrão**: Estado inicial, sem interação;
+- **Desabilitado**: Indica que a opção foi marcada;
+- **Selecionado**: Indica que a opção não está disponível;
+- **Hover**: Indica que o cursor está sobre o componente;
+- **Foco**: Indica que o componente está em foco, geralmente via teclado;
+- **Erro**: Indica erro na seleção, com mensagem explicativa;
+- **Sucesso**: Indica que a escolha foi válida ou confirmada;
+- **Ajuda**: Exibe orientação adicional.
+
+> O componente `Checkbox` está relacionado com o componente [**CheckboxGroup**](/docs/componentes-checkboxgroup-guia-de-uso--propriedades), que permite agrupar múltiplas opções, possibilitando que o usuário selecione diversas alternativas dentro de um mesmo contexto. É ideal para formulários e questionários.
+
+## 💡 Recomendações de Uso
+
+- Utilize o `Checkbox` em conjunto com o componente `CheckboxGroup` para agrupar várias opções relacionadas, permitindo que o usuário selecione múltiplas opções de um mesmo contexto;
+- Utilize o `Checkbox` quando houver um número limitado de opções e bem definido de opções (geralmente até 10), e o usuário puder escolher várias delas;
+- Prefira `Checkbox` em situações onde as opções não são mutuamente exclusivas, ou seja, a seleção de uma opção não impede a seleção de outra;
+- Mantenha a consistência visual com o restante da interface, utilizando variantes de cor apropriadas para comunicar prioridade ou estado;
+- Forneça *feedback* visual claro para os diferentes estados do `Checkbox`, como erro, sucesso ou ajuda;
+- Evite deixar opções marcadas por padrão, pois podem passar despercebidas e resultar em respostas não intencionais;
+- Utilize rótulos claros e objetivos em cada `Checkbox`, preferencialmente em uma única linha;
+- Evite utilizar `Checkbox` para ações que requerem uma única escolha. Para essas situações, utilize o componente `Radio`.
+
+## ♿ Acessibilidade
+
+O componente `Checkbox` implementa, por padrão, diretrizes essenciais de acessibilidade para garantir que todos os usuários possam interagir com ele de forma eficaz:
+
+- O componente é **totalmente navegável via teclado**, permitindo que usuários que dependem exclusivamente do teclado possam acessá-lo e utilizá-lo sem obstáculos, conforme recomendado pela <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html" target="_blank">WCAG 2.1.1 (Keyboard)</Link>;
+- A borda de foco é visível e possui pelo menos **2 píxeis** de espessura, sem sobreposição por outros elementos, conforme definido na <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance-enhanced" target="_blank">WCAG 2.4.13 (Focus Appearance - Enhanced)</Link>;
+- Quando o `Checkbox` está desativado, as diretrizes de contraste de cores não se aplicam. As <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html#inactive-controls" target="_blank">diretrizes de contraste mínimo definidas nas WCAG 2.1</Link> declaram explicitamente que os componentes desativados estão isentos da diretriz;
+- A identificação de erros utiliza **cor, ícone e mensagem textual**, garantindo que a informação não dependa apenas da cor. Essa prática está alinhada com a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color" target="_blank">WCAG 1.4.1 (Use of Color)</Link> e <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/consistent-identification.html" target="_blank">WCAG 3.2.4 (Consistent Identification)</Link>;
+- Mensagens de sucesso, ajuda ou erro são associadas ao campo através do atributo `aria-describedby`, permitindo que leitores de tela anunciem essas mensagens corretamente, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html" target="_blank">WCAG 1.3.1 (Info and Relationships)</Link>;
+- O estado de foco é sempre preservado quando aplicável, incluindo um suporte visual claro,, conforme recomendado pela <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible" target="_blank">WCAG 2.4.7 (Focus Visible)</Link>. Mesmo quando o `Checkbox` está desabilitado, o estilo visual de foco é mantido para reforçar a percepção de que ele está presente na interface, promovendo melhor experiência para todos os usuários;
+- Para mensagens dinâmicas (erro ou sucesso), é utilizado o atributo `aria-live="polite"`, garantindo que leitores de tela anunciem essas mudanças de forma não intrusiva, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html" target="_blank">WCAG 4.1.3 (Status Messages)</Link>.
+
+### 📌 Boas práticas de acessibilidade ao utilizar o componente
+
+Além das diretrizes já implementadas, considere as seguintes práticas ao utilizar o `Checkbox`:
+
+- Sempre forneça um rótulo claro e descritivo por meio da propriedade `label`, para que todos os usuários compreendam a opção a ser selecionada, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions.html" target="_blank">WCAG 3.3.2 (Labels or Instructions)</Link>;
+- Sempre que possível, realize a **validação dos campos antes do envio do formulário**, exibindo mensagens de erro claras e específicas para que o usuário possa corrigi-los imediatamente, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/error-identification.html" target="_blank">WCAG 3.3.1 (Error Identification)</Link>;
+- Utilize o `Checkbox` em conjunto com o componente `CheckboxGroup` para agrupar opções relacionadas de forma consistente e previsível, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/consistent-navigation.html" target="_blank">WCAG 3.2.3 (Consistent Navigation)</Link>.

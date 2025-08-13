@@ -2,7 +2,7 @@ import { tv } from "@utils"
 
 export const buttonVariants = tv({
   base: [
-    "px-sm py-xs min-h-11",
+    "px-sm py-nano min-h-11",
     "focus-visible:outline-0 focus-visible:ring-3 focus-visible:ring-focus-ring focus-visible:ring-offset-2",
     "flex rounded-lg data-[disabled=true]:text-typography-disabled data-[disabled=true]:cursor-default relative"
   ],

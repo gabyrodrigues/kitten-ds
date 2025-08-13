@@ -582,4 +582,49 @@ describe("RadioGroup", () => {
     expect(screen.getByText("Error text")).toHaveClass("text-error")
     expect(screen.getByText("Success text")).toHaveClass("text-success")
   })
+
+  it("renders with flex-row when direction is horizontal", () => {
+    const { getByTestId } = render(
+      <RadioGroup
+        name="food"
+        value="pizza"
+        direction="horizontal"
+      >
+        <Radio
+          value="pizza"
+          label="Pizza"
+        />
+        <Radio
+          value="sushi"
+          label="Sushi"
+          required={false}
+        />
+      </RadioGroup>
+    )
+    // Find the Flex container for the radio list
+    const radioList = getByTestId("radio-group-list")
+    expect(radioList).toHaveClass("flex-row")
+  })
+
+  it("renders with flex-col when direction is vertical (default)", () => {
+    const { getByTestId } = render(
+      <RadioGroup
+        name="food"
+        value="pizza"
+        required
+      >
+        <Radio
+          value="pizza"
+          label="Pizza"
+        />
+        <Radio
+          value="sushi"
+          label="Sushi"
+          required={false}
+        />
+      </RadioGroup>
+    )
+    const radioList = getByTestId("radio-group-list")
+    expect(radioList).toHaveClass("flex-col")
+  })
 })

@@ -96,6 +96,15 @@ export interface RadioProps
    * The success text to be displayed below the Radio in case of success.
    */
   successText?: string
+
+  /**
+   * If true, the Radio will be in read-only mode.
+   * This means that users can see the selected option but cannot change it.
+   * It is useful for displaying information without allowing modifications.
+   *
+   * @default false
+   */
+  readOnly?: boolean
 }
 
 export interface RadioGroupProps
@@ -110,10 +119,11 @@ export interface RadioGroupProps
       | "labelClassName"
       | "name"
       | "onChange"
+      | "readOnly"
       | "successText"
       | "value"
     >,
-    Omit<FlexProps, "color" | "onChange" | "value"> {
+    Omit<FlexProps, "color" | "onChange" | "value" | "direction"> {
   /**
    * The CSS class name to be applied to the RadioGroup root.
    */
@@ -155,4 +165,13 @@ export interface RadioGroupProps
    * If true, the asterisk will be displayed next to the label if withAsterisk is also true.
    */
   required?: boolean
+
+  /**
+   * The direction in which the Radio buttons are displayed within the RadioGroup.
+   * It can be either "vertical" or "horizontal".
+   * This controls the layout of the Radio buttons.
+   *
+   * @default "vertical"
+   */
+  direction?: "vertical" | "horizontal"
 }

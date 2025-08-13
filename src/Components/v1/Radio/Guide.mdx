@@ -1,0 +1,73 @@
+import { Meta } from "@storybook/blocks"
+import { Flex } from "../Flex"
+import { Grid } from "../Grid"
+import { Link } from "../Link"
+
+<Meta title="Componentes/Radio/Guia de Uso" />
+
+# 🧭  Guia de Uso
+
+## 📘 Visão Geral
+
+O componente `Radio` é utilizado para permitir a escolha de uma única opção dentre outras, ou seja, apenas uma opção pode ser selecionada por vez. É ideal para situações onde as opções são mutuamente exclusivas, como selecionar um gênero, um estado civil ou uma categoria de produto.
+
+O `Radio` é especialmente útil quando as opções são limitadas e bem definidas, proporcionando uma interface clara e direta para o usuário. É amplamente utilizado em formulários, questionários e configurações de preferências.
+
+A *label* (rótulo) do `Radio` é considerada uma extensão da área clicável, facilitando a interação do usuário. Ao clicar no rótulo, o `Radio` correspondente é selecionado, melhorando a usabilidade e acessibilidade do componente.
+
+### ⚙️ Tipos de Radio
+
+<img src="/assets/radio-color-variants.png" alt="Exibição do componente de Radio em uma lista com suas variantes de cor: primária, secundária e neutra." style={{ margin: '0 auto' }} />
+
+O componente `Radio` possui três variantes de cor para se adequar à identidade visual e ao contexto de uso:
+
+- **Primary (Primária)**: Utilizada para ações principais ou que requerem destaque visual;
+- **Secondary (Secundária)**: Indicada para ações de apoio ou menor prioridade;
+- **Neutral (Neutra)**: Recomendada para contextos mais discretos, como formulários padrão.
+
+<img src="/assets/radio-state-variants.png" alt="Exibição do componente de Radio em uma lista com suas variantes de estado: padrão, selecionado, desabilitado e com mensagens de ajuda." style={{ margin: '0 auto' }} />
+
+Além disso, o `Radio` possui variações de estado que refletem sua condição atual:
+
+- **Padrão**: Estado inicial, sem interação;
+- **Desabilitado**: Indica que a opção foi marcada;
+- **Selecionado**: Indica que a opção não está disponível;
+- **Hover**: Indica que o cursor está sobre o componente;
+- **Foco**: Indica que o componente está em foco, geralmente via teclado;
+- **Erro**: Indica erro na seleção, com mensagem explicativa;
+- **Sucesso**: Indica que a escolha foi válida ou confirmada;
+- **Ajuda**: Exibe orientação adicional.
+
+> O componente `Radio` está relacionado com o componente [**RadioGroup**](/docs/componentes-radiogroup-guia-de-uso--propriedades), que agrupa múltiplas opções e garante que apenas uma seja selecionada por vez, sendo ideal para formulários e questionários.
+
+## 💡 Recomendações de Uso
+
+- Utilize o `Radio` em conjunto com o componente `RadioGroup` para agrupar várias opções de `Radio`, garantindo que apenas uma opção possa ser selecionada por vez;
+- Utilize o `Radio` quando houver um número limitado de opções (geralmente até 5) e for necessário que o usuário escolha apenas uma delas;
+- Prefira o uso de `Radio` em situações onde as opções são mutuamente exclusivas, ou seja, a seleção de uma opção impede a seleção de outra;
+- Mantenha a consistência visual com o restante da interface, utilizando variantes de cor apropriadas para indicar o propósito ou prioridade da escolha;
+- Forneça *feedback* visual claro para os diferentes estados do `Radio`, como erro, sucesso ou ajuda;
+- Prefira não deixar nenhuma opção de `Radio` pré-selecionada, pois pode passar despercebida pelo usuário e ocasionar o envio de uma resposta indesejada;
+- Utilize rótulos claros em cada opção de `Radio`, garantindo que o propósito de cada escolha seja facilmente compreendido pelo usuário.
+
+> ⚠️ Lembre-se: uma vez selecionada, a opção `Radio` não pode ser desmarcada. Se fizer sentido, inclua uma opção como "Nenhum" ou "Não se aplica" para permitir uma escolha neutra. Caso o comportamento desejado permita desmarcar, considere usar `Checkbox` no lugar.
+
+## ♿ Acessibilidade
+
+O componente `Radio` implementa, por padrão, diretrizes essenciais de acessibilidade para garantir que todos os usuários possam interagir com ele de forma eficaz:
+
+- O componente é **totalmente navegável via teclado**, permitindo que usuários que dependem exclusivamente do teclado possam acessá-lo e utilizá-lo sem obstáculos, conforme recomendado pela <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html" target="_blank">WCAG 2.1.1 (Keyboard)</Link>;
+- A borda de foco é visível e possui pelo menos **2 píxeis** de espessura, sem sobreposição por outros elementos, conforme definido na <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance-enhanced" target="_blank">WCAG 2.4.13 (Focus Appearance - Enhanced)</Link>;
+- Quando o `Radio` está desativado, as diretrizes de contraste de cores não se aplicam. As <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html#inactive-controls" target="_blank">diretrizes de contraste mínimo definidas nas WCAG 2.1</Link> declaram explicitamente que os componentes desativados estão isentos da diretriz;
+- A identificação de erros utiliza **cor, ícone e mensagem textual**, garantindo que a informação não dependa apenas da cor. Essa prática está alinhada com a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color" target="_blank">WCAG 1.4.1 (Use of Color)</Link> e <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/consistent-identification.html" target="_blank">WCAG 3.2.4 (Consistent Identification)</Link>;
+- Mensagens de sucesso, ajuda ou erro são associadas ao campo através do atributo `aria-describedby`, permitindo que leitores de tela anunciem essas mensagens corretamente, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html" target="_blank">WCAG 1.3.1 (Info and Relationships)</Link>;
+- O estado de foco é sempre preservado quando aplicável, incluindo um suporte visual claro,, conforme recomendado pela <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible" target="_blank">WCAG 2.4.7 (Focus Visible)</Link>. Mesmo quando o `Radio` está desabilitado, o estilo visual de foco é mantido para reforçar a percepção de que ele está presente na interface, promovendo melhor experiência para todos os usuários;
+- Para mensagens dinâmicas (erro ou sucesso), é utilizado o atributo `aria-live="polite"`, garantindo que leitores de tela anunciem essas mudanças de forma não intrusiva, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html" target="_blank">WCAG 4.1.3 (Status Messages)</Link>.
+
+### 📌 Boas práticas de acessibilidade ao utilizar o componente
+
+Além das diretrizes já implementadas, considere as seguintes práticas ao utilizar o `Radio`:
+
+- Sempre forneça um rótulo claro e descritivo por meio da propriedade `label`, para que todos os usuários compreendam a opção a ser selecionada, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions.html" target="_blank">WCAG 3.3.2 (Labels or Instructions)</Link>;
+- Sempre que possível, realize a **validação dos campos antes do envio do formulário**, exibindo mensagens de erro claras e específicas para que o usuário possa corrigi-los imediatamente, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/error-identification.html" target="_blank">WCAG 3.3.1 (Error Identification)</Link>;
+- Utilize o `Radio` em conjunto com o componente `RadioGroup` para agrupar múltiplas opções e garantir que apenas uma seja selecionada por vez, de forma consistente e previsível, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/consistent-navigation.html" target="_blank">WCAG 3.2.3 (Consistent Navigation)</Link>.

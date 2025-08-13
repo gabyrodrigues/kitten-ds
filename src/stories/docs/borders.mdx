@@ -1,0 +1,86 @@
+import { ColorItem, ColorPalette, Meta } from "@storybook/blocks"
+import { Flex, Text } from "../../Components"
+
+<Meta title="Design/Bordas" />
+
+# ➖ Bordas do Kitten DS
+
+As bordas desempenham um papel fundamental no design de interfaces, ajudando a definir limites, organizar o conteúdo e guiar a atenção do usuário. Além da função estética, as bordas contribuem para a acessibilidade ao proporcionar indicadores visuais claros, que auxiliam na percepção e interação dos componentes. Por isso, o Kitten DS utiliza um sistema padronizado de *tokens* para bordas, garantindo consistência, hierarquia visual e melhor experiência para todos os usuários.
+
+Para padronizar as bordas no Kitten DS, foram definidos *tokens* de design com valores consistentes para espessura e arredondamento de bordas. Isso garante que todos os componentes e interfaces que utilizam bordas tenham uma aparência uniforme e padrão, além de facilitar a manutenção e personalização visual.
+
+Os *tokens* de borda foram cuidadosamente definidos para equilibrar hierarquia visual, clareza e acessibilidade. Eles têm o papel funcional de reforçar a percepção de limites e contornos, sem comprometer a legibilidade ou gerar distrações.
+
+## 🖋️ Tokens de espessura de borda
+
+Os *tokens* de espessura de borda foram criados para assegurar que todos os componentes do Kitten DS tenham uma espessura consistente e adequada para diferentes contextos visuais. Eles estão definidos a partir de variáveis e classes utilitárias no tema, com os seguintes valores:
+
+```css
+--border-width-thin: 0.0625rem; /* 1px */
+--border-width-medium: 0.125rem; /* 2px */
+--border-width-thick: 0.1875rem; /* 3px */
+--border-width-bold: 0.25rem; /* 4px */
+--border-width-heavy: 0.5rem; /* 8px */
+```
+
+```css
+@utility border-thin {
+  border-width: var(--border-width-thin);
+}
+
+@utility border-medium {
+  border-width: var(--border-width-medium);
+}
+
+@utility border-thick {
+  border-width: var(--border-width-thick);
+}
+
+@utility border-bold {
+  border-width: var(--border-width-bold);
+}
+
+@utility border-heavy {
+  border-width: var(--border-width-heavy);
+}
+```
+
+<img src="/assets/border-width-tokens.png" alt="Exibição de uma lista com aplicação de cada token de borda" style={{ margin: '48px auto', maxWidth: '750px' }} />
+
+A espessura das bordas segue uma escala nomeada que reforça a hierarquia visual e os estados interativos, mantendo consistência entre os componentes do sistema:
+
+- **border-thin (1px)**: Para elementos com foco leve, como campos de input e contornos discretos;
+- **border-medium (2px)**: Para destacar levemente elementos interativos ou delimitadores sutis;
+- **border-thick (3px)**: Contorno evidente, porém equilibrado. Usado em estados de foco e botões ativos, com boa visibilidade sem sobrecarregar o layout;
+- **border-bold (4px)**: Contorno com alto contraste visual, ideal para componentes prioritários, seleção destacada ou elementos altamente interativos;
+- **border-heavy (8px)**: Para separações visuais marcantes, como banners ou divisores importantes.
+
+## 🖌️ Tokens de arredondamento de bordas
+
+Os *tokens* arredondamento seguem uma escala baseada no Tailwind, reaproveitando seus valores para promover consistência visual e suavidade nos componentes.
+
+<img src="/assets/border-radius-tokens.png" alt="Exibição de uma lista com aplicação de cada token de arredondamento" style={{ margin: '48px auto', maxWidth: '600px' }} />
+
+- **rounded-xs (2px)**: Quase reto, usado para superfícies densas, linhas ou quando se quer um toque mínimo de arredondamento;
+- **rounded-sm (4px)**: Leve suavidade visual. Ideal para elementos compactos e discretos, sem chamar atenção ao arredondamento;
+- **rounded-md (6px)**: Equilíbrio entre sutil e perceptível. Transição natural entre `sm` e `lg`;
+- **rounded-lg (8px)**: **Arredondamento padrão.** Usado em botões, inputs, tooltips, cards, etc. Proporciona modernidade e acessibilidade visual;
+- **rounded-xl (12px)**: Para blocos maiores que precisam de mais destaque visual, como containers e painéis;
+- **rounded-2xl (16px)**: Fortemente suavizado, ideal para caixas maiores com estética mais amigável;
+- **rounded-3xl (24px)**: Aparência mais forte e amigável. Usado quando o estilo exige curvas mais visíveis;
+- **rounded-4xl (32px)**: Para layouts super arredondados ou com proposta fortemente visual;
+- **rounded-full (100%)**: Totalmente circular. Usado em chips, botões de ícone e outros elementos circulares;
+
+
+## 💡 Recomendações de Uso
+
+O uso dos *tokens* de borda no **Kitten DS** é fundamental para criar interfaces consistentes e padronizadas. Algumas orientações práticas para aplicá-los de forma eficiente:
+
+- Utilize sempre os *tokens* de borda definidos no tema para garantir consistência visual;
+- Teste sempre a aplicação dos *tokens* em diferentes tamanhos e dispositivos para validar a eficácia e a legibilidade;
+- Combine o uso de bordas com outros elementos visuais como sombra, cor e espaçamento para melhorar a percepção e acessibilidade dos componentes.
+
+> ⚠️ **Observação importante:**  
+> Os *tokens* de borda foram cuidadosamente definidos e testados em cada componente do Kitten DS para assegurar sua eficácia e consistência. Eles são uma parte essencial do *design system* e devem ser aplicados de acordo com as diretrizes estabelecidas.
+
+> Caso seja necessário fazer ajustes ou personalizações, realize-os com cautela e sempre teste em diferentes contextos e dispositivos.

@@ -1,0 +1,160 @@
+import { Meta } from "@storybook/blocks"
+import { Chip } from "../Chip"
+import { Flex } from "../Flex"
+import { Grid } from "../Grid"
+import { Icon } from "../Icon"
+import { Input } from "../Input"
+import { Link } from "../Link"
+import { Text } from "../Text"
+import { Title } from "../Title"
+
+<Meta title="Componentes/Input/Guia de Uso" />
+
+# 🧭  Guia de Uso
+
+## 📘 Visão Geral
+
+O componente `Input` é um elemento de formulário para entrada de dados do usuário. Ele pode ser utilizado tanto em campos de texto simples quanto em formatos mais específicos, como senhas, e-mails ou números. Também permite a inserção de texto multilinha.
+
+O `Input` recebe informações do usuário em diversos contextos, como formulários de cadastro, pesquisa e filtros. Ele pode ser estilizado e configurado para atender a diferentes necessidades, como validação de entrada, uso de *placeholder* e exibição de rótulos.
+
+### ⚙️ Tipos de Input
+
+<img src="/assets/text-input-area-variants.png" alt="Exibição do componente de Input em uma lista com as suas variações e estados de texto simples ou multilinha, com mensagem de erro, ajuda e sucesso" style={{ margin: '0 auto' }} />
+
+O `Input` pode ser um campo de texto simples ou multilinha e pode incluir os seguintes estados:
+
+- **Padrão**: Campo de texto simples ou multilinha sem formatação ou mensagens adicionais;
+- **Com erro**: Exibe uma mensagem de erro quando a entrada do usuário não é válida ou não atende aos critérios esperados;
+- **Com ajuda**: Apresenta uma mensagem com instruções adicionais sobre como preencher o campo corretamente;
+- **Com sucesso**: Indica que a entrada foi aceita ou que a ação foi concluída com sucesso, geralmente acompanhado de uma mensagem de confirmação.
+
+<img src="/assets/text-input-variants.png" alt="Exibição do componente de Input em uma lista com as suas variações com conteúdo a direita, esquerda, estados ativo ou desativado" style={{ margin: '0 auto' }} />
+
+Também é possível incluir conteúdo adicional, como ícones ou botões de ícone, à esquerda ou à direita do campo, utilizando as propriedades `leftSection` e `rightSection`. Isso melhora a usabilidade e a experiência do usuário.
+
+O `Input` também possui indicação de estado ativo (foco) ou desativado, além de propriedades para campos obrigatórios, como `required` e `withAsterisk`.
+
+## 💡 Recomendações de Uso
+
+- O `Input` deve ser utilizado para capturar informações do usuário em formulários, pesquisas e filtros, garantindo que a entrada seja clara e acessível;
+- Utilize o estado de erro para indicar entradas inválidas, fornecendo *feedback* imediato ao usuário.
+- Utilize o estado de ajuda para fornecer orientações adicionais sobre como preencher o campo corretamente;
+- O estado de sucesso deve indicar que a entrada foi aceita ou que a ação foi concluída com sucesso, oferecendo uma sensação de progresso;
+- Utilize as propriedades `leftSection` e `rightSection` para adicionar ícones ou botões de ícone que melhorem a experiência, como ícones de pesquisa, limpar ou mostrar/ocultar senha;
+- Evite sobrecarregar o campo de entrada com muitos elementos visuais. Mantenha o design limpo e focado na entrada de dados;
+- Certifique-se de que o campo seja acessível: utilize rótulos claros e descritivos, e garanta que os estados de erro, ajuda e sucesso sejam facilmente compreendidos por todos, incluindo pessoas com deficiências visuais ou cognitivas;
+- Utilize *placeholders* apenas como exemplos de entrada. Não dependa deles para indicar o propósito do campo, pois desaparecem ao digitar e podem comprometer a acessibilidade;
+- Sinalize a obrigatoriedade dos campos conforme o contexto:
+  - Se a maioria for opcional, destaque os obrigatórios;
+  - Se a maioria for obrigatória, destaque os opcionais.
+
+
+### ☑️✖️ O que fazer vs. O que não fazer
+
+O componente `Input` foi desenvolvido com foco em acessibilidade, usabilidade e experiência do usuário. Abaixo estão algumas diretrizes sobre o que fazer e o que não fazer ao utilizar este componente para manter a acessibilidade e a usabilidade e melhorar a experiência do usuário:
+
+<Title component="h4" className="!text-h6">Utilize rótulos claros e descritivos para cada campo de entrada, garantindo que todos os usuários compreendam o propósito do campo.</Title>
+
+<Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
+  <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
+    <Chip variant="outlined" color="success"><Icon type="check_circle" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que fazer</Chip>
+    <Input label="Nome Completo" placeholder="Digite seu nome completo" readOnly full />
+  </Flex>
+  <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
+    <Chip variant="outlined" color="error"><Icon type="cancel" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que não fazer</Chip>
+    <Input label="Insira aqui" readOnly full />
+  </Flex>
+</Grid>
+
+<Title component="h4" className="!text-h6">Use o *placeholder* para auxiliar o usuário com intruções ou exemplos de entrada, mas não dependa exclusivamente dele para descrever o propósito do campo.</Title>
+
+<Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
+  <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
+    <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
+      <Chip variant="outlined" color="success"><Icon type="check_circle" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que fazer</Chip>
+      <Text className="!m-0">O *placeholder* deve ser utilizado como um auxílio, e não como a única forma de descrever o propósito do campo.</Text>
+    </Flex>
+    <Flex rowGap="gap-x-sm" width="w-full">
+      <Input label="CPF" placeholder="000.000.000-00" readOnly full />
+    </Flex>
+  </Flex>
+  <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
+    <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
+      <Chip variant="outlined" color="error"><Icon type="cancel" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que não fazer</Chip>
+      <Text className="!m-0">Não utilize o *placeholder* como a única forma de descrever o propósito do campo, pois ele desaparece quando o usuário começa a digitar, tornando-se inacessível.</Text>
+    </Flex>
+    <Flex rowGap="gap-x-sm" width="w-full">
+      <Input placeholder="CPF" readOnly full />
+    </Flex>
+  </Flex>
+</Grid>
+
+<Title component="h4" className="!text-h6">Sempre que possível, realize a validação dos campos antes do envio do formulário, exibindo mensagens de erro claras e específicas para que o usuário possa corrigi-los imediatamente.</Title>
+
+<Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
+  <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
+    <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
+      <Chip variant="outlined" color="success"><Icon type="check_circle" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que fazer</Chip>
+      <Text className="!m-0">Escreve mensagens de erro que auxiliem a corrigir a informação inserida, evitando mensagens genéricas como "Erro no campo".</Text>
+    </Flex>
+    <Flex rowGap="gap-x-sm" width="w-full">
+      <Input label="Nova senha" readOnly full errorText="A nova senha deve conter pelo menos 5 caracteres" className="sb-unstyled" />
+    </Flex>
+  </Flex>
+  <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
+    <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
+      <Chip variant="outlined" color="error"><Icon type="cancel" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que não fazer</Chip>
+      <Text className="!m-0">Evite mensagens de erro genéricas, pois não ajudam o usuário a entender o que precisa ser corrigido.</Text>
+    </Flex>
+    <Flex rowGap="gap-x-sm" width="w-full">
+      <Input label="Nova senha" readOnly full errorText="Senha inválida" className="sb-unstyled" />
+    </Flex>
+  </Flex>
+</Grid>
+
+<Title component="h4" className="!text-h6">Dê preferência a indicar a obrigatoriedade do campo de acordo com o contexto, utilizando o asterisco (*) para campos obrigatórios apenas quando a maioria dos campos forem opcionais.</Title>
+
+<Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
+  <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
+    <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
+      <Chip variant="outlined" color="success"><Icon type="check_circle" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que fazer</Chip>
+      <Text className="!m-0">Indique a obrigatoriedade do campo conforme o contexto, evitando a carga visual desnecessária do asterisco em todos os campos.</Text>
+    </Flex>
+    <Flex colGap="gap-y-sm" direction="flex-col" width="w-full">
+      <Input label="Nome" placeholder="Insira seu nome" readOnly full withAsterisk required className="sb-unstyled" />
+      <Input label="CPF" placeholder="000.000.000-00" readOnly full />
+      <Input label="E-mail" placeholder="exemplo@dominio.com" readOnly full />
+    </Flex>
+  </Flex>
+  <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
+    <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
+      <Chip variant="outlined" color="error"><Icon type="cancel" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que não fazer</Chip>
+      <Text className="!m-0">Evite repetir o asterisco em todos os campos, especialmente quando a maioria dos campos forem obrigatórios, para reduzir a carga visual desnecessária e evitar redundância.</Text>
+    </Flex>
+    <Flex colGap="gap-y-sm" direction="flex-col" width="w-full">
+      <Input label="Nome" placeholder="Insira seu nome" readOnly full withAsterisk required />
+      <Input label="CPF" placeholder="000.000.000-00" readOnly full withAsterisk required />
+      <Input label="E-mail" placeholder="exemplo@dominio.com" readOnly full withAsterisk required />
+    </Flex>
+  </Flex>
+</Grid>
+
+## ♿ Acessibilidade
+
+O componente `Input` implementa, por padrão, diretrizes essenciais de acessibilidade para garantir que todos os usuários possam interagir com ele de forma eficaz:
+
+- O componente é **totalmente navegável via teclado**, permitindo que usuários que dependem exclusivamente do teclado possam acessá-lo e utilizá-lo sem obstáculos, conforme recomendado pelas diretrizes da <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html" target="_blank">WCAG 2.1.1 (Keyboard)</Link>;
+- A **borda de foco é visível**, com pelo menos **2 píxeis** de espessura e sem sobreposição por outros elementos, conforme exigido pela <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance-enhanced" target="_blank">WCAG 2.4.12 (Focus Appearance)</Link>;
+- A identificação de erros utiliza **cor, ícone e mensagem textual**, garantindo que a informação não dependa apenas da cor. Essa prática está alinhada com a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color" target="_blank">WCAG 1.4.1 (Use of Color)</Link> e <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/consistent-identification.html" target="_blank">WCAG 3.2.4 (Consistent Identification)</Link>;
+- Mensagens de sucesso, ajuda ou erro são associadas ao campo através do atributo `aria-describedby`, permitindo que leitores de tela anunciem essas mensagens corretamente, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html" target="_blank">WCAG 1.3.1 (Info and Relationships)</Link>;
+- Para mensagens dinâmicas (erro ou sucesso), é utilizado o atributo `aria-live="polite"`, garantindo que leitores de tela anunciem essas mudanças de forma não intrusiva, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html" target="_blank">WCAG 4.1.3 (Status Messages)</Link>;
+
+### 📌 Boas práticas de acessibilidade ao utilizar o componente
+
+Além das diretrizes já implementadas, recomenda-se seguir as seguintes boas práticas ao utilizar o `Input`:
+
+- Sempre forneça um rótulo claro e descritivo por meio da propriedade `label`, para que todos os usuários compreendam o propósito do campo, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions.html" target="_blank">WCAG 3.3.2 (Labels or Instructions)</Link>;
+- Utilize a propriedade *placeholder* apenas como **exemplo de entrada**, e não como **substituto do rótulo**, pois ele desaparece ao digitar, tornando-se inacessível. Isso está de acordo com a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html" target="_blank">WCAG 1.1.1 (Non-text Content)</Link>;
+- Se for absolutamente necessário depender do *placeholder* como identificação do campo (o que não é recomendado), adicione a propriedade `aria-label` com uma descrição clara do propósito do campo, garantindo que leitores de tela possam compreendê-lo. Essa prática está de acordo com a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html" target="_blank">WCAG 2.4.6 (Headings and Labels)</Link>;
+- Sempre que possível, realize a **validação dos campos antes do envio do formulário**, exibindo mensagens de erro claras e específicas para que o usuário possa corrigi-los imediatamente, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/error-identification.html" target="_blank">WCAG 3.3.1 (Error Identification)</Link>.

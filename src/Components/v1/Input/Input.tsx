@@ -9,6 +9,7 @@ import {
 
 import { cn } from "@utils"
 import { Flex } from "../Flex"
+import { Icon } from "../Icon"
 import { Text } from "../Text"
 import type { InputProps } from "./Input.types"
 import { INPUT_CONTAINER_STYLE, INPUT_STYLE, handleBgColor, handleBorderColor } from "./Styles"
@@ -203,7 +204,15 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(fun
               color="text-success"
               id={`${baseId}_success`}
               aria-live="polite"
+              className="flex items-center gap-1"
             >
+              <Icon
+                type="check_circle"
+                variant="outlined"
+                color="text-success"
+                fontSize="text-sm"
+                aria-hidden="true"
+              />
               {successText}
             </Text>
           )}
@@ -213,7 +222,15 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(fun
               color="text-error"
               id={`${baseId}_error`}
               aria-live="polite"
+              className="flex items-center gap-1"
             >
+              <Icon
+                type="error"
+                variant="outlined"
+                color="text-error"
+                fontSize="text-sm"
+                aria-hidden="true"
+              />
               {errorText}
             </Text>
           )}

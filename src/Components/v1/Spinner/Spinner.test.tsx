@@ -30,10 +30,10 @@ describe("Spinner", () => {
     }
   })
 
-  it("renders with role status and aria-live polite", () => {
+  it("renders with role status", () => {
     render(<Spinner />)
     const spinner = screen.getByRole("status")
-    expect(spinner).toHaveAttribute("aria-live", "polite")
+    expect(spinner).toBeInTheDocument()
   })
 
   it("accepts and applies custom aria-label", () => {

@@ -1,4 +1,5 @@
 import { Meta } from "@storybook/blocks"
+import { Chip } from "../Chip"
 import { Flex } from "../Flex"
 import { Grid } from "../Grid"
 import { Icon } from "../Icon"
@@ -40,37 +41,31 @@ O componente `Icon` possui diversas propriedades que permitem personalizar sua a
 
 O componente `Icon` foi desenvolvido com foco em acessibilidade e usabilidade. Dessa forma, através de seus estilos e propriedades, ele permite o uso adequado de ícones na interface do usuário. No entanto, é importante que seu uso siga boas práticas de acessibilidade para preservar esse foco e garantir uma experiência eficaz e inclusiva.
 
-<Title component="h1" className="!text-h5">Use ícones de fácil reconhecimento e compreensão, com associações claras e estabelecidas entre produtos ou ações.</Title>
+<Title component="h4" className="!text-h6">Use ícones de fácil reconhecimento e compreensão, com associações claras e estabelecidas entre produtos ou ações.</Title>
 
 <Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
     <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
-      <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-success">
-        <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
-      </Flex>
+      <Chip variant="outlined" color="success"><Icon type="check_circle" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que fazer</Chip>
       <Text className="!m-0">Associe o ícone com associações já estabelecidas, como o ícone de disquete para salvar, que é amplamente reconhecido como padrão para essa ação. Em casos de o texto não estar vísivel, recomenda-se usar o atributo `aria-label`.</Text>
     </Flex>
     <Icon color="inherit" type="save" fontSize="text-6xl" className="sb-unstyled text-6xl" aria-label="Ícone de disquete representando a ação de salvar" />
   </Flex>
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
     <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
-      <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-error">
-        <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
-      </Flex>
+      <Chip variant="outlined" color="error"><Icon type="cancel" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que não fazer</Chip>
       <Text className="!m-0">Evite usar ícone incomuns ou pouco reconhecíveis, principalmente se não estiverem acompanhados de texto visível. Eles podem ser associados com outros conceitos e causar confusão.</Text>
     </Flex>
     <Icon color="inherit" type="cloud_download" fontSize="text-6xl" className="sb-unstyled mt-auto" aria-label="Ícone de núvem junto com uma seta para baixo representando a ação de salvar" />
   </Flex>
 </Grid>
 
-<Title component="h1" className="!text-h5">Evite usar uma grande quantidade de ícones em um mesmo grupo ou área, isso pode sobrecarregar visualmente o usuário e dificultar a compreensão da interface.</Title>
+<Title component="h4" className="!text-h6">Evite usar uma grande quantidade de ícones em um mesmo grupo ou área, isso pode sobrecarregar visualmente o usuário e dificultar a compreensão da interface.</Title>
 
 
 <Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
-    <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-success !mb-sm">
-      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
-    </Flex>
+    <Chip variant="outlined" color="success"><Icon type="check_circle" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que fazer</Chip>
     <ul>
       <li>
         <Link className="sb-unstyled flex w-fit">
@@ -95,9 +90,7 @@ O componente `Icon` foi desenvolvido com foco em acessibilidade e usabilidade. D
     </ul>
   </Flex>
    <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
-    <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-error !mb-sm">
-      <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
-    </Flex>
+    <Chip variant="outlined" color="error"><Icon type="cancel" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que não fazer</Chip>
     <ul>
       <li>
         <Link className="sb-unstyled flex w-fit">
@@ -131,11 +124,13 @@ O componente `Icon` foi desenvolvido com foco em acessibilidade e usabilidade. D
 
 O componente `Icon` foi desenvolvido e testado para atender às diretrizes WCAG 2.1, oferecendo suporte a propriedades de acessibilidade e práticas recomendadas para garantir uma experiência inclusiva para todos os usuários. Como, por exemplo:
 
-- Ícones puramente decorativos são marcados com `aria-hidden="true"` para que leitores de tela os ignorem, conforme recomendado no critério <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html" target="_blank">WCAG 1.1.1 – Conteúdo não textual</Link>;
-- Quando necessário, permite que o ícone seja interpretado como imagem acessível `(role="img")` ao receber uma `aria-label`, garantindo que o leitor de tela possa descrever o propósito do ícone, seguindo as diretrizes do <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value.html" target="_blank">4.1.2 Nome, função e valor</Link>;
+- Ícones puramente decorativos, ou seja, que não incluíram a propriedade `aria-label`, são marcados com `aria-hidden="true"` para que leitores de tela os ignorem, conforme recomendado no critério <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html" target="_blank">WCAG 1.1.1 – Conteúdo não textual</Link>;
+- Ao receber a propriedade `aria-label`, permite que o ícone seja interpretado como imagem acessível `(role="img")`, garantindo que o leitor de tela possa descrever o propósito do ícone, seguindo as diretrizes do <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value.html" target="_blank">4.1.2 Nome, função e valor</Link>;
 - Usa elementos semanticamente neutros `(<span>)` para garantir flexibilidade e controle total sobre o comportamento de acessibilidade e estilização;
 - Bloqueia a tradução automática com `translate="no"`, evitando alterações indesejadas do conteúdo do ícone por serviços de tradução automática;
 - Suporta personalização acessível por meio de propriedades como `aria-label`, `aria-labelledby` e `role`, permitindo adaptação conforme o contexto de uso, conforme indicado nos critérios <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html" target="_blank">1.1.1 Conteúdo não textual</Link> e <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html" target="_blank">1.3.1 Informações e relacionamentos</Link>.
+
+### 📌 Boas práticas de acessibilidade ao utilizar o componente
 
 Para complementar e garantir a acessibilidade, recomenda-se:
 

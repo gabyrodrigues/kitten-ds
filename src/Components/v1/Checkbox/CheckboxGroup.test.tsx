@@ -364,7 +364,7 @@ describe("CheckboxGroup", () => {
     expect(sushi).not.toBeDisabled()
   })
 
-  it("renders withAsterik color in legend with disabled color when disabled is true", () => {
+  it("renders withAsterisk color in legend with disabled color when disabled is true", () => {
     render(
       <CheckboxGroup
         withAsterisk
@@ -477,5 +477,48 @@ describe("CheckboxGroup", () => {
     const checkboxes = screen.getAllByRole("checkbox")
     expect(checkboxes[0]).toBeRequired()
     expect(checkboxes[1]).toBeRequired()
+  })
+
+  it("renders with flex-row when direction is horizontal", () => {
+    const { getByTestId } = render(
+      <CheckboxGroup
+        required
+        label="Label"
+        direction="horizontal"
+      >
+        <Checkbox
+          label="Pizza"
+          value="pizza"
+        />
+        <Checkbox
+          label="Sushi"
+          value="sushi"
+        />
+      </CheckboxGroup>
+    )
+    // Find the Flex container for the radio list
+    const checkboxList = getByTestId("checkbox-group-list")
+    expect(checkboxList).toHaveClass("flex-row")
+  })
+
+  it("renders with flex-col when direction is vertical (default)", () => {
+    const { getByTestId } = render(
+      <CheckboxGroup
+        required
+        label="Label"
+      >
+        <Checkbox
+          label="Pizza"
+          value="pizza"
+        />
+        <Checkbox
+          label="Sushi"
+          value="sushi"
+          required={false}
+        />
+      </CheckboxGroup>
+    )
+    const checkboxList = getByTestId("checkbox-group-list")
+    expect(checkboxList).toHaveClass("flex-col")
   })
 })

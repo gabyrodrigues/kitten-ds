@@ -16,7 +16,7 @@ export interface SpinnerProps extends HTMLAttributes<HTMLDivElement> {
 
   /**
    * The variant of the spinner.
-   * Possible values: "primary", "secondary", "negative", "positive", "warning" or "gray".
+   * Possible values: "primary", "secondary", "neutral" or "disabled".
    * @default "primary"
    */
   color?: SpinnerColor

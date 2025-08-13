@@ -1,6 +1,8 @@
 import { ColorItem, ColorPalette, Meta } from "@storybook/blocks"
+import { Chip } from "../Chip"
 import { Flex } from "../Flex"
 import { Grid } from "../Grid"
+import { Icon } from "../Icon"
 import { Link } from "../Link"
 import { Text } from "../Text"
 import { Title } from "../Title"
@@ -92,14 +94,12 @@ O `Text` foi projetado com os seguintes valores padrão que viraram *tokens* e c
 
 O componente `Text` foi desenvolvido com foco em acessibilidade e usabilidade. Dessa forma, através de seus estilos e propriedades, ele permite o uso adequado de ícones na interface do usuário. No entanto, é importante que seu uso siga boas práticas de acessibilidade para preservar esse foco e garantir uma experiência eficaz e inclusiva.
 
-<Title component="h1" className="!text-h5">Ao exibir textos, sempre verifique a semântica e a hierarquia do conteúdo. Utilize as variantes de texto apropriadas para garantir que o conteúdo seja legível e visualmente consistente.</Title>
+<Title component="h4" className="!text-h6">Ao exibir textos, sempre verifique a semântica e a hierarquia do conteúdo. Utilize as variantes de texto apropriadas para garantir que o conteúdo seja legível e visualmente consistente.</Title>
 
 <Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
     <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
-      <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-success">
-        <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
-      </Flex>
+      <Chip variant="outlined" color="success"><Icon type="check_circle" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que fazer</Chip>
     </Flex>
     <Flex direction="flex-col" rowGap="gap-y-nano" className="flex-1 mt-auto">
       <Text className="sb-unstyled" variant="body2">Este é um texto explicativo com variante apropriada, garantindo legibilidade e consistência com o restante da interface.</Text>
@@ -108,9 +108,7 @@ O componente `Text` foi desenvolvido com foco em acessibilidade e usabilidade. D
   </Flex>
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
     <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
-      <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-error">
-        <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
-      </Flex>
+      <Chip variant="outlined" color="error"><Icon type="cancel" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que não fazer</Chip>
     </Flex>
     <Flex direction="flex-col" rowGap="gap-y-nano" className="flex-1 mt-auto">
       <Text className="text-2xl font-bold sb-unstyled">Este texto está agindo como um título, mas deveria ser um componente `Title`.</Text>
@@ -119,14 +117,12 @@ O componente `Text` foi desenvolvido com foco em acessibilidade e usabilidade. D
   </Flex>
 </Grid>
 
-<Title component="h1" className="!text-h5">Use variantes de texto apropriadas para cada tipo de conteúdo. Evite usar estilos manuais para simular tamanhos, pesos ou usos que já estão definidos nas variantes do componente.</Title>
+<Title component="h4" className="!text-h6">Use variantes de texto apropriadas para cada tipo de conteúdo. Evite usar estilos manuais para simular tamanhos, pesos ou usos que já estão definidos nas variantes do componente.</Title>
 
 <Grid cols="grid-cols-1 md:grid-cols-2" colGap="gap-x-sm" rowGap="gap-y-sm" className="!mb-2xl !mt-lg">
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
     <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
-      <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-success">
-        <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✔ O que fazer</Title>
-      </Flex>
+      <Chip variant="outlined" color="success"><Icon type="check_circle" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que fazer</Chip>
     </Flex>
     <Flex direction="flex-col" rowGap="gap-y-nano" className="flex-1 mt-auto">
       <Text variant="body2" className="sb-unstyled">Este é o texto descritivo principal, explicando o conteúdo de forma clara e acessível.</Text>
@@ -135,9 +131,7 @@ O componente `Text` foi desenvolvido com foco em acessibilidade e usabilidade. D
   </Flex>
   <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-sm" radius="rounded-lg" paddingX="px-sm" paddingY="py-sm" className="border border-default-border">
     <Flex direction="flex-col" rowGap="gap-x-sm" colGap="gap-y-nano" className="!mb-sm">
-      <Flex radius="rounded-full" paddingX="px-nano" paddingY="py-quark" className="bg-error">
-        <Title component="h1" color="!text-typography-inverted" className="!text-h6 !mb-0 !whitespace-nowrap">✘ O que não fazer</Title>
-      </Flex>
+      <Chip variant="outlined" color="error"><Icon type="cancel" color="inherit" fontSize="text-lg" className="sb-unstyled" /> O que não fazer</Chip>
     </Flex>
     <Flex direction="flex-col" rowGap="gap-y-nano" className="flex-1 mt-auto">
       <Text className="text-[14px] text-neutral-800 sb-unstyled">Este é o texto descritivo com estilos manuais que poderiam ser resolvidos com a variante `body4` e outras propriedades adequadas do componente, como `color` para definir a cor.</Text>
@@ -154,4 +148,4 @@ O componente `Text` foi desenvolvido e testado para atender às diretrizes WCAG 
 - Escolha a variante adequada (`body1`, `body2`, `body3`, `body4`) com base no tamanho e estilo do texto desejado, promovendo a legibilidade e a consistência visual. O uso apropriado de estilos tipográficos contribui para a acessibilidade do conteúdo, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/visual-presentation.html" target="_blank">WCAG 1.4.8 (Visual Presentation)</Link>;
 - Use a propriedade `component` para garantir que o texto seja renderizado com o elemento HTML apropriado, como `p`, `span`, etc. Isso melhora a interpretação da estrutura do conteúdo por leitores de tela, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html" target="_blank">WCAG 1.3.1 (Info and Relationships)</Link>;
 - Dê preferência à propriedade `variant` para manter estilos tipográficos padronizados. Personalizações adicionais com `fontSize`, `weight`, `lineHeight`, `textAlign`, `color` e `className` devem preservar a clareza visual e facilitar a leitura do conteúdo, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/visual-presentation.html" target="_blank">WCAG 1.4.8 (Visual Presentation)</Link>;
-- Garanta que o contraste entre o texto e o fundo esteja dentro dos critérios mínimos exigidos, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html" target="_blank">WCAG 1.4.3 (Contrast (Minimum))</Link>. Utilize *tokens* de cor pré-definidos, como `text-typography-primary`, `text-typography-secondary`, etc., para manter boa legibilidade e consistência.
+- Garanta que o contraste entre o texto e o fundo esteja dentro dos critérios mínimos exigidos, conforme a <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html" target="_blank">WCAG 1.4.3 (Contrast - Minimum)</Link>. Utilize *tokens* de cor pré-definidos, como `text-typography-primary`, `text-typography-secondary`, etc., para manter boa legibilidade e consistência.

@@ -6,16 +6,16 @@ export const spinnerVariants = tv({
   ],
   variants: {
     color: {
-      primary: "border-medium border-solid border-primary border-e-transparent",
-      secondary: "border-medium border-solid border-secondary border-e-transparent",
-      neutral: "border-medium border-solid border-neutral border-e-transparent",
-      disabled: "border-medium border-solid border-typography-disabled border-e-transparent"
+      primary: "border-solid border-primary border-e-transparent",
+      secondary: "border-solid border-secondary border-e-transparent",
+      neutral: "border-solid border-neutral border-e-transparent",
+      disabled: "border-solid border-typography-disabled border-e-transparent"
     },
     size: {
-      xs: "h-4 w-4",
-      sm: "h-8 w-8",
-      md: "h-11 w-11",
-      lg: "h-18 w-18"
+      xs: "h-4 w-4 border-medium",
+      sm: "h-8 w-8 border-bold",
+      md: "h-11 w-11 border-bold",
+      lg: "h-18 w-18 border-bold"
     }
   },
   defaultVariants: {

@@ -1,6 +1,7 @@
 import { cn } from "@utils"
 import React, { useId, type ChangeEvent, type ReactElement } from "react"
 import { Flex } from "../Flex"
+import { Icon } from "../Icon"
 import { Text } from "../Text"
 import Radio from "./Radio"
 import type { RadioGroupProps, RadioProps } from "./Radio.types"
@@ -12,6 +13,7 @@ export default function RadioGroup({
   onChange,
   color = "primary",
   defaultA11yLabel = "Radio Group",
+  direction = "vertical",
   disabled = false,
   id,
   label,
@@ -21,6 +23,7 @@ export default function RadioGroup({
   successText,
   className,
   listClassName,
+  readOnly = false,
   required = false,
   withAsterisk = false,
   ...props
@@ -35,7 +38,7 @@ export default function RadioGroup({
   const mergedClasses = cn("flex flex-col", className)
 
   function handleRadioChange(event: ChangeEvent<HTMLInputElement>) {
-    if (!disabled) {
+    if (!disabled && !readOnly) {
       onChange?.(event)
     }
   }
@@ -82,9 +85,10 @@ export default function RadioGroup({
       </Text>
 
       <Flex
-        direction="flex-col"
-        rowGap="gap-y-xs"
+        direction={direction === "horizontal" ? "flex-row" : "flex-col"}
+        gap="gap-xs"
         className={cn(listClassName)}
+        data-testid="radio-group-list"
       >
         {flattenedChildren.map((child, index) => {
           if (!React.isValidElement(child) || child.type !== Radio) {
@@ -95,6 +99,7 @@ export default function RadioGroup({
           const childProps = child.props as RadioProps
           const isDisabled = Boolean(disabled) || Boolean(childProps.disabled)
           const isRequired = Boolean(required) || Boolean(childProps.required)
+          const isReadOnly = Boolean(readOnly) || Boolean(childProps.readOnly)
 
           return (
             <Radio
@@ -105,6 +110,7 @@ export default function RadioGroup({
               onChange={handleRadioChange}
               color={color}
               disabled={isDisabled}
+              readOnly={isReadOnly}
               required={isRequired}
             />
           )
@@ -132,7 +138,15 @@ export default function RadioGroup({
               color="text-error"
               id={`${baseId}_error`}
               aria-live="polite"
+              className="flex items-center gap-1"
             >
+              <Icon
+                type="error"
+                variant="outlined"
+                color="text-error"
+                fontSize="text-sm"
+                aria-hidden="true"
+              />
               {errorText}
             </Text>
           )}
@@ -142,7 +156,15 @@ export default function RadioGroup({
               color="text-success"
               id={`${baseId}_success`}
               aria-live="polite"
+              className="flex items-center gap-1"
             >
+              <Icon
+                type="check_circle"
+                variant="outlined"
+                color="text-success"
+                fontSize="text-sm"
+                aria-hidden="true"
+              />
               {successText}
             </Text>
           )}
