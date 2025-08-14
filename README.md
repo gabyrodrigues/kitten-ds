@@ -82,7 +82,7 @@ Se quiser alterar a paleta, por exemplo, basta definir novos valores no seu CSS 
 
 ### 🚀 Dependência do Tailwind CSS
 
-O Kitten DS depende do Tailwind CSS para seu funcionamento. Certifique-se de que seu projeto React está com o Tailwind CSS (versão 4) corretamente configurado.
+O Kitten DS tem Tailwind CSS como dependência para seu funcionamento. Certifique-se de que seu projeto React está com o Tailwind CSS (versão 4) corretamente configurado.
 
 Se ainda não configurou, siga o guia oficial de instalação do Tailwind:
 
@@ -111,6 +111,16 @@ O Kitten DS é desenvolvido com foco em acessibilidade, seguindo as Diretrizes d
 - Foco visível e navegável por teclado;
 - Contraste adequado entre texto e fundo;
 - Tamanho mínimo recomendado para áreas de toque.
+
+## 🖌️ Design
+
+O **Kitten DS** conta com um **UI Kit** desenvolvido no Figma como parte integrante do *design system*. Ele reúne todos os fundamentos visuais e componentes prontos para uso, servindo como ponto inicial para criação de interfaces consistentes e acessíveis.
+
+Os *tokens* documentados no Figma correspondem exatamente aos utilizados na biblioteca de componentes, garantindo confiabilidade e consistência entre design e desenvolvimento.
+
+Você pode duplicar o arquivo para sua conta ou salvá-lo como biblioteca no Figma.
+
+Acesse o arquivo diretamente aqui: [Figma Kitten DS](https://www.figma.com/community/file/1497783419530927373).
 
 ## 🤝 Contribuindo
 
