@@ -8,7 +8,7 @@
 
 ## ⚙️ Pré-requisitos
 
-Antes de instalar o Kitten DS, você precisa ter:
+Antes de instalar o **Kitten DS**, você precisa ter:
 
 - Conhecimento básico em **JavaScript**, **React**, **CSS** e familiaridade com **Tailwind CSS**;
 - Instalado em sua máquina:
@@ -39,9 +39,9 @@ yarn add kitten-ds
 
 ## 🎨 Integração com Tailwind CSS e *Tokens* de design
 
-O Kitten DS utiliza o Tailwind CSS (versão 4) como base para estilização e oferece um sistema de **tokens CSS** que garantem consistência e fácil personalização visual.
+O **Kitten DS** utiliza o Tailwind CSS (versão 4) como base para estilização e oferece um sistema de *tokens* CSS que garantem consistência e fácil personalização visual.
 
-Durante a fase de prototipação do *design system*, esses *tokens* foram definidos com foco em critérios de acessibilidade (como contraste adequado, legibilidade e foco visível) e experiência do usuário. Eles são aplicados globalmente aos componentes do Kitten DS, criando uma base visual consistente.
+Durante a fase de prototipação do *design system*, esses *tokens* foram definidos com foco em critérios de acessibilidade (como contraste adequado, legibilidade e foco visível) e experiência do usuário. Eles são aplicados globalmente aos componentes do **Kitten DS**, criando uma base visual consistente.
 
 ### 🎯 Customização via *Tokens* CSS
 
@@ -76,13 +76,13 @@ Se quiser alterar a paleta, por exemplo, basta definir novos valores no seu CSS 
   }
 ```
 
-✔️ Dessa forma, você tem liberdade para ajustar cores, sombras, tipografia e outros aspectos visuais, mantendo a consistência e acessibilidade que fazem parte do DNA do Kitten DS.
+✔️ Dessa forma, você tem liberdade para ajustar cores, sombras, tipografia e outros aspectos visuais, mantendo a consistência e acessibilidade que fazem parte do DNA do **Kitten DS**.
 
 ⚠️🔧 Importante: Embora seja possível sobrescrever qualquer *token*, recomendamos sempre validar alterações com ferramentas de acessibilidade para garantir contraste, legibilidade e foco, respeitando as diretrizes WCAG.
 
 ### 🚀 Dependência do Tailwind CSS
 
-O Kitten DS depende do Tailwind CSS para seu funcionamento. Certifique-se de que seu projeto React está com o Tailwind CSS (versão 4) corretamente configurado.
+O **Kitten DS** tem Tailwind CSS como dependência para seu funcionamento. Certifique-se de que seu projeto React está com o Tailwind CSS (versão 4) corretamente configurado.
 
 Se ainda não configurou, siga o guia oficial de instalação do Tailwind:
 
@@ -90,7 +90,7 @@ Se ainda não configurou, siga o guia oficial de instalação do Tailwind:
 
 ## ⚛️ Uso básico em React
 
-Após a instalação, importe os componentes do Kitten DS diretamente em seus arquivos React. Por exemplo:
+Após a instalação, importe os componentes do **Kitten DS** diretamente em seus arquivos React. Por exemplo:
 
 ```javascript
 import { Button } from "kitten-ds"
@@ -106,11 +106,27 @@ export default App;
 
 ## ♿ Acessibilidade
 
-O Kitten DS é desenvolvido com foco em acessibilidade, seguindo as Diretrizes de Acessibilidade para Conteúdo Web (WCAG), incluindo:
+O **Kitten DS** é desenvolvido com foco em acessibilidade, seguindo as Diretrizes de Acessibilidade para Conteúdo Web (WCAG), incluindo:
 
 - Foco visível e navegável por teclado;
 - Contraste adequado entre texto e fundo;
 - Tamanho mínimo recomendado para áreas de toque.
+
+## 🖌️ Design
+
+O **Kitten DS** conta com um **UI Kit** desenvolvido no Figma como parte integrante do *design system*. Ele reúne todos os fundamentos visuais e componentes prontos para uso, servindo como ponto inicial para criação de interfaces consistentes e acessíveis.
+
+Os *tokens* documentados no Figma correspondem exatamente aos utilizados na biblioteca de componentes, garantindo confiabilidade e consistência entre design e desenvolvimento.
+
+Você pode duplicar o arquivo para sua conta ou salvá-lo como biblioteca no Figma. Acesse o arquivo diretamente aqui: [Figma Kitten DS](https://www.figma.com/community/file/1497783419530927373).
+
+> 📚 Para consultar a documentação detalhada dos componentes e exemplos de uso, acesse o guia interativo no Storybook: [Storybook Kitten DS](https://kitten-ds.vercel.app/).
+
+## 📖 Biblioteca de componentes
+
+O **Kitten DS** inclui uma biblioteca de componentes reutilizáveis, todos previamente projetados e testados no **UI Kit do Figma** para garantir consistência visual e funcionalidade. Esses componentes podem ser integrados facilmente em projetos React, acelerando a criação de interfaces acessíveis e consistentes.
+
+Acesse a biblioteca de componentes diretamente aqui: [Biblioteca Kitten DS](https://www.npmjs.com/package/kitten-ds).
 
 ## 🤝 Contribuindo
 

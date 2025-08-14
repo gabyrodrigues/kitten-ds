@@ -5,9 +5,9 @@ import { Flex, Text, Button, Title } from "../../Components"
 
 # 📏 Espaçamento do Kitten DS
 
-O sistema de espaçamento do Kitten DS é baseado em uma escala modular que segue incrementos de `4px`, alinhada à abordagem do Tailwind CSS. Essa escala padronizada garante consistência visual, facilita o alinhamento dos componentes e cria padrões de espaçamento previsíveis em toda a interface.
+O sistema de espaçamento do **Kitten DS** é baseado em uma escala modular que segue incrementos de `4px`, alinhada à abordagem do Tailwind CSS. Essa escala padronizada garante consistência visual, facilita o alinhamento dos componentes e cria padrões de espaçamento previsíveis em toda a interface.
 
-O Kitten DS utiliza essa escala para definir *tokens* de espaçamento, que podem ser aplicados em margens, preenchimentos e espaçamentos entre elementos. Esses *tokens* são fundamentais para manter a consistência no desenvolvimento de componentes e *layouts*, permitindo que eles possuam um padrão de espaçamento uniforme.
+O **Kitten DS** utiliza essa escala para definir *tokens* de espaçamento, que podem ser aplicados em margens, preenchimentos e espaçamentos entre elementos. Esses *tokens* são fundamentais para manter a consistência no desenvolvimento de componentes e *layouts*, permitindo que eles possuam um padrão de espaçamento uniforme.
 
 > 💡 **Por que isso importa?**  
 > Ao adotar uma escala de espaçamento consistente por meio do uso de *tokens*, é possível reduzir erros de alinhamento, melhorar a legibilidade e simplificar a manutenção. Alterações futuras tornam-se mais rápidas e seguras, já que os espaçamentos ficam concentrados na configuração do tema, evitando ajustes manuais e margens avulsas.
@@ -96,7 +96,7 @@ Essa divisão ajuda a manter o código limpo, evita regras sobrepostas e facilit
 > Usar `gap` como padrão simplifica muito a construção dos *layouts*. Isso é especialmente relevante porque muitos componentes do *design system*, como `Input` e `Button`, já possuem espaçamentos internos (via `padding`) e não exigem margens adicionais. Dessa forma, o container que agrupa esses elementos é responsável pelo espaçamento entre eles.
 
 > ⚠️ **Atenção:**  
-> No Kitten DS, o uso de `gap` é priorizado nos containers (`Flex`, `Grid`) para definir o espaçamento entre elementos que fazem parte de uma mesma estrutura (irmãos dentro do mesmo container). Já o uso de `margin` é recomendado quando:
+> No **Kitten DS**, o uso de `gap` é priorizado nos containers (`Flex`, `Grid`) para definir o espaçamento entre elementos que fazem parte de uma mesma estrutura (irmãos dentro do mesmo container). Já o uso de `margin` é recomendado quando:
 > - Não existe um container controlando o espaçamento, como na separação entre um título e um bloco de conteúdo, ou entre seções da página. Para elementos como `Input` e `Button`, o próprio componente já encapsula os espaçamentos internos, incluindo `labels` quando aplicável;
 > - Ou quando você deseja criar um espaçamento externo em relação a outros blocos.
 
@@ -152,5 +152,5 @@ export function SpacingExample() {
   </Flex>
 </Flex>
 
-> ✨ Nota: A utilização correta dos *tokens* de espaçamento não é apenas uma questão estética, mas também contribui para interfaces mais legíveis, acessíveis e com maior coerência visual. O Kitten DS, alinhado ao Tailwind, promove essa consistência de forma simples e escalável.
+> ✨ Nota: A utilização correta dos *tokens* de espaçamento não é apenas uma questão estética, mas também contribui para interfaces mais legíveis, acessíveis e com maior coerência visual. O **Kitten DS**, alinhado ao Tailwind, promove essa consistência de forma simples e escalável.
 > **Seguir essas recomendações reduz retrabalho, evita desalinhamentos e torna o código mais fácil de manter.**
