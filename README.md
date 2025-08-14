@@ -39,7 +39,7 @@ yarn add kitten-ds
 
 ## 🎨 Integração com Tailwind CSS e *Tokens* de design
 
-O **Kitten DS** utiliza o Tailwind CSS (versão 4) como base para estilização e oferece um sistema de **tokens CSS** que garantem consistência e fácil personalização visual.
+O **Kitten DS** utiliza o Tailwind CSS (versão 4) como base para estilização e oferece um sistema de *tokens* CSS que garantem consistência e fácil personalização visual.
 
 Durante a fase de prototipação do *design system*, esses *tokens* foram definidos com foco em critérios de acessibilidade (como contraste adequado, legibilidade e foco visível) e experiência do usuário. Eles são aplicados globalmente aos componentes do **Kitten DS**, criando uma base visual consistente.
 
