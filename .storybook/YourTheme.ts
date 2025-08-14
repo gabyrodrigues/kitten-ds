@@ -5,7 +5,7 @@ export default create({
   fontCode: "monospace",
   base: "dark",
   brandTitle: "Kitten DS",
-  brandUrl: "#", //TODO: Update project's URL after publishing
+  brandUrl: "https://kitten-ds.vercel.app",
   brandImage: "/logo.svg",
   brandTarget: "_self"
 })
