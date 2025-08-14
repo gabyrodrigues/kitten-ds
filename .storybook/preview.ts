@@ -25,7 +25,7 @@ const preview: Preview = {
     options: {
       storySort: {
         method: "alphabetical",
-        order: [["Guia de Uso", "Propriedades"]],
+        order: ["Sobre o Kitten DS", ["Guia de Uso", "Propriedades"]],
         includeNames: true
       }
     }
