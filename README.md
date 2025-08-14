@@ -118,9 +118,15 @@ O **Kitten DS** conta com um **UI Kit** desenvolvido no Figma como parte integra
 
 Os *tokens* documentados no Figma correspondem exatamente aos utilizados na biblioteca de componentes, garantindo confiabilidade e consistência entre design e desenvolvimento.
 
-Você pode duplicar o arquivo para sua conta ou salvá-lo como biblioteca no Figma.
+Você pode duplicar o arquivo para sua conta ou salvá-lo como biblioteca no Figma. Acesse o arquivo diretamente aqui: [Figma Kitten DS](https://www.figma.com/community/file/1497783419530927373).
 
-Acesse o arquivo diretamente aqui: [Figma Kitten DS](https://www.figma.com/community/file/1497783419530927373).
+> 📚 Para consultar a documentação detalhada dos componentes e exemplos de uso, acesse o guia interativo no Storybook: [Storybook Kitten DS](https://kitten-ds.vercel.app/).
+
+## 📖 Biblioteca de componentes
+
+O **Kitten DS** inclui uma biblioteca de componentes reutilizáveis, todos previamente projetados e testados no **UI Kit do Figma** para garantir consistência visual e funcionalidade. Esses componentes podem ser integrados facilmente em projetos React, acelerando a criação de interfaces acessíveis e consistentes.
+
+Acesse a biblioteca de componentes diretamente aqui: [Biblioteca Kitten DS](https://www.npmjs.com/package/kitten-ds).
 
 ## 🤝 Contribuindo
 
