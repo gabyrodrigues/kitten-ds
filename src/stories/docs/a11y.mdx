@@ -1,4 +1,5 @@
 import { Meta } from "@storybook/blocks"
+import { Link } from "../../Components"
 
 <Meta title="Sobre a acessibilidade" />
 
@@ -11,7 +12,7 @@ A acessibilidade é um dos pilares do **Kitten DS**, presente desde as fases ini
 O **Kitten DS** foi desenvolvido com foco em acessibilidade desde o início, utilizando:
 
 - Figma para prototipação, documentação das fundações do *design system* e testes iniciais de acessibilidade;
-- Stark - Contrast & Accessibility Checker (plugin do Figma) para validar contraste, tipografia e áreas de toque conforme as Diretrizes WCAG;
+- Stark - Contrast & Accessibility Checker (plugin do Figma) para validar contraste, tipografia e áreas de toque conforme as <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank">Diretrizes WCAG</Link>;
 - React com Typescript para tipagem clara e segura no desenvolvimento dos componentes;
 - Tailwind CSS para estilização consistente e flexível;
 - Storybook com extensão de acessibilidade para documentação e testes manuais;
@@ -19,20 +20,20 @@ O **Kitten DS** foi desenvolvido com foco em acessibilidade desde o início, uti
 
 ## 🛠️ Fluxo de desenvolvimento
 
-O processo começa no Figma, onde o UI Kit é prototipado e as fundações do *design system* são documentadas. As etapas incluem:
+O processo começa no Figma, onde o **UI Kit** é prototipado e as fundações do *design system* são documentadas. As etapas incluem:
 
-- Definição de paletas de cores acessíveis, testadas com o plugin **Stark - Contrast & Accessibility Checker**, garantindo conformidade com as Diretrizes WCAG nível AAA;
+- Definição de paletas de cores acessíveis, testadas com o plugin **Stark - Contrast & Accessibility Checker**, garantindo conformidade com as <Link className="sb-unstyled text-sm" href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank">Diretrizes WCAG nível AAA</Link>;
 - Criação de guias de estilo e *tokens* que servem como base para o design e desenvolvimento;
 - Validação de contraste, tipografia e áreas de toque para assegurar legibilidade e usabilidade.
 
 A partir daí, o desenvolvimento dos componentes segue etapas padronizadas:
 
-1. Definição clara das propriedades, considerando atributos acessíveis como `aria-label` e `aria-describedby`;
-2. Implementação usando React, Typescript e Tailwind CSS;
-3. Documentação e demonstração interativa no Storybook, com testes manuais usando a extensão de acessibilidade;
-4. Testes automatizados com Vitest, React Testing Library e Vitest Axe para garantir usabilidade e conformidade com WCAG.
+- Definição clara das propriedades, considerando atributos acessíveis como `aria-label` e `aria-describedby`;
+- Implementação usando React, Typescript e Tailwind CSS;
+- Documentação e demonstração interativa no Storybook, com testes manuais usando a extensão de acessibilidade;
+- Testes automatizados com Vitest, React Testing Library e Vitest Axe para garantir usabilidade e conformidade com WCAG.
 
-Este fluxo integrado entre design, desenvolvimento e testes assegura que cada componente do Kitten DS seja acessível, consistente e fácil de usar.
+Este fluxo integrado entre design, desenvolvimento e testes assegura que cada componente do **Kitten DS** seja acessível, consistente e fácil de usar.
 
 ## 🔍 Foco do Kitten DS em cada componente
 
