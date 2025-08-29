@@ -4,7 +4,7 @@
 
 # 🐾 Kitten DS
 
-**Kitten DS** é um *design system* acessível, focado na criação de interfaces amigáveis e fáceis de usar. Ele combina a flexibilidade de um *UI kit* com a estrutura de um *design system* completo, integrado a uma biblioteca de componentes, fundações de design com *tokens* e variáveis customizáveis, além de testes e documentação interativa — oferecendo uma experiência fluida e agradável para todos os usuários. Seus componentes foram desenvolvidos e testados em conformidade com as [Diretrizes WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/).
+**Kitten DS** é um *design system* acessível, focado na criação de interfaces amigáveis e fáceis de usar. Ele combina a flexibilidade de um *UI Kit* com a estrutura de um *design system* completo, integrado a uma biblioteca de componentes, fundações de design com *tokens* e variáveis customizáveis, além de testes e documentação interativa — oferecendo uma experiência fluida e agradável para todos os usuários. Seus componentes foram desenvolvidos e testados em conformidade com as [Diretrizes WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/).
 
 ## ⚙️ Pré-requisitos
 
@@ -18,7 +18,7 @@ Antes de instalar o **Kitten DS**, você precisa ter:
 
 ## 📦 Instalação
 
-Instale o Kitten DS com o gerenciador de pacotes da sua escolha:
+Instale o **Kitten DS** com o gerenciador de pacotes da sua escolha:
 
 ### Usando `npm`:
 
@@ -41,11 +41,11 @@ yarn add kitten-ds
 
 O **Kitten DS** utiliza o Tailwind CSS (versão 4) como base para estilização e oferece um sistema de *tokens* CSS que garantem consistência e fácil personalização visual.
 
-Durante a fase de prototipação do *design system*, esses *tokens* foram definidos com foco em critérios de acessibilidade (como contraste adequado, legibilidade e foco visível) e experiência do usuário. Eles são aplicados globalmente aos componentes do **Kitten DS**, criando uma base visual consistente.
+Durante a fase de prototipação do *design system*, esses *tokens* foram definidos com foco em critérios de acessibilidade (como contraste adequado, legibilidade e foco visível) e usabilidade. Eles são aplicados globalmente aos componentes do **Kitten DS**, criando uma base visual consistente.
 
 ### 🎯 Customização via *Tokens* CSS
 
-Esses *tokens* são variáveis CSS customizadas e podem ser sobrescritos diretamente no seu CSS global para adaptar o Kitten DS ao branding e às necessidades do seu projeto — sem a necessidade de alterar a biblioteca.
+Esses *tokens* são variáveis CSS customizadas e podem ser sobrescritos diretamente no seu CSS global para adaptar o **Kitten DS** ao branding e às necessidades do seu projeto — sem a necessidade de alterar a biblioteca.
 
 Por exemplo, os *tokens* padrão incluem:
 
@@ -78,7 +78,7 @@ Se quiser alterar a paleta, por exemplo, basta definir novos valores no seu CSS 
 
 ✔️ Dessa forma, você tem liberdade para ajustar cores, sombras, tipografia e outros aspectos visuais, mantendo a consistência e acessibilidade que fazem parte do DNA do **Kitten DS**.
 
-⚠️🔧 Importante: Embora seja possível sobrescrever qualquer *token*, recomendamos sempre validar alterações com ferramentas de acessibilidade para garantir contraste, legibilidade e foco, respeitando as diretrizes WCAG.
+⚠️🔧 Importante: Embora seja possível sobrescrever qualquer *token*, recomendamos sempre validar alterações com ferramentas de acessibilidade para garantir contraste, legibilidade e foco, respeitando as [Diretrizes WCAG](https://www.w3.org/WAI/standards-guidelines/wcag).
 
 ### 🚀 Dependência do Tailwind CSS
 
@@ -106,7 +106,7 @@ export default App;
 
 ## ♿ Acessibilidade
 
-O **Kitten DS** é desenvolvido com foco em acessibilidade, seguindo as Diretrizes de Acessibilidade para Conteúdo Web (WCAG), incluindo:
+O **Kitten DS** é desenvolvido com foco em acessibilidade, seguindo as [Diretrizes de Acessibilidade para Conteúdo Web (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag), incluindo:
 
 - Foco visível e navegável por teclado;
 - Contraste adequado entre texto e fundo;
@@ -131,7 +131,7 @@ Acesse a biblioteca de componentes diretamente aqui: [Biblioteca Kitten DS](http
 ## 🤝 Contribuindo
 
 Contribuições são bem-vindas!
-Sinta-se à vontade para abrir uma issue, sugerir melhorias ou enviar um pull request.
+Sinta-se à vontade para abrir uma *issue*, sugerir melhorias ou enviar um *pull request*.
 
 ## ❤️🐱 Sobre o Kitten DS
 
