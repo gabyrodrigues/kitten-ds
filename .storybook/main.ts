@@ -8,9 +8,9 @@ const config: StorybookConfig = {
   ],
   staticDirs: [{ from: "../src/assets", to: "/assets" }, "./public"],
   addons: [
-    "@storybook/addon-essentials",
-    "@storybook/experimental-addon-test",
-    "@storybook/addon-a11y"
+    "@storybook/addon-a11y",
+    "@storybook/addon-docs",
+    "@storybook/addon-vitest"
   ],
   framework: {
     name: "@storybook/react-vite",

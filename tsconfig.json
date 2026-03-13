@@ -23,7 +23,7 @@
       "@utils": ["src/utils.ts"]
     }
   },
-  "include": ["src", "tests", "vitest.setup.ts", "vitest.build.ts"],
+  "include": ["src", "tests", "vitest.setup.ts", "vitest.config.ts"],
   "exclude": ["**/*.stories.tsx", "src/stories"],
   "references": [
     {

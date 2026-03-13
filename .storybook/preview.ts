@@ -1,4 +1,4 @@
-import type { Preview } from "@storybook/react"
+import type { Preview } from "@storybook/react-vite"
 import "../src/styles.css"
 
 const preview: Preview = {
@@ -10,27 +10,43 @@ const preview: Preview = {
       },
       sort: "alpha"
     },
+
     backgrounds: {
-      default: "light",
-      values: [
-        { name: "light", value: "#FCFCFC" },
-        { name: "dark", value: "#212121" }
-      ]
+      options: {
+        light: { name: "light", value: "#FCFCFC" },
+        dark: { name: "dark", value: "#212121" }
+      }
     },
+
     docs: {
       controls: {
         sort: "alpha"
       }
     },
+
     options: {
       storySort: {
         method: "alphabetical",
         order: ["Sobre o Kitten DS", ["Guia de Uso", "Propriedades"]],
         includeNames: true
       }
+    },
+
+    a11y: {
+      // 'todo' - show a11y violations in the test UI only
+      // 'error' - fail CI on a11y violations
+      // 'off' - skip a11y checks entirely
+      test: "todo"
     }
   },
-  tags: ["autodocs"]
+
+  tags: ["autodocs"],
+
+  initialGlobals: {
+    backgrounds: {
+      value: "light"
+    }
+  }
 }
 
 export default preview
