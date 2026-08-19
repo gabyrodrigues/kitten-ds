@@ -3,6 +3,10 @@
   "version": "0.12.0",
   "type": "module",
   "author": "Gabriely de Lima <gabrielylima.dev@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gabyrodrigues/kitten-ds.git"
+  },
   "description": "Kitten DS is an accessible, usability-tested design system focused on intuitive, user-friendly interfaces.",
   "main": "dist/cjs/index.cjs",
   "types": "dist/types/index.d.ts",
@@ -20,7 +24,7 @@
     "./styles.css": "./dist/styles.css"
   },
   "engines": {
-    "node": "22.x"
+    "node": ">=24.17.0"
   },
   "scripts": {
     "build": "rm -rf dis dist && rollup -c --bundleConfigAsCjs",
@@ -67,7 +71,7 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
-    "@types/node": "^22.15.3",
+    "@types/node": "24.1.0",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react": "^4.4.1",
